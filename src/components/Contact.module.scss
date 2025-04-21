@@ -1,0 +1,215 @@
+@import "../index.scss";
+
+.contact {
+  &__container {
+    height: 110vh;
+    background-color: $black;
+    position: relative;
+    top: 115vh;
+    border-top: 1px solid #31364b;
+    @media (max-width: 768px)  {
+      top: 120vh;
+      height: 130vh;
+    }
+    @media (max-width: 425px)  {
+      top:100vh;
+      height: 150vh;
+    }
+  }
+  &__subContainer {
+    display: flex;
+    align-items: center;
+    padding: 10rem 5rem;
+    @media (max-width: 768px)  {
+    flex-direction: column;
+    padding: 0;
+    }
+    @media (max-width: 425px)  {
+    flex-direction: column;
+    padding: 0;
+    }
+  }
+  &__leftContainer {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: -9rem;
+    @media (max-width: 768px)  {
+    margin-top: 4rem;
+    width: 80%;
+    }
+    @media (max-width: 425px)  {
+      margin-top: 40px;
+      width: 80%;
+    }
+  }
+  &__leftContainer h3 {
+    color: white;
+    @media (max-width: 1440px)  {
+    }
+    @media (max-width: 1024px)  {
+      font-size: 45px;
+    }
+    @media (max-width: 768px)  {
+      font-size: 40px;
+    }
+    @media (max-width: 425px)  {
+      font-size: 38px;;
+    }
+  }
+  &__leftContainerText {
+    color: $grey;
+    font-size: 20px;
+    font-weight: 300;
+    @media (max-width: 1440px)  {
+    }
+    @media (max-width: 1024px)  {
+      font-size: 15px;
+    }
+    @media (max-width: 768px)  {
+      font-size: 20px;
+    }
+    @media (max-width: 425px)  {
+      font-size: 20px;
+    }
+  }
+  &__leftContainerTag {
+    @include tag;
+  }
+  &__rightContainer {
+    width: 50%;
+    @media (max-width: 768px)  {
+      width: 80%;
+    }
+    @media (max-width: 425px)  {
+      width: 70%;
+    }
+  }
+  &__rightContainer form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    @media (max-width: 768px)  {
+      padding-top: 5rem;
+    }
+    @media (max-width: 425px)  {
+      padding-top: 5rem;
+    }
+  }
+  &__rightContainer label {
+    color: $grey;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+  }
+  &__rightContainer input,
+  &__rightContainer textarea {
+    background-color: #171a2c;
+    width: 95.8%;
+    margin-top: 0.5rem;
+    border: 1px solid #31364b;
+    color: $white;
+    padding-left: 1rem;
+    font-size: 17px;
+  }
+  &__rightContainer input {
+    height: 50px;
+  }
+  &__rightContainer textarea {
+    max-width: 95.8%;
+    padding-top: 15px;
+    font-family: "Inter", sans-serif;
+    font-size: 17px;
+  }
+  &__rightContainer input:focus,
+  &__rightContainer textarea:focus {
+    outline: none;
+    border-color: $violet;
+    caret-color: $violet;
+  }
+  &__rightContainer button {
+    color: $black;
+    background-color: $white;
+    border: 1px solid $white;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 19px;
+    padding: 14px 27px;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transform-origin: center center;
+    transform: scale(1); // Légère augmentation de taille au survol
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out,
+      color 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: $black;
+      transition: width 0.3s ease;
+      z-index: -1;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      color: $white;
+
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+  &__rightContainer a {
+    color: $grey;
+    transition: color 0.4s ease; // Smooth color transition
+  }
+  &__rightContainer a:hover {
+    color: $white;
+  }
+  &__rightContainerBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 99%;
+    @media (max-width: 768px)  {
+      padding-bottom: 3rem;
+    }
+    @media (max-width: 425px)  {
+      flex-direction: column;
+      gap: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+  &__rightContainerBottom a:hover {
+    color: white;
+  }
+}
+
+.rocket {
+  margin-left: 9px;
+  font-size: 22px;
+}
+
+.emailContent {
+  display: flex;
+  align-items: center;
+}
+
+.email {
+  font-family: "Inter", sans-serif;
+  font-weight: 200;
+}
+
+.envelop {
+  margin-right: 10px;
+  font-size: 20px;
+}

@@ -1,0 +1,20 @@
+[
+    {
+        "id": "zefbvjh342",
+        "title": "Kasa",
+        "date": "avril 2024",
+        "subtitle": "Site d'annonces immobilières",
+        "cover": "src/assets/kasa_cover_phone_resized.png",
+        "description": "Site internet pour Kasa, une agence immobilière. Il s'agit d'un projet OpenClassrooms Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam magni voluptatem sunt repellendus, deserunt architecto.",
+        "backgroundImage": "src/assets/kasa_cover_phone_resized.png"
+    },
+    {
+        "id": "azejbncuzevb3",
+        "title": "Sophie Bluel",
+        "date": "février 2024",
+        "subtitle": "Site de photographe",
+        "cover": "src/assets/sophie_bluel_small.png",
+        "description": "Site internet pour une photogrpahe. Il s'agit d'un projet OpenClassrooms Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam magni voluptatem sunt repellendus, deserunt architecto.",
+        "pictures": []
+    }
+]

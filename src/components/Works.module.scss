@@ -1,0 +1,65 @@
+@import "../index.scss";
+
+.works {
+  &__container {
+    position: relative;
+    top: 100vh;
+    height: 130vh;
+    background-color: $black;
+    margin-bottom: -9rem;
+    @media (max-width: 1440px)  {
+    }
+    @media (max-width: 1024px)  {
+    }
+    @media (max-width: 768px)  {
+      height: 120vh;
+    }
+    @media (max-width: 425px)  {
+      top:100vh;
+      padding: 20px 20px;
+      height: 170vh;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &__titles {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 7rem;
+    @media (max-width: 1440px)  {
+    }
+    @media (max-width: 1024px)  {
+    padding-top: 4rem;
+    }
+    @media (max-width: 768px)  {
+    }
+    @media (max-width: 425px)  {
+    }
+    & h4 {
+      @include tag;
+    }
+    & h2 {
+      color: $white;
+      font-size: 2.3rem;
+      font-weight: 800;
+    }
+  }
+}
+
+.carouselContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 4rem;
+  @media (max-width: 768px)  {
+    flex-direction: column;
+    align-items: center;
+  }
+  @media (max-width: 425px)  {
+    flex-direction: column;
+    padding-left: 2.5rem;
+  }
+}

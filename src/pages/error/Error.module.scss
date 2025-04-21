@@ -1,0 +1,40 @@
+@import "../../index.scss";
+
+.error {
+    height: 100vh;
+    &__content {
+        padding-top: 9rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+    &__title {
+        color: $white;
+        font-size: 17rem;
+    }
+    &__tag {
+        @include tag;
+        margin-top: 0.5rem;
+    }
+    &__text {
+        color: $white;
+    }
+    &__link {
+        font-weight: 300;
+        color: $white;
+        font-size: 1rem;
+        text-decoration: underline;
+        text-underline-offset: 7px;
+        text-decoration-thickness: 0.5px;
+        transition: color 0.3s ease;
+        &:visited {
+            color: $white;
+        }
+        &:hover{
+            color: $violet;
+            text-decoration: none;
+        }
+    }
+}

@@ -1,0 +1,86 @@
+@import "../index.scss";
+
+.card {
+  position: relative;
+  width: 25rem;
+  height: 38rem;
+  border-radius: 10px;
+  overflow: hidden; // Ajouté pour masquer le contenu qui dépasse
+  cursor: pointer;
+  @media (max-width: 1440px)  {
+  }
+  @media (max-width: 1024px)  {
+    font-size: 45px;
+  }
+  @media (max-width: 768px)  {
+    width: 40rem;
+    height: 20rem;
+  }
+  @media (max-width: 425px)  {
+    width: 90%;
+    height: 500px;
+  }
+  & img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(216, 216, 216, 0.556);
+    transition: transform 0.5s ease-in-out; // Ajoutez cette ligne pour une transition fluide
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity 0.4s ease; // Ajouté pour une transition fluide
+    pointer-events: none;
+  }
+
+  &__link {
+    height: 100%;
+    width: 100%;
+    display: flex; // Ajouté pour centrer le contenu verticalement
+    align-items: center; // Ajouté pour centrer le contenu verticalement
+  }
+
+  &__titles {
+    text-align: center;
+    width: 100%;
+    transform: translateY(30%); // Commence hors de la vue
+    transition: transform 0.4s ease-in-out; // Ajouté pour une transition fluide
+
+    & h3 {
+      color: white;
+      margin-bottom: 1.5rem;
+      font-size: 2.9rem;
+    }
+
+    & p {
+      color: rgb(214, 213, 213);
+      font-size: 0.9rem;
+      font-weight: 200;
+    }
+  }
+
+  &:hover, &:focus-within {
+    .card__overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .card__titles {
+      transform: translateY(0); // Ramène le contenu dans la vue
+    }
+
+    img {
+      transform: scale(1.05); // Ajoutez cette ligne pour un zoom de 5%
+    }
+  }
+}
