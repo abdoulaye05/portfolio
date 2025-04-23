@@ -1,21 +1,20 @@
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import Landing from "../../components/Landing";
-import About from "../../components/About";
-import Works from "../../components/Works";
-import Contact from "../../components/Contact";
+// src/pages/home/HomePage.jsx
+import Header         from "../../components/Header";
+import Footer         from "../../components/Footer";
+import Landing        from "../../components/Landing";
+import About          from "../../components/About";
+import WorksSection   from "../../components/WorksSection";
+import Contact        from "../../components/Contact";
 
-function HomePage() {
-    return(
+export default function HomePage() {
+    return (
         <>
             <Header />
             <Landing />
             <About />
-            <Works />
+            <WorksSection />
             <Contact />
             <Footer />
         </>
-    )
+    );
 }
-
-export default HomePage

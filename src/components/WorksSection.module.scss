@@ -1,0 +1,116 @@
+@import "../index.scss";
+
+.works {
+  &__container {
+    position: relative;
+    top: 100vh;
+    height: 130vh;
+    background-color: #0a0a1f; // couleur remplacée
+    margin-bottom: -9rem;
+
+    @media (max-width: 768px) {
+      height: 120vh;
+    }
+
+    @media (max-width: 425px) {
+      top: 100vh;
+      padding: 20px 20px;
+      height: 170vh;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__titles {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 7rem;
+
+    @media (max-width: 1024px) {
+      padding-top: 4rem;
+    }
+
+    h4 {
+      @include tag;
+    }
+
+    h2 {
+      color: #ffffff;
+      font-size: 2.3rem;
+      font-weight: 800;
+    }
+  }
+
+  &__ctaContainer {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  &__ctaButton {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 2px solid #d59bf6;
+    color: #d59bf6;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #d59bf6;
+      color: #0a0a1f;
+    }
+  }
+}
+
+.carouselContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 4rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+    padding-left: 2.5rem;
+  }
+}
+
+.slideLink {
+  display: block;
+  background: #11112a;
+  border-radius: 10px;
+  padding: 1rem;
+  min-width: 250px;
+  scroll-snap-align: start;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: translateY(-5px) scale(1.03);
+    background-color: #a45ee3;
+  }
+}
+
+.thumb {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #d59bf6;
+}
