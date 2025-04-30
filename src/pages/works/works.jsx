@@ -1,17 +1,14 @@
-// src/pages/works/works.jsx
-
 import { useParams, Link } from "react-router-dom";
-import styles    from "./work.module.scss";
+import styles from "./work.module.scss";
 import worksData from "../../datas/datas.json";
 import { GoArrowLeft } from "react-icons/go";
 import { FaArrowDown } from "react-icons/fa";
-import Header    from "../../components/Header";
+import Header from "../../components/Header";
 import ErrorPage from "../error/Error";
 
 export default function Works() {
     const { id } = useParams();
 
-    // 1) Sans ID → liste de tous les projets
     if (!id) {
         return (
             <>
@@ -32,8 +29,8 @@ export default function Works() {
         );
     }
 
-    // 2) Avec ID → détail
     const selected = worksData.find((w) => w.id === id);
+
     if (!selected) {
         return <ErrorPage />;
     }
@@ -60,9 +57,13 @@ export default function Works() {
 
             {/* Galerie d’images */}
             <div className={styles.work__pictures} id="pictures">
-                {selected.pictures.map((src, idx) => (
-                    <img key={idx} src={src} alt={`Image ${idx + 1}`} />
-                ))}
+                {Array.isArray(selected.pictures) && selected.pictures.length > 0 ? (
+                    selected.pictures.map((src, idx) => (
+                        <img key={idx} src={src} alt={`Image ${idx + 1}`} />
+                    ))
+                ) : (
+                    <p>Aucune image disponible.</p>
+                )}
             </div>
 
             {/* Retour à la liste en bas */}

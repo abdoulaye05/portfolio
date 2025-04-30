@@ -39,7 +39,7 @@ export default function About() {
                     Je suis <strong>Aboulaye Diallo</strong>, étudiant en informatique en alternance et développeur
                     passionné chez Mobydev. Curieux et motivé, je travaille sur des projets variés allant du web au mobile.
                     J’aime transformer les idées en applications concrètes, avec une approche rigoureuse et innovante.
-                </p>
+                </p>2
             </div>
             <div className={styles.about__picture}>
                 <img
