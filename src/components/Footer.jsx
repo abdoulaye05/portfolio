@@ -20,7 +20,7 @@ function Footer() {
       <div className={styles.fadingLine}></div>
 
       <div className={styles.footerBottom}>
-        <p className={styles.footerBottom__date}>© 2024 Grégoire Sandrock</p>
+        <p className={styles.footerBottom__date}>© 2025 Abdoulaye Diallo</p>
         <div className={styles.footerBottom__socialIcons}>
           <a
             href="https://github.com/GregoireSand"

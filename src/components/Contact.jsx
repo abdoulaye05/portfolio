@@ -94,9 +94,9 @@ function Contact() {
                 ></textarea>
               </div>
               <div className={styles.contact__rightContainerBottom}>
-                <a href="mailto:sandrockgregoire@gmail.com" className={styles.emailContent}>
+                <a href="mailto:abdoulayekabelediallo@gmail.com" className={styles.emailContent}>
                   <FontAwesomeIcon icon={faEnvelope} className={styles.envelop} />
-                  <p className={styles.email}>sandrockgregoire@gmail.com</p>
+                  <p className={styles.email}>abdoulayekabelediallo@gmail.com</p>
                 </a>
                 <button type="submit">
                   Envoyer

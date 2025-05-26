@@ -4,37 +4,49 @@
 
 /* === LISTE DES PROJETS === */
 .listContainer {
-  padding: 4rem 2rem;
-  background-color: #0a0a1f;
+  padding: 6rem 2rem 8rem 2rem;
+  background: linear-gradient(120deg, #18182a 0%, #0a0a1f 100%);
   color: #fff;
+  min-height: 100vh;
 }
 
 .listTitle {
-  font-size: 2.5rem;
+  font-size: 2.7rem;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
 }
 
 .list {
   list-style: none;
   padding: 0;
   margin: 0 auto;
-  max-width: 1000px;
-
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1.5rem;
+  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
 }
 
 .listItem {
-  background: #1a1a2e;
-  border-radius: 8px;
-  padding: 1.5rem;
-  text-align: center;
-  transition: transform 0.2s;
-
+  background: #232346;
+  border-radius: 18px;
+  padding: 2.5rem 3.5rem;
+  min-width: 220px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 24px rgba(104,26,255,0.10);
+  transition: transform 0.22s, box-shadow 0.22s, background 0.22s;
+  margin-bottom: 0.5rem;
+  border: 1.5px solid #2d2d3a;
+  cursor: pointer;
   &:hover {
-    transform: translateY(-5px) scale(1.02);
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 8px 32px rgba(104,26,255,0.18);
+    background: #2d2d3a;
   }
 }
 
@@ -42,10 +54,126 @@
   display: inline-block;
   text-decoration: none;
   color: #d59bf6;
-  font-size: 1.25rem;
-  font-weight: 500;
-
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
   &:hover {
     color: #fff;
+  }
+}
+
+.workContainer {
+  background: linear-gradient(120deg, #18182a 0%, #0a0a1f 100%);
+  min-height: 100vh;
+  padding-bottom: 5rem;
+}
+
+.work__linkBackTop, .work__linkBackBottom {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #d59bf6;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 2.5rem 0 1.5rem 2.5rem;
+  text-decoration: none;
+  transition: color 0.2s;
+  &:hover {
+    color: #fff;
+  }
+}
+
+.work__linkBackArrowTop, .work__linkBackArrowBottom {
+  font-size: 1.5rem;
+}
+
+.work__date {
+  color: #bdbdbd;
+  font-size: 1.1rem;
+  margin-left: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.work__title {
+  color: #fff;
+  font-size: 2.7rem;
+  font-weight: 800;
+  margin-left: 2.5rem;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.work__description {
+  color: #bdbdbd;
+  font-size: 1.15rem;
+  margin-left: 2.5rem;
+  margin-bottom: 2.2rem;
+  max-width: 900px;
+  line-height: 1.7;
+}
+
+.work__separation {
+  height: 1px;
+  margin: 2rem 2.5rem;
+  width: 90%;
+  background: linear-gradient(to right, #5f6373, transparent 100%);
+}
+
+.work__button {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-left: 2.5rem;
+  border-radius: 50%;
+  border: 1.5px solid #d59bf6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #232346;
+  color: #d59bf6;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: background 0.2s, color 0.2s;
+  &:hover {
+    background: #d59bf6;
+    color: #232346;
+  }
+}
+
+.work__pictures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-left: 2.5rem;
+  margin-bottom: 2.5rem;
+  img {
+    max-width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(104,26,255,0.10);
+    border: 1.5px solid #2d2d3a;
+  }
+  p {
+    color: #bdbdbd;
+    font-size: 1.1rem;
+  }
+}
+
+.work__linkBackArrowBottomContainer {
+  margin-left: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .work__title, .work__description, .work__date, .work__linkBackTop, .work__button, .work__pictures, .work__separation, .work__linkBackArrowBottomContainer {
+    margin-left: 1rem;
+  }
+  .work__title {
+    font-size: 2rem;
+  }
+  .work__description {
+    font-size: 1rem;
   }
 }
