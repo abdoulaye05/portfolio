@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import worksData from "../datas/datas.json"; // Données de tous les projets
 import Carousel from "./Carousel"; // Composant carousel personnalisé
 import styles from "./WorksSection.module.scss";
+import carouselStyles from "./Carousel.module.scss";
 
 export default function WorksSection() {
-    // 👉 On affiche seulement les 2 premiers projets dans la section d'accueil
-    const preview = worksData.slice(0, 2);
+    // On sélectionne uniquement les projets phares
+    const preview = worksData.filter(w => w.isPhare === true);
 
     return (
         // 💡 Important : ID utilisé pour le scroll smooth depuis le Header
@@ -22,7 +23,7 @@ export default function WorksSection() {
             <div className={styles.carouselContainer}>
                 <Carousel>
                     {preview.map((w) => {
-                        // ✅ On choisit la première image disponible pour l’aperçu
+                        // ✅ On choisit la première image disponible pour l'aperçu
                         const thumb = w.pictures?.[0] || w.cover || "/fallback.png";
                         return (
                             <Link
@@ -30,8 +31,17 @@ export default function WorksSection() {
                                 to={`/works/${w.id}`}
                                 className={styles.slideLink}
                             >
-                                <img src={thumb} alt={w.title} className={styles.thumb} />
-                                <h3 className={styles.cardTitle}>{w.title}</h3>
+                                <div className={carouselStyles.card}>
+                                    <img src={thumb} alt={w.title} className={styles.thumb} />
+                                    <div className={carouselStyles.card__overlay}>
+                                        <div className={carouselStyles.card__link}>
+                                            <span className={carouselStyles.card__titles}>
+                                                <h3>{w.title}</h3>
+                                                <p>{w.subtitle}</p>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
                             </Link>
                         );
                     })}

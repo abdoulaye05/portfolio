@@ -1,0 +1,164 @@
+[
+  {
+    "id": "ue41",
+    "title": "UE 4.1 – Développer une application",
+    "subtitle": "Réaliser un développement front-end + intégration d'API",
+    "focus": true,
+    "traceCount": 2,
+    "context": "Concevoir des applis connectées, sécurisées, etc.",
+    "traces": [
+      {
+        "type": "diagram",
+        "title": "Diagramme de séquence Scan NFC → Mini-site",
+        "img": "scan-nfc-diagram.png",
+        "legend": "Figure 1 : Séquence de scan NFC"
+      },
+      {
+        "type": "swagger",
+        "title": "Swagger route + Try it out",
+        "img": "swagger-route.png",
+        "legend": "Figure 2 : Documentation API"
+      }
+    ],
+    "reflexion": {
+      "situation": "Besoin d'authentification sécurisée pour l'accès aux données.",
+      "action": "Mise en place d'un JWT et d'un diagramme de séquence.",
+      "resultat": "Sécurité renforcée, accès fluide.",
+      "reflexion": "Approche efficace, à généraliser.",
+      "limites": "Pas de refresh token.",
+      "objectifs": "Ajouter la gestion du refresh token."
+    },
+    "projectLink": "cartes-nfc"
+  },
+  {
+    "id": "ue44",
+    "title": "UE 4.4 – Gérer des données",
+    "subtitle": "Modéliser, stocker et exploiter des données efficacement",
+    "focus": true,
+    "traceCount": 2,
+    "context": "Optimiser la gestion des données pour la scalabilité.",
+    "traces": [
+      {
+        "type": "mcd",
+        "title": "MCD dénormalisé MousoW",
+        "img": "mcd-mousow.png",
+        "legend": "Figure 1 : MCD dénormalisé"
+      },
+      {
+        "type": "capture",
+        "title": "Capture CRUD lié",
+        "img": "crud-mousow.png",
+        "legend": "Figure 2 : Interface CRUD"
+      }
+    ],
+    "reflexion": {
+      "situation": "Base de données complexe à modéliser.",
+      "action": "Utilisation d'un MCD dénormalisé.",
+      "resultat": "Modèle robuste, requêtes optimisées.",
+      "reflexion": "Bonne pratique à conserver.",
+      "limites": "Pas de gestion multi-utilisateur.",
+      "objectifs": "Ajouter la gestion des droits."
+    },
+    "projectLink": "mousow"
+  },
+  {
+    "id": "ue42",
+    "title": "UE 4.2 – Optimiser une application",
+    "subtitle": "Optimiser les performances, l'accessibilité et l'expérience utilisateur",
+    "focus": false,
+    "traceCount": 1,
+    "context": "Améliorer le score Lighthouse.",
+    "traces": [
+      {
+        "type": "capture",
+        "title": "Score Lighthouse",
+        "img": "lighthouse.png",
+        "legend": "Figure : Score Lighthouse"
+      }
+    ],
+    "reflexion": {
+      "situation": "Application lente.",
+      "action": "Optimisation images et lazy loading.",
+      "resultat": "Score passé de 60 à 95.",
+      "reflexion": "Impact direct sur l'UX.",
+      "limites": "Pas d'audit mobile.",
+      "objectifs": "Optimiser pour mobile."
+    },
+    "projectLink": "vitrine-v1"
+  },
+  {
+    "id": "ue43",
+    "title": "UE 4.3 – Administrer des systèmes complexes",
+    "subtitle": "Gérer et sécuriser des systèmes informatiques et réseaux",
+    "focus": false,
+    "traceCount": 1,
+    "context": "Déployer une app sur Docker.",
+    "traces": [
+      {
+        "type": "schema",
+        "title": "Schéma Docker",
+        "img": "docker-schema.png",
+        "legend": "Figure : Architecture Docker"
+      }
+    ],
+    "reflexion": {
+      "situation": "Déploiement manuel fastidieux.",
+      "action": "Mise en place de Docker Compose.",
+      "resultat": "Déploiement automatisé.",
+      "reflexion": "Gain de temps énorme.",
+      "limites": "Pas de CI/CD.",
+      "objectifs": "Ajouter pipeline CI/CD."
+    },
+    "projectLink": "vitrine-v2"
+  },
+  {
+    "id": "ue45",
+    "title": "UE 4.5 – Conduire un projet",
+    "subtitle": "Planifier, organiser et piloter des projets informatiques",
+    "focus": false,
+    "traceCount": 1,
+    "context": "Suivi projet sur Notion.",
+    "traces": [
+      {
+        "type": "tableau",
+        "title": "Tableau Notion",
+        "img": "notion-table.png",
+        "legend": "Figure : Suivi projet Notion"
+      }
+    ],
+    "reflexion": {
+      "situation": "Difficulté à suivre l'avancement.",
+      "action": "Mise en place d'un tableau Notion.",
+      "resultat": "Visibilité accrue.",
+      "reflexion": "Outil à généraliser.",
+      "limites": "Pas d'intégration Jira.",
+      "objectifs": "Automatiser le reporting."
+    },
+    "projectLink": "app-mobydev"
+  },
+  {
+    "id": "ue46",
+    "title": "UE 4.6 – Collaborer en équipe",
+    "subtitle": "Travailler efficacement au sein d'une équipe agile et collaborative",
+    "focus": false,
+    "traceCount": 1,
+    "context": "Gestion tickets en équipe.",
+    "traces": [
+      {
+        "type": "capture",
+        "title": "Tableau tickets",
+        "img": "tickets.png",
+        "legend": "Figure : Tableau tickets"
+      }
+    ],
+    "reflexion": {
+      "situation": "Communication difficile.",
+      "action": "Utilisation d'un dashboard partagé.",
+      "resultat": "Collaboration fluide.",
+      "reflexion": "À renforcer avec des rituels agiles.",
+      "limites": "Pas de daily standup.",
+      "objectifs": "Mettre en place des rituels."
+    },
+    "projectLink": "app-mobydev"
+  }
+] 

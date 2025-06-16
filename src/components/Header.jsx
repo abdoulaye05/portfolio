@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import styles from "./Header.module.scss";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [inWorksSection, setInWorksSection] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
+    
+    // Vérifier si on est sur une page de compétences
+    const isCompetencePage = location.pathname.includes('/skills');
 
     useEffect(() => {
         const handleScroll = () => {
@@ -25,22 +31,49 @@ export default function Header() {
     // Scroll vers la section À propos
     const handleScrollToAbout = (e) => {
         e.preventDefault();
-        const aboutSection = document.getElementById("about-section");
-        aboutSection?.scrollIntoView({ behavior: "smooth" });
+        if (isCompetencePage) {
+            // Si on est sur une page de compétences, naviguer vers la page d'accueil puis scroller
+            navigate('/');
+            setTimeout(() => {
+                const aboutSection = document.getElementById("about-section");
+                aboutSection?.scrollIntoView({ behavior: "smooth" });
+            }, 100);
+        } else {
+            const aboutSection = document.getElementById("about-section");
+            aboutSection?.scrollIntoView({ behavior: "smooth" });
+        }
     };
 
     // Scroll vers la section Réalisations
     const handleScrollToWorks = (e) => {
         e.preventDefault();
-        const worksSection = document.getElementById("works-section");
-        worksSection?.scrollIntoView({ behavior: "smooth" });
+        if (isCompetencePage) {
+            // Si on est sur une page de compétences, naviguer vers la page d'accueil puis scroller
+            navigate('/');
+            setTimeout(() => {
+                const worksSection = document.getElementById("works-section");
+                worksSection?.scrollIntoView({ behavior: "smooth" });
+            }, 100);
+        } else {
+            const worksSection = document.getElementById("works-section");
+            worksSection?.scrollIntoView({ behavior: "smooth" });
+        }
     };
 
     // Scroll vers la section Contact
     const handleScrollToContact = (e) => {
         e.preventDefault();
-        const contactSection = document.getElementById("contact-section");
-        contactSection?.scrollIntoView({ behavior: "smooth" });
+        if (isCompetencePage) {
+            // Si on est sur une page de compétences, naviguer vers la page d'accueil puis scroller
+            navigate('/');
+            setTimeout(() => {
+                const contactSection = document.getElementById("contact-section");
+                contactSection?.scrollIntoView({ behavior: "smooth" });
+            }, 100);
+        } else {
+            const contactSection = document.getElementById("contact-section");
+            contactSection?.scrollIntoView({ behavior: "smooth" });
+        }
     };
 
     return (
@@ -64,10 +97,10 @@ export default function Header() {
                 </a>
             </nav>
 
-            <a href="/" className={styles.header__names}>
+            <Link to="/" className={styles.header__names}>
                 <p className={styles.header__firstName}>Abdoulaye</p>
                 <p className={styles.header__lastName}>Diallo</p>
-            </a>
+            </Link>
 
             <a onClick={handleScrollToContact} className={styles.header__contact}>
                 Contactez-moi

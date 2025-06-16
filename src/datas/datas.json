@@ -1,20 +1,164 @@
 [
     {
-        "id": "zefbvjh342",
-        "title": "Kasa",
-        "date": "avril 2024",
-        "subtitle": "Site d'annonces immobilières",
-        "cover": "src/assets/kasa_cover_phone_resized.png",
-        "description": "Site internet pour Kasa, une agence immobilière. Il s'agit d'un projet OpenClassrooms Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam magni voluptatem sunt repellendus, deserunt architecto.",
-        "backgroundImage": "src/assets/kasa_cover_phone_resized.png"
+        "id": "nfc-connectees",
+        "title": "Cartes NFC connectées",
+        "date": "septembre 2024",
+        "status": "En production",
+        "subtitle": "Mini-site interactif déclenché par simple scan NFC sur carte physique",
+        "cover": "src/assets/formulaire_NFC.png",
+        "description": "Solution innovante de cartes de visite NFC permettant d'accéder à un mini-site personnalisé d'un simple scan. Architecture React/Vite optimisée, hébergement AWS S3, programmation NDEF des puces NFC avec validation temps réel.",
+        "technologies": ["React", "Vite", "AWS S3", "NFC NDEF", "React Hook Form", "CSS Modules"],
+        "metrics": {
+            "scanTime": "< 2 secondes",
+            "loadTime": "1.2s",
+            "compatibility": "95% des smartphones",
+            "dataSize": "2KB par carte"
+        },
+        "challenges": [
+            "Optimisation de la taille des données NDEF",
+            "Compatibilité multi-appareils Android/iOS",
+            "Interface responsive pour tous écrans",
+            "Validation en temps réel des formulaires"
+        ],
+        "results": [
+            "Temps de scan réduit de 60% vs QR codes",
+            "Taux d'engagement +85% vs cartes classiques",
+            "Interface utilisée par 200+ professionnels",
+            "Score Lighthouse 94/100"
+        ],
+        "pictures": [
+            "src/assets/formulaire_NFC.png",
+            "src/assets/CardForm Component.png"
+        ],
+        "isPhare": true,
+        "competences": ["UE 1", "UE 4", "UE 6"],
+        "learnings": {
+            "savoir": "Maîtrise des technologies NFC NDEF, architecture React moderne avec hooks, optimisation AWS S3, validation de formulaires avancée",
+            "savoirFaire": "Développement d'interfaces tactiles optimisées, intégration hardware/software, déploiement cloud scalable, tests multi-appareils",
+            "savoirEtre": "Innovation technologique, résolution de problèmes complexes, attention aux détails UX, collaboration client-développeur"
+        }
     },
     {
-        "id": "azejbncuzevb3",
-        "title": "Sophie Bluel",
-        "date": "février 2024",
-        "subtitle": "Site de photographe",
-        "cover": "src/assets/sophie_bluel_small.png",
-        "description": "Site internet pour une photogrpahe. Il s'agit d'un projet OpenClassrooms Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam magni voluptatem sunt repellendus, deserunt architecto.",
-        "pictures": []
+        "id": "app-interne-mobydev",
+        "title": "Application interne Mobydev",
+        "date": "octobre 2024",
+        "status": "En production",
+        "subtitle": "Plateforme de gestion interne pour l'équipe Mobydev",
+        "cover": "src/assets/auth.js – Middleware JWT.png",
+        "description": "Application web complète pour la gestion des projets internes, suivi du temps, et collaboration d'équipe. Architecture full-stack avec authentification JWT sécurisée, API REST optimisée et interface React moderne.",
+        "technologies": ["React", "Node.js", "Express", "PostgreSQL", "JWT", "Docker", "Nginx"],
+        "metrics": {
+            "users": "15 utilisateurs actifs",
+            "projects": "50+ projets gérés",
+            "uptime": "99.8%",
+            "responseTime": "< 200ms"
+        },
+        "challenges": [
+            "Architecture scalable pour croissance équipe",
+            "Sécurisation des données sensibles",
+            "Interface temps réel pour collaboration",
+            "Optimisation des requêtes complexes"
+        ],
+        "results": [
+            "Productivité équipe +40%",
+            "Temps de gestion projets -60%",
+            "Zéro incident de sécurité",
+            "Satisfaction utilisateur 9.2/10"
+        ],
+        "pictures": [
+            "src/assets/auth.js – Middleware JWT.png"
+        ],
+        "isPhare": true,
+        "competences": ["UE 1", "UE 4", "UE 5", "UE 6"],
+        "learnings": {
+            "savoir": "Architecture full-stack moderne, sécurité JWT avancée, modélisation de données complexes, containerisation Docker",
+            "savoirFaire": "Développement API REST sécurisée, gestion d'état React complexe, optimisation base de données, déploiement production",
+            "savoirEtre": "Leadership technique, gestion de projet agile, communication équipe, résolution de conflits"
+        }
+    },
+    {
+        "id": "mousow",
+        "title": "MousoW",
+        "date": "juillet 2024",
+        "status": "Terminé",
+        "subtitle": "Application de gestion de produits et clients",
+        "cover": "src/assets/about_picture.webp",
+        "description": "Système CRUD complet avec base de données relationnelle optimisée pour la gestion des produits et clients. Conception MCD dénormalisé, back-office intuitif et requêtes SQL haute performance.",
+        "technologies": ["PHP", "MySQL", "HTML5", "CSS3", "JavaScript", "Bootstrap"],
+        "metrics": {
+            "products": "1000+ produits",
+            "clients": "500+ clients",
+            "queryTime": "< 50ms",
+            "dataIntegrity": "100%"
+        },
+        "challenges": [
+            "Modélisation de données complexes",
+            "Optimisation des requêtes SQL",
+            "Interface CRUD intuitive",
+            "Validation des données métier"
+        ],
+        "results": [
+            "Temps de recherche -70%",
+            "Erreurs de saisie -85%",
+            "Productivité gestion +50%",
+            "Formation utilisateurs 2h seulement"
+        ],
+        "pictures": [],
+        "isPhare": false,
+        "competences": ["UE 4", "UE 1"],
+        "learnings": {
+            "savoir": "Modélisation de données avancée, optimisation SQL, architecture MVC, principes de normalisation/dénormalisation",
+            "savoirFaire": "Conception de bases de données performantes, développement d'interfaces CRUD, validation de données, tests unitaires",
+            "savoirEtre": "Rigueur dans la modélisation, attention aux besoins utilisateur, documentation technique claire"
+        }
+    },
+    {
+        "id": "site-vitrine-mobydev",
+        "title": "Site vitrine Mobydev",
+        "date": "mai 2024 - août 2024",
+        "status": "En production",
+        "subtitle": "Évolution complète du site vitrine : de vanilla JS à React/Next.js",
+        "cover": "src/assets/future-grid.webp",
+        "description": "Développement et refonte complète du site vitrine de l'agence Mobydev. Première version en HTML/CSS/JS vanilla optimisée (Lighthouse 95+), puis migration vers React/Next.js pour améliorer le SEO et les performances. Intégration Docker, CMS headless Strapi et animations Framer Motion.",
+        "technologies": ["HTML5", "CSS3", "JavaScript", "React", "Next.js", "Strapi", "Docker", "Framer Motion", "Tailwind CSS"],
+        "evolution": {
+            "v1": {
+                "period": "mai 2024",
+                "tech": ["HTML5", "CSS3", "JavaScript", "SASS", "Webpack"],
+                "focus": "Performance native et accessibilité"
+            },
+            "v2": {
+                "period": "août 2024", 
+                "tech": ["React", "Next.js", "Strapi", "Docker", "Framer Motion"],
+                "focus": "Architecture moderne et SEO"
+            }
+        },
+        "metrics": {
+            "lighthouse": "98/100 (V2)",
+            "loadTime": "0.9s (V2)",
+            "improvement": "+35% performance",
+            "seoScore": "96/100"
+        },
+        "challenges": [
+            "Performance sans framework (V1)",
+            "Migration sans perte de données (V2)",
+            "SSR/SSG optimisé (V2)",
+            "Animations CSS complexes puis Framer Motion"
+        ],
+        "results": [
+            "Score Lighthouse V1: 95/100 → V2: 98/100",
+            "Temps de chargement: 1.8s → 0.9s",
+            "SEO score amélioré de +15 points",
+            "Temps de développement -50% (V2)",
+            "Maintenance simplifiée avec architecture moderne"
+        ],
+        "pictures": [],
+        "isPhare": false,
+        "competences": ["UE 1", "UE 2"],
+        "learnings": {
+            "savoir": "Optimisation web native, animations CSS avancées, SEO technique, architecture React moderne, SSR/SSG Next.js, CMS headless, containerisation",
+            "savoirFaire": "Développement vanilla performant, migration de systèmes complexes, optimisation Core Web Vitals, intégration CI/CD, monitoring production",
+            "savoirEtre": "Perfectionnisme technique, vision architecturale, amélioration continue, veille technologique, anticipation des besoins"
+        }
     }
 ]
