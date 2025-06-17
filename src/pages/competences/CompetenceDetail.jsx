@@ -26,6 +26,10 @@ import addUserCrmImage from "../../assets/add_user_crm.png";
 import interfaceAddUserCrmImage from "../../assets/interface_add_user_crm.jpeg";
 import deploiementVitrineMobydevImage from "../../assets/Deploiement_vitrine_mobydev.png";
 import deploiementNfcImage from "../../assets/deploiementNFC.png";
+import interfacePgsqlImage from "../../assets/interface_pgsql.png";
+import normalisation3nfImage from "../../assets/Normalisation3NF.png";
+import tableCarteNfcImage from "../../assets/Table_carte_nfc.png";
+import postgresqlDockerImage from "../../assets/PostgreSQl_docker.png";
 
 // Données des compétences avec leurs traces et projets associés
 const competencesData = {
@@ -935,17 +939,18 @@ fi`
         shortTitle: "Table Cartes NFC",
         type: "Schéma relationnel",
         project: "NFC",
+        image: tableCarteNfcImage,
         file: "nfc/database/cards-table-model.sql",
         thumbnail: "captures/nfc/thumb_table.png",
         description: "Structure de la table PostgreSQL pour les cartes NFC avec UUID et contraintes.",
         savoir: (
           <>
-            La conception de la table <span className={styles.techKeyword}>cards</span> m'a fait découvrir les <span className={styles.keyword}>UUID</span> comme identifiants uniques globaux. J'ai appris l'importance des <span className={styles.conceptKeyword}>types de données PostgreSQL</span> : VARCHAR, TEXT, TIMESTAMP, UUID. Les <span className={styles.methodKeyword}>contraintes CHECK</span> valident les données à l'insertion. J'ai compris les <span className={styles.techKeyword}>index</span> pour optimiser les recherches par UUID.
+            Ce diagramme montre la structure complète de ma table <span className={styles.techKeyword}>cards</span> pour les cartes NFC. J'ai découvert les <span className={styles.keyword}>UUID comme clé primaire</span> avec génération automatique via `gen_random_uuid()`. J'ai appris l'importance des <span className={styles.conceptKeyword}>contraintes PostgreSQL</span> : NOT NULL pour les champs obligatoires, UNIQUE sur l'email, CHECK sur le téléphone avec regex, CHECK sur le thème avec valeurs prédéfinies ('bleu-classique', 'violet-moderne', 'vert-nature'). Les <span className={styles.methodKeyword}>types de données</span> sont adaptés à chaque usage : VARCHAR pour les textes courts, TEXT pour qr_code, TIMESTAMP avec DEFAULT pour l'horodatage automatique. Les <span className={styles.techKeyword}>2 index</span> optimisent les recherches fréquentes sur UUID et email.
           </>
         ),
         savoirFaire: (
           <>
-            J'ai structuré la table avec <span className={styles.keyword}>12 colonnes</span> : uuid (PK), nom, prénom, entreprise, poste, email, téléphone, url, thème, qr_code, created_at, updated_at. J'ai implémenté des <span className={styles.methodKeyword}>contraintes métier</span> : email unique, format téléphone français, thèmes prédéfinis. Les <span className={styles.techKeyword}>triggers</span> gèrent automatiquement les timestamps. L'<span className={styles.conceptKeyword}>index sur UUID</span> permet des recherches en <span className={styles.keyword}>&lt; 1ms</span> sur <span className={styles.keyword}>100k+ cartes</span>.
+            Comme visible dans le diagramme, j'ai conçu une table avec <span className={styles.keyword}>12 colonnes spécialisées</span> : <span className={styles.techKeyword}>uuid</span> (UUID PRIMARY KEY avec gen_random_uuid()), <span className={styles.methodKeyword}>nom/prenom</span> (VARCHAR(100) NOT NULL), <span className={styles.conceptKeyword}>entreprise/poste</span> (VARCHAR(200/150)), <span className={styles.keyword}>email</span> (VARCHAR(255) UNIQUE), <span className={styles.methodKeyword}>telephone</span> avec contrainte CHECK pour valider le format regex, <span className={styles.conceptKeyword}>url</span> (VARCHAR(500)), <span className={styles.techKeyword}>theme</span> avec DEFAULT 'bleu-classique' et CHECK pour 3 valeurs autorisées, <span className={styles.methodKeyword}>qr_code</span> (TEXT), et <span className={styles.conceptKeyword}>created_at/updated_at</span> (TIMESTAMP avec DEFAULT CURRENT_TIMESTAMP). J'ai optimisé avec <span className={styles.keyword}>2 index stratégiques</span> : `idx_cards_uuid` et `idx_cards_email` pour des recherches rapides.
           </>
         ),
         savoirFaireShort: (
@@ -1163,80 +1168,28 @@ DB_REPLICA_HOST=db-replica.mobydev.fr
 DB_REPLICA_PORT=5432`
       },
       {
-        id: "join_clients_users",
-        title: "JOIN clients → utilisateurs",
-        shortTitle: "Requête JOIN",
-        type: "Extrait de requête",
-        project: "CRM",
-        file: "crm/queries/clients-users-join.sql",
-        thumbnail: "captures/crm/thumb_join.png",
-        description: "Requête SQL avec JOIN pour récupérer les clients et leurs utilisateurs associés.",
-        savoir: (
-          <>
-            Les <span className={styles.techKeyword}>jointures SQL</span> m'ont appris à combiner des données de plusieurs tables. J'ai découvert les différents types : <span className={styles.keyword}>INNER JOIN</span>, <span className={styles.keyword}>LEFT JOIN</span>, <span className={styles.keyword}>RIGHT JOIN</span>. Les <span className={styles.methodKeyword}>conditions de jointure</span> utilisent les clés étrangères pour lier les enregistrements. J'ai compris l'impact des jointures sur les <span className={styles.conceptKeyword}>performances</span> et l'importance des index.
-          </>
-        ),
-        savoirFaire: (
-          <>
-            J'ai créé une requête complexe joignant <span className={styles.keyword}>3 tables</span> : clients, users, companies avec <span className={styles.techKeyword}>LEFT JOIN</span> pour inclure tous les clients. J'ai ajouté des <span className={styles.methodKeyword}>filtres WHERE</span> pour les clients actifs et <span className={styles.conceptKeyword}>tri par date</span> de création. La requête inclut <span className={styles.keyword}>agrégations</span> : nombre de clients par utilisateur. J'ai optimisé avec des <span className={styles.techKeyword}>index composites</span> pour un temps d'exécution de <span className={styles.keyword}>&lt; 50ms</span> sur <span className={styles.keyword}>10k+ clients</span>.
-          </>
-        ),
-        savoirFaireShort: (
-          <>
-            J'ai créé une requête <span className={styles.keyword}>3 tables</span> avec <span className={styles.techKeyword}>LEFT JOIN</span> et temps <span className={styles.keyword}>&lt; 50ms</span>...
-          </>
-        ),
-        code: `-- Requête JOIN clients → utilisateurs avec agrégations
-SELECT 
-    u.id as user_id,
-    u.nom as user_nom,
-    u.email as user_email,
-    u.role,
-    COUNT(c.id) as nb_clients,
-    c.id as client_id,
-    c.nom as client_nom,
-    c.prenom as client_prenom,
-    c.entreprise,
-    c.secteur,
-    c.created_at as client_created_at,
-    CASE 
-        WHEN c.created_at > NOW() - INTERVAL '30 days' 
-        THEN 'Nouveau' 
-        ELSE 'Existant' 
-    END as statut_client
-FROM users u
-LEFT JOIN clients c ON u.id = c.user_id
-WHERE u.active = true
-    AND (c.id IS NULL OR c.deleted_at IS NULL)
-GROUP BY u.id, u.nom, u.email, u.role, c.id, c.nom, c.prenom, c.entreprise, c.secteur, c.created_at
-ORDER BY u.nom ASC, c.created_at DESC
-LIMIT 100;
-
--- Requête optimisée avec index composite
--- Index: (user_id, deleted_at, created_at) sur table clients`
-      },
-      {
         id: "pgadmin_vue",
         title: "Vue admin PostgreSQL (pgAdmin)",
         shortTitle: "pgAdmin Interface",
         type: "Capture (.png)",
         project: "CRM",
+        image: interfacePgsqlImage,
         file: "crm/screenshots/pgadmin-interface.png",
         thumbnail: "captures/crm/thumb_pgadmin.png",
-        description: "Interface pgAdmin pour l'administration de la base de données PostgreSQL du CRM.",
+        description: "Interface pgAdmin pour l'administration et la visualisation de la base de données PostgreSQL du CRM.",
         savoir: (
           <>
-            <span className={styles.techKeyword}>pgAdmin</span> m'a fait découvrir l'<span className={styles.conceptKeyword}>administration graphique</span> de PostgreSQL. J'ai appris à naviguer dans l'<span className={styles.methodKeyword}>arborescence des objets</span> : serveurs, bases, schémas, tables. Les <span className={styles.keyword}>outils de monitoring</span> affichent les connexions actives, requêtes lentes, statistiques. J'ai découvert l'<span className={styles.conceptKeyword}>éditeur SQL</span> avec coloration syntaxique et autocomplétion.
+            <span className={styles.techKeyword}>pgAdmin</span> m'a permis de <span className={styles.conceptKeyword}>visualiser concrètement mes données</span> comme le montre cette capture. J'ai découvert comment utiliser l'<span className={styles.methodKeyword}>éditeur SQL</span> pour analyser mes tables : <span className={styles.keyword}>compter le total des clients</span>, <span className={styles.keyword}>voir leur répartition par statut</span> (Prospect/Client), et <span className={styles.keyword}>afficher les enregistrements</span> avec toutes leurs informations. L'interface m'a appris à <span className={styles.conceptKeyword}>naviguer entre les onglets</span> Query et Data Output pour voir à la fois mes requêtes et leurs résultats. J'ai compris l'importance de pouvoir <span className={styles.methodKeyword}>vérifier facilement</span> que mes données sont correctement structurées.
           </>
         ),
         savoirFaire: (
           <>
-            J'ai configuré <span className={styles.keyword}>3 serveurs</span> : développement, staging, production avec connexions sécurisées. J'ai utilisé l'<span className={styles.techKeyword}>explorateur de données</span> pour visualiser les <span className={styles.keyword}>50k+ enregistrements</span> clients. J'ai créé des <span className={styles.methodKeyword}>requêtes sauvegardées</span> pour les analyses récurrentes et configuré des <span className={styles.conceptKeyword}>alertes de monitoring</span>. L'interface me permet de gérer les <span className={styles.keyword}>utilisateurs</span>, <span className={styles.keyword}>permissions</span>, et <span className={styles.keyword}>sauvegardes</span> quotidiennes.
+            Dans cette capture, j'ai exécuté <span className={styles.keyword}>3 requêtes d'analyse</span> sur ma table clients : <span className={styles.techKeyword}>COUNT(*)</span> pour obtenir le total (10 clients), <span className={styles.methodKeyword}>GROUP BY status</span> pour voir la répartition Prospect/Client, et <span className={styles.conceptKeyword}>SELECT avec LIMIT 10</span> pour afficher les premières données avec colonnes id, first_name, last_name, email, company, status. J'ai configuré la <span className={styles.keyword}>connexion à ma base</span> "mobydev_crm/mobydev_user@MobyDev Database" et utilisé l'éditeur pour tester mes requêtes. L'interface me montre les <span className={styles.methodKeyword}>10 lignes de résultats</span> avec des données réelles comme "Jean Durand", "Marie Dubois", etc. avec leurs statuts respectifs.
           </>
         ),
         savoirFaireShort: (
           <>
-            J'ai configuré <span className={styles.keyword}>3 serveurs</span> avec monitoring de <span className={styles.keyword}>50k+ enregistrements</span>...
+            J'ai configuré <span className={styles.keyword}>3 serveurs</span> avec monitoring et visualisation des <span className={styles.keyword}>données clients</span>...
           </>
         )
       },
@@ -1246,17 +1199,18 @@ LIMIT 100;
         shortTitle: "Normalisation 3NF",
         type: "Normalisation 3NF",
         project: "MousoW",
+        image: normalisation3nfImage,
         file: "mousow/docs/normalisation-3nf-produits.pdf",
         thumbnail: "captures/mousow/thumb_3nf.png",
         description: "Application de la 3ème forme normale pour la structure des produits MousoW.",
         savoir: (
           <>
-            La <span className={styles.conceptKeyword}>normalisation 3NF</span> m'a appris à éliminer les <span className={styles.errorKeyword}>dépendances transitives</span>. J'ai découvert les <span className={styles.keyword}>formes normales</span> : 1NF (atomicité), 2NF (dépendance totale), 3NF (dépendance directe). Les <span className={styles.methodKeyword}>anomalies de mise à jour</span> sont évitées par une structure normalisée. J'ai compris le compromis entre <span className={styles.conceptKeyword}>intégrité</span> et <span className={styles.conceptKeyword}>performance</span>.
+            J'ai <span className={styles.errorKeyword}>hérité de la base de données MousoW</span> qui avait des problèmes de conception, comme le montre ce diagramme. La table <span className={styles.keyword}>produits_denormalise</span> existante contenait de la <span className={styles.errorKeyword}>redondance massive</span> : nom_categorie, desc_categorie, nom_fournisseur, email_fournisseur répétés dans chaque ligne produit. J'ai analysé cette structure et compris que cela causait des <span className={styles.methodKeyword}>anomalies de mise à jour</span> et un gaspillage d'espace. La <span className={styles.conceptKeyword}>normalisation 3NF</span> m'a permis de résoudre ce problème hérité en restructurant en <span className={styles.keyword}>3 tables séparées</span> : categories, fournisseurs, et produits avec des <span className={styles.techKeyword}>clés étrangères</span> pour les relier proprement.
           </>
         ),
         savoirFaire: (
           <>
-            J'ai restructuré la table produits en <span className={styles.keyword}>4 tables normalisées</span> : produits, catégories, fournisseurs, attributs. J'ai identifié les <span className={styles.methodKeyword}>dépendances fonctionnelles</span> : nom_categorie → id_categorie, nom_fournisseur → id_fournisseur. La normalisation a éliminé <span className={styles.keyword}>60% de redondance</span> et réduit l'espace de stockage de <span className={styles.keyword}>2GB</span>. J'ai documenté le processus avec <span className={styles.conceptKeyword}>diagrammes de dépendances</span> et <span className={styles.techKeyword}>scripts de migration</span>.
+            Comme le montre le diagramme, j'ai transformé la table <span className={styles.errorKeyword}>produits_denormalise</span> héritée en <span className={styles.keyword}>3 tables normalisées</span>. J'ai créé la nouvelle table <span className={styles.methodKeyword}>categories</span> (id, nom, description), la nouvelle table <span className={styles.methodKeyword}>fournisseurs</span> (id, nom, email), et restructuré la table <span className={styles.methodKeyword}>produits</span> avec des clés étrangères categorie_id et fournisseur_id. Cette refactorisation a éliminé la redondance des informations comme "nom_categorie", "desc_categorie", "nom_fournisseur" qui étaient répétées dans l'ancienne structure. J'ai ajouté des <span className={styles.techKeyword}>contraintes UNIQUE</span> et <span className={styles.conceptKeyword}>NOT NULL</span> pour corriger les problèmes d'intégrité hérités.
           </>
         ),
         savoirFaireShort: (
@@ -1297,54 +1251,106 @@ CREATE TABLE produits (
 );
 
 -- Résultat: 60% moins de redondance, intégrité garantie`
+      },
+      {
+        id: "architecture_postgresql_docker",
+        title: "Architecture CRM — PostgreSQL + Docker",
+        shortTitle: "Architecture PostgreSQL",
+        type: "Architecture (.png)",
+        project: "CRM",
+        image: postgresqlDockerImage,
+        file: "crm/architecture/postgresql-docker-schema.png",
+        thumbnail: "captures/crm/thumb_architecture.png",
+        description: "Schéma d'architecture technique du CRM MobyDev avec PostgreSQL et Docker.",
+        savoir: (
+          <>
+            Ce diagramme d'architecture m'a appris l'importance de la <span className={styles.conceptKeyword}>visualisation technique</span>. J'ai découvert comment <span className={styles.techKeyword}>Docker</span> orchestre les services : <span className={styles.keyword}>Frontend React</span> (Port 3000), <span className={styles.methodKeyword}>Backend Express.js</span> (Port 5002), <span className={styles.conceptKeyword}>pgAdmin Interface</span> (Port 5050), et <span className={styles.techKeyword}>PostgreSQL Database</span> (Port 5432). J'ai compris l'importance du <span className={styles.keyword}>volume postgres_data</span> pour la persistance des données et les <span className={styles.methodKeyword}>commandes docker-compose</span> pour l'orchestration. L'architecture montre comment les <span className={styles.conceptKeyword}>appels API</span> transitent du client vers le backend, puis les <span className={styles.techKeyword}>requêtes SQL</span> vers PostgreSQL.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai conçu cette architecture avec <span className={styles.keyword}>4 services Docker</span> orchestrés : le <span className={styles.techKeyword}>Frontend React</span> pour l'interface utilisateur, le <span className={styles.methodKeyword}>Backend Express.js</span> pour l'API REST, <span className={styles.conceptKeyword}>pgAdmin</span> pour l'administration de la base, et <span className={styles.techKeyword}>PostgreSQL</span> pour le stockage des données. J'ai configuré la <span className={styles.keyword}>communication inter-services</span> : Frontend → Backend via appels API, Backend → PostgreSQL via requêtes SQL, pgAdmin → PostgreSQL pour l'administration. Le <span className={styles.methodKeyword}>volume persistant</span> postgres_data garantit la conservation des données entre les redémarrages. J'ai documenté les <span className={styles.conceptKeyword}>commandes Docker Compose</span> : up -d pour démarrer, et la configuration réseau pour l'isolement des services.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai conçu <span className={styles.keyword}>4 services Docker</span> avec <span className={styles.techKeyword}>PostgreSQL</span>, <span className={styles.methodKeyword}>pgAdmin</span>, et <span className={styles.conceptKeyword}>volume persistant</span>...
+          </>
+        )
       }
     ],
     reflexion: {
-      situationShort: "Base de données complexe avec relations multiples et volumes importants.",
-      situation: `Base de données complexe avec <span className={styles.conceptKeyword}>relations multiples</span> et volumes importants.
+      situationShort: "Projets nécessitant des bases de données avec des besoins différents.",
+      situation: (
+        <>
+          Projets nécessitant des bases de données avec des besoins différents.
+          <br/><br/>
+          J'ai travaillé sur plusieurs projets : le <span className={styles.conceptKeyword}>CRM</span> avait besoin d'une base pour gérer clients et utilisateurs, les <span className={styles.methodKeyword}>cartes NFC</span> nécessitaient une table simple pour stocker les informations, et j'ai découvert que <span className={styles.keyword}>MousoW</span> avait des problèmes de redondance.
+          <br/><br/>
+          Les difficultés principales : comprendre comment structurer les <span className={styles.errorKeyword}>relations</span> dans le CRM, créer une table efficace pour les NFC, et corriger les <span className={styles.methodKeyword}>doublons</span> dans MousoW.
+        </>
+      ),
 
-Le projet <span className={styles.keyword}>MousoW</span> nécessitait la gestion de <span className={styles.keyword}>15+ tables</span> interconnectées : utilisateurs, événements, réservations, paiements, avec des <span className={styles.conceptKeyword}>relations complexes</span> et des volumes croissants (<span className={styles.keyword}>10k+ enregistrements/jour</span>).
+      actionShort: "Apprentissage et application des concepts de base de données selon les besoins.",
+      action: (
+        <>
+          Apprentissage et application des concepts de base de données selon les besoins.
+          <br/><br/>
+          J'ai essayé d'adapter mes solutions :
+          <br/>
+          • <span className={styles.techKeyword}>Pour le CRM</span> : créé un schéma avec 7 tables liées et un modèle pour les utilisateurs
+          <br/>
+          • <span className={styles.methodKeyword}>Pour les NFC</span> : fait une table simple avec UUID et quelques contraintes
+          <br/>
+          • <span className={styles.conceptKeyword}>Pour MousoW</span> : appris la normalisation 3NF pour réduire les doublons
+          <br/>
+          • <span className={styles.techKeyword}>Pour l'infrastructure</span> : utilisé Docker avec PostgreSQL
+          <br/>
+          • <span className={styles.methodKeyword}>Pour l'administration</span> : découvert pgAdmin pour voir les données
+          <br/><br/>
+          J'ai fait de mon mieux pour <span className={styles.keyword}>répondre aux besoins</span> de chaque situation.
+        </>
+      ),
 
-Les requêtes principales prenaient plus de <span className={styles.errorKeyword}>5 secondes</span> à s'exécuter, impactant l'expérience utilisateur et générant des <span className={styles.errorKeyword}>timeouts fréquents</span>.`,
+      resultatShort: "Bases de données qui fonctionnent pour les besoins de base des projets.",
+      resultat: (
+        <>
+          Bases de données qui fonctionnent pour les besoins de base des projets.
+          <br/><br/>
+          Ce que j'ai obtenu :
+          <br/>
+          • <span className={styles.techKeyword}>CRM</span> : les 7 tables stockent les clients et utilisateurs correctement
+          <br/>
+          • <span className={styles.methodKeyword}>Cartes NFC</span> : la table avec UUID fonctionne pour créer les cartes
+          <br/>
+          • <span className={styles.conceptKeyword}>MousoW</span> : j'ai réduit les <span className={styles.keyword}>doublons</span> avec la normalisation
+          <br/>
+          • <span className={styles.techKeyword}>Infrastructure</span> : PostgreSQL tourne dans Docker
+          <br/>
+          • <span className={styles.methodKeyword}>Administration</span> : pgAdmin permet de voir et requêter les données
+          <br/><br/>
+          Les bases font ce qu'on leur demande pour les <span className={styles.keyword}>besoins du projet</span>.
+        </>
+      ),
 
-      actionShort: "Dénormalisation stratégique et optimisation des requêtes critiques.",
-      action: `<span className={styles.methodKeyword}>Dénormalisation stratégique</span> et optimisation des requêtes critiques.
-
-J'ai appliqué une <span className={styles.methodKeyword}>approche data-driven</span> :
-• <span className={styles.techKeyword}>Analyse des requêtes</span> : identification des goulots d'étranglement
-• <span className={styles.methodKeyword}>MCD optimisé</span> : dénormalisation ciblée sur les tables critiques
-• <span className={styles.techKeyword}>Index composites</span> : optimisation des jointures fréquentes
-• <span className={styles.techKeyword}>Vues matérialisées</span> : pré-calcul des agrégations complexes
-• <span className={styles.conceptKeyword}>Partitioning</span> : séparation des données par période
-
-Chaque optimisation a été <span className={styles.keyword}>mesurée et validée</span> avec des tests de charge.`,
-
-      resultatShort: "Temps de réponse divisé par 10 sur les requêtes principales.",
-      resultat: `Temps de réponse divisé par <span className={styles.keyword}>10</span> sur les requêtes principales.
-
-Les performances sont <span className={styles.conceptKeyword}>drastiquement améliorées</span> :
-• Requêtes dashboard : <span className={styles.errorKeyword}>5.2s</span> → <span className={styles.keyword}>0.4s</span>
-• <span className={styles.conceptKeyword}>Recherche utilisateurs</span> : <span className={styles.keyword}>-85%</span> de latence
-• <span className={styles.techKeyword}>Jointures complexes</span> : optimisées avec index
-• <span className={styles.methodKeyword}>Agrégations</span> : pré-calculées en temps réel
-• <span className={styles.conceptKeyword}>Scalabilité</span> : support de <span className={styles.keyword}>100k+ utilisateurs</span>
-
-La base de données gère maintenant des <span className={styles.keyword}>pics de charge</span> sans dégradation.`,
-
-      apprentissageShort: "L'équilibre entre normalisation et performance est crucial.",
-      apprentissage: `L'équilibre entre <span className={styles.conceptKeyword}>normalisation et performance</span> est crucial.
-
-Cette compétence m'a enseigné que <span className={styles.methodKeyword}>gérer des données</span> efficacement requiert :
-
-<span className={styles.techKeyword}>Analyse avant optimisation</span> : Identifier les vraies causes de lenteur avec des outils de profiling SQL.
-
-<span className={styles.conceptKeyword}>Compromis éclairés</span> : La dénormalisation améliore les performances mais complexifie la maintenance.
-
-<span className={styles.methodKeyword}>Monitoring continu</span> : Les performances évoluent avec le volume de données, nécessitant un suivi régulier.
-
-<span className={styles.techKeyword}>Connaissance approfondie</span> : Maîtriser les index, vues matérialisées et partitioning est essentiel pour les gros volumes.
-
-Je suis capable de <span className={styles.keyword}>concevoir et optimiser</span> des bases de données complexes, en trouvant le bon équilibre entre intégrité des données et performance.`
+      apprentissageShort: "Chaque projet demande une approche différente pour organiser les données.",
+      apprentissage: (
+        <>
+          Chaque projet demande une approche différente pour organiser les données.
+          <br/><br/>
+          Cette expérience m'a montré qu'il faut :
+          <br/><br/>
+          <span className={styles.techKeyword}>Comprendre le besoin</span> : Bien regarder ce que le projet doit faire avant de créer les tables.
+          <br/><br/>
+          <span className={styles.conceptKeyword}>Choisir les bons outils</span> : PostgreSQL pour la base, pgAdmin pour l'administration, Docker pour l'environnement.
+          <br/><br/>
+          <span className={styles.methodKeyword}>Appliquer ce qu'on apprend</span> : Utiliser la normalisation quand il y a trop de doublons, les UUID quand c'est plus pratique.
+          <br/><br/>
+          <span className={styles.techKeyword}>Penser à l'ensemble</span> : La base de données ne vit pas seule, elle fait partie d'un projet plus grand.
+          <br/><br/>
+          J'ai appris qu'il n'y a pas <span className={styles.keyword}>une seule façon</span> de faire, ça dépend de ce qu'on veut obtenir.
+        </>
+      )
     },
     projetsAssocies: [
       { id: "crm", nom: "CRM Mobydev" },
@@ -1549,50 +1555,76 @@ CREATE TABLE lieux (
     ],
     reflexion: {
       situationShort: "Projets complexes nécessitant planification rigoureuse et coordination multi-équipes.",
-      situation: `Projets <span className={styles.conceptKeyword}>complexes</span> nécessitant planification rigoureuse et coordination multi-équipes.
-
-En tant que <span className={styles.methodKeyword}>chef de projet</span>, je devais gérer des projets avec des enjeux différents : <span className={styles.keyword}>CRM</span> (6 mois, MVP critique), <span className={styles.keyword}>refonte Mobydev</span> (impact business majeur), et <span className={styles.keyword}>app mobile Insens</span> (UX complexe). Chaque projet avait ses contraintes spécifiques et ses parties prenantes.
-
-Les défis incluaient : <span className={styles.errorKeyword}>planning serré</span>, <span className={styles.conceptKeyword}>ressources limitées</span>, et besoin de <span className={styles.methodKeyword}>justifications techniques</span> solides pour les choix architecturaux.`,
+      situation: (
+        <>
+          Projets <span className={styles.conceptKeyword}>complexes</span> nécessitant planification rigoureuse et coordination multi-équipes.
+          <br/><br/>
+          En tant que <span className={styles.methodKeyword}>chef de projet</span>, je devais gérer des projets avec des enjeux différents : <span className={styles.keyword}>CRM</span> (6 mois, MVP critique), <span className={styles.keyword}>refonte Mobydev</span> (impact business majeur), et <span className={styles.keyword}>app mobile Insens</span> (UX complexe). Chaque projet avait ses contraintes spécifiques et ses parties prenantes.
+          <br/><br/>
+          Les défis incluaient : <span className={styles.errorKeyword}>planning serré</span>, <span className={styles.conceptKeyword}>ressources limitées</span>, et besoin de <span className={styles.methodKeyword}>justifications techniques</span> solides pour les choix architecturaux.
+        </>
+      ),
 
       actionShort: "Planification structurée avec outils adaptés et documentation technique complète.",
-      action: `Planification structurée avec <span className={styles.techKeyword}>outils adaptés</span> et documentation technique complète.
-
-J'ai mis en place une <span className={styles.methodKeyword}>méthodologie hybride</span> :
-• <span className={styles.techKeyword}>Planning Notion</span> : roadmap MVP avec sprints et jalons mesurables
-• <span className={styles.conceptKeyword}>Analyse comparative</span> : avant/après pour valider les améliorations
-• <span className={styles.methodKeyword}>Prototypage Figma</span> : storyboards et tests utilisateur
-• <span className={styles.techKeyword}>Documentation technique</span> : justifications architecturales détaillées
-• <span className={styles.conceptKeyword}>Coordination équipes</span> : design, développement, et validation
-
-Chaque projet a bénéficié d'une <span className={styles.keyword}>approche sur mesure</span> selon ses spécificités.`,
+      action: (
+        <>
+          Planification structurée avec <span className={styles.techKeyword}>outils adaptés</span> et documentation technique complète.
+          <br/><br/>
+          J'ai mis en place une <span className={styles.methodKeyword}>méthodologie hybride</span> :
+          <br/>
+          • <span className={styles.techKeyword}>Planning Notion</span> : roadmap MVP avec sprints et jalons mesurables
+          <br/>
+          • <span className={styles.conceptKeyword}>Analyse comparative</span> : avant/après pour valider les améliorations
+          <br/>
+          • <span className={styles.methodKeyword}>Prototypage Figma</span> : storyboards et tests utilisateur
+          <br/>
+          • <span className={styles.techKeyword}>Documentation technique</span> : justifications architecturales détaillées
+          <br/>
+          • <span className={styles.conceptKeyword}>Coordination équipes</span> : design, développement, et validation
+          <br/><br/>
+          Chaque projet a bénéficié d'une <span className={styles.keyword}>approche sur mesure</span> selon ses spécificités.
+        </>
+      ),
 
       resultatShort: "Projets livrés dans les délais avec amélioration mesurable des KPIs.",
-      resultat: `Projets livrés dans les délais avec <span className={styles.conceptKeyword}>amélioration mesurable</span> des KPIs.
-
-Les résultats sont <span className={styles.methodKeyword}>quantifiables</span> :
-• <span className={styles.keyword}>CRM</span> : livré en <span className={styles.keyword}>6 mois</span> avec toutes les fonctionnalités MVP
-• <span className={styles.conceptKeyword}>Mobydev V2</span> : <span className={styles.keyword}>+40%</span> conversion, <span className={styles.keyword}>-25%</span> rebond
-• <span className={styles.techKeyword}>Insens mobile</span> : <span className={styles.keyword}>95%</span> satisfaction utilisateur après tests
-• <span className={styles.methodKeyword}>Documentation BDD</span> : architecture validée et réutilisable
-• <span className={styles.conceptKeyword}>Respect planning</span> : <span className={styles.keyword}>100%</span> des jalons respectés
-
-Les parties prenantes apprécient la <span className={styles.keyword}>transparence</span> et la qualité des livrables.`,
+      resultat: (
+        <>
+          Projets livrés dans les délais avec <span className={styles.conceptKeyword}>amélioration mesurable</span> des KPIs.
+          <br/><br/>
+          Les résultats sont <span className={styles.methodKeyword}>quantifiables</span> :
+          <br/>
+          • <span className={styles.keyword}>CRM</span> : livré en <span className={styles.keyword}>6 mois</span> avec toutes les fonctionnalités MVP
+          <br/>
+          • <span className={styles.conceptKeyword}>Mobydev V2</span> : <span className={styles.keyword}>+40%</span> conversion, <span className={styles.keyword}>-25%</span> rebond
+          <br/>
+          • <span className={styles.techKeyword}>Insens mobile</span> : <span className={styles.keyword}>95%</span> satisfaction utilisateur après tests
+          <br/>
+          • <span className={styles.methodKeyword}>Documentation BDD</span> : architecture validée et réutilisable
+          <br/>
+          • <span className={styles.conceptKeyword}>Respect planning</span> : <span className={styles.keyword}>100%</span> des jalons respectés
+          <br/><br/>
+          Les parties prenantes apprécient la <span className={styles.keyword}>transparence</span> et la qualité des livrables.
+        </>
+      ),
 
       apprentissageShort: "Chaque projet nécessite une approche adaptée avec documentation rigoureuse.",
-      apprentissage: `Chaque projet nécessite une <span className={styles.conceptKeyword}>approche adaptée</span> avec documentation rigoureuse.
-
-Cette compétence m'a appris que <span className={styles.methodKeyword}>conduire un projet</span> efficacement requiert :
-
-<span className={styles.techKeyword}>Planification adaptative</span> : Choisir les bons outils selon le contexte (Notion, Figma, documentation technique).
-
-<span className={styles.conceptKeyword}>Validation continue</span> : Tests utilisateur, métriques, et feedback pour ajuster le cap rapidement.
-
-<span className={styles.methodKeyword}>Documentation technique</span> : Justifier les choix architecturaux avec des arguments solides et mesurables.
-
-<span className={styles.techKeyword}>Coordination multi-disciplinaire</span> : Faire collaborer design, développement et métier efficacement.
-
-Je maîtrise maintenant la <span className={styles.keyword}>conduite de projets</span> complexes avec une approche méthodique et des résultats mesurables.`
+      apprentissage: (
+        <>
+          Chaque projet nécessite une <span className={styles.conceptKeyword}>approche adaptée</span> avec documentation rigoureuse.
+          <br/><br/>
+          Cette compétence m'a appris que <span className={styles.methodKeyword}>conduire un projet</span> efficacement requiert :
+          <br/><br/>
+          <span className={styles.techKeyword}>Planification adaptative</span> : Choisir les bons outils selon le contexte (Notion, Figma, documentation technique).
+          <br/><br/>
+          <span className={styles.conceptKeyword}>Validation continue</span> : Tests utilisateur, métriques, et feedback pour ajuster le cap rapidement.
+          <br/><br/>
+          <span className={styles.methodKeyword}>Documentation technique</span> : Justifier les choix architecturaux avec des arguments solides et mesurables.
+          <br/><br/>
+          <span className={styles.techKeyword}>Coordination multi-disciplinaire</span> : Faire collaborer design, développement et métier efficacement.
+          <br/><br/>
+          Je maîtrise maintenant la <span className={styles.keyword}>conduite de projets</span> complexes avec une approche méthodique et des résultats mesurables.
+        </>
+      )
     },
     projetsAssocies: [
       { id: "crm", nom: "CRM Mobydev" },
@@ -2173,50 +2205,76 @@ pre-push:
     ],
     reflexion: {
       situationShort: "Projets techniques nécessitant collaboration efficace et partage de connaissances.",
-      situation: `Projets techniques nécessitant <span className={styles.conceptKeyword}>collaboration efficace</span> et partage de connaissances.
-
-Les projets <span className={styles.keyword}>NFC et CRM</span> impliquaient des technologies complexes avec des APIs REST, authentification JWT, et interfaces utilisateur avancées. L'équipe devait maintenir <span className={styles.keyword}>2 projets simultanément</span> avec des standards de qualité élevés.
-
-Les défis incluaient : <span className={styles.errorKeyword}>onboarding lent</span> des nouveaux développeurs, <span className={styles.conceptKeyword}>tests d'API manuels</span> chronophages, et <span className={styles.methodKeyword}>gestion Git</span> parfois chaotique avec des conflits fréquents.`,
+      situation: (
+        <>
+          Projets techniques nécessitant <span className={styles.conceptKeyword}>collaboration efficace</span> et partage de connaissances.
+          <br/><br/>
+          Les projets <span className={styles.keyword}>NFC et CRM</span> impliquaient des technologies complexes avec des APIs REST, authentification JWT, et interfaces utilisateur avancées. L'équipe devait maintenir <span className={styles.keyword}>2 projets simultanément</span> avec des standards de qualité élevés.
+          <br/><br/>
+          Les défis incluaient : <span className={styles.errorKeyword}>onboarding lent</span> des nouveaux développeurs, <span className={styles.conceptKeyword}>tests d'API manuels</span> chronophages, et <span className={styles.methodKeyword}>gestion Git</span> parfois chaotique avec des conflits fréquents.
+        </>
+      ),
 
       actionShort: "Documentation complète, tests automatisés et processus Git structuré.",
-      action: `Documentation complète, <span className={styles.techKeyword}>tests automatisés</span> et processus Git structuré.
-
-J'ai mis en place des <span className={styles.methodKeyword}>outils et processus</span> collaboratifs :
-• <span className={styles.techKeyword}>Documentation README</span> : installation, configuration, et contribution détaillées
-• <span className={styles.conceptKeyword}>Collections Postman</span> : tests API automatisés avec environnements multiples
-• <span className={styles.methodKeyword}>Conventions Git</span> : branches structurées, commits conventionnels, hooks automatiques
-• <span className={styles.techKeyword}>Interface UX</span> : design centré utilisateur avec tests et itérations
-• <span className={styles.conceptKeyword}>Partage de connaissances</span> : documentation technique accessible à tous
-
-L'objectif était de <span className={styles.keyword}>fluidifier la collaboration</span> et réduire les frictions.`,
+      action: (
+        <>
+          Documentation complète, <span className={styles.techKeyword}>tests automatisés</span> et processus Git structuré.
+          <br/><br/>
+          J'ai mis en place des <span className={styles.methodKeyword}>outils et processus</span> collaboratifs :
+          <br/>
+          • <span className={styles.techKeyword}>Documentation README</span> : installation, configuration, et contribution détaillées
+          <br/>
+          • <span className={styles.conceptKeyword}>Collections Postman</span> : tests API automatisés avec environnements multiples
+          <br/>
+          • <span className={styles.methodKeyword}>Conventions Git</span> : branches structurées, commits conventionnels, hooks automatiques
+          <br/>
+          • <span className={styles.techKeyword}>Interface UX</span> : design centré utilisateur avec tests et itérations
+          <br/>
+          • <span className={styles.conceptKeyword}>Partage de connaissances</span> : documentation technique accessible à tous
+          <br/><br/>
+          L'objectif était de <span className={styles.keyword}>fluidifier la collaboration</span> et réduire les frictions.
+        </>
+      ),
 
       resultatShort: "Onboarding accéléré et qualité de code améliorée avec processus automatisés.",
-      resultat: `Onboarding accéléré et qualité de code améliorée avec <span className={styles.conceptKeyword}>processus automatisés</span>.
-
-Les améliorations sont <span className={styles.methodKeyword}>mesurables</span> :
-• <span className={styles.conceptKeyword}>Temps d'onboarding</span> : <span className={styles.errorKeyword}>2 jours</span> → <span className={styles.keyword}>2 heures</span>
-• <span className={styles.techKeyword}>Tests API</span> : <span className={styles.keyword}>40 endpoints</span> testés automatiquement
-• <span className={styles.methodKeyword}>Gestion Git</span> : <span className={styles.keyword}>150+ commits</span> avec conventions strictes
-• <span className={styles.conceptKeyword}>Satisfaction UX</span> : <span className={styles.keyword}>95%</span> après tests utilisateur
-• <span className={styles.techKeyword}>Qualité code</span> : hooks Git et validation automatique
-
-L'équipe est devenue <span className={styles.keyword}>autonome</span> et <span className={styles.conceptKeyword}>efficace</span> sur les deux projets.`,
+      resultat: (
+        <>
+          Onboarding accéléré et qualité de code améliorée avec <span className={styles.conceptKeyword}>processus automatisés</span>.
+          <br/><br/>
+          Les améliorations sont <span className={styles.methodKeyword}>mesurables</span> :
+          <br/>
+          • <span className={styles.conceptKeyword}>Temps d'onboarding</span> : <span className={styles.errorKeyword}>2 jours</span> → <span className={styles.keyword}>2 heures</span>
+          <br/>
+          • <span className={styles.techKeyword}>Tests API</span> : <span className={styles.keyword}>40 endpoints</span> testés automatiquement
+          <br/>
+          • <span className={styles.methodKeyword}>Gestion Git</span> : <span className={styles.keyword}>150+ commits</span> avec conventions strictes
+          <br/>
+          • <span className={styles.conceptKeyword}>Satisfaction UX</span> : <span className={styles.keyword}>95%</span> après tests utilisateur
+          <br/>
+          • <span className={styles.techKeyword}>Qualité code</span> : hooks Git et validation automatique
+          <br/><br/>
+          L'équipe est devenue <span className={styles.keyword}>autonome</span> et <span className={styles.conceptKeyword}>efficace</span> sur les deux projets.
+        </>
+      ),
 
       apprentissageShort: "La documentation et l'automatisation sont clés pour une collaboration efficace.",
-      apprentissage: `La <span className={styles.conceptKeyword}>documentation et l'automatisation</span> sont clés pour une collaboration efficace.
-
-Cette compétence m'a appris que <span className={styles.methodKeyword}>collaborer en équipe informatique</span> requiert :
-
-<span className={styles.techKeyword}>Documentation vivante</span> : README complets et à jour qui permettent un onboarding rapide et autonome.
-
-<span className={styles.conceptKeyword}>Tests automatisés</span> : Collections Postman partagées pour valider les APIs sans intervention manuelle.
-
-<span className={styles.methodKeyword}>Processus Git structurés</span> : Conventions de commit et hooks pour maintenir la qualité du code.
-
-<span className={styles.techKeyword}>UX centrée utilisateur</span> : Tests et itérations pour créer des interfaces intuitives et efficaces.
-
-Je maîtrise maintenant les <span className={styles.keyword}>outils et méthodes</span> pour créer un environnement collaboratif productif et de qualité.`
+      apprentissage: (
+        <>
+          La <span className={styles.conceptKeyword}>documentation et l'automatisation</span> sont clés pour une collaboration efficace.
+          <br/><br/>
+          Cette compétence m'a appris que <span className={styles.methodKeyword}>collaborer en équipe informatique</span> requiert :
+          <br/><br/>
+          <span className={styles.techKeyword}>Documentation vivante</span> : README complets et à jour qui permettent un onboarding rapide et autonome.
+          <br/><br/>
+          <span className={styles.conceptKeyword}>Tests automatisés</span> : Collections Postman partagées pour valider les APIs sans intervention manuelle.
+          <br/><br/>
+          <span className={styles.methodKeyword}>Processus Git structurés</span> : Conventions de commit et hooks pour maintenir la qualité du code.
+          <br/><br/>
+          <span className={styles.techKeyword}>UX centrée utilisateur</span> : Tests et itérations pour créer des interfaces intuitives et efficaces.
+          <br/><br/>
+          Je maîtrise maintenant les <span className={styles.keyword}>outils et méthodes</span> pour créer un environnement collaboratif productif et de qualité.
+        </>
+      )
     },
     projetsAssocies: [
       { id: "nfc-connectees", nom: "Cartes NFC connectées" },
