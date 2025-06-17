@@ -34,6 +34,7 @@ import organigrammeMobydevImage from "../../assets/organigramme_mobydev.png";
 import gitFlowImage from "../../assets/git_flow_crm.png";
 import interfaceUXCrmImage from "../../assets/Interface_UX_crm.png";
 import sitemapInsensImage from "../../assets/Sitemap_Insens.png";
+import documentationMousowImage from "../../assets/Documentation_mousow.png";
 
 // Données des compétences avec leurs traces et projets associés
 const competencesData = {
@@ -1469,118 +1470,86 @@ CREATE TABLE produits (
       },
       {
         id: "normalisation_bdd_mousow",
-        title: "Justification structure BDD normalisée",
+        title: "Documentation BDD – Modèle conceptuel validé",
         shortTitle: "Normalisation BDD",
-        type: "Normalisation .md",
+        type: "Documentation (.pdf)",
         project: "MousoW",
-        file: "projets/normalisation-bdd-mousow.md",
+        image: documentationMousowImage,
+        file: "projets/normalisation-bdd-mousow.pdf",
         thumbnail: "captures/mousow/thumb_normalisation.png",
-        description: "Documentation technique justifiant les choix de normalisation de la base de données MousoW.",
+        description: "Documentation technique de 5 pages présentée et validée par le développeur senior avant implémentation de la normalisation BDD.",
         savoir: (
           <>
-            La <span className={styles.conceptKeyword}>normalisation de base de données</span> m'a appris l'importance de la <span className={styles.methodKeyword}>justification technique</span>. J'ai découvert comment <span className={styles.techKeyword}>documenter les décisions</span> architecturales avec des arguments solides. Les <span className={styles.keyword}>formes normales</span> (1NF, 2NF, 3NF) ont chacune leurs avantages et contraintes. La <span className={styles.conceptKeyword}>documentation technique</span> doit être claire et argumentée.
+            La <span className={styles.conceptKeyword}>normalisation de base de données</span> m'a appris l'importance de la <span className={styles.methodKeyword}>validation technique</span> avant implémentation. J'ai découvert comment <span className={styles.techKeyword}>présenter des décisions</span> architecturales à un développeur senior avec des arguments solides. Les <span className={styles.keyword}>formes normales</span> (1NF, 2NF, 3NF) doivent être justifiées avec des exemples concrets. La <span className={styles.conceptKeyword}>documentation technique</span> doit être synthétique mais complète pour convaincre.
           </>
         ),
         savoirFaire: (
           <>
-            J'ai rédigé une documentation complète de <span className={styles.keyword}>15 pages</span> justifiant la structure BDD. J'ai analysé <span className={styles.keyword}>12 tables</span> avec leurs relations et contraintes. La documentation inclut <span className={styles.methodKeyword}>diagrammes MCD</span>, <span className={styles.techKeyword}>scripts SQL</span>, et <span className={styles.conceptKeyword}>analyse des performances</span>. J'ai comparé <span className={styles.keyword}>3 approches</span> différentes avec leurs trade-offs respectifs.
+            J'ai rédigé une documentation technique de <span className={styles.keyword}>5 pages structurées</span> que j'ai présentée au <span className={styles.methodKeyword}>développeur senior</span> pour validation avant de procéder à la normalisation. Le document comprend : <span className={styles.conceptKeyword}>Page 1</span> - MCD avec entités principales (USERS, CLIENTS, CARDS, etc.) et leurs relations, <span className={styles.techKeyword}>Page 2</span> - Schémas relationnels PostgreSQL avec contraintes, <span className={styles.keyword}>Pages 3-4</span> - Analyse des performances et normalisation 3NF, <span className={styles.methodKeyword}>Page 5</span> - Recommandations et implémentation. Le développeur senior a <span className={styles.conceptKeyword}>validé l'approche</span> avant que je commence l'implémentation de la base de données.
           </>
         ),
         savoirFaireShort: (
           <>
-            J'ai documenté <span className={styles.keyword}>15 pages</span> avec analyse de <span className={styles.keyword}>12 tables</span> et <span className={styles.keyword}>3 approches</span>...
+            J'ai documenté <span className={styles.keyword}>5 pages structurées</span> présentées au <span className={styles.methodKeyword}>développeur senior</span> qui a <span className={styles.conceptKeyword}>validé l'approche</span>...
           </>
         ),
-        code: `# Justification Structure BDD Normalisée - MousoW
+        code: `# Documentation Technique BDD - MousoW
+## Présentée et validée par le développeur senior
 
-## 1. Analyse des besoins
+### Page 1 - Modèle Conceptuel de Données (MCD)
 
-### Entités principales identifiées
-- **Utilisateurs** : organisateurs d'événements
-- **Événements** : soirées, concerts, festivals
-- **Réservations** : billets et places
-- **Paiements** : transactions financières
-- **Lieux** : salles et espaces événementiels
+**Entités principales identifiées :**
+- USERS : id, email, mot de passe, rôle, timestamps, token de reset
+- CLIENTS : id, prénom, nom, email, téléphone, entreprise, position, statut
+- CARDS : uuid, prénom, nom, email, téléphone, thème, QR code, timestamps
+- REMINDERS, APPOINTMENTS, MESSAGES, ACTIVITIES, DELETED_CLIENTS
 
-### Volumétrie estimée
-- Utilisateurs : 10k+ comptes
-- Événements : 500+ par mois
-- Réservations : 50k+ par mois
-- Transactions : 100k+ par mois
+**Relations :**
+- 1 USER → * CLIENTS (création), REMINDERS (création/complétion)
+- 1 CLIENT → * REMINDERS, APPOINTMENTS, MESSAGES, ACTIVITIES
+- Archival sur DELETED_CLIENTS via trigger
 
-## 2. Choix de normalisation
-
-### Forme normale retenue : 3NF
-
-**Avantages :**
-- Élimination des redondances
-- Intégrité des données garantie
-- Maintenance simplifiée
-- Évolutivité assurée
-
-**Inconvénients acceptés :**
-- Requêtes plus complexes (JOINs)
-- Performance légèrement impactée
-
-### Justification technique
+### Page 2 - Schéma Relationnel (PostgreSQL)
 
 \`\`\`sql
--- Table utilisateurs (1NF, 2NF, 3NF)
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     email VARCHAR(255) UNIQUE NOT NULL,
-    nom VARCHAR(100) NOT NULL,
-    prenom VARCHAR(100) NOT NULL,
-    created_at TIMESTAMP DEFAULT NOW()
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(50) CHECK (role IN ('admin','commercial','read-only')),
+    last_login TIMESTAMP,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW(),
+    deleted_at TIMESTAMP,
+    reset_token TEXT,
+    reset_token_expiry TIMESTAMP
 );
-
--- Table événements (3NF - séparation lieu)
-CREATE TABLE events (
-    id SERIAL PRIMARY KEY,
-    titre VARCHAR(200) NOT NULL,
-    description TEXT,
-    date_debut TIMESTAMP NOT NULL,
-    date_fin TIMESTAMP NOT NULL,
-    lieu_id INTEGER REFERENCES lieux(id),
-    organisateur_id INTEGER REFERENCES users(id),
-    prix_base DECIMAL(10,2) NOT NULL
-);
-
--- Table lieux (évite redondance adresse)
-CREATE TABLE lieux (
-    id SERIAL PRIMARY KEY,
-    nom VARCHAR(150) NOT NULL,
-    adresse VARCHAR(255) NOT NULL,
-    ville VARCHAR(100) NOT NULL,
-    capacite INTEGER NOT NULL
-);
+-- Tables clients, cards, reminders, appointments, messages, activities, deleted_clients...
 \`\`\`
 
-## 3. Analyse des performances
+### Pages 3-4 - Analyse Performances & Normalisation
 
-### Tests de charge réalisés
-- 10k utilisateurs simultanés
-- 1M réservations en base
-- Requêtes complexes < 100ms
+**Forme normale appliquée : 3NF**
+- Élimination redondances données utilisateur
+- Séparation logique des entités métier
+- Intégrité référentielle garantie
 
-### Optimisations appliquées
+**Optimisations prévues :**
 - Index sur clés étrangères
-- Index composites sur (date, lieu)
-- Partitioning par mois sur réservations
+- Index composites (date, user_id)
+- Soft delete avec timestamp
 
-## 4. Alternatives évaluées
+### Page 5 - Recommandations & Implémentation
 
-### Option 1 : Dénormalisation partielle
-❌ **Rejetée** : redondance des données lieu
-❌ Maintenance complexe des adresses
+**Validation développeur senior :**
+✅ Architecture approuvée
+✅ Normalisation 3NF validée
+✅ Feu vert pour implémentation
 
-### Option 2 : NoSQL (MongoDB)
-❌ **Rejetée** : transactions ACID requises
-❌ Requêtes relationnelles complexes
-
-### Option 3 : Structure actuelle (3NF)
-✅ **Retenue** : équilibre optimal
-✅ Intégrité + performance acceptable`
+**Prochaines étapes :**
+1. Création migrations Sequelize
+2. Implémentation modèles
+3. Tests d'intégrité`
       }
     ],
     reflexion: {
