@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import worksData from "../datas/datas.json"; // Données de tous les projets
 import Carousel from "./Carousel"; // Composant carousel personnalisé
 import styles from "./WorksSection.module.scss";
-import carouselStyles from "./Carousel.module.scss";
 
 export default function WorksSection() {
     // On sélectionne uniquement les projets phares
@@ -20,33 +19,31 @@ export default function WorksSection() {
             </div>
 
             {/* 🖼️ Zone du carousel avec preview dynamique */}
-            <div className={styles.carouselContainer}>
-                <Carousel>
-                    {preview.map((w) => {
-                        // ✅ On choisit la première image disponible pour l'aperçu
-                        const thumb = w.pictures?.[0] || w.cover || "/fallback.png";
-                        return (
-                            <Link
-                                key={w.id}
-                                to={`/works/${w.id}`}
-                                className={styles.slideLink}
-                            >
-                                <div className={carouselStyles.card}>
-                                    <img src={thumb} alt={w.title} className={styles.thumb} />
-                                    <div className={carouselStyles.card__overlay}>
-                                        <div className={carouselStyles.card__link}>
-                                            <span className={carouselStyles.card__titles}>
-                                                <h3>{w.title}</h3>
-                                                <p>{w.subtitle}</p>
-                                            </span>
-                                        </div>
+            <Carousel>
+                {preview.map((w) => {
+                    // ✅ On choisit la première image disponible pour l'aperçu
+                    const thumb = w.pictures?.[0] || w.cover || "/fallback.png";
+                    return (
+                        <Link
+                            key={w.id}
+                            to={`/works/${w.id}`}
+                            className={styles.slideLink}
+                        >
+                            <div className={styles.card}>
+                                <img src={thumb} alt={w.title} className={styles.thumb} />
+                                <div className={styles.card__overlay}>
+                                    <div className={styles.card__link}>
+                                        <span className={styles.card__titles}>
+                                            <h3>{w.title}</h3>
+                                            <p>{w.subtitle}</p>
+                                        </span>
                                     </div>
                                 </div>
-                            </Link>
-                        );
-                    })}
-                </Carousel>
-            </div>
+                            </div>
+                        </Link>
+                    );
+                })}
+            </Carousel>
 
             {/* 🔗 CTA vers la page des projets complète */}
             <div className={styles.works__ctaContainer}>

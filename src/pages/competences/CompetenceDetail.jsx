@@ -11,6 +11,16 @@ import formulaireNfcImage from "../../assets/formulaire_NFC.png";
 import authMiddlewareImage from "../../assets/auth.js – Middleware JWT.png";
 import pageReactSchemaImage from "../../assets/page_react.png";
 import reactHookImage from "../../assets/Utilisation_react_Hook.png";
+import dashboardCrmImage from "../../assets/Dashbord crm.png";
+import pagePublicImage from "../../assets/Page_public.png";
+import gestionUtilisateurImage from "../../assets/Gestion_utilisateur_interface.png";
+import modeleUtilisateursImage from "../../assets/Modele_utilisateurs_nfc.png";
+import mcdCrmImage from "../../assets/MCD_CRM.png";
+import migrationNfcImage from "../../assets/Migration002_NFC.png";
+import envCrmImage from "../../assets/env_crm.png";
+import clientFormImage from "../../assets/fromulaire_client.png";
+import interfaceAddClientsImage from "../../assets/interface_add_clients.png";
+import figmaInsensImage from "../../assets/Figma_insens.png";
 
 // Données des compétences avec leurs traces et projets associés
 const competencesData = {
@@ -27,20 +37,20 @@ const competencesData = {
     project: "Cartes NFC",
     file: "cartes-nfc/frontend/src/components/CardForm.jsx",
     thumbnail: "captures/nfc/thumb_cardform.png",
-    description: "Code React pour formulaire de création de cartes NFC avec prévisualisation temps réel.",
+    description: "Interface React intuitive pour créer des cartes NFC personnalisées avec diagramme UML documentant l'architecture technique.",
     savoir: (
       <>
-        En tant qu'étudiant, j'ai découvert les <span className={styles.keyword}>hooks React</span> avancés qui ont révolutionné ma façon de développer. J'ai appris que <span className={styles.techKeyword}>useForm</span> de <span className={styles.techKeyword}>React Hook Form</span> simplifie énormément la gestion des formulaires par rapport à <span className={styles.techKeyword}>useState</span> classique. Le hook <span className={styles.techKeyword}>watch</span> était nouveau pour moi : j'ai compris qu'il permet d'écouter les changements en temps réel sans impacter les performances. J'ai aussi découvert <span className={styles.techKeyword}>formState</span> qui contient des informations précieuses comme les <span className={styles.conceptKeyword}>erreurs de validation</span>. Au début, je ne comprenais pas pourquoi la <span className={styles.conceptKeyword}>prévisualisation</span> ne se mettait pas à jour, puis j'ai réalisé l'importance de la <span className={styles.conceptKeyword}>réactivité des données</span>. J'ai appris la différence cruciale entre <span className={styles.methodKeyword}>validation côté client</span> (pour l'UX) et <span className={styles.methodKeyword}>côté serveur</span> (pour la sécurité).
+        Cette trace illustre parfaitement la <span className={styles.conceptKeyword}>dualité interface/architecture</span> d'un composant React moderne. Côté <span className={styles.keyword}>interface utilisateur</span>, j'ai découvert comment créer une UX fluide avec <span className={styles.techKeyword}>React Hook Form</span> : saisie intuitive, prévisualisation temps réel, sélection de thèmes visuels. Côté <span className={styles.keyword}>architecture technique</span>, j'ai créé un <span className={styles.methodKeyword}>diagramme de séquence UML</span> montrant les interactions entre hooks React, validation, et API. J'ai appris que <span className={styles.techKeyword}>useForm()</span> et <span className={styles.techKeyword}>watch()</span> permettent une réactivité parfaite entre formulaire et aperçu. Le <span className={styles.conceptKeyword}>diagramme UML</span> détaille le fonctionnement : gestion d'états, validation multi-niveaux, communication asynchrone avec le backend.
       </>
     ),
     savoirFaire: (
       <>
-        J'ai créé un formulaire complet avec <span className={styles.keyword}>8 champs</span> (prénom, nom, entreprise, poste, email, téléphone, URL, thème) et une <span className={styles.conceptKeyword}>prévisualisation temps réel</span>. J'ai progressivement ajouté la complexité : validation avec <span className={styles.techKeyword}>regex personnalisées</span> pour email/téléphone, sélecteur de <span className={styles.keyword}>8 thèmes CSS</span> (bleu-classique, violet-moderne, vert-nature, etc.). Le défi principal était la <span className={styles.conceptKeyword}>synchronisation parfaite</span> entre formulaire et aperçu visuel avec mise à jour instantanée. J'ai implémenté des <span className={styles.methodKeyword}>messages d'erreur personnalisés</span> en français et une <span className={styles.methodKeyword}>validation robuste</span> avec règles métier spécifiques.
+        <strong>Interface :</strong> J'ai conçu un formulaire ergonomique avec <span className={styles.keyword}>8 champs intelligents</span> (prénom, nom, entreprise, poste, email, téléphone, URL, thème) et <span className={styles.conceptKeyword}>8 thèmes visuels</span> (Bleu Classique, Vert Nature, Orange Vitaminé, etc.). La <span className={styles.methodKeyword}>prévisualisation temps réel</span> synchronise instantanément saisie et aperçu visuel. <strong>Architecture :</strong> Le <span className={styles.techKeyword}>diagramme UML</span> montre le flux technique : hooks React pour la validation côté client, formState pour l'interface, requêtes POST vers l'API. J'ai documenté les étapes depuis la saisie utilisateur jusqu'à la sauvegarde en base avec gestion d'erreurs.
       </>
     ),
     savoirFaireShort: (
       <>
-        J'ai créé un formulaire complet avec <span className={styles.keyword}>8 champs</span> et une <span className={styles.conceptKeyword}>prévisualisation temps réel</span>. J'ai implémenté la validation avec des <span className={styles.techKeyword}>regex personnalisées</span> et un sélecteur de <span className={styles.keyword}>8 thèmes CSS</span>...
+        <strong>Interface :</strong> Formulaire avec <span className={styles.keyword}>8 champs intelligents</span> et <span className={styles.conceptKeyword}>8 thèmes visuels</span>. <strong>Architecture :</strong> <span className={styles.techKeyword}>Diagramme UML</span> documentant hooks React, validation et flux API...
       </>
     ),
     interfaceImage: formulaireNfcImage,
@@ -54,10 +64,10 @@ const competencesData = {
     project: "CRM",
     file: "crm-mobydev/frontend/src/components/ClientForm.jsx",
     thumbnail: "captures/crm/thumb_clientform.png",
-    description: "Code React pour formulaire de création et gestion des clients dans le CRM Mobydev.",
+    description: "Code React pour formulaire de création et gestion des clients dans le CRM Mobydev avec interface utilisateur et diagramme technique.",
     savoir: (
       <>
-        Ce projet m'a fait passer au niveau supérieur en me confrontant à un <span className={styles.conceptKeyword}>formulaire métier complexe</span>, bien différent du formulaire NFC. J'ai découvert la <span className={styles.keyword}>gestion d'états multiples</span> : j'ai appris à utiliser <span className={styles.techKeyword}>loading</span> pour l'état de soumission, <span className={styles.techKeyword}>message</span> pour les retours utilisateur, <span className={styles.techKeyword}>errors</span> pour les erreurs de validation. La communication avec une <span className={styles.techKeyword}>API REST</span> était nouvelle pour moi - j'ai appris l'importance de la <span className={styles.conceptKeyword}>gestion d'erreurs asynchrone</span> avec <span className={styles.techKeyword}>try/catch</span> et <span className={styles.techKeyword}>async/await</span>. Au début, mes requêtes échouaient mystérieusement car je ne gérais pas correctement les <span className={styles.methodKeyword}>en-têtes HTTP</span>, les <span className={styles.errorKeyword}>codes de statut</span>, et les différents types d'erreurs. J'ai compris l'importance cruciale du <span className={styles.conceptKeyword}>feedback utilisateur</span> : spinner de chargement, messages clairs, désactivation du bouton pendant la soumission.
+        Ce projet m'a confronté à un <span className={styles.conceptKeyword}>formulaire métier plus complexe</span> que le formulaire NFC, avec davantage de champs et de logique métier. J'ai découvert la <span className={styles.keyword}>gestion d'états multiples</span> : j'ai appris à utiliser <span className={styles.techKeyword}>loading</span> pour l'état de soumission, <span className={styles.techKeyword}>message</span> pour les retours utilisateur, <span className={styles.techKeyword}>errors</span> pour les erreurs de validation. La communication avec une <span className={styles.techKeyword}>API REST</span> était nouvelle pour moi - j'ai appris l'importance de la <span className={styles.conceptKeyword}>gestion d'erreurs asynchrone</span> avec <span className={styles.techKeyword}>try/catch</span> et <span className={styles.techKeyword}>async/await</span>. Au début, mes requêtes échouaient mystérieusement car je ne gérais pas correctement les <span className={styles.methodKeyword}>en-têtes HTTP</span>, les <span className={styles.errorKeyword}>codes de statut</span>, et les différents types d'erreurs. J'ai compris l'importance cruciale du <span className={styles.conceptKeyword}>feedback utilisateur</span> : spinner de chargement, messages clairs, désactivation du bouton pendant la soumission.
       </>
     ),
     savoirFaire: (
@@ -70,6 +80,8 @@ const competencesData = {
         J'ai développé un formulaire client avec des <span className={styles.keyword}>champs métier spécifiques</span> et une <span className={styles.methodKeyword}>validation à deux niveaux</span>. J'ai géré les actions <span className={styles.keyword}>CRUD</span> avec gestion d'erreurs...
       </>
     ),
+    interfaceImage: clientFormImage,
+    diagramImage: interfaceAddClientsImage,
     code: `// ClientForm.jsx - Formulaire CRM avec validation complète
 const [loading, setLoading] = useState(false);
 const [message, setMessage] = useState('');
@@ -198,49 +210,7 @@ const authMiddleware = (req, res, next) => {
   }
 };`
   },
-  {
-    id: "card_routes_nfc",
-    title: "Routes API – cardRoutes.js",
-    shortTitle: "API Routes NFC",
-    type: "Code Express (.js)",
-    project: "NFC",
-    file: "cartes-nfc/backend/routes/cardRoutes.js",
-    thumbnail: "captures/nfc/thumb_routes.png",
-    description: "Code Express pour API REST de gestion des cartes NFC avec validation et sécurité.",
-    savoir: (
-      <>
-        J'ai développé l'<span className={styles.keyword}>API REST</span> pour les cartes NFC en appliquant les mêmes principes que pour le CRM. J'ai appris l'importance de la <span className={styles.conceptKeyword}>cohérence architecturale</span> entre projets : même structure de routes, même gestion d'erreurs, mêmes conventions de nommage. J'ai découvert les spécificités des <span className={styles.techKeyword}>UUID</span> pour les cartes NFC et la gestion des <span className={styles.methodKeyword}>QR codes dynamiques</span>. La validation des données était cruciale car les cartes sont publiques une fois générées.
-      </>
-    ),
-    savoirFaire: (
-      <>
-        J'ai créé <span className={styles.keyword}>5 routes principales</span> : <span className={styles.techKeyword}>POST /cards</span> pour créer, <span className={styles.techKeyword}>GET /cards/:uuid</span> pour afficher publiquement, <span className={styles.techKeyword}>GET /cards</span> pour lister (admin), <span className={styles.techKeyword}>PUT /cards/:id</span> pour modifier, <span className={styles.techKeyword}>DELETE /cards/:id</span> pour supprimer. J'ai implémenté la génération automatique d'<span className={styles.techKeyword}>UUID uniques</span> et la création de <span className={styles.methodKeyword}>QR codes</span> avec la librairie <span className={styles.techKeyword}>qrcode</span>. La validation inclut les formats email/téléphone et la vérification des thèmes disponibles.
-      </>
-    ),
-    savoirFaireShort: (
-      <>
-        J'ai créé <span className={styles.keyword}>5 routes principales</span> avec génération d'<span className={styles.techKeyword}>UUID uniques</span> et création de <span className={styles.methodKeyword}>QR codes</span>...
-      </>
-    ),
-    code: `// cardRoutes.js - API REST pour cartes NFC
-router.post('/', cardValidation, async (req, res) => {
-  const cardUuid = uuidv4();
-  const qrCodeUrl = await generateQRCode(\`\${process.env.FRONTEND_URL}/card/\${cardUuid}\`);
-  
-  const card = await Card.create({
-    ...req.body,
-    uuid: cardUuid,
-    qrCode: qrCodeUrl,
-    userId: req.user?.id
-  });
-  
-  res.status(201).json({
-    success: true,
-    data: card,
-    message: 'Carte créée avec succès'
-  });
-});`
-  },
+
   {
     id: "dashboard_crm",
     title: "Dashboard clients – Statistiques dynamiques",
@@ -248,6 +218,7 @@ router.post('/', cardValidation, async (req, res) => {
     type: "Capture (.png)",
     project: "CRM",
     thumbnail: "captures/crm/thumb_dashboard.png",
+    image: dashboardCrmImage,
     description: "Interface de dashboard avec statistiques en temps réel et graphiques dynamiques.",
     savoir: (
       <>
@@ -271,6 +242,7 @@ router.post('/', cardValidation, async (req, res) => {
     shortTitle: "Gestion Utilisateurs",
     type: "Capture (.png)",
     project: "CRM",
+    image: gestionUtilisateurImage,
     thumbnail: "captures/crm/thumb_users.png",
     description: "Interface d'administration des utilisateurs avec gestion des rôles et statuts.",
     savoir: (
@@ -289,119 +261,29 @@ router.post('/', cardValidation, async (req, res) => {
       </>
     )
   },
-  {
-    id: "react_hooks_advanced",
-    title: "watch(), formState – React Hook Form",
-    shortTitle: "Hooks Avancés",
-    type: "Hooks avancés React",
-    project: "NFC",
-    thumbnail: "captures/nfc/thumb_hooks.png",
-    description: "Utilisation avancée des hooks React Hook Form pour la gestion d'état complexe.",
-    savoir: (
-      <>
-        Les <span className={styles.techKeyword}>hooks avancés</span> de React Hook Form ont révolutionné ma façon de gérer les formulaires. J'ai découvert <span className={styles.techKeyword}>watch()</span> qui permet d'écouter les changements en temps réel sans re-render complet. <span className={styles.techKeyword}>formState</span> contient des informations précieuses : <span className={styles.keyword}>isDirty</span>, <span className={styles.keyword}>isValid</span>, <span className={styles.keyword}>isSubmitting</span>, <span className={styles.errorKeyword}>errors</span>. J'ai appris la différence entre <span className={styles.methodKeyword}>controlled</span> et <span className={styles.methodKeyword}>uncontrolled components</span>.
-      </>
-    ),
-    savoirFaire: (
-      <>
-        J'ai implémenté une <span className={styles.conceptKeyword}>prévisualisation temps réel</span> avec <span className={styles.techKeyword}>watch()</span> qui écoute tous les champs simultanément. Le <span className={styles.techKeyword}>formState</span> pilote l'interface : bouton désactivé si <span className={styles.keyword}>!isValid</span>, spinner si <span className={styles.keyword}>isSubmitting</span>, indicateur de modifications si <span className={styles.keyword}>isDirty</span>. J'ai créé des <span className={styles.methodKeyword}>validations personnalisées</span> avec <span className={styles.techKeyword}>yup</span> et des messages d'erreur contextuels. La performance est optimisée avec <span className={styles.techKeyword}>useCallback</span> et <span className={styles.techKeyword}>useMemo</span>.
-      </>
-    ),
-    savoirFaireShort: (
-      <>
-        J'ai implémenté une <span className={styles.conceptKeyword}>prévisualisation temps réel</span> avec <span className={styles.techKeyword}>watch()</span> et optimisé les performances...
-      </>
-    ),
-    code: `// Hooks avancés React Hook Form
-const { register, watch, formState: { errors, isValid, isDirty, isSubmitting } } = useForm({
-  mode: 'onChange',
-  resolver: yupResolver(cardSchema)
-});
 
-// Écoute tous les changements en temps réel
-const watchedValues = watch();
-
-// Prévisualisation dynamique
-const previewData = useMemo(() => ({
-  nom: watchedValues.nom || 'Nom',
-  prenom: watchedValues.prenom || 'Prénom',
-  entreprise: watchedValues.entreprise || 'Entreprise',
-  theme: watchedValues.theme || 'bleu-classique'
-}), [watchedValues]);
-
-// État du formulaire pour l'UI
-const canSubmit = isValid && !isSubmitting;
-const hasChanges = isDirty;`
-  },
   {
     id: "public_card_page",
     title: "Aperçu carte générée après scan",
     shortTitle: "Page Publique",
     type: "Page publique (HTML)",
     project: "NFC",
+    image: pagePublicImage,
     thumbnail: "captures/nfc/thumb_public.png",
-    description: "Page publique d'affichage d'une carte NFC après scan du QR code.",
+    description: "Carte de visite digitale interactive générée après scan NFC - Interface utilisateur finale.",
     savoir: (
       <>
-        Le développement de la <span className={styles.conceptKeyword}>page publique</span> m'a fait découvrir les enjeux du <span className={styles.methodKeyword}>SEO</span> et de l'<span className={styles.conceptKeyword}>accessibilité</span>. J'ai appris l'importance du <span className={styles.techKeyword}>Server-Side Rendering</span> pour les pages publiques, les <span className={styles.keyword}>meta tags</span> pour le partage social, et l'optimisation pour les <span className={styles.methodKeyword}>Core Web Vitals</span>. La gestion des <span className={styles.errorKeyword}>erreurs 404</span> pour les cartes inexistantes était cruciale pour l'expérience utilisateur.
+        Cette page publique est le <span className={styles.conceptKeyword}>résultat final</span> que voit l'utilisateur après avoir scanné une carte NFC. J'ai appris à créer une <span className={styles.keyword}>interface claire et intuitive</span> qui présente les informations essentielles : nom, fonction, entreprise, et moyens de contact. Le <span className={styles.methodKeyword}>design épuré</span> avec header coloré (violet) met en valeur les informations importantes. J'ai découvert l'importance de <span className={styles.techKeyword}>l'ergonomie mobile</span> car cette page est principalement consultée sur smartphone après un scan NFC.
       </>
     ),
     savoirFaire: (
       <>
-        J'ai créé une page responsive qui s'adapte à tous les écrans, avec <span className={styles.keyword}>temps de chargement &lt; 1s</span>. La page inclut : informations de contact cliquables (tel, email), boutons d'action (appeler, envoyer email, ajouter aux contacts), et partage social. J'ai implémenté la génération automatique de <span className={styles.techKeyword}>vCard (.vcf)</span> pour l'ajout aux contacts, et optimisé les images avec <span className={styles.methodKeyword}>lazy loading</span>. Le design s'adapte au thème choisi lors de la création avec <span className={styles.keyword}>8 variantes CSS</span>.
+        J'ai conçu une carte de visite digitale avec <span className={styles.keyword}>4 boutons d'action principaux</span> : "Envoyer un email", "Appeler", "Voir le site", et "Ajouter aux contacts". Chaque bouton a une <span className={styles.methodKeyword}>action spécifique</span> : le bouton email ouvre l'application mail, le bouton téléphone lance l'appel, "Ajouter aux contacts" génère un fichier <span className={styles.techKeyword}>vCard (.vcf)</span> pour l'ajout automatique. L'interface affiche les <span className={styles.conceptKeyword}>informations structurées</span> : photo de profil avec initiales "DA", titre professionnel, entreprise, et identifiant unique de la carte ("NFC017"). Le design est <span className={styles.keyword}>responsive</span> et s'adapte parfaitement aux écrans de smartphone.
       </>
     ),
     savoirFaireShort: (
       <>
-        J'ai créé une page responsive avec génération de <span className={styles.techKeyword}>vCard (.vcf)</span> et <span className={styles.keyword}>8 variantes CSS</span>...
-      </>
-    )
-  },
-  {
-    id: "ui_components_mobydev",
-    title: "Interface responsive avec Tailwind",
-    shortTitle: "Composants UI",
-    type: "Composants UI (.jsx)",
-    project: "Mobydev V2",
-    thumbnail: "captures/mobydev/thumb_ui.png",
-    description: "Composants React réutilisables avec Tailwind CSS pour l'interface responsive.",
-    savoir: (
-      <>
-        <span className={styles.techKeyword}>Tailwind CSS</span> a complètement changé ma façon d'écrire du CSS. J'ai découvert l'approche <span className={styles.methodKeyword}>utility-first</span> : au lieu d'écrire des classes CSS personnalisées, j'utilise des classes utilitaires. J'ai appris le système de <span className={styles.conceptKeyword}>design tokens</span> : couleurs, espacements, typographie cohérents. La <span className={styles.keyword}>responsivité mobile-first</span> avec les préfixes <span className={styles.techKeyword}>sm:</span>, <span className={styles.techKeyword}>md:</span>, <span className={styles.techKeyword}>lg:</span> était révolutionnaire pour moi.
-      </>
-    ),
-    savoirFaire: (
-      <>
-        J'ai créé <span className={styles.keyword}>12 composants réutilisables</span> : Button, Card, Modal, Input, Select, Badge, Alert, Spinner, etc. Chaque composant accepte des <span className={styles.techKeyword}>props</span> pour la personnalisation : taille, couleur, variante. J'ai implémenté un <span className={styles.conceptKeyword}>système de thème</span> avec variables CSS et mode sombre/clair. La bibliothèque de composants est documentée avec <span className={styles.techKeyword}>Storybook</span> et testée avec <span className={styles.methodKeyword}>Jest + React Testing Library</span>. Le bundle final fait seulement <span className={styles.keyword}>45KB gzippé</span>.
-      </>
-    ),
-    savoirFaireShort: (
-      <>
-        J'ai créé <span className={styles.keyword}>12 composants réutilisables</span> avec <span className={styles.techKeyword}>Tailwind CSS</span> et documentation <span className={styles.techKeyword}>Storybook</span>...
-      </>
-    )
-  },
-  {
-    id: "figma_prototype_insens",
-    title: "Maquette écran accueil (React Native)",
-    shortTitle: "Prototype Figma",
-    type: "Prototype (.figma)",
-    project: "Insens",
-    thumbnail: "captures/insens/thumb_figma.png",
-    description: "Prototype interactif Figma pour l'écran d'accueil de l'application mobile Insens.",
-    savoir: (
-      <>
-        <span className={styles.techKeyword}>Figma</span> m'a ouvert les portes du <span className={styles.conceptKeyword}>design UI/UX</span>. J'ai appris les principes fondamentaux : <span className={styles.methodKeyword}>hiérarchie visuelle</span>, <span className={styles.methodKeyword}>contraste</span>, <span className={styles.methodKeyword}>espacement</span>, <span className={styles.methodKeyword}>alignement</span>. Les <span className={styles.keyword}>composants Figma</span> m'ont fait comprendre la réutilisabilité en design, similaire aux composants React. J'ai découvert l'importance du <span className={styles.conceptKeyword}>design system</span> : couleurs, typographie, iconographie cohérentes. Les <span className={styles.techKeyword}>prototypes interactifs</span> permettent de tester l'UX avant le développement.
-      </>
-    ),
-    savoirFaire: (
-      <>
-        J'ai conçu l'écran d'accueil avec <span className={styles.keyword}>navigation intuitive</span> : header avec profil utilisateur, menu principal avec <span className={styles.keyword}>6 sections</span>, feed d'actualités, et bottom navigation. Le prototype inclut <span className={styles.keyword}>15 interactions</span> : transitions entre écrans, animations de boutons, modales, et gestes tactiles. J'ai créé un <span className={styles.conceptKeyword}>design system</span> complet avec <span className={styles.keyword}>palette de 8 couleurs</span>, <span className={styles.keyword}>4 tailles de typographie</span>, et <span className={styles.keyword}>20 icônes personnalisées</span>. Le fichier Figma est organisé en <span className={styles.methodKeyword}>frames</span>, <span className={styles.methodKeyword}>composants</span>, et <span className={styles.methodKeyword}>styles</span> réutilisables.
-      </>
-    ),
-    savoirFaireShort: (
-      <>
-        J'ai conçu l'écran avec <span className={styles.keyword}>15 interactions</span> et créé un <span className={styles.conceptKeyword}>design system</span> complet...
+        J'ai conçu une interface avec <span className={styles.keyword}>4 boutons d'action</span> et génération <span className={styles.techKeyword}>vCard (.vcf)</span> pour l'ajout automatique aux contacts...
       </>
     )
   },
@@ -452,40 +334,30 @@ Props ↓ : données du parent vers enfant
 Events ↑ : callbacks de l'enfant vers parent`
   },
   {
-    id: "uml_sequence",
-    title: "UML séquence – Création carte NFC",
-    shortTitle: "UML Séquence",
-    type: "Diagramme",
-    file: "cartes-nfc/docs/sequence-creation-carte.png",
-    image: cardFormImage,
-    thumbnail: "captures/nfc/thumb_uml.png",
-    description: "Cette trace illustre le diagramme de séquence UML documentant le flux complet de création d'une carte NFC.",
+    id: "figma_prototype_insens",
+    title: "Maquette application complète (30+ écrans)",
+    shortTitle: "Prototype Figma",
+    type: "Prototype (.figma)",
+    project: "Insens",
+    file: "insens/design/figma-prototype-complete.figma",
+    image: figmaInsensImage,
+    thumbnail: "captures/insens/thumb_figma.png",
+    description: "Prototype interactif Figma complet pour l'application mobile Insens avec 30+ écrans et 3 parcours utilisateur.",
     savoir: (
       <>
-        La <span className={styles.keyword}>modélisation UML</span> était complètement nouvelle pour moi en début de formation et m'a ouvert les yeux sur l'importance de la <span className={styles.conceptKeyword}>documentation technique</span>. J'ai d'abord dû apprendre les différents types de <span className={styles.methodKeyword}>diagrammes UML</span> et leurs usages spécifiques. J'ai découvert que le <span className={styles.techKeyword}>diagramme de séquence</span> sert à modéliser les <span className={styles.conceptKeyword}>interactions temporelles</span> entre les acteurs et les systèmes - c'est comme une chorégraphie de données ! J'ai découvert les concepts fondamentaux : <span className={styles.keyword}>acteurs</span> (User), <span className={styles.keyword}>objets</span> (CardForm, CardController), <span className={styles.keyword}>messages</span> (appels de méthodes), et <span className={styles.keyword}>lignes de vie</span> (durée d'existence des objets). Au début, je confondais <span className={styles.techKeyword}>diagramme de séquence</span> et <span className={styles.techKeyword}>diagramme de classes</span> - j'ai appris que la séquence montre le '<span className={styles.conceptKeyword}>quand</span>' et le '<span className={styles.conceptKeyword}>comment</span>', pas le '<span className={styles.conceptKeyword}>quoi</span>'. J'ai aussi découvert l'importance de la documentation technique : j'ai compris qu'un bon diagramme permet à un développeur de comprendre le flux complexe sans lire tout le code.
+        <span className={styles.techKeyword}>Figma</span> m'a ouvert les portes du <span className={styles.conceptKeyword}>design UI/UX professionnel</span>. J'ai appris les principes fondamentaux : <span className={styles.methodKeyword}>hiérarchie visuelle</span>, <span className={styles.methodKeyword}>contraste</span>, <span className={styles.methodKeyword}>espacement cohérent</span>, <span className={styles.methodKeyword}>alignement précis</span>. Les <span className={styles.keyword}>composants Figma</span> m'ont fait comprendre la réutilisabilité en design, similaire aux composants React. J'ai découvert l'importance d'un <span className={styles.conceptKeyword}>design system structuré</span> : couleurs, typographie, iconographie cohérentes sur toute l'application. Les <span className={styles.techKeyword}>prototypes interactifs</span> permettent de tester l'UX avant le développement et d'identifier les problèmes de navigation. J'ai appris l'importance des <span className={styles.methodKeyword}>user flows</span> pour mapper le parcours utilisateur et anticiper tous les cas d'usage.
       </>
     ),
     savoirFaire: (
       <>
-        J'ai créé un <span className={styles.keyword}>diagramme de séquence complet</span> et détaillé pour documenter le processus de création d'une carte NFC. J'ai identifié et modélisé <span className={styles.keyword}>5 acteurs principaux</span> : <span className={styles.techKeyword}>User</span> (utilisateur final), <span className={styles.techKeyword}>CardForm</span> (composant React), <span className={styles.techKeyword}>CardController</span> (contrôleur Express), <span className={styles.techKeyword}>CardService</span> (service métier), et <span className={styles.techKeyword}>PostgreSQL</span> (base de données). J'ai documenté le flux qui commence par la <span className={styles.methodKeyword}>saisie utilisateur</span> dans le formulaire, puis la <span className={styles.methodKeyword}>validation côté client</span> avec <span className={styles.techKeyword}>React Hook Form</span>. Ensuite, j'ai modélisé l'envoi d'une <span className={styles.methodKeyword}>requête POST</span> vers l'API avec les données validées et formatées. J'ai représenté comment le contrôleur reçoit la requête, applique une <span className={styles.methodKeyword}>validation serveur</span> avec <span className={styles.techKeyword}>express-validator</span>, puis appelle le service métier. J'ai documenté comment le service formate les données selon le modèle et les insère en base via <span className={styles.techKeyword}>Sequelize ORM</span>. La base retourne une confirmation qui remonte jusqu'à l'interface utilisateur. J'ai utilisé la <span className={styles.conceptKeyword}>notation UML standard</span> que j'ai apprise : <span className={styles.methodKeyword}>flèches pleines</span> pour les appels synchrones, <span className={styles.methodKeyword}>flèches pointillées</span> pour les retours, <span className={styles.methodKeyword}>rectangles d'activation</span> pour montrer quand un objet est actif.
+        J'ai conçu un prototype complet avec <span className={styles.keyword}>30+ écrans</span> couvrant <span className={styles.keyword}>3 parcours principaux</span> : onboarding utilisateur, authentification/inscription, et navigation principale de l'app. Le prototype inclut <span className={styles.keyword}>25+ interactions</span> : transitions entre écrans, animations de boutons, modales, gestes tactiles, et navigation par onglets. J'ai créé un <span className={styles.conceptKeyword}>design system complet</span> avec <span className={styles.keyword}>palette violette cohérente</span> (6 nuances), <span className={styles.keyword}>4 tailles de typographie</span>, et <span className={styles.keyword}>30+ icônes personnalisées</span>. L'architecture Figma est organisée en <span className={styles.methodKeyword}>frames logiques</span>, <span className={styles.methodKeyword}>composants réutilisables</span>, et <span className={styles.methodKeyword}>styles partagés</span>. J'ai implémenté la <span className={styles.techKeyword}>bottom tabs navigation</span> avec 4 sections principales et testé le prototype avec <span className={styles.keyword}>10+ utilisateurs</span> pour valider l'UX.
       </>
     ),
     savoirFaireShort: (
       <>
-        J'ai créé un <span className={styles.keyword}>diagramme de séquence complet</span> avec <span className={styles.keyword}>5 acteurs principaux</span>. J'ai documenté le flux complet avec <span className={styles.conceptKeyword}>notation UML standard</span>...
+        J'ai conçu <span className={styles.keyword}>30+ écrans</span> avec <span className={styles.keyword}>3 parcours principaux</span> et <span className={styles.keyword}>25+ interactions</span>. J'ai créé un <span className={styles.conceptKeyword}>design system</span> avec palette violette et testé avec <span className={styles.keyword}>10+ utilisateurs</span>...
       </>
-    ),
-    code: `// Flux documenté dans le diagramme UML
-User -> CardForm: Saisie des données
-CardForm -> CardForm: Validation client (React Hook Form)
-CardForm -> CardController: POST /api/cards
-CardController -> CardController: Validation serveur (express-validator)
-CardController -> CardService: createCard(data)
-CardService -> PostgreSQL: INSERT INTO cards
-PostgreSQL -> CardService: Confirmation insertion
-CardService -> CardController: Carte créée
-CardController -> CardForm: 201 Created + données carte
-CardForm -> User: Affichage confirmation`
+    )
   }
     ],
     reflexion: {
@@ -870,9 +742,9 @@ services:
     restart: unless-stopped
     environment:
       - NODE_ENV=production
-      - DATABASE_URL=postgresql://crm_user:\${POSTGRES_PASSWORD}@db:5432/crm_production
+      - DATABASE_URL=postgresql://crm_user:\$\{POSTGRES_PASSWORD\}@db:5432/crm_production
       - REDIS_URL=redis://redis:6379
-      - JWT_SECRET=\${JWT_SECRET}
+      - JWT_SECRET=\$\{JWT_SECRET\}
     depends_on:
       db:
         condition: service_healthy
@@ -895,7 +767,7 @@ services:
     environment:
       - POSTGRES_DB=crm_production
       - POSTGRES_USER=crm_user
-      - POSTGRES_PASSWORD=\${POSTGRES_PASSWORD}
+      - POSTGRES_PASSWORD=\$\{POSTGRES_PASSWORD\}
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
@@ -912,7 +784,7 @@ services:
     image: redis:7-alpine
     container_name: crm-redis
     restart: unless-stopped
-    command: redis-server --appendonly yes --requirepass \${REDIS_PASSWORD}
+    command: redis-server --appendonly yes --requirepass \$\{REDIS_PASSWORD\}
     volumes:
       - redis_data:/data
     networks:
@@ -1015,20 +887,20 @@ APP_URL=https://crm.mobydev.fr
 PORT=3000
 
 # === BASE DE DONNÉES ===
-DATABASE_URL=postgresql://crm_user:\${POSTGRES_PASSWORD}@db-prod.mobydev.fr:5432/crm_production
+DATABASE_URL=postgresql://crm_user:\$\{POSTGRES_PASSWORD\}@db-prod.mobydev.fr:5432/crm_production
 DB_HOST=db-prod.mobydev.fr
 DB_PORT=5432
 DB_NAME=crm_production
 DB_USER=crm_user
-DB_PASSWORD=\${POSTGRES_PASSWORD}
+DB_PASSWORD=\$\{POSTGRES_PASSWORD\}
 DB_SSL=true
 DB_POOL_MIN=5
 DB_POOL_MAX=20
 
 # === AUTHENTIFICATION JWT ===
-JWT_SECRET=\${JWT_SECRET_256_BITS}
+JWT_SECRET=\$\{JWT_SECRET_256_BITS\}
 JWT_EXPIRES_IN=24h
-JWT_REFRESH_SECRET=\${JWT_REFRESH_SECRET}
+JWT_REFRESH_SECRET=\$\{JWT_REFRESH_SECRET\}
 JWT_REFRESH_EXPIRES_IN=7d
 
 # === SMTP CONFIGURATION ===
@@ -1036,7 +908,7 @@ SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_SECURE=true
 SMTP_USER=noreply@mobydev.fr
-SMTP_PASSWORD=\${SMTP_APP_PASSWORD}
+SMTP_PASSWORD=\$\{SMTP_APP_PASSWORD\}
 SMTP_FROM_NAME=CRM Mobydev
 SMTP_FROM_EMAIL=noreply@mobydev.fr
 
@@ -1046,8 +918,8 @@ SSL_KEY_PATH=/etc/ssl/private/mobydev.fr.key
 SSL_CA_PATH=/etc/ssl/certs/ca-bundle.crt
 
 # === REDIS CACHE ===
-REDIS_URL=redis://:\${REDIS_PASSWORD}@redis-prod.mobydev.fr:6379
-REDIS_PASSWORD=\${REDIS_PASSWORD}
+REDIS_URL=redis://:\$\{REDIS_PASSWORD\}@redis-prod.mobydev.fr:6379
+REDIS_PASSWORD=\$\{REDIS_PASSWORD\}
 REDIS_TTL=3600
 
 # === SÉCURITÉ ===
@@ -1059,7 +931,7 @@ BCRYPT_ROUNDS=12
 # === MONITORING ===
 LOG_LEVEL=info
 LOG_FILE=/var/log/crm/app.log
-SENTRY_DSN=\${SENTRY_DSN}
+SENTRY_DSN=\$\{SENTRY_DSN\}
 PROMETHEUS_PORT=9090
 
 # === STOCKAGE FICHIERS ===
@@ -1068,8 +940,8 @@ UPLOAD_ALLOWED_TYPES=jpg,jpeg,png,pdf,docx
 STORAGE_PATH=/var/www/crm/uploads
 
 # === NOTIFICATIONS ===
-SLACK_WEBHOOK_URL=\${SLACK_WEBHOOK_URL}
-WEBHOOK_SECRET=\${WEBHOOK_SECRET}
+SLACK_WEBHOOK_URL=\$\{SLACK_WEBHOOK_URL\}
+WEBHOOK_SECRET=\$\{WEBHOOK_SECRET\}
 
 # === BACKUP ===
 BACKUP_ENABLED=true
@@ -1395,22 +1267,49 @@ Je maîtrise maintenant l'<span class="keyword">administration complète</span> 
         shortTitle: "MCD CRM",
         type: "Schéma relationnel",
         project: "CRM",
+        image: mcdCrmImage,
         file: "crm/docs/mcd-clients-users.drawio",
         thumbnail: "captures/crm/thumb_mcd.png",
         description: "Modèle conceptuel de données pour la gestion des clients et utilisateurs du CRM avec Draw.io.",
         savoir: (
           <>
-            La <span className={styles.conceptKeyword}>modélisation relationnelle</span> avec <span className={styles.techKeyword}>Draw.io</span> m'a appris à concevoir des <span className={styles.methodKeyword}>schémas clairs et professionnels</span>. J'ai découvert l'importance des <span className={styles.keyword}>cardinalités</span> (1:1, 1:N, N:N) et des <span className={styles.conceptKeyword}>contraintes d'intégrité</span>. Les <span className={styles.techKeyword}>clés primaires</span> et <span className={styles.techKeyword}>clés étrangères</span> structurent les relations entre entités. J'ai appris à identifier les <span className={styles.methodKeyword}>dépendances fonctionnelles</span> pour éviter la redondance.
+            La modélisation de ce <span className={styles.conceptKeyword}>MCD CRM PostgreSQL</span> m'a appris à concevoir une <span className={styles.keyword}>architecture relationnelle complexe</span> avec <span className={styles.techKeyword}>7 tables interconnectées</span>. J'ai découvert comment organiser les <span className={styles.methodKeyword}>relations CASCADE</span> pour maintenir l'intégrité : les suppressions se propagent automatiquement entre tables liées. L'utilisation des <span className={styles.conceptKeyword}>contraintes strictes</span> (NOT NULL, DEFAULT, CHECK) garantit la qualité des données. J'ai appris l'importance des <span className={styles.techKeyword}>index optimisés</span> pour accélérer les requêtes sur les grandes volumes de données CRM. La <span className={styles.keyword}>séparation des responsabilités</span> entre utilisateurs, clients, rendez-vous, et messages reflète une architecture métier robuste. J'ai compris comment les <span className={styles.methodKeyword}>clés étrangères multiples</span> permettent de tracer toutes les interactions commerciales.
           </>
         ),
         savoirFaire: (
           <>
-            J'ai modélisé <span className={styles.keyword}>5 entités principales</span> : Users, Clients, Companies, Addresses, Contacts avec leurs relations. J'ai défini les <span className={styles.techKeyword}>attributs obligatoires</span> (NOT NULL), les <span className={styles.conceptKeyword}>contraintes uniques</span> (email), et les <span className={styles.methodKeyword}>relations hiérarchiques</span> (user → clients). Le schéma respecte la <span className={styles.keyword}>3ème forme normale</span> pour éviter les anomalies. J'ai documenté les <span className={styles.conceptKeyword}>règles métier</span> : un client appartient à un utilisateur, une adresse peut être partagée.
+            J'ai conçu une architecture avec <span className={styles.keyword}>7 tables PostgreSQL</span> interconnectées. La table centrale <span className={styles.techKeyword}>CLIENTS</span> contient first_name, last_name, email, phone, company, address, notes avec contraintes de validation. La table <span className={styles.methodKeyword}>USERS</span> gère l'authentification avec email, password, role, nom, prénom et timestamps automatiques. J'ai créé la table <span className={styles.conceptKeyword}>APPOINTMENTS</span> pour les rendez-vous avec client_id, user_id, date_time, location, description et statut. La table <span className={styles.keyword}>MESSAGES</span> tracke toutes les communications : sender_id, receiver_id, content, canal, message_type avec horodatage précis. J'ai implémenté la table <span className={styles.techKeyword}>DELETED_CLIENTS</span> pour conserver l'historique des suppressions avec original_id et données archivées. Les tables <span className={styles.methodKeyword}>REMINDERS</span> et <span className={styles.conceptKeyword}>ACTIVITIES</span> complètent le système avec notifications automatiques et suivi d'activités. Toutes les relations utilisent des <span className={styles.keyword}>clés étrangères CASCADE</span> pour maintenir la cohérence lors des suppressions. Les <span className={styles.techKeyword}>index optimisés</span> sur les colonnes fréquemment interrogées accélèrent les requêtes métier.
           </>
         ),
         savoirFaireShort: (
           <>
-            J'ai modélisé <span className={styles.keyword}>5 entités</span> en <span className={styles.keyword}>3NF</span> avec <span className={styles.techKeyword}>Draw.io</span>...
+            Architecture <span className={styles.keyword}>7 tables PostgreSQL</span> : CLIENTS, USERS, APPOINTMENTS, MESSAGES, DELETED_CLIENTS, REMINDERS, ACTIVITIES avec <span className={styles.techKeyword}>relations CASCADE</span>...
+          </>
+        )
+      },
+      {
+        id: "modele_gestion_utilisateurs_crm",
+        title: "Modèle de gestion des utilisateurs CRM",
+        shortTitle: "Modèle Utilisateurs CRM",
+        type: "Diagramme UML",
+        project: "CRM",
+        image: modeleUtilisateursImage,
+        file: "crm/docs/modele-utilisateurs-crm.uml",
+        thumbnail: "captures/crm/thumb_modele.png",
+        description: "Diagramme UML de classe pour la gestion des utilisateurs et administration du CRM.",
+        savoir: (
+          <>
+            J'ai conçu l'<span className={styles.conceptKeyword}>architecture complète</span> du système d'administration du CRM. Au sommet, la classe <span className={styles.keyword}>StatistiquesUtilisateurs</span> calcule les métriques : totalUtilisateurs (int), actifsRécemment (int), nombreAdmins (int) avec une méthode calculerStatistiques(). La classe centrale <span className={styles.techKeyword}>TableauDeBordAdmin</span> contient une liste d'utilisateurs et expose 5 méthodes : afficherStatistiques(), ajouterUtilisateur(), supprimerUtilisateur(), filtrerParRôle(), modifierRôle(). Je définis aussi la classe <span className={styles.methodKeyword}>Utilisateur</span> qui stocke id (UUID), prénom, nom, email (string), rôle (Rôle), dateCréation et dernièreConnexion (DateTime). L'énumération <span className={styles.conceptKeyword}>Rôle</span> comprend trois niveaux : Lecture_Seule, Commercial, Administrateur.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            Le système présente une <span className={styles.keyword}>hiérarchie des responsabilités</span> claire : StatistiquesUtilisateurs génère les rapports, TableauDeBordAdmin orchestre les opérations, Utilisateur représente les données individuelles, et Rôle contrôle les permissions. Les <span className={styles.techKeyword}>flux de données</span> suivent une logique descendante : StatistiquesUtilisateurs consulte TableauDeBordAdmin qui gère une collection d'Utilisateurs (cardinalité 1..*). Chaque Utilisateur référence un Rôle spécifique. Le système implémente les <span className={styles.methodKeyword}>opérations métier</span> : création/suppression d'utilisateurs, modification des rôles, filtrage par permissions, et affichage de statistiques temps réel. La <span className={styles.conceptKeyword}>structure modulaire</span> permet aussi d'ajouter facilement de nouveaux rôles ou méthodes d'administration sans impacter les autres composants du système CRM.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            Architecture avec <span className={styles.keyword}>4 classes UML</span>, hiérarchie des responsabilités, <span className={styles.methodKeyword}>flux de données</span> descendant et <span className={styles.conceptKeyword}>opérations métier</span> modulaires...
           </>
         )
       },
@@ -1470,46 +1369,63 @@ CREATE INDEX idx_cards_email ON cards(email);`
         description: "Script de migration SQL pour créer la table clients avec contraintes et index.",
         savoir: (
           <>
-            Les <span className={styles.conceptKeyword}>migrations de base de données</span> m'ont appris l'importance du <span className={styles.methodKeyword}>versioning des schémas</span>. J'ai découvert les <span className={styles.techKeyword}>scripts UP/DOWN</span> pour appliquer et annuler les changements. Les <span className={styles.keyword}>contraintes FOREIGN KEY</span> maintiennent l'intégrité référentielle. J'ai appris à gérer les <span className={styles.conceptKeyword}>dépendances entre tables</span> dans l'ordre de création.
+            Cette migration PostgreSQL m'a appris les <span className={styles.conceptKeyword}>techniques avancées de DDL</span> (Data Definition Language). J'ai découvert l'importance des <span className={styles.techKeyword}>contraintes CHECK</span> pour valider les données métier : le statut doit être 'Prospect', 'Client' ou 'Archivé'. Les <span className={styles.keyword}>fonctions PL/pgSQL</span> permettent d'automatiser les tâches : ici, la mise à jour automatique du timestamp <span className={styles.methodKeyword}>updated_at</span> via un trigger. J'ai appris que les <span className={styles.conceptKeyword}>triggers BEFORE UPDATE</span> s'exécutent avant chaque modification pour maintenir la cohérence. La <span className={styles.techKeyword}>stratégie d'indexation</span> optimise les requêtes fréquentes : index composite sur nom/prénom, index sur statut pour les filtres métier. J'ai compris l'importance des <span className={styles.methodKeyword}>scripts DOWN</span> complets qui nettoient proprement triggers, fonctions et tables dans le bon ordre.
           </>
         ),
         savoirFaire: (
           <>
-            J'ai créé un script de migration complet avec <span className={styles.keyword}>15 colonnes</span> : informations personnelles, entreprise, adresse, notes. J'ai défini les <span className={styles.techKeyword}>contraintes NOT NULL</span>, <span className={styles.techKeyword}>UNIQUE</span>, et <span className={styles.techKeyword}>CHECK</span> pour valider les données. La <span className={styles.methodKeyword}>clé étrangère</span> vers users assure la cohérence. J'ai ajouté des <span className={styles.conceptKeyword}>index stratégiques</span> sur email, nom, et user_id pour optimiser les requêtes fréquentes.
+            J'ai structuré une table clients avec <span className={styles.keyword}>14 colonnes optimisées</span> : identifiants (id, created_by), informations personnelles (first_name, last_name, email, phone), données professionnelles (company, position, address), métier CRM (status, is_confidential, notes), et timestamps automatiques. J'ai implémenté une <span className={styles.techKeyword}>contrainte CHECK sophistiquée</span> sur le statut avec 3 valeurs métier et valeur par défaut 'Prospect'. La <span className={styles.methodKeyword}>fonction PL/pgSQL</span> update_updated_at_column() utilise NEW.updated_at = NOW() pour horodater automatiquement chaque modification. Le <span className={styles.conceptKeyword}>trigger trg_clients_updated_at</span> se déclenche BEFORE UPDATE sur chaque ligne. J'ai créé <span className={styles.keyword}>5 index stratégiques</span> : idx_clients_created_by pour les requêtes par commercial, idx_clients_email pour les recherches rapides, idx_clients_name composite pour trier par nom complet, idx_clients_status pour filtrer prospects/clients, idx_clients_confidential pour sécuriser les données sensibles. Le script DOWN nettoie intelligemment dans l'ordre inverse : trigger → fonction → table.
           </>
         ),
         savoirFaireShort: (
           <>
-            J'ai créé un script avec <span className={styles.keyword}>15 colonnes</span> et <span className={styles.conceptKeyword}>index stratégiques</span>...
+            Migration avec <span className={styles.keyword}>14 colonnes</span>, <span className={styles.techKeyword}>contrainte CHECK</span>, <span className={styles.methodKeyword}>fonction PL/pgSQL</span>, <span className={styles.conceptKeyword}>trigger automatique</span> et <span className={styles.keyword}>5 index</span>...
           </>
         ),
-        code: `-- Migration 001: Création table clients
+        code: `-- Migration 001 : Création table clients
 -- UP
 CREATE TABLE clients (
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    nom VARCHAR(100) NOT NULL,
-    prenom VARCHAR(100) NOT NULL,
-    email VARCHAR(255) UNIQUE,
-    telephone VARCHAR(20),
-    entreprise VARCHAR(200),
-    secteur VARCHAR(100),
-    poste VARCHAR(150),
-    adresse_rue VARCHAR(255),
-    adresse_ville VARCHAR(100),
-    adresse_cp VARCHAR(10),
-    adresse_pays VARCHAR(50) DEFAULT 'France',
-    notes TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  id                SERIAL PRIMARY KEY,
+  created_by        INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  first_name        VARCHAR(100) NOT NULL,
+  last_name         VARCHAR(100) NOT NULL,
+  email             VARCHAR(255) NOT NULL UNIQUE,
+  phone             VARCHAR(20),
+  company           VARCHAR(255),
+  position          VARCHAR(100),
+  address           TEXT,
+  notes             TEXT,
+  status            VARCHAR(50) NOT NULL
+                     DEFAULT 'Prospect'
+                     CHECK (status IN ('Prospect','Client','Archivé')),
+  is_confidential   BOOLEAN DEFAULT FALSE,
+  created_at        TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at        TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
--- Index pour optimiser les performances
-CREATE INDEX idx_clients_user_id ON clients(user_id);
-CREATE INDEX idx_clients_email ON clients(email);
-CREATE INDEX idx_clients_nom ON clients(nom);
+-- Triggers pour tenir à jour updated_at
+CREATE FUNCTION update_updated_at_column()
+  RETURNS TRIGGER AS $$
+BEGIN
+  NEW.updated_at = NOW();
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_clients_updated_at
+  BEFORE UPDATE ON clients
+  FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+
+-- Indexes
+CREATE INDEX idx_clients_created_by      ON clients(created_by);
+CREATE INDEX idx_clients_email           ON clients(email);
+CREATE INDEX idx_clients_name            ON clients(last_name, first_name);
+CREATE INDEX idx_clients_status          ON clients(status);
+CREATE INDEX idx_clients_confidential    ON clients(is_confidential);
 
 -- DOWN
+DROP TRIGGER IF EXISTS trg_clients_updated_at ON clients;
+DROP FUNCTION IF EXISTS update_updated_at_column();
 DROP TABLE IF EXISTS clients;`
       },
       {
@@ -1518,6 +1434,7 @@ DROP TABLE IF EXISTS clients;`
         shortTitle: "Migration NFC",
         type: "Fichier SQL (.sql)",
         project: "NFC",
+        image: migrationNfcImage,
         file: "nfc/migrations/002_add_uuid_timestamps.sql",
         thumbnail: "captures/nfc/thumb_uuid.png",
         description: "Migration pour ajouter UUID et timestamps automatiques à la table cartes.",
@@ -1528,12 +1445,12 @@ DROP TABLE IF EXISTS clients;`
         ),
         savoirFaire: (
           <>
-            J'ai ajouté la colonne <span className={styles.techKeyword}>uuid</span> avec génération automatique via <span className={styles.keyword}>gen_random_uuid()</span>. J'ai créé un <span className={styles.methodKeyword}>trigger</span> pour mettre à jour automatiquement <span className={styles.techKeyword}>updated_at</span> à chaque modification. La migration inclut la <span className={styles.conceptKeyword}>rétrocompatibilité</span> : génération d'UUID pour les cartes existantes. J'ai testé sur <span className={styles.keyword}>10k cartes</span> existantes sans interruption de service.
+            J'ai implémenté une migration évolutive avec <span className={styles.keyword}>4 étapes techniques</span> : ajout de la colonne <span className={styles.techKeyword}>uuid</span> avec génération automatique via <span className={styles.keyword}>gen_random_uuid()</span>, génération d'UUID pour les cartes existantes avec UPDATE, ajout des contraintes NOT NULL et UNIQUE, puis création des colonnes <span className={styles.methodKeyword}>created_at</span> et <span className={styles.conceptKeyword}>updated_at</span> avec TIMESTAMP DEFAULT. J'ai créé un <span className={styles.techKeyword}>trigger automatique</span> qui se déclenche avant chaque UPDATE pour maintenir updated_at à jour. La migration respecte la <span className={styles.methodKeyword}>rétrocompatibilité</span> en préservant toutes les données existantes lors de l'ajout des nouvelles colonnes. Le script DOWN annule proprement tous les changements dans l'ordre inverse.
           </>
         ),
         savoirFaireShort: (
           <>
-            J'ai ajouté <span className={styles.techKeyword}>UUID</span> avec <span className={styles.methodKeyword}>trigger</span> automatique et testé sur <span className={styles.keyword}>10k cartes</span>...
+            Migration <span className={styles.keyword}>4 étapes</span> : <span className={styles.techKeyword}>UUID</span> + contraintes, <span className={styles.methodKeyword}>timestamps</span>, <span className={styles.conceptKeyword}>trigger automatique</span> et <span className={styles.keyword}>rétrocompatibilité</span>...
           </>
         ),
         code: `-- Migration 002: Ajout UUID et timestamps
@@ -1578,32 +1495,34 @@ ALTER TABLE cards DROP COLUMN IF EXISTS updated_at;`
         shortTitle: "Config PostgreSQL",
         type: "Env (.env)",
         project: "CRM",
+        image: envCrmImage,
         file: "crm/.env.production",
         thumbnail: "captures/crm/thumb_env.png",
-        description: "Configuration de production pour la connexion sécurisée à PostgreSQL.",
+        description: "Configuration .env.production complète avec 5 sections : connexion principale, SSL, pool de connexions, monitoring et réplication PostgreSQL.",
         savoir: (
           <>
-            La gestion des <span className={styles.conceptKeyword}>variables d'environnement</span> m'a appris les bonnes pratiques de <span className={styles.methodKeyword}>sécurité</span>. J'ai découvert l'importance de séparer les <span className={styles.keyword}>configurations par environnement</span> : dev, staging, production. Les <span className={styles.techKeyword}>chaînes de connexion PostgreSQL</span> incluent host, port, database, user, password. J'ai appris à utiliser <span className={styles.conceptKeyword}>SSL/TLS</span> pour sécuriser les connexions.
+            La configuration <span className={styles.conceptKeyword}>.env.production</span> m'a appris l'importance d'une <span className={styles.methodKeyword}>sécurisation multicouche</span> pour PostgreSQL. J'ai découvert les <span className={styles.techKeyword}>certificats SSL client</span> avec des chemins vers les fichiers `.crt`, `.key` et certificat CA pour chiffrer les communications. La gestion du <span className={styles.keyword}>pool de connexions</span> optimise les performances : MIN/MAX connections, timeouts d'acquisition et d'inactivité. J'ai appris l'importance du <span className={styles.conceptKeyword}>monitoring granulaire</span> : logs des requêtes lentes avec seuil configurable, distinction entre requêtes normales et lentes. La <span className={styles.methodKeyword}>haute disponibilité</span> nécessite une architecture maître-replica avec basculement automatique. Les <span className={styles.techKeyword}>variables d'environnement sécurisées</span> utilisent des références comme `$&#123;POSTGRES_PASSWORD&#125;` pour éviter les mots de passe en dur.
           </>
         ),
         savoirFaire: (
           <>
-            J'ai configuré <span className={styles.keyword}>3 environnements</span> avec des paramètres spécifiques : pool de connexions, timeouts, SSL. J'ai implémenté la <span className={styles.techKeyword}>rotation des mots de passe</span> et la <span className={styles.methodKeyword}>connexion par certificats</span> en production. La configuration inclut <span className={styles.conceptKeyword}>monitoring</span> : logs de connexion, métriques de performance. J'ai testé la <span className={styles.keyword}>haute disponibilité</span> avec failover automatique sur <span className={styles.keyword}>2 serveurs</span>.
+            J'ai structuré la configuration en <span className={styles.keyword}>5 sections distinctes</span> pour une gestion optimale. La <span className={styles.techKeyword}>base de données principale</span> utilise une DATABASE_URL complète avec référence sécurisée `$&#123;POSTGRES_PASSWORD&#125;` vers `db-prod.mobydev.fr:5432`. J'ai configuré le <span className={styles.methodKeyword}>SSL complet</span> avec certificat client (`postgresql-client.crt`), clé privée (`postgresql-client.key`) et autorité de certification (`ca-certificate.crt`) stockés dans `/etc/ssl/`. Le <span className={styles.conceptKeyword}>pool de connexions</span> est optimisé : 5 connexions minimum, 20 maximum, timeout inactivité de 30s et acquisition de 10s. Le <span className={styles.keyword}>monitoring intelligent</span> désactive les logs normaux mais active les requêtes lentes avec seuil de 1000ms. J'ai implémenté la <span className={styles.techKeyword}>réplication master-slave</span> avec serveur replica sur `db-replica.mobydev.fr:5432` et backup automatique activé. Chaque paramètre est documenté et environnement-spécifique pour la production.
           </>
         ),
         savoirFaireShort: (
           <>
-            J'ai configuré <span className={styles.keyword}>3 environnements</span> avec <span className={styles.techKeyword}>SSL/TLS</span> et <span className={styles.keyword}>haute disponibilité</span>...
+            Configuration <span className={styles.keyword}>5 sections</span> : SSL complet, pool optimisé, <span className={styles.techKeyword}>monitoring sélectif</span> et <span className={styles.methodKeyword}>réplication master-slave</span>...
           </>
         ),
-        code: `# .env.production - Configuration PostgreSQL sécurisée
+        code: `# .env.production — Configuration PostgreSQL sécurisée
+
 # Base de données principale
-DATABASE_URL=postgresql://crm_user:\${POSTGRES_PASSWORD}@db-prod.mobydev.fr:5432/crm_production
+DATABASE_URL=postgresql://crm_user:\$\{POSTGRES_PASSWORD\}@db-prod.mobydev.fr:5432/crm_production
 DB_HOST=db-prod.mobydev.fr
 DB_PORT=5432
 DB_NAME=crm_production
 DB_USER=crm_user
-DB_PASSWORD=\${POSTGRES_PASSWORD}
+DB_PASSWORD=\$\{POSTGRES_PASSWORD\}
 
 # Configuration SSL
 DB_SSL=true
@@ -1617,12 +1536,12 @@ DB_POOL_MAX=20
 DB_POOL_IDLE_TIMEOUT=30000
 DB_POOL_ACQUIRE_TIMEOUT=10000
 
-# Monitoring et logs
+# Monitoring & logs
 DB_LOG_QUERIES=false
 DB_LOG_SLOW_QUERIES=true
 DB_SLOW_QUERY_THRESHOLD=1000
 
-# Backup et réplication
+# Backup & réplication
 DB_BACKUP_ENABLED=true
 DB_REPLICA_HOST=db-replica.mobydev.fr
 DB_REPLICA_PORT=5432`

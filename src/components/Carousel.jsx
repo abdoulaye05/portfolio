@@ -1,13 +1,12 @@
-import styles from "./Carousel.module.scss";
+import React from 'react';
+import styles from './WorksSection.module.scss';
 
 function Carousel({ children }) {
   return (
     <div className={styles.carouselWrapper}>
-      <div className={styles.carouselContainer}>
-        {children}
-      </div>
+      {children}
     </div>
   );
 }
 
-export default Carousel;
+export default Carousel; 

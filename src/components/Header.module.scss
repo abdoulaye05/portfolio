@@ -12,17 +12,15 @@
   margin-left: 4.4rem;
   margin-top: 1rem;
   box-sizing: border-box;
-  @media (min-width: 1440px)  {
-  }
-  @media (max-width: 1024px)  {
-    //margin-left: 3.3rem;
-  }
-  @media (max-width: 768px)  {
+
+  @media (max-width: 768px) {
     margin-left: 2.5rem;
   }
-  @media (max-width: 425px)  {
+
+  @media (max-width: 425px) {
     margin-left: 1.3rem;
   }
+
   &__links {
     display: flex;
     align-items: center;
@@ -33,63 +31,53 @@
     font-weight: 300;
     font-size: 14px;
     padding-left: 1rem;
-    @media (min-width: 1440px)  {
-    }
-    @media (max-width: 1024px)  {
-    }
-    @media (max-width: 768px)  {
-    }
-    @media (max-width: 425px)  {
+
+    @media (max-width: 425px) {
       flex-direction: column;
       gap: 0.5rem;
       align-items: flex-start;
       font-size: 9px;
     }
-  }
-  &__links a {
-    position: relative;
-    text-decoration: none;
-    color: white;
+
+    a {
+      position: relative;
+      text-decoration: none;
+      color: white;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: -7px;
+        left: 50%;
+        background: linear-gradient(
+          to right,
+          transparent,
+          transparent 5%,
+          #ffffff 30%,
+          #ffffff 70%,
+          transparent 95%,
+          transparent
+        );
+        transition: width 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
   }
 
-  &__links a::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: -7px;
-    left: 50%;
-    background: linear-gradient(
-      to right,
-      transparent,
-      transparent 5%,
-      #ffffff 30%,
-      #ffffff 70%,
-      transparent 95%,
-      transparent
-    );
-    transition: width 0.3s ease;
-    transform: translateX(-50%);
-  }
-
-  &__links a:hover::after {
-    width: 100%;
-  }
   &__names {
     display: flex;
     justify-content: center;
     gap: 5px;
     margin-left: -4rem;
     transition: transform 0.3s ease;
-    @media (min-width: 1440px)  {
-    }
-    @media (max-width: 1024px)  {
-    }
-    @media (max-width: 768px)  {
 
-      //margin-left: -3rem;
-    }
-    @media (max-width: 425px)  {
+    @media (max-width: 425px) {
       margin-left: 0;
     }
 
@@ -107,13 +95,8 @@
     font-size: 20px;
     transition: transform 0.3s ease;
     display: inline-block;
-    @media (max-width: 1440px)  {
-    }
-    @media (max-width: 1024px)  {
-    }
-    @media (max-width: 768px)  {
-    }
-    @media (max-width: 425px)  {
+
+    @media (max-width: 425px) {
       font-size: 15px;
     }
   }
@@ -125,6 +108,7 @@
   &__lastName {
     font-weight: 200;
   }
+
   &__contact {
     color: $white;
     border: 1px solid $white;
@@ -138,36 +122,31 @@
     transition: background-color 0.3s ease-in-out;
     position: relative;
     overflow: hidden;
-    cursor: pointer;
-    @media (max-width: 1440px)  {
-    }
-    @media (max-width: 1024px)  {
-    }
-    @media (max-width: 768px)  {
-    }
-    @media (max-width: 425px)  {
+
+    @media (max-width: 425px) {
       font-size: 10px;
       padding: 10px 10px;
       border-radius: 50px;
     }
 
     &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0%;
-        height: 100%;
-        background-color: $white;
-        transition: width 0.4s ease-in-out;
-        z-index: -1;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: $white;
+      transition: width 0.4s ease-in-out;
+      z-index: -1;
     }
-  }
-  &__contact:hover {
-    color: black;
 
-    &::before {
+    &:hover {
+      color: black;
+
+      &::before {
         width: 100%;
+      }
     }
   }
 }

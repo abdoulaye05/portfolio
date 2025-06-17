@@ -9,8 +9,10 @@ export default function Header() {
     const location = useLocation();
     const navigate = useNavigate();
     
-    // Vérifier si on est sur une page de compétences
+    // Vérifier si on est sur une page de compétences ou de projets
     const isCompetencePage = location.pathname.includes('/skills');
+    const isWorksPage = location.pathname.includes('/works');
+    const isSubPage = isCompetencePage || isWorksPage;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -31,8 +33,8 @@ export default function Header() {
     // Scroll vers la section À propos
     const handleScrollToAbout = (e) => {
         e.preventDefault();
-        if (isCompetencePage) {
-            // Si on est sur une page de compétences, naviguer vers la page d'accueil puis scroller
+        if (isSubPage) {
+            // Si on est sur une sous-page, naviguer vers la page d'accueil puis scroller
             navigate('/');
             setTimeout(() => {
                 const aboutSection = document.getElementById("about-section");
@@ -44,16 +46,12 @@ export default function Header() {
         }
     };
 
-    // Scroll vers la section Réalisations
+    // Navigation vers la page des réalisations ou scroll
     const handleScrollToWorks = (e) => {
         e.preventDefault();
-        if (isCompetencePage) {
-            // Si on est sur une page de compétences, naviguer vers la page d'accueil puis scroller
-            navigate('/');
-            setTimeout(() => {
-                const worksSection = document.getElementById("works-section");
-                worksSection?.scrollIntoView({ behavior: "smooth" });
-            }, 100);
+        if (isSubPage) {
+            // Si on est sur une sous-page, naviguer vers la page des projets
+            navigate('/works');
         } else {
             const worksSection = document.getElementById("works-section");
             worksSection?.scrollIntoView({ behavior: "smooth" });
@@ -63,8 +61,8 @@ export default function Header() {
     // Scroll vers la section Contact
     const handleScrollToContact = (e) => {
         e.preventDefault();
-        if (isCompetencePage) {
-            // Si on est sur une page de compétences, naviguer vers la page d'accueil puis scroller
+        if (isSubPage) {
+            // Si on est sur une sous-page, naviguer vers la page d'accueil puis scroller
             navigate('/');
             setTimeout(() => {
                 const contactSection = document.getElementById("contact-section");

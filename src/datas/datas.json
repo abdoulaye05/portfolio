@@ -5,7 +5,7 @@
         "date": "septembre 2024",
         "status": "En production",
         "subtitle": "Mini-site interactif déclenché par simple scan NFC sur carte physique",
-        "cover": "src/assets/formulaire_NFC.png",
+        "cover": "/assets/formulaire_NFC.png",
         "description": "Solution innovante de cartes de visite NFC permettant d'accéder à un mini-site personnalisé d'un simple scan. Architecture React/Vite optimisée, hébergement AWS S3, programmation NDEF des puces NFC avec validation temps réel.",
         "technologies": ["React", "Vite", "AWS S3", "NFC NDEF", "React Hook Form", "CSS Modules"],
         "metrics": {
@@ -27,8 +27,11 @@
             "Score Lighthouse 94/100"
         ],
         "pictures": [
-            "src/assets/formulaire_NFC.png",
-            "src/assets/CardForm Component.png"
+            "/assets/formulaire_NFC.png",
+            "/assets/CardForm Component.png",
+            "/assets/Page_public.png",
+            "/assets/Modele_utilisateurs_nfc.png",
+            "/assets/Utilisation_react_Hook.png"
         ],
         "isPhare": true,
         "competences": ["UE 1", "UE 4", "UE 6"],
@@ -36,6 +39,14 @@
             "savoir": "Maîtrise des technologies NFC NDEF, architecture React moderne avec hooks, optimisation AWS S3, validation de formulaires avancée",
             "savoirFaire": "Développement d'interfaces tactiles optimisées, intégration hardware/software, déploiement cloud scalable, tests multi-appareils",
             "savoirEtre": "Innovation technologique, résolution de problèmes complexes, attention aux détails UX, collaboration client-développeur"
+        },
+        "detailedDescription": "Ce projet représente une innovation majeure dans le domaine des cartes de visite digitales. Chaque carte physique contient une puce NFC programmée avec une URL unique qui redirige vers un mini-site personnalisé. L'architecture technique repose sur React/Vite pour des performances optimales, avec un hébergement AWS S3 garantissant une disponibilité mondiale. La programmation NDEF permet de stocker jusqu'à 2KB de données directement sur la puce, incluant l'URL, les métadonnées et les paramètres de redirection. Le système intègre une validation temps réel des formulaires grâce à React Hook Form, assurant une expérience utilisateur fluide et sans erreur.",
+        "technicalSpecs": {
+            "frontend": "React 18 + Vite",
+            "hosting": "AWS S3 + CloudFront",
+            "nfc": "NDEF Type 4 - ISO14443",
+            "compatibility": "Android 4.4+ / iOS 11+",
+            "performance": "< 1.2s First Contentful Paint"
         }
     },
     {
@@ -44,7 +55,7 @@
         "date": "octobre 2024",
         "status": "En production",
         "subtitle": "Plateforme de gestion interne pour l'équipe Mobydev",
-        "cover": "src/assets/auth.js – Middleware JWT.png",
+        "cover": "/assets/auth.js – Middleware JWT.png",
         "description": "Application web complète pour la gestion des projets internes, suivi du temps, et collaboration d'équipe. Architecture full-stack avec authentification JWT sécurisée, API REST optimisée et interface React moderne.",
         "technologies": ["React", "Node.js", "Express", "PostgreSQL", "JWT", "Docker", "Nginx"],
         "metrics": {
@@ -66,7 +77,11 @@
             "Satisfaction utilisateur 9.2/10"
         ],
         "pictures": [
-            "src/assets/auth.js – Middleware JWT.png"
+            "/assets/auth.js – Middleware JWT.png",
+            "/assets/Dashbord crm.png",
+            "/assets/Gestion_utilisateur_interface.png",
+            "/assets/MCD_CRM.png",
+            "/assets/env_crm.png"
         ],
         "isPhare": true,
         "competences": ["UE 1", "UE 4", "UE 5", "UE 6"],
@@ -74,6 +89,14 @@
             "savoir": "Architecture full-stack moderne, sécurité JWT avancée, modélisation de données complexes, containerisation Docker",
             "savoirFaire": "Développement API REST sécurisée, gestion d'état React complexe, optimisation base de données, déploiement production",
             "savoirEtre": "Leadership technique, gestion de projet agile, communication équipe, résolution de conflits"
+        },
+        "detailedDescription": "Cette application interne révolutionne la gestion de projets chez Mobydev. L'architecture full-stack repose sur une API REST Node.js/Express sécurisée par JWT, connectée à une base PostgreSQL optimisée. L'interface React offre une expérience utilisateur moderne avec gestion d'état Redux pour la synchronisation temps réel. Le système inclut un tableau de bord analytique, un suivi de temps intégré, et des outils de collaboration avancés. L'infrastructure Docker garantit une compatibilité multi-environnements et un déploiement simplifié.",
+        "technicalSpecs": {
+            "backend": "Node.js 18 + Express 4.18",
+            "database": "PostgreSQL 15 + Prisma ORM",
+            "authentication": "JWT + Refresh Tokens",
+            "deployment": "Docker + Nginx Reverse Proxy",
+            "monitoring": "PM2 + Winston Logging"
         }
     },
     {
@@ -82,7 +105,7 @@
         "date": "juillet 2024",
         "status": "Terminé",
         "subtitle": "Application de gestion de produits et clients",
-        "cover": "src/assets/about_picture.webp",
+        "cover": "/assets/about_picture.webp",
         "description": "Système CRUD complet avec base de données relationnelle optimisée pour la gestion des produits et clients. Conception MCD dénormalisé, back-office intuitif et requêtes SQL haute performance.",
         "technologies": ["PHP", "MySQL", "HTML5", "CSS3", "JavaScript", "Bootstrap"],
         "metrics": {
@@ -103,13 +126,24 @@
             "Productivité gestion +50%",
             "Formation utilisateurs 2h seulement"
         ],
-        "pictures": [],
+        "pictures": [
+            "/assets/about_picture.webp",
+            "/assets/future-grid.webp"
+        ],
         "isPhare": false,
         "competences": ["UE 4", "UE 1"],
         "learnings": {
             "savoir": "Modélisation de données avancée, optimisation SQL, architecture MVC, principes de normalisation/dénormalisation",
             "savoirFaire": "Conception de bases de données performantes, développement d'interfaces CRUD, validation de données, tests unitaires",
             "savoirEtre": "Rigueur dans la modélisation, attention aux besoins utilisateur, documentation technique claire"
+        },
+        "detailedDescription": "MousoW est un système de gestion complet développé avec une approche centrée sur les performances et l'intégrité des données. L'architecture repose sur un modèle de données soigneusement conçu, balançant normalisation et dénormalisation pour optimiser les requêtes fréquentes. L'interface utilise Bootstrap pour une expérience responsive native, tandis que le backend PHP implémente un pattern MVC strict avec validation robuste des données métier.",
+        "technicalSpecs": {
+            "backend": "PHP 8.1 + MySQLi",
+            "frontend": "HTML5 + CSS3 + Bootstrap 5",
+            "database": "MySQL 8.0 avec index optimisés",
+            "architecture": "MVC Pattern + Repository Pattern",
+            "security": "Prepared Statements + Input Validation"
         }
     },
     {
@@ -118,7 +152,7 @@
         "date": "mai 2024 - août 2024",
         "status": "En production",
         "subtitle": "Évolution complète du site vitrine : de vanilla JS à React/Next.js",
-        "cover": "src/assets/future-grid.webp",
+        "cover": "/assets/future-grid.webp",
         "description": "Développement et refonte complète du site vitrine de l'agence Mobydev. Première version en HTML/CSS/JS vanilla optimisée (Lighthouse 95+), puis migration vers React/Next.js pour améliorer le SEO et les performances. Intégration Docker, CMS headless Strapi et animations Framer Motion.",
         "technologies": ["HTML5", "CSS3", "JavaScript", "React", "Next.js", "Strapi", "Docker", "Framer Motion", "Tailwind CSS"],
         "evolution": {
@@ -152,13 +186,24 @@
             "Temps de développement -50% (V2)",
             "Maintenance simplifiée avec architecture moderne"
         ],
-        "pictures": [],
+        "pictures": [
+            "/assets/future-grid.webp",
+            "/assets/about_picture.webp"
+        ],
         "isPhare": false,
         "competences": ["UE 1", "UE 2"],
         "learnings": {
             "savoir": "Optimisation web native, animations CSS avancées, SEO technique, architecture React moderne, SSR/SSG Next.js, CMS headless, containerisation",
             "savoirFaire": "Développement vanilla performant, migration de systèmes complexes, optimisation Core Web Vitals, intégration CI/CD, monitoring production",
             "savoirEtre": "Perfectionnisme technique, vision architecturale, amélioration continue, veille technologique, anticipation des besoins"
+        },
+        "detailedDescription": "Ce projet illustre une évolution technique majeure, passant d'une approche vanilla à une architecture moderne React/Next.js. La V1 démontre la maîtrise des fondamentaux web avec des optimisations manuelles poussées, atteignant un score Lighthouse de 95/100 sans framework. La V2 exploite Next.js pour le SSR/SSG, Strapi comme CMS headless, et Framer Motion pour des animations fluides. L'infrastructure Docker assure la portabilité et la scalabilité.",
+        "technicalSpecs": {
+            "v1": "Vanilla JS + SASS + Webpack",
+            "v2": "Next.js 13 + Strapi CMS + Docker",
+            "performance": "Core Web Vitals optimisés",
+            "seo": "SSR/SSG + Meta dynamiques",
+            "deployment": "Vercel + Docker containers"
         }
     }
 ]

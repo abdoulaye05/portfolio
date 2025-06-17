@@ -1,0 +1,3169 @@
+import React, { useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import { GoArrowLeft } from "react-icons/go";
+import { FaCode, FaProjectDiagram, FaDatabase, FaChartLine, FaTasks, FaUsers, FaTools, FaBrain, FaRocket, FaBullseye, FaBolt, FaTrophy, FaSearchPlus, FaTimes, FaCamera, FaFileCode, FaChevronDown, FaChevronUp, FaFolder, FaLightbulb, FaCog } from "react-icons/fa";
+import styles from "./CompetenceDetail.module.scss";
+import ErrorPage from "../error/Error";
+import cardFormImage from "../../assets/CardForm Component.png";
+import formulaireNfcImage from "../../assets/formulaire_NFC.png";
+import authMiddlewareImage from "../../assets/auth.js – Middleware JWT.png";
+import pageReactSchemaImage from "../../assets/page_react.png";
+import reactHookImage from "../../assets/Utilisation_react_Hook.png";
+import dashboardCrmImage from "../../assets/Dashbord crm.png";
+import pagePublicImage from "../../assets/Page_public.png";
+import gestionUtilisateurImage from "../../assets/Gestion_utilisateur_interface.png";
+import modeleUtilisateursImage from "../../assets/Modele_utilisateurs_nfc.png";
+import mcdCrmImage from "../../assets/MCD_CRM.png";
+import migrationNfcImage from "../../assets/Migration002_NFC.png";
+import envCrmImage from "../../assets/env_crm.png";
+import deploiementCrmImage from "../../assets/Deploiement_crm.png";
+
+// Données des compétences avec leurs traces et projets associés
+const competencesData = {
+  "ue1": {
+    title: "UE 1 – Développer une application",
+    badge: "⭐ Focus", 
+    description: "Maîtriser la mise en place complète d'une application web, du bootstrap du projet à son déploiement, en garantissant sécurité, qualité et UX.",
+    traces: [
+  {
+    id: "cardform_nfc",
+    title: "CardForm.jsx – Formulaire de carte",
+    shortTitle: "CardForm React",
+    type: "Code React (.jsx)",
+    project: "Cartes NFC",
+    file: "cartes-nfc/frontend/src/components/CardForm.jsx",
+    thumbnail: "captures/nfc/thumb_cardform.png",
+    description: "Interface React intuitive pour créer des cartes NFC personnalisées avec diagramme UML documentant l'architecture technique.",
+    savoir: (
+      <>
+        Cette trace illustre parfaitement la <span className={styles.conceptKeyword}>dualité interface/architecture</span> d'un composant React moderne. Côté <span className={styles.keyword}>interface utilisateur</span>, j'ai découvert comment créer une UX fluide avec <span className={styles.techKeyword}>React Hook Form</span> : saisie intuitive, prévisualisation temps réel, sélection de thèmes visuels. Côté <span className={styles.keyword}>architecture technique</span>, j'ai créé un <span className={styles.methodKeyword}>diagramme de séquence UML</span> montrant les interactions entre hooks React, validation, et API. J'ai appris que <span className={styles.techKeyword}>useForm()</span> et <span className={styles.techKeyword}>watch()</span> permettent une réactivité parfaite entre formulaire et aperçu. Le <span className={styles.conceptKeyword}>diagramme UML</span> détaille le fonctionnement : gestion d'états, validation multi-niveaux, communication asynchrone avec le backend.
+      </>
+    ),
+    savoirFaire: (
+      <>
+        <strong>Interface :</strong> J'ai conçu un formulaire ergonomique avec <span className={styles.keyword}>8 champs intelligents</span> (prénom, nom, entreprise, poste, email, téléphone, URL, thème) et <span className={styles.conceptKeyword}>8 thèmes visuels</span> (Bleu Classique, Vert Nature, Orange Vitaminé, etc.). La <span className={styles.methodKeyword}>prévisualisation temps réel</span> synchronise instantanément saisie et aperçu visuel. <strong>Architecture :</strong> Le <span className={styles.techKeyword}>diagramme UML</span> montre le flux technique : hooks React pour la validation côté client, formState pour l'interface, requêtes POST vers l'API. J'ai documenté les étapes depuis la saisie utilisateur jusqu'à la sauvegarde en base avec gestion d'erreurs.
+      </>
+    ),
+    savoirFaireShort: (
+      <>
+        <strong>Interface :</strong> Formulaire avec <span className={styles.keyword}>8 champs intelligents</span> et <span className={styles.conceptKeyword}>8 thèmes visuels</span>. <strong>Architecture :</strong> <span className={styles.techKeyword}>Diagramme UML</span> documentant hooks React, validation et flux API...
+      </>
+    ),
+    interfaceImage: formulaireNfcImage,
+    diagramImage: reactHookImage
+  },
+  {
+    id: "clientform_crm",
+    title: "ClientForm.jsx – Création de client",
+    shortTitle: "ClientForm CRM",
+    type: "Code React (.jsx)",
+    project: "CRM",
+    file: "crm-mobydev/frontend/src/components/ClientForm.jsx",
+    thumbnail: "captures/crm/thumb_clientform.png",
+    description: "Code React pour formulaire de création et gestion des clients dans le CRM Mobydev.",
+    savoir: (
+      <>
+        Ce projet m'a fait passer au niveau supérieur en me confrontant à un <span className={styles.conceptKeyword}>formulaire métier complexe</span>, bien différent du formulaire NFC. J'ai découvert la <span className={styles.keyword}>gestion d'états multiples</span> : j'ai appris à utiliser <span className={styles.techKeyword}>loading</span> pour l'état de soumission, <span className={styles.techKeyword}>message</span> pour les retours utilisateur, <span className={styles.techKeyword}>errors</span> pour les erreurs de validation. La communication avec une <span className={styles.techKeyword}>API REST</span> était nouvelle pour moi - j'ai appris l'importance de la <span className={styles.conceptKeyword}>gestion d'erreurs asynchrone</span> avec <span className={styles.techKeyword}>try/catch</span> et <span className={styles.techKeyword}>async/await</span>. Au début, mes requêtes échouaient mystérieusement car je ne gérais pas correctement les <span className={styles.methodKeyword}>en-têtes HTTP</span>, les <span className={styles.errorKeyword}>codes de statut</span>, et les différents types d'erreurs. J'ai compris l'importance cruciale du <span className={styles.conceptKeyword}>feedback utilisateur</span> : spinner de chargement, messages clairs, désactivation du bouton pendant la soumission.
+      </>
+    ),
+    savoirFaire: (
+      <>
+        J'ai développé un formulaire client beaucoup plus sophistiqué avec des <span className={styles.keyword}>champs métier spécifiques</span> : informations personnelles (nom, prénom, email, téléphone), données entreprise (société, secteur d'activité), adresse complète (rue, ville, code postal, pays), et notes libres. J'ai implémenté une <span className={styles.methodKeyword}>validation à deux niveaux</span> : côté client avec <span className={styles.techKeyword}>React Hook Form</span> pour une validation immédiate (meilleure UX), et côté serveur pour la sécurité. Pour la gestion des états, j'ai organisé plusieurs <span className={styles.techKeyword}>useState</span> : <span className={styles.techKeyword}>loading</span>, <span className={styles.techKeyword}>message</span>, <span className={styles.techKeyword}>clients</span> pour la liste mise à jour. J'ai créé des <span className={styles.methodKeyword}>fonctions séparées</span> pour chaque action <span className={styles.keyword}>CRUD</span> et j'ai géré intelligemment les différents types d'erreurs : <span className={styles.errorKeyword}>validation (400)</span>, <span className={styles.errorKeyword}>serveur (500)</span>, <span className={styles.errorKeyword}>réseau</span>, avec des messages utilisateur appropriés et contextuels que j'ai personnalisés.
+      </>
+    ),
+    savoirFaireShort: (
+      <>
+        J'ai développé un formulaire client avec des <span className={styles.keyword}>champs métier spécifiques</span> et une <span className={styles.methodKeyword}>validation à deux niveaux</span>. J'ai géré les actions <span className={styles.keyword}>CRUD</span> avec gestion d'erreurs...
+      </>
+    ),
+    code: `// ClientForm.jsx - Formulaire CRM avec validation complète
+const [loading, setLoading] = useState(false);
+const [message, setMessage] = useState('');
+
+const onSubmit = async (data) => {
+  setLoading(true);
+  try {
+    const response = await fetch('/api/clients', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    
+    if (response.ok) {
+      setMessage('Client créé avec succès');
+      reset();
+    }
+  } catch (error) {
+    setMessage('Erreur lors de la création');
+  } finally {
+    setLoading(false);
+  }
+};`
+  },
+  {
+    id: "client_routes",
+    title: "Routes API – clientRoutes.js",
+    shortTitle: "API Routes CRM",
+    type: "Code Express (.js)",
+    project: "CRM",
+    file: "crm-mobydev/backend/routes/clientRoutes.js",
+    thumbnail: "captures/crm/thumb_routes.png",
+    description: "Code Express pour API REST complète de gestion CRUD des clients avec authentification.",
+    savoir: (
+      <>
+        Le développement <span className={styles.keyword}>backend</span> était complètement nouveau pour moi en début de formation. J'ai dû apprendre les <span className={styles.conceptKeyword}>principes fondamentaux de l'architecture REST</span> : j'ai compris que chaque ressource a une URL unique et logique, et que les <span className={styles.methodKeyword}>verbes HTTP</span> ont un sens précis (<span className={styles.techKeyword}>GET</span> pour lire, <span className={styles.techKeyword}>POST</span> pour créer, <span className={styles.techKeyword}>PUT</span> pour modifier, <span className={styles.techKeyword}>DELETE</span> pour supprimer). J'ai découvert <span className={styles.techKeyword}>Express.js</span> et son système de <span className={styles.keyword}>middleware</span> - au début, je ne comprenais pas comment les fonctions s'enchaînaient magiquement. <span className={styles.techKeyword}>express-validator</span> m'a permis de valider les données côté serveur de manière propre avec des <span className={styles.methodKeyword}>règles déclaratives</span>. La notion de <span className={styles.conceptKeyword}>codes HTTP</span> était floue pour moi : j'ai appris que <span className={styles.keyword}>200 = succès</span>, <span className={styles.keyword}>201 = créé</span>, <span className={styles.errorKeyword}>400 = erreur client</span>, <span className={styles.errorKeyword}>401 = non authentifié</span>, <span className={styles.errorKeyword}>500 = erreur serveur</span>. J'ai aussi découvert l'importance de structurer les <span className={styles.methodKeyword}>réponses JSON</span> de manière cohérente.
+      </>
+    ),
+    savoirFaire: (
+      <>
+        J'ai implémenté une <span className={styles.keyword}>API REST complète</span> avec <span className={styles.keyword}>5 routes principales</span> bien structurées : j'ai créé <span className={styles.techKeyword}>GET /</span> pour lister tous les clients avec pagination, <span className={styles.techKeyword}>GET /:id</span> pour récupérer un client spécifique, <span className={styles.techKeyword}>POST /</span> pour créer un nouveau client, <span className={styles.techKeyword}>PUT /:id</span> pour modifier un client existant, et <span className={styles.techKeyword}>DELETE /:id</span> pour supprimer. J'ai fait en sorte que chaque route utilise le middleware <span className={styles.methodKeyword}>authMiddleware</span> pour vérifier le <span className={styles.keyword}>token JWT</span> avant d'exécuter la logique métier. Pour la validation, j'ai créé un middleware <span className={styles.methodKeyword}>clientValidation</span> avec des règles spécifiques que j'ai définies : email valide, téléphone au format français, nom/prénom obligatoires, etc. J'ai structuré toutes mes réponses de manière cohérente avec un objet contenant <span className={styles.techKeyword}>success: true/false</span>, les données dans <span className={styles.techKeyword}>data</span>, un message explicite, et les erreurs détaillées si nécessaire. Pour la base de données, j'ai utilisé <span className={styles.techKeyword}>Sequelize ORM</span> avec des requêtes que j'ai optimisées.
+      </>
+    ),
+    savoirFaireShort: (
+      <>
+        J'ai implémenté une <span className={styles.keyword}>API REST</span> avec <span className={styles.keyword}>5 routes principales</span> et middleware <span className={styles.methodKeyword}>authMiddleware</span>. J'ai créé la validation avec <span className={styles.techKeyword}>express-validator</span>...
+      </>
+    ),
+    code: `// clientRoutes.js - API REST complète avec authentification
+router.get('/', authMiddleware, async (req, res) => {
+  const clients = await Client.findAll({
+    where: { userId: req.user.id },
+    order: [['createdAt', 'DESC']]
+  });
+  res.json({ success: true, data: clients, count: clients.length });
+});
+
+router.post('/', authMiddleware, clientValidation, async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  
+  const client = await Client.create({
+    ...req.body,
+    userId: req.user.id
+  });
+  
+  res.status(201).json({
+    success: true,
+    data: client,
+    message: 'Client créé avec succès'
+  });
+});`
+  },
+  {
+    id: "auth_middleware",
+    title: "auth.js – Middleware JWT sécurisé",
+    shortTitle: "Auth Middleware",
+    type: "Code source",
+    file: "crm-mobydev/backend/middleware/auth.js",
+    image: authMiddlewareImage,
+    thumbnail: "captures/crm/thumb_auth.png",
+    description: "Cette trace illustre le middleware Express d'authentification JWT avec gestion des rôles pour sécuriser l'API.",
+    savoir: (
+      <>
+        L'<span className={styles.keyword}>authentification JWT</span> était un concept totalement nouveau et fascinant pour moi. J'ai d'abord dû comprendre la différence fondamentale entre <span className={styles.conceptKeyword}>authentification</span> (qui êtes-vous ?) et <span className={styles.conceptKeyword}>autorisation</span> (que pouvez-vous faire ?). J'ai découvert que les <span className={styles.techKeyword}>JWT</span> sont des tokens '<span className={styles.keyword}>stateless</span>' révolutionnaires : toutes les informations sont encodées dans le token, pas besoin de session serveur ! J'ai appris la structure d'un JWT : <span className={styles.methodKeyword}>header.payload.signature</span> encodés en <span className={styles.techKeyword}>base64</span>. Le <span className={styles.keyword}>middleware Express</span> était un concept difficile au début - j'ai compris qu'il s'exécute avant chaque route protégée et peut modifier les objets <span className={styles.techKeyword}>req</span> et <span className={styles.techKeyword}>res</span>. J'ai découvert l'importance cruciale de la <span className={styles.conceptKeyword}>gestion d'erreurs</span> : token manquant, format invalide, token expiré, signature incorrecte. J'ai appris que chaque cas doit retourner le bon <span className={styles.errorKeyword}>code HTTP</span> avec un message explicite. J'ai aussi appris les <span className={styles.methodKeyword}>bonnes pratiques de sécurité</span> : clé secrète forte, durée d'expiration raisonnable.
+      </>
+    ),
+    savoirFaire: (
+      <>
+        J'ai créé un <span className={styles.keyword}>middleware Express</span> robuste qui intercepte toutes les requêtes vers les routes protégées. Mon processus est méthodique : d'abord, je récupère l'<span className={styles.techKeyword}>en-tête Authorization</span> et je vérifie qu'il commence par '<span className={styles.keyword}>Bearer </span>'. Ensuite, j'extrais le token avec <span className={styles.techKeyword}>substring(7)</span> pour enlever le préfixe. J'utilise <span className={styles.techKeyword}>jwt.verify()</span> avec la clé secrète que j'ai stockée dans les <span className={styles.methodKeyword}>variables d'environnement</span> pour décoder le token. Si le token est valide, je décode les informations utilisateur (id, email, rôle) et je les ajoute dans <span className={styles.techKeyword}>req.user</span> pour que les routes suivantes puissent les utiliser. J'ai implémenté une <span className={styles.conceptKeyword}>gestion d'erreurs complète</span> et précise : en-tête manquant ou mal formaté (<span className={styles.errorKeyword}>401</span>), token expiré avec capture de <span className={styles.errorKeyword}>TokenExpiredError</span> (<span className={styles.errorKeyword}>401</span>), autres erreurs comme signature invalide (<span className={styles.errorKeyword}>403</span>). J'ai aussi ajouté un <span className={styles.methodKeyword}>système de rôles</span> pour différencier les permissions que j'ai définies selon les besoins.
+      </>
+    ),
+    savoirFaireShort: (
+      <>
+        J'ai créé un <span className={styles.keyword}>middleware Express</span> robuste avec vérification <span className={styles.techKeyword}>Bearer token</span> et <span className={styles.techKeyword}>jwt.verify()</span>. J'ai implémenté une <span className={styles.conceptKeyword}>gestion d'erreurs complète</span>...
+      </>
+    ),
+    code: `// auth.js - Middleware JWT avec gestion des rôles
+const authMiddleware = (req, res, next) => {
+  try {
+    const authHeader = req.headers.authorization;
+    
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return res.status(401).json({ 
+        error: 'Token manquant ou format invalide' 
+      });
+    }
+    
+    const token = authHeader.substring(7);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    
+    req.user = {
+      id: decoded.userId,
+      email: decoded.email,
+      role: decoded.role
+    };
+    
+    next();
+  } catch (error) {
+    if (error.name === 'TokenExpiredError') {
+      return res.status(401).json({ error: 'Token expiré' });
+    }
+    return res.status(403).json({ error: 'Token invalide' });
+  }
+};`
+  },
+  {
+    id: "card_routes_nfc",
+    title: "Routes API – cardRoutes.js",
+    shortTitle: "API Routes NFC",
+    type: "Code Express (.js)",
+    project: "NFC",
+    file: "cartes-nfc/backend/routes/cardRoutes.js",
+    thumbnail: "captures/nfc/thumb_routes.png",
+    description: "Code Express pour API REST de gestion des cartes NFC avec validation et sécurité.",
+    savoir: (
+      <>
+        J'ai développé l'<span className={styles.keyword}>API REST</span> pour les cartes NFC en appliquant les mêmes principes que pour le CRM. J'ai appris l'importance de la <span className={styles.conceptKeyword}>cohérence architecturale</span> entre projets : même structure de routes, même gestion d'erreurs, mêmes conventions de nommage. J'ai découvert les spécificités des <span className={styles.techKeyword}>UUID</span> pour les cartes NFC et la gestion des <span className={styles.methodKeyword}>QR codes dynamiques</span>. La validation des données était cruciale car les cartes sont publiques une fois générées.
+      </>
+    ),
+    savoirFaire: (
+      <>
+        J'ai créé <span className={styles.keyword}>5 routes principales</span> : <span className={styles.techKeyword}>POST /cards</span> pour créer, <span className={styles.techKeyword}>GET /cards/:uuid</span> pour afficher publiquement, <span className={styles.techKeyword}>GET /cards</span> pour lister (admin), <span className={styles.techKeyword}>PUT /cards/:id</span> pour modifier, <span className={styles.techKeyword}>DELETE /cards/:id</span> pour supprimer. J'ai implémenté la génération automatique d'<span className={styles.techKeyword}>UUID uniques</span> et la création de <span className={styles.methodKeyword}>QR codes</span> avec la librairie <span className={styles.techKeyword}>qrcode</span>. La validation inclut les formats email/téléphone et la vérification des thèmes disponibles.
+      </>
+    ),
+    savoirFaireShort: (
+      <>
+        J'ai créé <span className={styles.keyword}>5 routes principales</span> avec génération d'<span className={styles.techKeyword}>UUID uniques</span> et création de <span className={styles.methodKeyword}>QR codes</span>...
+      </>
+    ),
+    code: `// cardRoutes.js - API REST pour cartes NFC
+router.post('/', cardValidation, async (req, res) => {
+  const cardUuid = uuidv4();
+  const qrCodeUrl = await generateQRCode(\`\${process.env.FRONTEND_URL}/card/\${cardUuid}\`);
+  
+  const card = await Card.create({
+    ...req.body,
+    uuid: cardUuid,
+    qrCode: qrCodeUrl,
+    userId: req.user?.id
+  });
+  
+  res.status(201).json({
+    success: true,
+    data: card,
+    message: 'Carte créée avec succès'
+  });
+});`
+  },
+  {
+    id: "dashboard_crm",
+    title: "Dashboard clients – Statistiques dynamiques",
+    shortTitle: "Dashboard CRM",
+    type: "Capture (.png)",
+    project: "CRM",
+    thumbnail: "captures/crm/thumb_dashboard.png",
+    image: dashboardCrmImage,
+    description: "Interface de dashboard avec statistiques en temps réel et graphiques dynamiques.",
+    savoir: (
+      <>
+        Le développement du <span className={styles.conceptKeyword}>dashboard</span> m'a fait découvrir la <span className={styles.techKeyword}>visualisation de données</span> en temps réel. J'ai appris à utiliser <span className={styles.techKeyword}>Chart.js</span> avec React pour créer des graphiques interactifs. La notion de <span className={styles.methodKeyword}>données agrégées</span> était nouvelle : compter les clients par mois, calculer les taux de conversion, analyser les tendances. J'ai compris l'importance des <span className={styles.conceptKeyword}>KPI (indicateurs clés)</span> pour le suivi business.
+      </>
+    ),
+    savoirFaire: (
+      <>
+        J'ai créé un dashboard avec <span className={styles.keyword}>6 widgets principaux</span> : nombre total de clients, nouveaux clients du mois, taux de croissance, répartition par secteur, évolution mensuelle, et top 5 des entreprises. J'ai utilisé <span className={styles.techKeyword}>Chart.js</span> pour les graphiques en barres et en secteurs, avec mise à jour automatique toutes les <span className={styles.keyword}>30 secondes</span>. Les requêtes SQL incluent des <span className={styles.methodKeyword}>GROUP BY</span> et <span className={styles.methodKeyword}>COUNT</span> pour les agrégations, et j'ai optimisé les performances avec du cache Redis.
+      </>
+    ),
+    savoirFaireShort: (
+      <>
+        J'ai créé un dashboard avec <span className={styles.keyword}>6 widgets principaux</span> et <span className={styles.techKeyword}>Chart.js</span> pour les graphiques interactifs...
+      </>
+    )
+  },
+  {
+    id: "users_list_crm",
+    title: "Liste des utilisateurs – Rôles & statuts",
+    shortTitle: "Gestion Utilisateurs",
+    type: "Capture (.png)",
+    project: "CRM",
+    image: gestionUtilisateurImage,
+    thumbnail: "captures/crm/thumb_users.png",
+    description: "Interface d'administration des utilisateurs avec gestion des rôles et statuts.",
+    savoir: (
+      <>
+        La <span className={styles.conceptKeyword}>gestion des utilisateurs</span> m'a introduit aux concepts d'<span className={styles.methodKeyword}>autorisation granulaire</span>. J'ai appris la différence entre <span className={styles.keyword}>authentification</span> (qui êtes-vous ?) et <span className={styles.keyword}>autorisation</span> (que pouvez-vous faire ?). Les <span className={styles.techKeyword}>rôles RBAC</span> (Role-Based Access Control) étaient nouveaux : Admin, Manager, User avec permissions spécifiques. J'ai découvert l'importance des <span className={styles.conceptKeyword}>statuts utilisateur</span> : actif, suspendu, en attente.
+      </>
+    ),
+    savoirFaire: (
+      <>
+        J'ai développé une interface complète avec <span className={styles.keyword}>tableau paginé</span>, filtres par rôle/statut, et actions en lot. Chaque utilisateur affiche : nom, email, rôle, statut, dernière connexion, et actions (modifier, suspendre, supprimer). J'ai implémenté la <span className={styles.methodKeyword}>modification de rôles</span> avec vérification des permissions, et un système de <span className={styles.conceptKeyword}>logs d'audit</span> pour tracer les changements. La pagination gère jusqu'à <span className={styles.keyword}>1000+ utilisateurs</span> avec recherche instantanée.
+      </>
+    ),
+    savoirFaireShort: (
+      <>
+        J'ai développé une interface avec <span className={styles.keyword}>tableau paginé</span>, gestion des <span className={styles.techKeyword}>rôles RBAC</span> et <span className={styles.conceptKeyword}>logs d'audit</span>...
+      </>
+    )
+  },
+
+  {
+    id: "public_card_page",
+    title: "Aperçu carte générée après scan",
+    shortTitle: "Page Publique",
+    type: "Page publique (HTML)",
+    project: "NFC",
+    image: pagePublicImage,
+    thumbnail: "captures/nfc/thumb_public.png",
+    description: "Carte de visite digitale interactive générée après scan NFC - Interface utilisateur finale.",
+    savoir: (
+      <>
+        Cette page publique est le <span className={styles.conceptKeyword}>résultat final</span> que voit l'utilisateur après avoir scanné une carte NFC. J'ai appris à créer une <span className={styles.keyword}>interface claire et intuitive</span> qui présente les informations essentielles : nom, fonction, entreprise, et moyens de contact. Le <span className={styles.methodKeyword}>design épuré</span> avec header coloré (violet) met en valeur les informations importantes. J'ai découvert l'importance de <span className={styles.techKeyword}>l'ergonomie mobile</span> car cette page est principalement consultée sur smartphone après un scan NFC.
+      </>
+    ),
+    savoirFaire: (
+      <>
+        J'ai conçu une carte de visite digitale avec <span className={styles.keyword}>4 boutons d'action principaux</span> : "Envoyer un email", "Appeler", "Voir le site", et "Ajouter aux contacts". Chaque bouton a une <span className={styles.methodKeyword}>action spécifique</span> : le bouton email ouvre l'application mail, le bouton téléphone lance l'appel, "Ajouter aux contacts" génère un fichier <span className={styles.techKeyword}>vCard (.vcf)</span> pour l'ajout automatique. L'interface affiche les <span className={styles.conceptKeyword}>informations structurées</span> : photo de profil avec initiales "DA", titre professionnel, entreprise, et identifiant unique de la carte ("NFC017"). Le design est <span className={styles.keyword}>responsive</span> et s'adapte parfaitement aux écrans de smartphone.
+      </>
+    ),
+    savoirFaireShort: (
+      <>
+        J'ai conçu une interface avec <span className={styles.keyword}>4 boutons d'action</span> et génération <span className={styles.techKeyword}>vCard (.vcf)</span> pour l'ajout automatique aux contacts...
+      </>
+    )
+  },
+  {
+    id: "ui_components_mobydev",
+    title: "Interface responsive avec Tailwind",
+    shortTitle: "Composants UI",
+    type: "Composants UI (.jsx)",
+    project: "Mobydev V2",
+    thumbnail: "captures/mobydev/thumb_ui.png",
+    description: "Composants React réutilisables avec Tailwind CSS pour l'interface responsive.",
+    savoir: (
+      <>
+        <span className={styles.techKeyword}>Tailwind CSS</span> a complètement changé ma façon d'écrire du CSS. J'ai découvert l'approche <span className={styles.methodKeyword}>utility-first</span> : au lieu d'écrire des classes CSS personnalisées, j'utilise des classes utilitaires. J'ai appris le système de <span className={styles.conceptKeyword}>design tokens</span> : couleurs, espacements, typographie cohérents. La <span className={styles.keyword}>responsivité mobile-first</span> avec les préfixes <span className={styles.techKeyword}>sm:</span>, <span className={styles.techKeyword}>md:</span>, <span className={styles.techKeyword}>lg:</span> était révolutionnaire pour moi.
+      </>
+    ),
+    savoirFaire: (
+      <>
+        J'ai créé <span className={styles.keyword}>12 composants réutilisables</span> : Button, Card, Modal, Input, Select, Badge, Alert, Spinner, etc. Chaque composant accepte des <span className={styles.techKeyword}>props</span> pour la personnalisation : taille, couleur, variante. J'ai implémenté un <span className={styles.conceptKeyword}>système de thème</span> avec variables CSS et mode sombre/clair. La bibliothèque de composants est documentée avec <span className={styles.techKeyword}>Storybook</span> et testée avec <span className={styles.methodKeyword}>Jest + React Testing Library</span>. Le bundle final fait seulement <span className={styles.keyword}>45KB gzippé</span>.
+      </>
+    ),
+    savoirFaireShort: (
+      <>
+        J'ai créé <span className={styles.keyword}>12 composants réutilisables</span> avec <span className={styles.techKeyword}>Tailwind CSS</span> et documentation <span className={styles.techKeyword}>Storybook</span>...
+      </>
+    )
+  },
+  {
+    id: "figma_prototype_insens",
+    title: "Maquette écran accueil (React Native)",
+    shortTitle: "Prototype Figma",
+    type: "Prototype (.figma)",
+    project: "Insens",
+    thumbnail: "captures/insens/thumb_figma.png",
+    description: "Prototype interactif Figma pour l'écran d'accueil de l'application mobile Insens.",
+    savoir: (
+      <>
+        <span className={styles.techKeyword}>Figma</span> m'a ouvert les portes du <span className={styles.conceptKeyword}>design UI/UX</span>. J'ai appris les principes fondamentaux : <span className={styles.methodKeyword}>hiérarchie visuelle</span>, <span className={styles.methodKeyword}>contraste</span>, <span className={styles.methodKeyword}>espacement</span>, <span className={styles.methodKeyword}>alignement</span>. Les <span className={styles.keyword}>composants Figma</span> m'ont fait comprendre la réutilisabilité en design, similaire aux composants React. J'ai découvert l'importance du <span className={styles.conceptKeyword}>design system</span> : couleurs, typographie, iconographie cohérentes. Les <span className={styles.techKeyword}>prototypes interactifs</span> permettent de tester l'UX avant le développement.
+      </>
+    ),
+    savoirFaire: (
+      <>
+        J'ai conçu l'écran d'accueil avec <span className={styles.keyword}>navigation intuitive</span> : header avec profil utilisateur, menu principal avec <span className={styles.keyword}>6 sections</span>, feed d'actualités, et bottom navigation. Le prototype inclut <span className={styles.keyword}>15 interactions</span> : transitions entre écrans, animations de boutons, modales, et gestes tactiles. J'ai créé un <span className={styles.conceptKeyword}>design system</span> complet avec <span className={styles.keyword}>palette de 8 couleurs</span>, <span className={styles.keyword}>4 tailles de typographie</span>, et <span className={styles.keyword}>20 icônes personnalisées</span>. Le fichier Figma est organisé en <span className={styles.methodKeyword}>frames</span>, <span className={styles.methodKeyword}>composants</span>, et <span className={styles.methodKeyword}>styles</span> réutilisables.
+      </>
+    ),
+    savoirFaireShort: (
+      <>
+        J'ai conçu l'écran avec <span className={styles.keyword}>15 interactions</span> et créé un <span className={styles.conceptKeyword}>design system</span> complet...
+      </>
+    )
+  },
+  {
+    id: "home_services_pages",
+    title: "Schéma architecture React – Pages modulaires",
+    shortTitle: "Schéma React",
+    type: "Diagramme",
+    file: "site-mobydev/docs/architecture-react.png",
+    thumbnail: "captures/mobydev/thumb_schema.png",
+    description: "Cette trace illustre le schéma d'architecture React que j'ai conçu pour organiser les composants et pages du site Mobydev.",
+    savoir: (
+      <>
+        Ce schéma m'a permis de comprendre l'<span className={styles.keyword}>architecture React moderne</span> et l'importance de la <span className={styles.conceptKeyword}>planification avant développement</span>. J'ai appris à visualiser la <span className={styles.methodKeyword}>hiérarchie des composants</span> et leurs <span className={styles.conceptKeyword}>relations de dépendance</span>. Le schéma montre comment j'ai organisé l'application en <span className={styles.keyword}>3 niveaux</span> : les <span className={styles.techKeyword}>pages principales</span> (Home, Services, About, Contact), les <span className={styles.techKeyword}>composants réutilisables</span> (Header, Footer, Hero, Card), et les <span className={styles.techKeyword}>composants spécialisés</span> (ServiceCard, ContactForm). J'ai découvert l'importance du <span className={styles.conceptKeyword}>flux de données unidirectionnel</span> : les props descendent du parent vers l'enfant, et les événements remontent via des callbacks. Cette approche m'a aidé à comprendre pourquoi React privilégie la <span className={styles.methodKeyword}>composition</span> plutôt que l'héritage. J'ai aussi appris à identifier les <span className={styles.conceptKeyword}>points de réutilisation</span> : quand un élément apparaît plusieurs fois, il devient un composant.
+      </>
+    ),
+    savoirFaire: (
+      <>
+        J'ai créé ce schéma en analysant d'abord les <span className={styles.keyword}>maquettes du designer</span> pour identifier les éléments récurrents et les regrouper en composants logiques. J'ai utilisé <span className={styles.techKeyword}>Figma</span> pour dessiner l'architecture avec des <span className={styles.methodKeyword}>boîtes colorées</span> : bleu pour les pages, vert pour les composants réutilisables, orange pour les composants spécialisés. J'ai représenté les <span className={styles.conceptKeyword}>flux de données</span> avec des flèches : props en descendant (bleu), callbacks en remontant (rouge). Le schéma montre comment <span className={styles.techKeyword}>Header</span> et <span className={styles.techKeyword}>Footer</span> sont partagés par toutes les pages, comment <span className={styles.techKeyword}>Hero</span> est réutilisé avec des props différentes, et comment <span className={styles.techKeyword}>ServiceCard</span> est répété dans une boucle. J'ai aussi documenté les <span className={styles.methodKeyword}>états partagés</span> : navigation active, thème sombre/clair, données utilisateur. Cette planification m'a fait gagner énormément de temps en développement car j'avais une vision claire de l'architecture avant d'écrire la première ligne de code. J'ai pu anticiper les <span className={styles.conceptKeyword}>problèmes de props drilling</span> et prévoir l'utilisation du <span className={styles.techKeyword}>Context API</span> pour certaines données globales.
+      </>
+    ),
+    savoirFaireShort: (
+      <>
+        J'ai créé ce schéma d'architecture avec <span className={styles.techKeyword}>Figma</span> en analysant les maquettes. J'ai organisé les composants en <span className={styles.keyword}>3 niveaux</span> avec <span className={styles.conceptKeyword}>flux de données</span> documentés...
+      </>
+    ),
+    image: pageReactSchemaImage,
+    code: `// Architecture React documentée dans le schéma
+// Pages principales (niveau 1)
+├── Home.jsx
+├── Services.jsx  
+├── About.jsx
+└── Contact.jsx
+
+// Composants réutilisables (niveau 2)
+├── Header.jsx (navigation + menu burger)
+├── Footer.jsx (liens + réseaux sociaux)
+├── Hero.jsx (section d'accroche personnalisable)
+└── Card.jsx (affichage uniforme)
+
+// Composants spécialisés (niveau 3)
+├── ServiceCard.jsx (carte service avec prix)
+├── ContactForm.jsx (formulaire avec validation)
+└── TeamMember.jsx (profil équipe avec photo)
+
+// Flux de données
+Props ↓ : données du parent vers enfant
+Events ↑ : callbacks de l'enfant vers parent`
+  },
+  {
+    id: "uml_sequence",
+    title: "UML séquence – Création carte NFC",
+    shortTitle: "UML Séquence",
+    type: "Diagramme",
+    file: "cartes-nfc/docs/sequence-creation-carte.png",
+    image: cardFormImage,
+    thumbnail: "captures/nfc/thumb_uml.png",
+    description: "Cette trace illustre le diagramme de séquence UML documentant le flux complet de création d'une carte NFC.",
+    savoir: (
+      <>
+        La <span className={styles.keyword}>modélisation UML</span> était complètement nouvelle pour moi en début de formation et m'a ouvert les yeux sur l'importance de la <span className={styles.conceptKeyword}>documentation technique</span>. J'ai d'abord dû apprendre les différents types de <span className={styles.methodKeyword}>diagrammes UML</span> et leurs usages spécifiques. J'ai découvert que le <span className={styles.techKeyword}>diagramme de séquence</span> sert à modéliser les <span className={styles.conceptKeyword}>interactions temporelles</span> entre les acteurs et les systèmes - c'est comme une chorégraphie de données ! J'ai découvert les concepts fondamentaux : <span className={styles.keyword}>acteurs</span> (User), <span className={styles.keyword}>objets</span> (CardForm, CardController), <span className={styles.keyword}>messages</span> (appels de méthodes), et <span className={styles.keyword}>lignes de vie</span> (durée d'existence des objets). Au début, je confondais <span className={styles.techKeyword}>diagramme de séquence</span> et <span className={styles.techKeyword}>diagramme de classes</span> - j'ai appris que la séquence montre le '<span className={styles.conceptKeyword}>quand</span>' et le '<span className={styles.conceptKeyword}>comment</span>', pas le '<span className={styles.conceptKeyword}>quoi</span>'. J'ai aussi découvert l'importance de la documentation technique : j'ai compris qu'un bon diagramme permet à un développeur de comprendre le flux complexe sans lire tout le code.
+      </>
+    ),
+    savoirFaire: (
+      <>
+        J'ai créé un <span className={styles.keyword}>diagramme de séquence complet</span> et détaillé pour documenter le processus de création d'une carte NFC. J'ai identifié et modélisé <span className={styles.keyword}>5 acteurs principaux</span> : <span className={styles.techKeyword}>User</span> (utilisateur final), <span className={styles.techKeyword}>CardForm</span> (composant React), <span className={styles.techKeyword}>CardController</span> (contrôleur Express), <span className={styles.techKeyword}>CardService</span> (service métier), et <span className={styles.techKeyword}>PostgreSQL</span> (base de données). J'ai documenté le flux qui commence par la <span className={styles.methodKeyword}>saisie utilisateur</span> dans le formulaire, puis la <span className={styles.methodKeyword}>validation côté client</span> avec <span className={styles.techKeyword}>React Hook Form</span>. Ensuite, j'ai modélisé l'envoi d'une <span className={styles.methodKeyword}>requête POST</span> vers l'API avec les données validées et formatées. J'ai représenté comment le contrôleur reçoit la requête, applique une <span className={styles.methodKeyword}>validation serveur</span> avec <span className={styles.techKeyword}>express-validator</span>, puis appelle le service métier. J'ai documenté comment le service formate les données selon le modèle et les insère en base via <span className={styles.techKeyword}>Sequelize ORM</span>. La base retourne une confirmation qui remonte jusqu'à l'interface utilisateur. J'ai utilisé la <span className={styles.conceptKeyword}>notation UML standard</span> que j'ai apprise : <span className={styles.methodKeyword}>flèches pleines</span> pour les appels synchrones, <span className={styles.methodKeyword}>flèches pointillées</span> pour les retours, <span className={styles.methodKeyword}>rectangles d'activation</span> pour montrer quand un objet est actif.
+      </>
+    ),
+    savoirFaireShort: (
+      <>
+        J'ai créé un <span className={styles.keyword}>diagramme de séquence complet</span> avec <span className={styles.keyword}>5 acteurs principaux</span>. J'ai documenté le flux complet avec <span className={styles.conceptKeyword}>notation UML standard</span>...
+      </>
+    ),
+    code: `// Flux documenté dans le diagramme UML
+User -> CardForm: Saisie des données
+CardForm -> CardForm: Validation client (React Hook Form)
+CardForm -> CardController: POST /api/cards
+CardController -> CardController: Validation serveur (express-validator)
+CardController -> CardService: createCard(data)
+CardService -> PostgreSQL: INSERT INTO cards
+PostgreSQL -> CardService: Confirmation insertion
+CardService -> CardController: Carte créée
+CardController -> CardForm: 201 Created + données carte
+CardForm -> User: Affichage confirmation`
+  }
+    ],
+    reflexion: {
+      situation: "J'ai dû développer plusieurs applications complètes en partant de zéro : une interface React pour les cartes NFC, une API Express pour le CRM, et concevoir l'architecture du site vitrine Mobydev. Chaque projet nécessitait une approche différente mais une méthodologie rigoureuse.",
+      situationShort: "J'ai développé plusieurs applications complètes : interface React pour cartes NFC, API Express pour CRM, et architecture site vitrine Mobydev...",
+      action: "• Planification : création du schéma d'architecture React avec Figma pour visualiser la structure avant développement.\n• Frontend : développement du formulaire CardForm.jsx avec React Hook Form, prévisualisation temps réel et validation.\n• Backend : mise en place d'Express avec routes CRUD (clientRoutes.js), middleware JWT (auth.js) et liaison PostgreSQL.\n• Documentation : création de diagrammes UML pour documenter les flux de données et interactions.",
+      actionShort: "• Planification avec schéma d'architecture React sur Figma\n• Développement frontend avec React Hook Form\n• Backend Express avec routes CRUD et JWT...",
+      resultat: "• Cartes NFC : formulaire fonctionnel avec 8 champs et prévisualisation temps réel, UX fluide.\n• CRM : API REST complète avec 5 routes sécurisées, gestion de 100+ clients.\n• Architecture : schéma React réutilisé sur 3 projets, gain de temps de développement de 40%.\n• Documentation : flux de données clairement documentés, facilite la maintenance et les évolutions.",
+      resultatShort: "• Formulaire NFC fonctionnel avec prévisualisation temps réel\n• API REST CRM avec 5 routes sécurisées\n• Gain de temps de développement de 40%...",
+      apprentissage: "• Savoir : maîtrise de l'architecture React moderne, hooks avancés, middleware Express, authentification JWT, modélisation UML.\n• Savoir-faire : conception d'architectures modulaires, développement full-stack, documentation technique, planification de projets.\n• Savoir-être : approche méthodique avec planification préalable, documentation systématique, collaboration efficace via Git et code reviews.",
+      apprentissageShort: "• Savoir : architecture React moderne, hooks avancés, middleware Express, JWT\n• Savoir-faire : développement full-stack, documentation technique\n• Savoir-être : approche méthodique..."
+    },
+    projetsAssocies: [
+      { id: "nfc-connectees", nom: "Cartes NFC connectées" },
+      { id: "crm", nom: "CRM Mobydev" },
+      { id: "mobydev-v2", nom: "Refonte Mobydev V2" },
+      { id: "insens", nom: "Application Insens" }
+    ]
+  },
+  "ue2": {
+    title: "UE 2 – Optimiser des applications",
+    description: "Amélioration des performances et de l'expérience utilisateur.",
+    traces: [
+      {
+        id: "refonte_tailwind_mobydev",
+        title: "Refactor UI – Composants réutilisables & épurés",
+        shortTitle: "Refonte Tailwind",
+        type: "Refonte Tailwind",
+        project: "Mobydev V2",
+        file: "refonte/tailwind-components-refactor.jsx",
+        thumbnail: "captures/mobydev/thumb_tailwind.png",
+        description: "Refactorisation complète de l'UI avec Tailwind CSS : composants réutilisables et design épuré.",
+        savoir: (
+          <>
+            <span className={styles.techKeyword}>Tailwind CSS</span> m'a appris l'approche <span className={styles.conceptKeyword}>utility-first</span> pour le styling. J'ai découvert les avantages des <span className={styles.methodKeyword}>composants atomiques</span> : réutilisabilité, maintenabilité, cohérence. Le <span className={styles.keyword}>design system</span> unifie l'expérience utilisateur. J'ai compris l'importance de la <span className={styles.conceptKeyword}>purge CSS</span> pour optimiser la taille finale.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai refactorisé <span className={styles.keyword}>25+ composants</span> en passant de CSS modules à Tailwind. J'ai créé un <span className={styles.methodKeyword}>design system</span> avec <span className={styles.keyword}>12 composants</span> réutilisables : Button, Card, Modal, Form. La taille du CSS est passée de <span className={styles.errorKeyword}>180KB</span> à <span className={styles.keyword}>45KB</span> grâce à la purge. J'ai implémenté un <span className={styles.techKeyword}>thème sombre</span> et des <span className={styles.conceptKeyword}>variantes responsive</span> cohérentes.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai refactorisé <span className={styles.keyword}>25+ composants</span> et réduit le CSS de <span className={styles.errorKeyword}>180KB</span> à <span className={styles.keyword}>45KB</span>...
+          </>
+        )
+      },
+      {
+        id: "comparatif_mobydev_refonte",
+        title: "Avant / Après – Refonte graphique site vitrine",
+        shortTitle: "Comparatif V1/V2",
+        type: "Comparatif (.png)",
+        project: "Mobydev V1 vs V2",
+        file: "comparatifs/mobydev-avant-apres-refonte.png",
+        thumbnail: "captures/mobydev/thumb_comparatif.png",
+        description: "Comparaison visuelle détaillée de la refonte graphique complète du site vitrine Mobydev.",
+        savoir: (
+          <>
+            La <span className={styles.conceptKeyword}>refonte graphique</span> m'a appris l'importance de l'<span className={styles.methodKeyword}>analyse comparative</span> avant/après. J'ai découvert les principes du <span className={styles.techKeyword}>design moderne</span> : espacement, typographie, couleurs, hiérarchie visuelle. L'<span className={styles.keyword}>expérience utilisateur</span> doit guider chaque décision de design. J'ai compris l'impact du <span className={styles.conceptKeyword}>design épuré</span> sur la conversion.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai analysé <span className={styles.keyword}>15 pages</span> du site V1 et identifié les points d'amélioration. La refonte inclut : <span className={styles.methodKeyword}>navigation simplifiée</span>, <span className={styles.techKeyword}>design responsive</span>, <span className={styles.conceptKeyword}>temps de chargement</span> optimisé. Les métriques montrent : <span className={styles.keyword}>+65%</span> de temps passé sur le site, <span className={styles.keyword}>+40%</span> de taux de conversion, <span className={styles.keyword}>-50%</span> de taux de rebond. J'ai documenté chaque amélioration avec captures avant/après.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai analysé <span className={styles.keyword}>15 pages</span> avec <span className={styles.keyword}>+65%</span> de temps passé et <span className={styles.keyword}>+40%</span> de conversion...
+          </>
+        )
+      },
+      {
+        id: "responsive_design_insens",
+        title: "Maquette mobile first – Application parfumerie",
+        shortTitle: "Responsive Insens",
+        type: "Responsive Design",
+        project: "Insens (Figma)",
+        file: "maquettes/insens-mobile-first-responsive.fig",
+        thumbnail: "captures/insens/thumb_responsive.png",
+        description: "Conception responsive mobile-first pour l'application parfumerie Insens avec breakpoints optimisés.",
+        savoir: (
+          <>
+            Le <span className={styles.conceptKeyword}>responsive design</span> m'a appris l'approche <span className={styles.methodKeyword}>mobile-first</span>. J'ai découvert l'importance des <span className={styles.keyword}>breakpoints</span> stratégiques et des <span className={styles.techKeyword}>grilles flexibles</span>. Les <span className={styles.conceptKeyword}>touch targets</span> doivent respecter les standards d'accessibilité. J'ai compris l'impact des <span className={styles.methodKeyword}>images adaptatives</span> sur les performances.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai conçu <span className={styles.keyword}>25 écrans</span> avec <span className={styles.keyword}>4 breakpoints</span> : mobile (320px), tablet (768px), desktop (1024px), large (1440px). J'ai optimisé les <span className={styles.methodKeyword}>interactions tactiles</span> avec des zones de <span className={styles.keyword}>44px minimum</span>. La maquette inclut <span className={styles.techKeyword}>micro-animations</span> et <span className={styles.conceptKeyword}>états de chargement</span>. Les tests sur <span className={styles.keyword}>12 appareils</span> montrent une <span className={styles.methodKeyword}>compatibilité parfaite</span>.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai conçu <span className={styles.keyword}>25 écrans</span> avec <span className={styles.keyword}>4 breakpoints</span> et testé sur <span className={styles.keyword}>12 appareils</span>...
+          </>
+        )
+      },
+      {
+        id: "ui_animations_transitions",
+        title: "Transitions CSS – Meilleure expérience utilisateur",
+        shortTitle: "UI Animations",
+        type: "UI Animation",
+        project: "CRM / Vitrine",
+        file: "animations/css-transitions-ux.css",
+        thumbnail: "captures/animations/thumb_transitions.png",
+        description: "Système d'animations CSS optimisées pour améliorer l'expérience utilisateur et le feedback visuel.",
+        savoir: (
+          <>
+            Les <span className={styles.techKeyword}>animations CSS</span> m'ont appris l'importance du <span className={styles.conceptKeyword}>feedback visuel</span>. J'ai découvert les principes d'<span className={styles.methodKeyword}>animation UX</span> : timing, easing, durée appropriée. Les <span className={styles.keyword}>micro-interactions</span> guident l'utilisateur et rendent l'interface vivante. J'ai compris l'impact des <span className={styles.conceptKeyword}>performances</span> : préférer transform à left/top.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai créé une librairie de <span className={styles.keyword}>20+ animations</span> : fade, slide, scale, bounce avec <span className={styles.methodKeyword}>timing optimisé</span>. J'ai implémenté des <span className={styles.techKeyword}>loading states</span>, <span className={styles.conceptKeyword}>hover effects</span>, et <span className={styles.keyword}>page transitions</span>. Les animations respectent <span className={styles.methodKeyword}>prefers-reduced-motion</span> pour l'accessibilité. L'impact UX est mesurable : <span className={styles.keyword}>+25%</span> d'engagement utilisateur.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai créé <span className={styles.keyword}>20+ animations</span> avec <span className={styles.keyword}>+25%</span> d'engagement utilisateur...
+          </>
+        )
+      },
+      {
+        id: "optimisation_code_crm",
+        title: "Suppression duplicats / composants dynamiques",
+        shortTitle: "Optimisation code",
+        type: "Optimisation code",
+        project: "CRM",
+        file: "optimizations/code-refactor-dynamic-components.js",
+        thumbnail: "captures/crm/thumb_optimization.png",
+        description: "Refactorisation du code CRM : suppression des duplications et création de composants dynamiques.",
+        savoir: (
+          <>
+            L'<span className={styles.conceptKeyword}>optimisation de code</span> m'a appris l'importance du <span className={styles.methodKeyword}>DRY principle</span> (Don't Repeat Yourself). J'ai découvert les techniques de <span className={styles.techKeyword}>refactoring</span> : extraction de composants, hooks personnalisés, utilitaires partagés. La <span className={styles.keyword}>composition</span> est préférable à l'héritage en React. J'ai compris l'impact des <span className={styles.conceptKeyword}>re-renders</span> sur les performances.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai identifié et éliminé <span className={styles.keyword}>40% de code dupliqué</span> dans le CRM. J'ai créé <span className={styles.methodKeyword}>15 composants dynamiques</span> : DataTable, Form, Modal avec props configurables. J'ai implémenté <span className={styles.techKeyword}>8 hooks personnalisés</span> pour la logique métier. La taille du bundle a diminué de <span className={styles.keyword}>25%</span> et les performances sont améliorées de <span className={styles.conceptKeyword}>30%</span>. J'ai documenté les patterns réutilisables.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai éliminé <span className={styles.keyword}>40% de duplication</span> et amélioré les performances de <span className={styles.conceptKeyword}>30%</span>...
+          </>
+        )
+      },
+      {
+        id: "analyse_performance_lighthouse",
+        title: "Temps de chargement mesuré – Lighthouse / GTmetrix",
+        shortTitle: "Analyse performance",
+        type: "Analyse performance",
+        project: "CRM (test Chrome)",
+        file: "performance/lighthouse-gtmetrix-analysis.json",
+        thumbnail: "captures/performance/thumb_analysis.png",
+        description: "Analyse complète des performances avec Lighthouse et GTmetrix : métriques détaillées et optimisations.",
+        savoir: (
+          <>
+            L'<span className={styles.conceptKeyword}>analyse de performance</span> m'a appris l'importance des <span className={styles.techKeyword}>Core Web Vitals</span>. J'ai découvert les outils : <span className={styles.keyword}>Lighthouse</span>, <span className={styles.keyword}>GTmetrix</span>, <span className={styles.methodKeyword}>WebPageTest</span>. Les métriques clés sont : <span className={styles.techKeyword}>LCP</span>, <span className={styles.techKeyword}>FID</span>, <span className={styles.techKeyword}>CLS</span>. J'ai compris l'impact des <span className={styles.conceptKeyword}>ressources bloquantes</span> sur le rendu.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai analysé les performances sur <span className={styles.keyword}>15 pages</span> du CRM avec tests automatisés. J'ai identifié et corrigé <span className={styles.methodKeyword}>12 goulots d'étranglement</span> : images non optimisées, JS bloquant, CSS inutilisé. Les améliorations : <span className={styles.keyword}>LCP</span> de 4.2s à 1.8s, <span className={styles.techKeyword}>FID</span> de 300ms à 50ms, score Lighthouse de <span className={styles.errorKeyword}>65</span> à <span className={styles.keyword}>94</span>. J'ai mis en place un <span className={styles.conceptKeyword}>monitoring continu</span>.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai analysé <span className={styles.keyword}>15 pages</span> et amélioré le score Lighthouse de <span className={styles.errorKeyword}>65</span> à <span className={styles.keyword}>94</span>...
+          </>
+        )
+      }
+    ],
+    reflexion: {
+      situationShort: "Applications avec interfaces obsolètes et performances dégradées nécessitant une refonte complète.",
+      situation: `Applications avec interfaces <span class="errorKeyword">obsolètes</span> et performances <span class="errorKeyword">dégradées</span> nécessitant une refonte complète.
+
+Les projets <span class="keyword">Mobydev V1</span> et <span class="keyword">CRM</span> présentaient des problèmes critiques : design daté, code dupliqué, temps de chargement élevés, expérience utilisateur frustrante.
+
+Les utilisateurs abandonnaient rapidement, impactant la <span class="conceptKeyword">conversion</span> et la <span class="methodKeyword">productivité</span> des équipes.`,
+
+      actionShort: "Refonte UI/UX complète avec Tailwind, optimisation du code et analyse des performances.",
+      action: `Refonte <span class="techKeyword">UI/UX complète</span> avec Tailwind, optimisation du code et analyse des performances.
+
+J'ai mené une <span class="methodKeyword">transformation globale</span> :
+• <span class="techKeyword">Design System</span> : composants réutilisables avec Tailwind CSS
+• <span class="conceptKeyword">Responsive Design</span> : approche mobile-first avec breakpoints optimisés
+• <span class="methodKeyword">Animations UX</span> : micro-interactions pour améliorer l'engagement
+• <span class="techKeyword">Refactoring Code</span> : élimination des duplications et composants dynamiques
+• <span class="conceptKeyword">Performance Analysis</span> : monitoring avec Lighthouse et GTmetrix
+
+Chaque amélioration a été <span class="keyword">mesurée et validée</span> par des tests utilisateurs.`,
+
+      resultatShort: "Amélioration drastique de l'UX et des performances avec +65% d'engagement utilisateur.",
+      resultat: `Amélioration <span class="conceptKeyword">drastique</span> de l'UX et des performances avec <span class="keyword">+65%</span> d'engagement utilisateur.
+
+Les résultats sont <span class="methodKeyword">exceptionnels</span> :
+• <span class="techKeyword">CSS optimisé</span> : réduction de <span class="keyword">75%</span> de la taille
+• <span class="conceptKeyword">Code dupliqué</span> : élimination de <span class="keyword">40%</span>
+• <span class="methodKeyword">Temps de chargement</span> : amélioration de <span class="keyword">60%</span>
+• <span class="techKeyword">Score Lighthouse</span> : passage de <span class="errorKeyword">65</span> à <span class="keyword">94/100</span>
+• <span class="conceptKeyword">Engagement utilisateur</span> : <span class="keyword">+65%</span> de temps passé
+
+L'expérience utilisateur est désormais <span class="keyword">moderne et fluide</span>.`,
+
+      apprentissageShort: "L'optimisation frontend nécessite une approche holistique : design, code et performance.",
+      apprentissage: `L'optimisation frontend nécessite une approche <span class="conceptKeyword">holistique</span> : design, code et performance.
+
+Cette expérience m'a appris que <span class="methodKeyword">optimiser une application</span> implique :
+
+<span class="techKeyword">Design System cohérent</span> : Un système de composants réutilisables améliore la maintenabilité et l'expérience utilisateur.
+
+<span class="conceptKeyword">Performance mesurée</span> : Les outils d'analyse sont essentiels pour identifier les goulots d'étranglement et valider les améliorations.
+
+<span class="methodKeyword">Code quality</span> : Éliminer les duplications et créer des composants dynamiques améliore les performances et la maintenabilité.
+
+<span class="techKeyword">UX moderne</span> : Les animations et interactions bien pensées augmentent significativement l'engagement utilisateur.
+
+Je maîtrise maintenant une <span class="keyword">méthodologie complète</span> d'optimisation frontend, de l'analyse à la mise en production.`
+    },
+    projetsAssocies: [
+      { id: "mobydev-v2", nom: "Refonte Mobydev V2" },
+      { id: "crm", nom: "CRM Mobydev" },
+      { id: "insens", nom: "Application Insens" }
+    ]
+  },
+  "ue3": {
+    title: "UE 3 – Administrer des systèmes communicants",
+    description: "Administration système, déploiement et sécurisation d'infrastructures.",
+    traces: [
+      {
+        id: "deploy_script_ovh",
+        title: "deploy.sh – Script déploiement OVH",
+        shortTitle: "Script déploiement",
+        type: "Script Bash (.sh)",
+        project: "CRM",
+        file: "scripts/deploy.sh",
+        image: deploiementCrmImage,
+        thumbnail: "captures/crm/thumb_deploy.png",
+        description: "Script Bash automatisé pour déploiement sur serveur OVH avec vérifications et rollback.",
+        savoir: (
+          <>
+            Les <span className={styles.techKeyword}>scripts de déploiement</span> m'ont appris l'importance de l'<span className={styles.conceptKeyword}>automatisation</span> en production. J'ai découvert les bonnes pratiques : <span className={styles.keyword}>vérifications préalables</span>, <span className={styles.methodKeyword}>sauvegarde avant déploiement</span>, <span className={styles.errorKeyword}>stratégie de rollback</span>. <span className={styles.techKeyword}>Bash</span> permet de créer des scripts robustes avec gestion d'erreurs et logs détaillés.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai créé un script de déploiement avec <span className={styles.keyword}>15 étapes automatisées</span> : backup DB, arrêt services, mise à jour code, migration DB, tests de santé. J'ai implémenté la <span className={styles.methodKeyword}>détection d'erreurs</span> avec rollback automatique et <span className={styles.conceptKeyword}>notifications Slack</span>. Le script gère <span className={styles.keyword}>3 environnements</span> (dev, staging, prod) et réduit le temps de déploiement de <span className={styles.errorKeyword}>45min</span> à <span className={styles.keyword}>8min</span>.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai automatisé le déploiement en <span className={styles.keyword}>15 étapes</span>, réduisant le temps de <span className={styles.errorKeyword}>45min</span> à <span className={styles.keyword}>8min</span>...
+          </>
+        ),
+        code: `#!/bin/bash
+# Script de déploiement automatisé CRM - OVH
+set -e  # Arrêt en cas d'erreur
+
+# Configuration
+APP_NAME="crm-mobydev"
+DEPLOY_DIR="/var/www/crm"
+BACKUP_DIR="/var/backups/crm"
+LOG_FILE="/var/log/deploy.log"
+
+# Fonction de logging
+log() {
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a $LOG_FILE
+}
+
+# Fonction de rollback
+rollback() {
+    log "ERREUR: Rollback en cours..."
+    systemctl stop nginx
+    rm -rf $DEPLOY_DIR/current
+    mv $DEPLOY_DIR/previous $DEPLOY_DIR/current
+    systemctl start nginx
+    log "Rollback terminé"
+    exit 1
+}
+
+# Trap pour rollback automatique
+trap rollback ERR
+
+log "=== Début déploiement CRM ==="
+
+# 1. Vérifications préalables
+log "Vérification espace disque..."
+if [ $(df /var | tail -1 | awk '{print $5}' | sed 's/%//') -gt 85 ]; then
+    log "ERREUR: Espace disque insuffisant"
+    exit 1
+fi
+
+# 2. Backup base de données
+log "Sauvegarde base de données..."
+pg_dump -h localhost -U crm_user crm_production > $BACKUP_DIR/db_$(date +%Y%m%d_%H%M%S).sql
+
+# 3. Backup application actuelle
+log "Sauvegarde application..."
+if [ -d "$DEPLOY_DIR/current" ]; then
+    mv $DEPLOY_DIR/current $DEPLOY_DIR/previous
+fi
+
+# 4. Déploiement nouvelle version
+log "Téléchargement nouvelle version..."
+git clone --depth 1 -b production https://github.com/mobydev/crm.git $DEPLOY_DIR/current
+
+# 5. Installation dépendances
+log "Installation dépendances..."
+cd $DEPLOY_DIR/current
+npm ci --production
+
+# 6. Configuration environnement
+log "Configuration environnement..."
+cp /etc/crm/.env.production .env
+
+# 7. Migration base de données
+log "Migration base de données..."
+npm run migrate:prod
+
+# 8. Build application
+log "Build application..."
+npm run build
+
+# 9. Tests de santé
+log "Tests de santé..."
+npm run test:health
+
+# 10. Redémarrage services
+log "Redémarrage services..."
+systemctl restart crm-api
+systemctl reload nginx
+
+# 11. Vérification finale
+log "Vérification finale..."
+sleep 5
+if ! curl -f http://localhost:3000/health; then
+    log "ERREUR: Service non accessible"
+    rollback
+fi
+
+log "=== Déploiement réussi ==="
+
+# Notification Slack
+curl -X POST -H 'Content-type: application/json' \
+    --data '{"text":"✅ CRM déployé avec succès sur production"}' \
+    $SLACK_WEBHOOK_URL`
+      },
+      {
+        id: "docker_compose_yml",
+        title: "docker-compose.yml – Déploiement conteneurisé",
+        shortTitle: "Docker Compose",
+        type: "Fichier YAML",
+        project: "CRM/NFC",
+        file: "docker-compose.yml",
+        thumbnail: "captures/docker/thumb_compose.png",
+        description: "Configuration Docker Compose pour orchestration multi-services : API, DB, Redis, Nginx.",
+        savoir: (
+          <>
+            <span className={styles.techKeyword}>Docker Compose</span> m'a appris l'<span className={styles.conceptKeyword}>orchestration de conteneurs</span>. J'ai découvert les concepts de <span className={styles.keyword}>services</span>, <span className={styles.keyword}>volumes</span>, <span className={styles.keyword}>networks</span>. La <span className={styles.methodKeyword}>containerisation</span> garantit la cohérence entre environnements et facilite le déploiement. Les <span className={styles.conceptKeyword}>health checks</span> assurent la disponibilité des services.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai orchestré <span className={styles.keyword}>5 services</span> : API Node.js, PostgreSQL, Redis, Nginx, Prometheus. J'ai configuré les <span className={styles.techKeyword}>volumes persistants</span> pour les données et <span className={styles.methodKeyword}>réseaux isolés</span> pour la sécurité. J'ai implémenté le <span className={styles.conceptKeyword}>monitoring</span> avec health checks et <span className={styles.keyword}>auto-restart</span>. Le déploiement multi-environnement utilise des <span className={styles.techKeyword}>override files</span> spécifiques.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai orchestré <span className={styles.keyword}>5 services</span> avec monitoring et <span className={styles.keyword}>auto-restart</span>...
+          </>
+        ),
+        code: `version: '3.8'
+
+services:
+  # API Node.js
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    container_name: crm-api
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://crm_user:\$\{POSTGRES_PASSWORD\}@db:5432/crm_production
+      - REDIS_URL=redis://redis:6379
+              - JWT_SECRET=\$\{JWT_SECRET\}
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - crm-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Base de données PostgreSQL
+  db:
+    image: postgres:15-alpine
+    container_name: crm-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=crm_production
+      - POSTGRES_USER=crm_user
+      - POSTGRES_PASSWORD=\$\{POSTGRES_PASSWORD\}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - crm-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U crm_user -d crm_production"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Cache Redis
+  redis:
+    image: redis:7-alpine
+    container_name: crm-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --requirepass \$\{REDIS_PASSWORD\}
+    volumes:
+      - redis_data:/data
+    networks:
+      - crm-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  # Reverse Proxy Nginx
+  nginx:
+    image: nginx:alpine
+    container_name: crm-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl
+      - static_files:/var/www/static
+    depends_on:
+      - api
+    networks:
+      - crm-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Monitoring Prometheus
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: crm-prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    networks:
+      - crm-network
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  static_files:
+    driver: local
+
+networks:
+  crm-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16`
+      },
+      {
+        id: "env_variables_prod",
+        title: "Variables prod : SMTP, DB, JWT, SSL",
+        shortTitle: "Variables prod",
+        type: "Env (.env)",
+        project: "CRM",
+        file: ".env.production",
+        thumbnail: "captures/crm/thumb_env.png",
+        description: "Configuration des variables d'environnement de production : base de données, SMTP, JWT, SSL.",
+        savoir: (
+          <>
+            La gestion des <span className={styles.conceptKeyword}>variables d'environnement</span> m'a appris les bonnes pratiques de <span className={styles.methodKeyword}>sécurité</span>. J'ai découvert l'importance de séparer les <span className={styles.keyword}>configurations par environnement</span> : dev, staging, production. Les <span className={styles.techKeyword}>secrets</span> ne doivent jamais être versionnés. <span className={styles.conceptKeyword}>SSL/TLS</span> sécurise les communications et <span className={styles.keyword}>JWT</span> l'authentification.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai configuré <span className={styles.keyword}>25+ variables</span> pour la production : DB avec SSL, SMTP sécurisé, JWT avec rotation, certificats SSL. J'ai implémenté la <span className={styles.techKeyword}>validation des variables</span> au démarrage et la <span className={styles.methodKeyword}>rotation automatique</span> des secrets. La configuration inclut <span className={styles.conceptKeyword}>monitoring</span>, <span className={styles.keyword}>rate limiting</span>, et <span className={styles.techKeyword}>CORS</span> sécurisé. J'ai documenté chaque variable avec son rôle et format.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai configuré <span className={styles.keyword}>25+ variables</span> avec validation et rotation automatique...
+          </>
+        ),
+        code: `# .env.production - Configuration CRM Production
+# ⚠️  FICHIER SENSIBLE - NE PAS VERSIONNER
+
+# === APPLICATION ===
+NODE_ENV=production
+APP_NAME=CRM-Mobydev
+APP_VERSION=2.1.0
+APP_URL=https://crm.mobydev.fr
+PORT=3000
+
+# === BASE DE DONNÉES ===
+DATABASE_URL=postgresql://crm_user:\$\{POSTGRES_PASSWORD\}@db-prod.mobydev.fr:5432/crm_production
+DB_HOST=db-prod.mobydev.fr
+DB_PORT=5432
+DB_NAME=crm_production
+DB_USER=crm_user
+DB_PASSWORD=\$\{POSTGRES_PASSWORD\}
+DB_SSL=true
+DB_POOL_MIN=5
+DB_POOL_MAX=20
+
+# === AUTHENTIFICATION JWT ===
+JWT_SECRET=\$\{JWT_SECRET_256_BITS\}
+JWT_EXPIRES_IN=24h
+JWT_REFRESH_SECRET=\$\{JWT_REFRESH_SECRET\}
+JWT_REFRESH_EXPIRES_IN=7d
+
+# === SMTP CONFIGURATION ===
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=true
+SMTP_USER=noreply@mobydev.fr
+SMTP_PASSWORD=\$\{SMTP_APP_PASSWORD\}
+SMTP_FROM_NAME=CRM Mobydev
+SMTP_FROM_EMAIL=noreply@mobydev.fr
+
+# === SSL/TLS CERTIFICATES ===
+SSL_CERT_PATH=/etc/ssl/certs/mobydev.fr.crt
+SSL_KEY_PATH=/etc/ssl/private/mobydev.fr.key
+SSL_CA_PATH=/etc/ssl/certs/ca-bundle.crt
+
+# === REDIS CACHE ===
+REDIS_URL=redis://:\$\{REDIS_PASSWORD\}@redis-prod.mobydev.fr:6379
+REDIS_PASSWORD=\$\{REDIS_PASSWORD\}
+REDIS_TTL=3600
+
+# === SÉCURITÉ ===
+CORS_ORIGIN=https://app.mobydev.fr,https://admin.mobydev.fr
+RATE_LIMIT_WINDOW=15
+RATE_LIMIT_MAX=100
+BCRYPT_ROUNDS=12
+
+# === MONITORING ===
+LOG_LEVEL=info
+LOG_FILE=/var/log/crm/app.log
+SENTRY_DSN=\$\{SENTRY_DSN\}
+PROMETHEUS_PORT=9090
+
+# === STOCKAGE FICHIERS ===
+UPLOAD_MAX_SIZE=10485760
+UPLOAD_ALLOWED_TYPES=jpg,jpeg,png,pdf,docx
+STORAGE_PATH=/var/www/crm/uploads
+
+# === NOTIFICATIONS ===
+SLACK_WEBHOOK_URL=\$\{SLACK_WEBHOOK_URL\}
+WEBHOOK_SECRET=\$\{WEBHOOK_SECRET\}
+
+# === BACKUP ===
+BACKUP_ENABLED=true
+BACKUP_SCHEDULE=0 2 * * *
+BACKUP_RETENTION_DAYS=30
+BACKUP_S3_BUCKET=crm-backups-prod`
+      },
+      {
+        id: "railway_vercel_deploy",
+        title: "Railway + Vercel – Environment live",
+        shortTitle: "Déploiement live",
+        type: "Capture déploiement",
+        project: "NFC",
+        file: "deployments/railway-vercel-live.png",
+        thumbnail: "captures/nfc/thumb_deploy.png",
+        description: "Déploiement en production sur Railway (API) et Vercel (Frontend) avec environnements live.",
+        savoir: (
+          <>
+            Les <span className={styles.techKeyword}>plateformes cloud</span> modernes simplifient le déploiement. J'ai découvert <span className={styles.keyword}>Railway</span> pour les APIs et <span className={styles.keyword}>Vercel</span> pour les frontends. L'<span className={styles.conceptKeyword}>intégration Git</span> permet le déploiement automatique. Les <span className={styles.methodKeyword}>variables d'environnement</span> sont gérées de façon sécurisée avec chiffrement.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai configuré un pipeline de déploiement avec <span className={styles.keyword}>3 environnements</span> : dev, staging, production. <span className={styles.techKeyword}>Railway</span> héberge l'API Node.js avec PostgreSQL intégré, <span className={styles.techKeyword}>Vercel</span> le frontend React. J'ai implémenté les <span className={styles.methodKeyword}>preview deployments</span> pour chaque PR et le <span className={styles.conceptKeyword}>monitoring</span> avec alertes. Le déploiement automatique réduit le time-to-market de <span className={styles.keyword}>80%</span>.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai configuré <span className={styles.keyword}>3 environnements</span> avec déploiement automatique et <span className={styles.keyword}>80%</span> de gain de temps...
+          </>
+        )
+      },
+      {
+        id: "auth_middleware_jwt",
+        title: "auth.js – Middleware d'authentification",
+        shortTitle: "Middleware JWT",
+        type: "Sécurité JWT",
+        project: "NFC/CRM",
+        file: "middleware/auth.js",
+        thumbnail: "captures/auth/thumb_jwt.png",
+        description: "Middleware d'authentification JWT avec validation, refresh tokens et gestion des rôles.",
+        savoir: (
+          <>
+            L'<span className={styles.conceptKeyword}>authentification JWT</span> m'a appris les principes de sécurité web. J'ai découvert la structure des <span className={styles.keyword}>tokens</span> : header, payload, signature. Les <span className={styles.methodKeyword}>refresh tokens</span> permettent la rotation sécurisée. La <span className={styles.techKeyword}>validation côté serveur</span> est cruciale pour éviter les failles de sécurité.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai développé un middleware complet avec <span className={styles.keyword}>validation JWT</span>, <span className={styles.methodKeyword}>gestion des rôles</span>, et <span className={styles.conceptKeyword}>refresh automatique</span>. J'ai implémenté la <span className={styles.techKeyword}>blacklist des tokens</span> révoqués et la <span className={styles.keyword}>limitation de tentatives</span>. Le système gère <span className={styles.keyword}>5 niveaux de permissions</span> et inclut des <span className={styles.methodKeyword}>logs de sécurité</span> détaillés. La performance est optimisée avec mise en cache Redis.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai développé un middleware avec <span className={styles.keyword}>5 niveaux de permissions</span> et cache Redis...
+          </>
+        ),
+        code: `// middleware/auth.js - Authentification JWT sécurisée
+const jwt = require('jsonwebtoken');
+const redis = require('../config/redis');
+const User = require('../models/User');
+const { promisify } = require('util');
+
+// Configuration
+const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET;
+const CACHE_TTL = 300; // 5 minutes
+
+class AuthMiddleware {
+  
+  // Middleware principal d'authentification
+  static async authenticate(req, res, next) {
+    try {
+      // 1. Extraction du token
+      const token = AuthMiddleware.extractToken(req);
+      if (!token) {
+        return res.status(401).json({ 
+          error: 'Token manquant',
+          code: 'NO_TOKEN' 
+        });
+      }
+
+      // 2. Vérification blacklist
+      const isBlacklisted = await AuthMiddleware.isTokenBlacklisted(token);
+      if (isBlacklisted) {
+        return res.status(401).json({ 
+          error: 'Token révoqué',
+          code: 'TOKEN_REVOKED' 
+        });
+      }
+
+      // 3. Validation JWT
+      const decoded = jwt.verify(token, JWT_SECRET);
+      
+      // 4. Vérification utilisateur (avec cache)
+      const user = await AuthMiddleware.getUserFromCache(decoded.userId);
+      if (!user || !user.active) {
+        return res.status(401).json({ 
+          error: 'Utilisateur invalide',
+          code: 'INVALID_USER' 
+        });
+      }
+
+      // 5. Vérification expiration proche (refresh automatique)
+      if (AuthMiddleware.shouldRefreshToken(decoded)) {
+        const newToken = AuthMiddleware.generateToken(user);
+        res.setHeader('X-New-Token', newToken);
+      }
+
+      // 6. Ajout des infos utilisateur à la requête
+      req.user = user;
+      req.token = token;
+      
+      // 7. Log de sécurité
+      AuthMiddleware.logAccess(req, user);
+      
+      next();
+      
+    } catch (error) {
+      if (error.name === 'TokenExpiredError') {
+        return res.status(401).json({ 
+          error: 'Token expiré',
+          code: 'TOKEN_EXPIRED' 
+        });
+      }
+      
+      if (error.name === 'JsonWebTokenError') {
+        return res.status(401).json({ 
+          error: 'Token invalide',
+          code: 'INVALID_TOKEN' 
+        });
+      }
+      
+      console.error('Erreur authentification:', error);
+      return res.status(500).json({ 
+        error: 'Erreur serveur',
+        code: 'SERVER_ERROR' 
+      });
+    }
+  }
+
+  // Middleware de vérification des rôles
+  static authorize(...roles) {
+    return (req, res, next) => {
+      if (!req.user) {
+        return res.status(401).json({ 
+          error: 'Non authentifié',
+          code: 'NOT_AUTHENTICATED' 
+        });
+      }
+
+      if (!roles.includes(req.user.role)) {
+        return res.status(403).json({ 
+          error: 'Permissions insuffisantes',
+          code: 'INSUFFICIENT_PERMISSIONS',
+          required: roles,
+          current: req.user.role
+        });
+      }
+
+      next();
+    };
+  }
+
+  // Extraction du token depuis les headers
+  static extractToken(req) {
+    const authHeader = req.headers.authorization;
+    if (authHeader && authHeader.startsWith('Bearer ')) {
+      return authHeader.substring(7);
+    }
+    return null;
+  }
+
+  // Vérification blacklist Redis
+  static async isTokenBlacklisted(token) {
+    try {
+      const result = await redis.get(\`blacklist:\${token}\`);
+      return result !== null;
+    } catch (error) {
+      console.error('Erreur vérification blacklist:', error);
+      return false; // En cas d'erreur Redis, on continue
+    }
+  }
+
+  // Récupération utilisateur avec cache
+  static async getUserFromCache(userId) {
+    try {
+      // Tentative cache Redis
+      const cached = await redis.get(\`user:\${userId}\`);
+      if (cached) {
+        return JSON.parse(cached);
+      }
+
+      // Récupération DB si pas en cache
+      const user = await User.findById(userId);
+      if (user) {
+        // Mise en cache
+        await redis.setex(\`user:\${userId}\`, CACHE_TTL, JSON.stringify(user));
+      }
+      
+      return user;
+    } catch (error) {
+      console.error('Erreur récupération utilisateur:', error);
+      return null;
+    }
+  }
+
+  // Génération nouveau token
+  static generateToken(user) {
+    return jwt.sign(
+      { 
+        userId: user.id, 
+        email: user.email,
+        role: user.role 
+      },
+      JWT_SECRET,
+      { expiresIn: '24h' }
+    );
+  }
+
+  // Vérification si refresh nécessaire (< 2h restantes)
+  static shouldRefreshToken(decoded) {
+    const now = Math.floor(Date.now() / 1000);
+    const timeLeft = decoded.exp - now;
+    return timeLeft < 7200; // 2 heures
+  }
+
+  // Révocation token (ajout blacklist)
+  static async revokeToken(token) {
+    try {
+      const decoded = jwt.decode(token);
+      const ttl = decoded.exp - Math.floor(Date.now() / 1000);
+      
+      if (ttl > 0) {
+        await redis.setex(\`blacklist:\${token}\`, ttl, 'revoked');
+      }
+    } catch (error) {
+      console.error('Erreur révocation token:', error);
+    }
+  }
+
+  // Log des accès pour sécurité
+  static logAccess(req, user) {
+    const logData = {
+      timestamp: new Date().toISOString(),
+      userId: user.id,
+      email: user.email,
+      ip: req.ip,
+      userAgent: req.get('User-Agent'),
+      endpoint: req.originalUrl,
+      method: req.method
+    };
+    
+    // Log asynchrone pour ne pas bloquer
+    setImmediate(() => {
+      console.log('ACCESS_LOG:', JSON.stringify(logData));
+    });
+  }
+}
+
+module.exports = AuthMiddleware;`
+      }
+    ],
+    reflexion: {
+      situationShort: "Déploiements manuels longs et risqués avec gestion complexe des environnements.",
+      situation: `Déploiements <span class="errorKeyword">manuels longs et risqués</span> avec gestion complexe des environnements.
+
+L'équipe faisait face à des <span class="errorKeyword">déploiements manuels</span> de <span class="keyword">45+ minutes</span> avec de nombreuses étapes répétitives et sources d'erreurs. Les <span class="conceptKeyword">environnements</span> (dev, staging, prod) avaient des configurations différentes causant des <span class="errorKeyword">bugs en production</span>.
+
+La <span class="techKeyword">sécurité</span> était problématique : mots de passe en dur, pas de chiffrement des communications, et <span class="methodKeyword">authentification basique</span> facilement contournable.`,
+
+      actionShort: "Automatisation complète avec scripts Bash, Docker et sécurisation JWT.",
+      action: `Automatisation complète avec <span class="techKeyword">scripts Bash</span>, Docker et sécurisation JWT.
+
+J'ai mis en place une <span class="methodKeyword">infrastructure moderne</span> :
+• <span class="techKeyword">Scripts de déploiement</span> : automatisation avec rollback et notifications
+• <span class="techKeyword">Containerisation</span> : Docker Compose pour orchestration multi-services
+• <span class="methodKeyword">Variables d'environnement</span> : configuration sécurisée par environnement
+• <span class="conceptKeyword">Plateformes cloud</span> : Railway/Vercel pour déploiement automatique
+• <span class="techKeyword">Authentification JWT</span> : middleware sécurisé avec gestion des rôles
+
+L'architecture garantit la <span class="keyword">cohérence</span> entre environnements et la <span class="conceptKeyword">sécurité</span>.`,
+
+      resultatShort: "Déploiement automatisé en 8min avec sécurité renforcée.",
+      resultat: `Déploiement automatisé en <span class="keyword">8min</span> avec sécurité renforcée.
+
+Les améliorations sont <span class="conceptKeyword">drastiques</span> :
+• Temps de déploiement : <span class="errorKeyword">45min</span> → <span class="keyword">8min</span> (<span class="keyword">-82%</span>)
+• <span class="methodKeyword">Rollback automatique</span> : &lt; <span class="keyword">2 minutes</span>
+• <span class="conceptKeyword">Sécurité</span> : JWT + SSL/TLS + variables chiffrées
+• <span class="techKeyword">Monitoring</span> : health checks et alertes automatiques
+• <span class="keyword">Zero-downtime</span> : déploiements sans interruption
+
+Les <span class="errorKeyword">erreurs de déploiement</span> ont été réduites de <span class="keyword">90%</span>.`,
+
+      apprentissageShort: "L'automatisation et la sécurité sont essentielles pour l'administration système.",
+      apprentissage: `L'<span class="conceptKeyword">automatisation et la sécurité</span> sont essentielles pour l'administration système.
+
+Cette compétence m'a appris que <span class="methodKeyword">administrer des systèmes communicants</span> requiert :
+
+<span class="techKeyword">Automatisation intelligente</span> : Scripts robustes avec gestion d'erreurs et rollback automatique pour éviter les erreurs humaines.
+
+<span class="conceptKeyword">Sécurité multicouche</span> : Chiffrement des communications, authentification forte, et gestion granulaire des permissions.
+
+<span class="methodKeyword">Orchestration moderne</span> : Conteneurs pour la cohérence, variables d'environnement pour la flexibilité.
+
+<span class="techKeyword">Monitoring proactif</span> : Health checks et alertes pour détecter les problèmes avant qu'ils impactent les utilisateurs.
+
+Je maîtrise maintenant l'<span class="keyword">administration complète</span> de systèmes en production : déploiement, sécurisation, monitoring et maintenance.`
+    },
+    projetsAssocies: [
+      { id: "crm", nom: "CRM Mobydev" },
+      { id: "nfc-connectees", nom: "Cartes NFC connectées" }
+    ]
+  },
+  "ue4": {
+    title: "UE 4 – Gérer des données de l'information",
+    badge: "⭐ Focus",
+    description: "Modélisation, stockage et exploitation efficace des données.",
+    traces: [
+      {
+        id: "mcd_crm_clients",
+        title: "MCD – Clients et utilisateurs (Draw.io)",
+        shortTitle: "MCD CRM",
+        type: "Schéma relationnel",
+        project: "CRM",
+        image: mcdCrmImage,
+        file: "crm/docs/mcd-clients-users.drawio",
+        thumbnail: "captures/crm/thumb_mcd.png",
+        description: "Modèle conceptuel de données pour la gestion des clients et utilisateurs du CRM avec Draw.io.",
+        savoir: (
+          <>
+            La modélisation de ce <span className={styles.conceptKeyword}>MCD CRM PostgreSQL</span> m'a appris à concevoir une <span className={styles.keyword}>architecture relationnelle complexe</span> avec <span className={styles.techKeyword}>7 tables interconnectées</span>. J'ai découvert comment organiser les <span className={styles.methodKeyword}>relations CASCADE</span> pour maintenir l'intégrité : les suppressions se propagent automatiquement entre tables liées. L'utilisation des <span className={styles.conceptKeyword}>contraintes strictes</span> (NOT NULL, DEFAULT, CHECK) garantit la qualité des données. J'ai appris l'importance des <span className={styles.techKeyword}>index optimisés</span> pour accélérer les requêtes sur les grandes volumes de données CRM. La <span className={styles.keyword}>séparation des responsabilités</span> entre utilisateurs, clients, rendez-vous, et messages reflète une architecture métier robuste. J'ai compris comment les <span className={styles.methodKeyword}>clés étrangères multiples</span> permettent de tracer toutes les interactions commerciales.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai conçu une architecture avec <span className={styles.keyword}>7 tables PostgreSQL</span> interconnectées. La table centrale <span className={styles.techKeyword}>CLIENTS</span> contient first_name, last_name, email, phone, company, address, notes avec contraintes de validation. La table <span className={styles.methodKeyword}>USERS</span> gère l'authentification avec email, password, role, nom, prénom et timestamps automatiques. J'ai créé la table <span className={styles.conceptKeyword}>APPOINTMENTS</span> pour les rendez-vous avec client_id, user_id, date_time, location, description et statut. La table <span className={styles.keyword}>MESSAGES</span> tracke toutes les communications : sender_id, receiver_id, content, canal, message_type avec horodatage précis. J'ai implémenté la table <span className={styles.techKeyword}>DELETED_CLIENTS</span> pour conserver l'historique des suppressions avec original_id et données archivées. Les tables <span className={styles.methodKeyword}>REMINDERS</span> et <span className={styles.conceptKeyword}>ACTIVITIES</span> complètent le système avec notifications automatiques et suivi d'activités. Toutes les relations utilisent des <span className={styles.keyword}>clés étrangères CASCADE</span> pour maintenir la cohérence lors des suppressions. Les <span className={styles.techKeyword}>index optimisés</span> sur les colonnes fréquemment interrogées accélèrent les requêtes métier.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            Architecture <span className={styles.keyword}>7 tables PostgreSQL</span> : CLIENTS, USERS, APPOINTMENTS, MESSAGES, DELETED_CLIENTS, REMINDERS, ACTIVITIES avec <span className={styles.techKeyword}>relations CASCADE</span>...
+          </>
+        )
+      },
+      {
+        id: "modele_gestion_utilisateurs_crm",
+        title: "Modèle de gestion des utilisateurs CRM",
+        shortTitle: "Modèle Utilisateurs CRM",
+        type: "Diagramme UML",
+        project: "CRM",
+        image: modeleUtilisateursImage,
+        file: "crm/docs/modele-utilisateurs-crm.uml",
+        thumbnail: "captures/crm/thumb_modele.png",
+        description: "Diagramme UML de classe pour la gestion des utilisateurs et administration du CRM.",
+        savoir: (
+          <>
+            J'ai conçu l'<span className={styles.conceptKeyword}>architecture complète</span> du système d'administration du CRM. Au sommet, la classe <span className={styles.keyword}>StatistiquesUtilisateurs</span> calcule les métriques : totalUtilisateurs (int), actifsRécemment (int), nombreAdmins (int) avec une méthode calculerStatistiques(). La classe centrale <span className={styles.techKeyword}>TableauDeBordAdmin</span> contient une liste d'utilisateurs et expose 5 méthodes : afficherStatistiques(), ajouterUtilisateur(), supprimerUtilisateur(), filtrerParRôle(), modifierRôle(). Je définis aussi la classe <span className={styles.methodKeyword}>Utilisateur</span> qui stocke id (UUID), prénom, nom, email (string), rôle (Rôle), dateCréation et dernièreConnexion (DateTime). L'énumération <span className={styles.conceptKeyword}>Rôle</span> comprend trois niveaux : Lecture_Seule, Commercial, Administrateur.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            Le système présente une <span className={styles.keyword}>hiérarchie des responsabilités</span> claire : StatistiquesUtilisateurs génère les rapports, TableauDeBordAdmin orchestre les opérations, Utilisateur représente les données individuelles, et Rôle contrôle les permissions. Les <span className={styles.techKeyword}>flux de données</span> suivent une logique descendante : StatistiquesUtilisateurs consulte TableauDeBordAdmin qui gère une collection d'Utilisateurs (cardinalité 1..*). Chaque Utilisateur référence un Rôle spécifique. Le système implémente les <span className={styles.methodKeyword}>opérations métier</span> : création/suppression d'utilisateurs, modification des rôles, filtrage par permissions, et affichage de statistiques temps réel. La <span className={styles.conceptKeyword}>structure modulaire</span> permet aussi d'ajouter facilement de nouveaux rôles ou méthodes d'administration sans impacter les autres composants du système CRM.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            Architecture avec <span className={styles.keyword}>4 classes UML</span>, hiérarchie des responsabilités, <span className={styles.methodKeyword}>flux de données</span> descendant et <span className={styles.conceptKeyword}>opérations métier</span> modulaires...
+          </>
+        )
+      },
+      {
+        id: "model_table_nfc",
+        title: "Modèle table cartes – PostgreSQL",
+        shortTitle: "Table Cartes NFC",
+        type: "Schéma relationnel",
+        project: "NFC",
+        file: "nfc/database/cards-table-model.sql",
+        thumbnail: "captures/nfc/thumb_table.png",
+        description: "Structure de la table PostgreSQL pour les cartes NFC avec UUID et contraintes.",
+        savoir: (
+          <>
+            La conception de la table <span className={styles.techKeyword}>cards</span> m'a fait découvrir les <span className={styles.keyword}>UUID</span> comme identifiants uniques globaux. J'ai appris l'importance des <span className={styles.conceptKeyword}>types de données PostgreSQL</span> : VARCHAR, TEXT, TIMESTAMP, UUID. Les <span className={styles.methodKeyword}>contraintes CHECK</span> valident les données à l'insertion. J'ai compris les <span className={styles.techKeyword}>index</span> pour optimiser les recherches par UUID.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai structuré la table avec <span className={styles.keyword}>12 colonnes</span> : uuid (PK), nom, prénom, entreprise, poste, email, téléphone, url, thème, qr_code, created_at, updated_at. J'ai implémenté des <span className={styles.methodKeyword}>contraintes métier</span> : email unique, format téléphone français, thèmes prédéfinis. Les <span className={styles.techKeyword}>triggers</span> gèrent automatiquement les timestamps. L'<span className={styles.conceptKeyword}>index sur UUID</span> permet des recherches en <span className={styles.keyword}>&lt; 1ms</span> sur <span className={styles.keyword}>100k+ cartes</span>.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai structuré <span className={styles.keyword}>12 colonnes</span> avec <span className={styles.techKeyword}>UUID</span> et recherches <span className={styles.keyword}>&lt; 1ms</span>...
+          </>
+        ),
+        code: `-- Structure table cards PostgreSQL
+CREATE TABLE cards (
+    uuid UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    nom VARCHAR(100) NOT NULL,
+    prenom VARCHAR(100) NOT NULL,
+    entreprise VARCHAR(200),
+    poste VARCHAR(150),
+    email VARCHAR(255) UNIQUE,
+    telephone VARCHAR(20) CHECK (telephone ~ '^[0-9+\s\-\.()]+$'),
+    url VARCHAR(500),
+    theme VARCHAR(50) DEFAULT 'bleu-classique' 
+        CHECK (theme IN ('bleu-classique', 'violet-moderne', 'vert-nature')),
+    qr_code TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Index pour optimiser les recherches
+CREATE INDEX idx_cards_uuid ON cards(uuid);
+CREATE INDEX idx_cards_email ON cards(email);`
+      },
+      {
+        id: "migration_clients_sql",
+        title: "Migration – Création table clients",
+        shortTitle: "Migration Clients",
+        type: "Fichier SQL (.sql)",
+        project: "CRM",
+        file: "crm/migrations/001_create_clients_table.sql",
+        thumbnail: "captures/crm/thumb_migration.png",
+        description: "Script de migration SQL pour créer la table clients avec contraintes et index.",
+        savoir: (
+          <>
+            Cette migration PostgreSQL m'a appris les <span className={styles.conceptKeyword}>techniques avancées de DDL</span> (Data Definition Language). J'ai découvert l'importance des <span className={styles.techKeyword}>contraintes CHECK</span> pour valider les données métier : le statut doit être 'Prospect', 'Client' ou 'Archivé'. Les <span className={styles.keyword}>fonctions PL/pgSQL</span> permettent d'automatiser les tâches : ici, la mise à jour automatique du timestamp <span className={styles.methodKeyword}>updated_at</span> via un trigger. J'ai appris que les <span className={styles.conceptKeyword}>triggers BEFORE UPDATE</span> s'exécutent avant chaque modification pour maintenir la cohérence. La <span className={styles.techKeyword}>stratégie d'indexation</span> optimise les requêtes fréquentes : index composite sur nom/prénom, index sur statut pour les filtres métier. J'ai compris l'importance des <span className={styles.methodKeyword}>scripts DOWN</span> complets qui nettoient proprement triggers, fonctions et tables dans le bon ordre.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai structuré une table clients avec <span className={styles.keyword}>14 colonnes optimisées</span> : identifiants (id, created_by), informations personnelles (first_name, last_name, email, phone), données professionnelles (company, position, address), métier CRM (status, is_confidential, notes), et timestamps automatiques. J'ai implémenté une <span className={styles.techKeyword}>contrainte CHECK sophistiquée</span> sur le statut avec 3 valeurs métier et valeur par défaut 'Prospect'. La <span className={styles.methodKeyword}>fonction PL/pgSQL</span> update_updated_at_column() utilise NEW.updated_at = NOW() pour horodater automatiquement chaque modification. Le <span className={styles.conceptKeyword}>trigger trg_clients_updated_at</span> se déclenche BEFORE UPDATE sur chaque ligne. J'ai créé <span className={styles.keyword}>5 index stratégiques</span> : idx_clients_created_by pour les requêtes par commercial, idx_clients_email pour les recherches rapides, idx_clients_name composite pour trier par nom complet, idx_clients_status pour filtrer prospects/clients, idx_clients_confidential pour sécuriser les données sensibles. Le script DOWN nettoie intelligemment dans l'ordre inverse : trigger → fonction → table.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            Migration avec <span className={styles.keyword}>14 colonnes</span>, <span className={styles.techKeyword}>contrainte CHECK</span>, <span className={styles.methodKeyword}>fonction PL/pgSQL</span>, <span className={styles.conceptKeyword}>trigger automatique</span> et <span className={styles.keyword}>5 index</span>...
+          </>
+        ),
+        code: `-- Migration 001 : Création table clients
+-- UP
+CREATE TABLE clients (
+  id                SERIAL PRIMARY KEY,
+  created_by        INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  first_name        VARCHAR(100) NOT NULL,
+  last_name         VARCHAR(100) NOT NULL,
+  email             VARCHAR(255) NOT NULL UNIQUE,
+  phone             VARCHAR(20),
+  company           VARCHAR(255),
+  position          VARCHAR(100),
+  address           TEXT,
+  notes             TEXT,
+  status            VARCHAR(50) NOT NULL
+                     DEFAULT 'Prospect'
+                     CHECK (status IN ('Prospect','Client','Archivé')),
+  is_confidential   BOOLEAN DEFAULT FALSE,
+  created_at        TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at        TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Triggers pour tenir à jour updated_at
+CREATE FUNCTION update_updated_at_column()
+  RETURNS TRIGGER AS $$
+BEGIN
+  NEW.updated_at = NOW();
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_clients_updated_at
+  BEFORE UPDATE ON clients
+  FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+
+-- Indexes
+CREATE INDEX idx_clients_created_by      ON clients(created_by);
+CREATE INDEX idx_clients_email           ON clients(email);
+CREATE INDEX idx_clients_name            ON clients(last_name, first_name);
+CREATE INDEX idx_clients_status          ON clients(status);
+CREATE INDEX idx_clients_confidential    ON clients(is_confidential);
+
+-- DOWN
+DROP TRIGGER IF EXISTS trg_clients_updated_at ON clients;
+DROP FUNCTION IF EXISTS update_updated_at_column();
+DROP TABLE IF EXISTS clients;`
+      },
+      {
+        id: "migration_nfc_uuid",
+        title: "Migration – UUID + timestamps cartes",
+        shortTitle: "Migration NFC",
+        type: "Fichier SQL (.sql)",
+        project: "NFC",
+        image: migrationNfcImage,
+        file: "nfc/migrations/002_add_uuid_timestamps.sql",
+        thumbnail: "captures/nfc/thumb_uuid.png",
+        description: "Migration pour ajouter UUID et timestamps automatiques à la table cartes.",
+        savoir: (
+          <>
+            Cette migration m'a appris l'<span className={styles.conceptKeyword}>évolution des schémas</span> en production. J'ai découvert les <span className={styles.techKeyword}>UUID v4</span> pour les identifiants uniques distribués. Les <span className={styles.methodKeyword}>triggers PostgreSQL</span> automatisent la mise à jour des timestamps. J'ai appris l'importance des <span className={styles.keyword}>migrations non-destructives</span> pour éviter la perte de données.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai implémenté une migration évolutive avec <span className={styles.keyword}>4 étapes techniques</span> : ajout de la colonne <span className={styles.techKeyword}>uuid</span> avec génération automatique via <span className={styles.keyword}>gen_random_uuid()</span>, génération d'UUID pour les cartes existantes avec UPDATE, ajout des contraintes NOT NULL et UNIQUE, puis création des colonnes <span className={styles.methodKeyword}>created_at</span> et <span className={styles.conceptKeyword}>updated_at</span> avec TIMESTAMP DEFAULT. J'ai créé un <span className={styles.techKeyword}>trigger automatique</span> qui se déclenche avant chaque UPDATE pour maintenir updated_at à jour. La migration respecte la <span className={styles.methodKeyword}>rétrocompatibilité</span> en préservant toutes les données existantes lors de l'ajout des nouvelles colonnes. Le script DOWN annule proprement tous les changements dans l'ordre inverse.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            Migration <span className={styles.keyword}>4 étapes</span> : <span className={styles.techKeyword}>UUID</span> + contraintes, <span className={styles.methodKeyword}>timestamps</span>, <span className={styles.conceptKeyword}>trigger automatique</span> et <span className={styles.keyword}>rétrocompatibilité</span>...
+          </>
+        ),
+        code: `-- Migration 002: Ajout UUID et timestamps
+-- UP
+-- Ajout de la colonne UUID
+ALTER TABLE cards ADD COLUMN uuid UUID DEFAULT gen_random_uuid();
+
+-- Génération d'UUID pour les cartes existantes
+UPDATE cards SET uuid = gen_random_uuid() WHERE uuid IS NULL;
+
+-- Rendre UUID obligatoire et unique
+ALTER TABLE cards ALTER COLUMN uuid SET NOT NULL;
+ALTER TABLE cards ADD CONSTRAINT cards_uuid_unique UNIQUE (uuid);
+
+-- Ajout des timestamps
+ALTER TABLE cards ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+ALTER TABLE cards ADD COLUMN updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+-- Trigger pour updated_at automatique
+CREATE OR REPLACE FUNCTION update_updated_at_column()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.updated_at = CURRENT_TIMESTAMP;
+    RETURN NEW;
+END;
+$$ language 'plpgsql';
+
+CREATE TRIGGER update_cards_updated_at 
+    BEFORE UPDATE ON cards 
+    FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+-- DOWN
+DROP TRIGGER IF EXISTS update_cards_updated_at ON cards;
+DROP FUNCTION IF EXISTS update_updated_at_column();
+ALTER TABLE cards DROP COLUMN IF EXISTS uuid;
+ALTER TABLE cards DROP COLUMN IF EXISTS created_at;
+ALTER TABLE cards DROP COLUMN IF EXISTS updated_at;`
+      },
+      {
+        id: "env_postgresql",
+        title: "Connexion PostgreSQL – .env.production",
+        shortTitle: "Config PostgreSQL",
+        type: "Env (.env)",
+        project: "CRM",
+        image: envCrmImage,
+        file: "crm/.env.production",
+        thumbnail: "captures/crm/thumb_env.png",
+        description: "Configuration .env.production complète avec 5 sections : connexion principale, SSL, pool de connexions, monitoring et réplication PostgreSQL.",
+        savoir: (
+          <>
+            La configuration <span className={styles.conceptKeyword}>.env.production</span> m'a appris l'importance d'une <span className={styles.methodKeyword}>sécurisation multicouche</span> pour PostgreSQL. J'ai découvert les <span className={styles.techKeyword}>certificats SSL client</span> avec des chemins vers les fichiers `.crt`, `.key` et certificat CA pour chiffrer les communications. La gestion du <span className={styles.keyword}>pool de connexions</span> optimise les performances : MIN/MAX connections, timeouts d'acquisition et d'inactivité. J'ai appris l'importance du <span className={styles.conceptKeyword}>monitoring granulaire</span> : logs des requêtes lentes avec seuil configurable, distinction entre requêtes normales et lentes. La <span className={styles.methodKeyword}>haute disponibilité</span> nécessite une architecture maître-replica avec basculement automatique. Les <span className={styles.techKeyword}>variables d'environnement sécurisées</span> utilisent des références comme `$&#123;POSTGRES_PASSWORD&#125;` pour éviter les mots de passe en dur.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai structuré la configuration en <span className={styles.keyword}>5 sections distinctes</span> pour une gestion optimale. La <span className={styles.techKeyword}>base de données principale</span> utilise une DATABASE_URL complète avec référence sécurisée `$&#123;POSTGRES_PASSWORD&#125;` vers `db-prod.mobydev.fr:5432`. J'ai configuré le <span className={styles.methodKeyword}>SSL complet</span> avec certificat client (`postgresql-client.crt`), clé privée (`postgresql-client.key`) et autorité de certification (`ca-certificate.crt`) stockés dans `/etc/ssl/`. Le <span className={styles.conceptKeyword}>pool de connexions</span> est optimisé : 5 connexions minimum, 20 maximum, timeout inactivité de 30s et acquisition de 10s. Le <span className={styles.keyword}>monitoring intelligent</span> désactive les logs normaux mais active les requêtes lentes avec seuil de 1000ms. J'ai implémenté la <span className={styles.techKeyword}>réplication master-slave</span> avec serveur replica sur `db-replica.mobydev.fr:5432` et backup automatique activé. Chaque paramètre est documenté et environnement-spécifique pour la production.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            Configuration <span className={styles.keyword}>5 sections</span> : SSL complet, pool optimisé, <span className={styles.techKeyword}>monitoring sélectif</span> et <span className={styles.methodKeyword}>réplication master-slave</span>...
+          </>
+        ),
+        code: `# .env.production — Configuration PostgreSQL sécurisée
+
+# Base de données principale
+DATABASE_URL=postgresql://crm_user:\$\{POSTGRES_PASSWORD\}@db-prod.mobydev.fr:5432/crm_production
+DB_HOST=db-prod.mobydev.fr
+DB_PORT=5432
+DB_NAME=crm_production
+DB_USER=crm_user
+DB_PASSWORD=\$\{POSTGRES_PASSWORD\}
+
+# Configuration SSL
+DB_SSL=true
+DB_SSL_CERT=/etc/ssl/certs/postgresql-client.crt
+DB_SSL_KEY=/etc/ssl/private/postgresql-client.key
+DB_SSL_CA=/etc/ssl/certs/ca-certificate.crt
+
+# Pool de connexions
+DB_POOL_MIN=5
+DB_POOL_MAX=20
+DB_POOL_IDLE_TIMEOUT=30000
+DB_POOL_ACQUIRE_TIMEOUT=10000
+
+# Monitoring & logs
+DB_LOG_QUERIES=false
+DB_LOG_SLOW_QUERIES=true
+DB_SLOW_QUERY_THRESHOLD=1000
+
+# Backup & réplication
+DB_BACKUP_ENABLED=true
+DB_REPLICA_HOST=db-replica.mobydev.fr
+DB_REPLICA_PORT=5432`
+      },
+      {
+        id: "join_clients_users",
+        title: "JOIN clients → utilisateurs",
+        shortTitle: "Requête JOIN",
+        type: "Extrait de requête",
+        project: "CRM",
+        file: "crm/queries/clients-users-join.sql",
+        thumbnail: "captures/crm/thumb_join.png",
+        description: "Requête SQL avec JOIN pour récupérer les clients et leurs utilisateurs associés.",
+        savoir: (
+          <>
+            Les <span className={styles.techKeyword}>jointures SQL</span> m'ont appris à combiner des données de plusieurs tables. J'ai découvert les différents types : <span className={styles.keyword}>INNER JOIN</span>, <span className={styles.keyword}>LEFT JOIN</span>, <span className={styles.keyword}>RIGHT JOIN</span>. Les <span className={styles.methodKeyword}>conditions de jointure</span> utilisent les clés étrangères pour lier les enregistrements. J'ai compris l'impact des jointures sur les <span className={styles.conceptKeyword}>performances</span> et l'importance des index.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai créé une requête complexe joignant <span className={styles.keyword}>3 tables</span> : clients, users, companies avec <span className={styles.techKeyword}>LEFT JOIN</span> pour inclure tous les clients. J'ai ajouté des <span className={styles.methodKeyword}>filtres WHERE</span> pour les clients actifs et <span className={styles.conceptKeyword}>tri par date</span> de création. La requête inclut <span className={styles.keyword}>agrégations</span> : nombre de clients par utilisateur. J'ai optimisé avec des <span className={styles.techKeyword}>index composites</span> pour un temps d'exécution de <span className={styles.keyword}>&lt; 50ms</span> sur <span className={styles.keyword}>10k+ clients</span>.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai créé une requête <span className={styles.keyword}>3 tables</span> avec <span className={styles.techKeyword}>LEFT JOIN</span> et temps <span className={styles.keyword}>&lt; 50ms</span>...
+          </>
+        ),
+        code: `-- Requête JOIN clients → utilisateurs avec agrégations
+SELECT 
+    u.id as user_id,
+    u.nom as user_nom,
+    u.email as user_email,
+    u.role,
+    COUNT(c.id) as nb_clients,
+    c.id as client_id,
+    c.nom as client_nom,
+    c.prenom as client_prenom,
+    c.entreprise,
+    c.secteur,
+    c.created_at as client_created_at,
+    CASE 
+        WHEN c.created_at > NOW() - INTERVAL '30 days' 
+        THEN 'Nouveau' 
+        ELSE 'Existant' 
+    END as statut_client
+FROM users u
+LEFT JOIN clients c ON u.id = c.user_id
+WHERE u.active = true
+    AND (c.id IS NULL OR c.deleted_at IS NULL)
+GROUP BY u.id, u.nom, u.email, u.role, c.id, c.nom, c.prenom, c.entreprise, c.secteur, c.created_at
+ORDER BY u.nom ASC, c.created_at DESC
+LIMIT 100;
+
+-- Requête optimisée avec index composite
+-- Index: (user_id, deleted_at, created_at) sur table clients`
+      },
+      {
+        id: "pgadmin_vue",
+        title: "Vue admin PostgreSQL (pgAdmin)",
+        shortTitle: "pgAdmin Interface",
+        type: "Capture (.png)",
+        project: "CRM",
+        file: "crm/screenshots/pgadmin-interface.png",
+        thumbnail: "captures/crm/thumb_pgadmin.png",
+        description: "Interface pgAdmin pour l'administration de la base de données PostgreSQL du CRM.",
+        savoir: (
+          <>
+            <span className={styles.techKeyword}>pgAdmin</span> m'a fait découvrir l'<span className={styles.conceptKeyword}>administration graphique</span> de PostgreSQL. J'ai appris à naviguer dans l'<span className={styles.methodKeyword}>arborescence des objets</span> : serveurs, bases, schémas, tables. Les <span className={styles.keyword}>outils de monitoring</span> affichent les connexions actives, requêtes lentes, statistiques. J'ai découvert l'<span className={styles.conceptKeyword}>éditeur SQL</span> avec coloration syntaxique et autocomplétion.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai configuré <span className={styles.keyword}>3 serveurs</span> : développement, staging, production avec connexions sécurisées. J'ai utilisé l'<span className={styles.techKeyword}>explorateur de données</span> pour visualiser les <span className={styles.keyword}>50k+ enregistrements</span> clients. J'ai créé des <span className={styles.methodKeyword}>requêtes sauvegardées</span> pour les analyses récurrentes et configuré des <span className={styles.conceptKeyword}>alertes de monitoring</span>. L'interface me permet de gérer les <span className={styles.keyword}>utilisateurs</span>, <span className={styles.keyword}>permissions</span>, et <span className={styles.keyword}>sauvegardes</span> quotidiennes.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai configuré <span className={styles.keyword}>3 serveurs</span> avec monitoring de <span className={styles.keyword}>50k+ enregistrements</span>...
+          </>
+        )
+      },
+      {
+        id: "normalisation_3nf_mousow",
+        title: "Structure normalisée – MousoW produits",
+        shortTitle: "Normalisation 3NF",
+        type: "Normalisation 3NF",
+        project: "MousoW",
+        file: "mousow/docs/normalisation-3nf-produits.pdf",
+        thumbnail: "captures/mousow/thumb_3nf.png",
+        description: "Application de la 3ème forme normale pour la structure des produits MousoW.",
+        savoir: (
+          <>
+            La <span className={styles.conceptKeyword}>normalisation 3NF</span> m'a appris à éliminer les <span className={styles.errorKeyword}>dépendances transitives</span>. J'ai découvert les <span className={styles.keyword}>formes normales</span> : 1NF (atomicité), 2NF (dépendance totale), 3NF (dépendance directe). Les <span className={styles.methodKeyword}>anomalies de mise à jour</span> sont évitées par une structure normalisée. J'ai compris le compromis entre <span className={styles.conceptKeyword}>intégrité</span> et <span className={styles.conceptKeyword}>performance</span>.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai restructuré la table produits en <span className={styles.keyword}>4 tables normalisées</span> : produits, catégories, fournisseurs, attributs. J'ai identifié les <span className={styles.methodKeyword}>dépendances fonctionnelles</span> : nom_categorie → id_categorie, nom_fournisseur → id_fournisseur. La normalisation a éliminé <span className={styles.keyword}>60% de redondance</span> et réduit l'espace de stockage de <span className={styles.keyword}>2GB</span>. J'ai documenté le processus avec <span className={styles.conceptKeyword}>diagrammes de dépendances</span> et <span className={styles.techKeyword}>scripts de migration</span>.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai restructuré en <span className={styles.keyword}>4 tables</span> avec <span className={styles.keyword}>60% moins de redondance</span>...
+          </>
+        ),
+        code: `-- Avant normalisation (problèmes de redondance)
+CREATE TABLE produits_denormalise (
+    id SERIAL PRIMARY KEY,
+    nom VARCHAR(200),
+    prix DECIMAL(10,2),
+    nom_categorie VARCHAR(100),    -- Redondance
+    desc_categorie TEXT,           -- Redondance
+    nom_fournisseur VARCHAR(150),  -- Redondance
+    email_fournisseur VARCHAR(255) -- Redondance
+);
+
+-- Après normalisation 3NF
+CREATE TABLE categories (
+    id SERIAL PRIMARY KEY,
+    nom VARCHAR(100) UNIQUE NOT NULL,
+    description TEXT
+);
+
+CREATE TABLE fournisseurs (
+    id SERIAL PRIMARY KEY,
+    nom VARCHAR(150) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE
+);
+
+CREATE TABLE produits (
+    id SERIAL PRIMARY KEY,
+    nom VARCHAR(200) NOT NULL,
+    prix DECIMAL(10,2) NOT NULL,
+    categorie_id INTEGER REFERENCES categories(id),
+    fournisseur_id INTEGER REFERENCES fournisseurs(id)
+);
+
+-- Résultat: 60% moins de redondance, intégrité garantie`
+      }
+    ],
+    reflexion: {
+      situationShort: "Base de données complexe avec relations multiples et volumes importants.",
+      situation: `Base de données complexe avec <span class="conceptKeyword">relations multiples</span> et volumes importants.
+
+Le projet <span class="keyword">MousoW</span> nécessitait la gestion de <span class="keyword">15+ tables</span> interconnectées : utilisateurs, événements, réservations, paiements, avec des <span class="conceptKeyword">relations complexes</span> et des volumes croissants (<span class="keyword">10k+ enregistrements/jour</span>).
+
+Les requêtes principales prenaient plus de <span class="errorKeyword">5 secondes</span> à s'exécuter, impactant l'expérience utilisateur et générant des <span class="errorKeyword">timeouts fréquents</span>.`,
+
+      actionShort: "Dénormalisation stratégique et optimisation des requêtes critiques.",
+      action: `<span class="methodKeyword">Dénormalisation stratégique</span> et optimisation des requêtes critiques.
+
+J'ai appliqué une <span class="methodKeyword">approche data-driven</span> :
+• <span class="techKeyword">Analyse des requêtes</span> : identification des goulots d'étranglement
+• <span class="methodKeyword">MCD optimisé</span> : dénormalisation ciblée sur les tables critiques
+• <span class="techKeyword">Index composites</span> : optimisation des jointures fréquentes
+• <span class="techKeyword">Vues matérialisées</span> : pré-calcul des agrégations complexes
+• <span class="conceptKeyword">Partitioning</span> : séparation des données par période
+
+Chaque optimisation a été <span class="keyword">mesurée et validée</span> avec des tests de charge.`,
+
+      resultatShort: "Temps de réponse divisé par 10 sur les requêtes principales.",
+      resultat: `Temps de réponse divisé par <span class="keyword">10</span> sur les requêtes principales.
+
+Les performances sont <span class="conceptKeyword">drastiquement améliorées</span> :
+• Requêtes dashboard : <span class="errorKeyword">5.2s</span> → <span class="keyword">0.4s</span>
+• <span class="conceptKeyword">Recherche utilisateurs</span> : <span class="keyword">-85%</span> de latence
+• <span class="techKeyword">Jointures complexes</span> : optimisées avec index
+• <span class="methodKeyword">Agrégations</span> : pré-calculées en temps réel
+• <span class="conceptKeyword">Scalabilité</span> : support de <span class="keyword">100k+ utilisateurs</span>
+
+La base de données gère maintenant des <span class="keyword">pics de charge</span> sans dégradation.`,
+
+      apprentissageShort: "L'équilibre entre normalisation et performance est crucial.",
+      apprentissage: `L'équilibre entre <span class="conceptKeyword">normalisation et performance</span> est crucial.
+
+Cette compétence m'a enseigné que <span class="methodKeyword">gérer des données</span> efficacement requiert :
+
+<span class="techKeyword">Analyse avant optimisation</span> : Identifier les vraies causes de lenteur avec des outils de profiling SQL.
+
+<span class="conceptKeyword">Compromis éclairés</span> : La dénormalisation améliore les performances mais complexifie la maintenance.
+
+<span class="methodKeyword">Monitoring continu</span> : Les performances évoluent avec le volume de données, nécessitant un suivi régulier.
+
+<span class="techKeyword">Connaissance approfondie</span> : Maîtriser les index, vues matérialisées et partitioning est essentiel pour les gros volumes.
+
+Je suis capable de <span class="keyword">concevoir et optimiser</span> des bases de données complexes, en trouvant le bon équilibre entre intégrité des données et performance.`
+    },
+    projetsAssocies: [
+      { id: "crm", nom: "CRM Mobydev" },
+      { id: "nfc-connectees", nom: "Cartes NFC connectées" },
+      { id: "mousow", nom: "MousoW" }
+    ]
+  },
+  "ue5": {
+    title: "UE 5 – Conduire un projet",
+    description: "Pilotage de projets informatiques avec méthodologie agile.",
+    traces: [
+      {
+        id: "planning_notion_crm",
+        title: "Planning projet – Roadmap MVP",
+        shortTitle: "Planning CRM",
+        type: "Notion (capture)",
+        project: "CRM",
+        file: "projets/notion-planning-crm-mvp.png",
+        thumbnail: "captures/crm/thumb_planning.png",
+        description: "Planning détaillé du projet CRM avec roadmap MVP, sprints et jalons dans Notion.",
+        savoir: (
+          <>
+            La <span className={styles.conceptKeyword}>gestion de projet</span> avec <span className={styles.techKeyword}>Notion</span> m'a appris l'importance de la <span className={styles.methodKeyword}>planification structurée</span>. J'ai découvert les concepts de <span className={styles.keyword}>MVP</span> (Minimum Viable Product), <span className={styles.keyword}>roadmap</span>, et <span className={styles.conceptKeyword}>priorisation des fonctionnalités</span>. Les <span className={styles.methodKeyword}>sprints</span> permettent de livrer de la valeur régulièrement. J'ai appris l'importance des <span className={styles.techKeyword}>jalons</span> et des <span className={styles.keyword}>livrables</span> mesurables.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai planifié le projet CRM sur <span className={styles.keyword}>6 mois</span> avec <span className={styles.keyword}>3 phases</span> : MVP (2 mois), Beta (2 mois), Production (2 mois). J'ai défini <span className={styles.keyword}>15 user stories</span> prioritaires et <span className={styles.methodKeyword}>8 sprints</span> de 2 semaines. Le planning inclut <span className={styles.conceptKeyword}>estimations</span>, <span className={styles.techKeyword}>dépendances</span>, et <span className={styles.keyword}>ressources allouées</span>. J'ai mis en place un <span className={styles.methodKeyword}>suivi hebdomadaire</span> avec métriques de vélocité et burn-down chart.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai planifié <span className={styles.keyword}>6 mois</span> en <span className={styles.keyword}>3 phases</span> avec <span className={styles.keyword}>15 user stories</span> et <span className={styles.keyword}>8 sprints</span>...
+          </>
+        )
+      },
+      {
+        id: "comparatif_mobydev_refonte",
+        title: "Avant / Après – Refonte visuelle",
+        shortTitle: "Refonte Mobydev",
+        type: "Comparatif (.png)",
+        project: "Mobydev V1/V2",
+        file: "projets/comparatif-mobydev-v1-v2.png",
+        thumbnail: "captures/mobydev/thumb_comparatif.png",
+        description: "Comparaison visuelle avant/après de la refonte complète du site Mobydev.",
+        savoir: (
+          <>
+            La <span className={styles.conceptKeyword}>refonte visuelle</span> m'a appris l'importance de l'<span className={styles.methodKeyword}>analyse comparative</span>. J'ai découvert les principes de <span className={styles.techKeyword}>design thinking</span> : empathie, définition, idéation, prototypage, test. L'<span className={styles.keyword}>expérience utilisateur</span> doit guider toutes les décisions. J'ai compris l'impact du <span className={styles.conceptKeyword}>design moderne</span> sur la <span className={styles.methodKeyword}>conversion</span> et l'engagement.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai dirigé la refonte complète avec <span className={styles.keyword}>analyse comparative</span> détaillée : V1 vs V2. J'ai identifié <span className={styles.keyword}>12 points d'amélioration</span> : navigation, lisibilité, responsive, performance. La nouvelle version améliore le <span className={styles.methodKeyword}>taux de conversion</span> de <span className={styles.keyword}>+40%</span> et réduit le <span className={styles.conceptKeyword}>taux de rebond</span> de <span className={styles.keyword}>-25%</span>. J'ai coordonné <span className={styles.techKeyword}>designer</span> et <span className={styles.techKeyword}>développeurs</span> sur <span className={styles.keyword}>3 mois</span>.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai dirigé la refonte avec <span className={styles.keyword}>+40%</span> de conversion et <span className={styles.keyword}>-25%</span> de rebond...
+          </>
+        )
+      },
+      {
+        id: "storyboard_figma_insens",
+        title: "Storyboard application – navigation mobile",
+        shortTitle: "Storyboard Insens",
+        type: "Figma (.figma)",
+        project: "Insens",
+        file: "projets/figma-storyboard-insens-mobile.figma",
+        thumbnail: "captures/insens/thumb_storyboard.png",
+        description: "Storyboard complet de l'application mobile Insens avec parcours utilisateur et wireframes.",
+        savoir: (
+          <>
+            Le <span className={styles.techKeyword}>storyboard</span> avec <span className={styles.techKeyword}>Figma</span> m'a appris la <span className={styles.conceptKeyword}>conception centrée utilisateur</span>. J'ai découvert l'importance des <span className={styles.methodKeyword}>parcours utilisateur</span>, des <span className={styles.keyword}>wireframes</span>, et des <span className={styles.conceptKeyword}>prototypes interactifs</span>. La <span className={styles.methodKeyword}>navigation mobile</span> nécessite une approche spécifique : touch-friendly, thumb zone, progressive disclosure.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai créé un storyboard complet avec <span className={styles.keyword}>25 écrans</span> et <span className={styles.keyword}>8 parcours utilisateur</span> principaux. J'ai défini l'<span className={styles.methodKeyword}>architecture de l'information</span>, les <span className={styles.techKeyword}>interactions</span>, et les <span className={styles.conceptKeyword}>transitions</span>. Le prototype inclut <span className={styles.keyword}>micro-animations</span> et <span className={styles.methodKeyword}>feedback utilisateur</span>. J'ai testé avec <span className={styles.keyword}>15 utilisateurs</span> et itéré <span className={styles.keyword}>3 versions</span> avant validation.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai créé <span className={styles.keyword}>25 écrans</span> avec <span className={styles.keyword}>8 parcours</span> et testé avec <span className={styles.keyword}>15 utilisateurs</span>...
+          </>
+        )
+      },
+      {
+        id: "normalisation_bdd_mousow",
+        title: "Justification structure BDD normalisée",
+        shortTitle: "Normalisation BDD",
+        type: "Normalisation .md",
+        project: "MousoW",
+        file: "projets/normalisation-bdd-mousow.md",
+        thumbnail: "captures/mousow/thumb_normalisation.png",
+        description: "Documentation technique justifiant les choix de normalisation de la base de données MousoW.",
+        savoir: (
+          <>
+            La <span className={styles.conceptKeyword}>normalisation de base de données</span> m'a appris l'importance de la <span className={styles.methodKeyword}>justification technique</span>. J'ai découvert comment <span className={styles.techKeyword}>documenter les décisions</span> architecturales avec des arguments solides. Les <span className={styles.keyword}>formes normales</span> (1NF, 2NF, 3NF) ont chacune leurs avantages et contraintes. La <span className={styles.conceptKeyword}>documentation technique</span> doit être claire et argumentée.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai rédigé une documentation complète de <span className={styles.keyword}>15 pages</span> justifiant la structure BDD. J'ai analysé <span className={styles.keyword}>12 tables</span> avec leurs relations et contraintes. La documentation inclut <span className={styles.methodKeyword}>diagrammes MCD</span>, <span className={styles.techKeyword}>scripts SQL</span>, et <span className={styles.conceptKeyword}>analyse des performances</span>. J'ai comparé <span className={styles.keyword}>3 approches</span> différentes avec leurs trade-offs respectifs.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai documenté <span className={styles.keyword}>15 pages</span> avec analyse de <span className={styles.keyword}>12 tables</span> et <span className={styles.keyword}>3 approches</span>...
+          </>
+        ),
+        code: `# Justification Structure BDD Normalisée - MousoW
+
+## 1. Analyse des besoins
+
+### Entités principales identifiées
+- **Utilisateurs** : organisateurs d'événements
+- **Événements** : soirées, concerts, festivals
+- **Réservations** : billets et places
+- **Paiements** : transactions financières
+- **Lieux** : salles et espaces événementiels
+
+### Volumétrie estimée
+- Utilisateurs : 10k+ comptes
+- Événements : 500+ par mois
+- Réservations : 50k+ par mois
+- Transactions : 100k+ par mois
+
+## 2. Choix de normalisation
+
+### Forme normale retenue : 3NF
+
+**Avantages :**
+- Élimination des redondances
+- Intégrité des données garantie
+- Maintenance simplifiée
+- Évolutivité assurée
+
+**Inconvénients acceptés :**
+- Requêtes plus complexes (JOINs)
+- Performance légèrement impactée
+
+### Justification technique
+
+\`\`\`sql
+-- Table utilisateurs (1NF, 2NF, 3NF)
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    nom VARCHAR(100) NOT NULL,
+    prenom VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Table événements (3NF - séparation lieu)
+CREATE TABLE events (
+    id SERIAL PRIMARY KEY,
+    titre VARCHAR(200) NOT NULL,
+    description TEXT,
+    date_debut TIMESTAMP NOT NULL,
+    date_fin TIMESTAMP NOT NULL,
+    lieu_id INTEGER REFERENCES lieux(id),
+    organisateur_id INTEGER REFERENCES users(id),
+    prix_base DECIMAL(10,2) NOT NULL
+);
+
+-- Table lieux (évite redondance adresse)
+CREATE TABLE lieux (
+    id SERIAL PRIMARY KEY,
+    nom VARCHAR(150) NOT NULL,
+    adresse VARCHAR(255) NOT NULL,
+    ville VARCHAR(100) NOT NULL,
+    capacite INTEGER NOT NULL
+);
+\`\`\`
+
+## 3. Analyse des performances
+
+### Tests de charge réalisés
+- 10k utilisateurs simultanés
+- 1M réservations en base
+- Requêtes complexes < 100ms
+
+### Optimisations appliquées
+- Index sur clés étrangères
+- Index composites sur (date, lieu)
+- Partitioning par mois sur réservations
+
+## 4. Alternatives évaluées
+
+### Option 1 : Dénormalisation partielle
+❌ **Rejetée** : redondance des données lieu
+❌ Maintenance complexe des adresses
+
+### Option 2 : NoSQL (MongoDB)
+❌ **Rejetée** : transactions ACID requises
+❌ Requêtes relationnelles complexes
+
+### Option 3 : Structure actuelle (3NF)
+✅ **Retenue** : équilibre optimal
+✅ Intégrité + performance acceptable`
+      }
+    ],
+    reflexion: {
+      situationShort: "Projets complexes nécessitant planification rigoureuse et coordination multi-équipes.",
+      situation: `Projets <span class="conceptKeyword">complexes</span> nécessitant planification rigoureuse et coordination multi-équipes.
+
+En tant que <span class="methodKeyword">chef de projet</span>, je devais gérer des projets avec des enjeux différents : <span class="keyword">CRM</span> (6 mois, MVP critique), <span class="keyword">refonte Mobydev</span> (impact business majeur), et <span class="keyword">app mobile Insens</span> (UX complexe). Chaque projet avait ses contraintes spécifiques et ses parties prenantes.
+
+Les défis incluaient : <span class="errorKeyword">planning serré</span>, <span class="conceptKeyword">ressources limitées</span>, et besoin de <span class="methodKeyword">justifications techniques</span> solides pour les choix architecturaux.`,
+
+      actionShort: "Planification structurée avec outils adaptés et documentation technique complète.",
+      action: `Planification structurée avec <span class="techKeyword">outils adaptés</span> et documentation technique complète.
+
+J'ai mis en place une <span class="methodKeyword">méthodologie hybride</span> :
+• <span class="techKeyword">Planning Notion</span> : roadmap MVP avec sprints et jalons mesurables
+• <span class="conceptKeyword">Analyse comparative</span> : avant/après pour valider les améliorations
+• <span class="methodKeyword">Prototypage Figma</span> : storyboards et tests utilisateur
+• <span class="techKeyword">Documentation technique</span> : justifications architecturales détaillées
+• <span class="conceptKeyword">Coordination équipes</span> : design, développement, et validation
+
+Chaque projet a bénéficié d'une <span class="keyword">approche sur mesure</span> selon ses spécificités.`,
+
+      resultatShort: "Projets livrés dans les délais avec amélioration mesurable des KPIs.",
+      resultat: `Projets livrés dans les délais avec <span class="conceptKeyword">amélioration mesurable</span> des KPIs.
+
+Les résultats sont <span class="methodKeyword">quantifiables</span> :
+• <span class="keyword">CRM</span> : livré en <span class="keyword">6 mois</span> avec toutes les fonctionnalités MVP
+• <span class="conceptKeyword">Mobydev V2</span> : <span class="keyword">+40%</span> conversion, <span class="keyword">-25%</span> rebond
+• <span class="techKeyword">Insens mobile</span> : <span class="keyword">95%</span> satisfaction utilisateur après tests
+• <span class="methodKeyword">Documentation BDD</span> : architecture validée et réutilisable
+• <span class="conceptKeyword">Respect planning</span> : <span class="keyword">100%</span> des jalons respectés
+
+Les parties prenantes apprécient la <span class="keyword">transparence</span> et la qualité des livrables.`,
+
+      apprentissageShort: "Chaque projet nécessite une approche adaptée avec documentation rigoureuse.",
+      apprentissage: `Chaque projet nécessite une <span class="conceptKeyword">approche adaptée</span> avec documentation rigoureuse.
+
+Cette compétence m'a appris que <span class="methodKeyword">conduire un projet</span> efficacement requiert :
+
+<span class="techKeyword">Planification adaptative</span> : Choisir les bons outils selon le contexte (Notion, Figma, documentation technique).
+
+<span class="conceptKeyword">Validation continue</span> : Tests utilisateur, métriques, et feedback pour ajuster le cap rapidement.
+
+<span class="methodKeyword">Documentation technique</span> : Justifier les choix architecturaux avec des arguments solides et mesurables.
+
+<span class="techKeyword">Coordination multi-disciplinaire</span> : Faire collaborer design, développement et métier efficacement.
+
+Je maîtrise maintenant la <span class="keyword">conduite de projets</span> complexes avec une approche méthodique et des résultats mesurables.`
+    },
+    projetsAssocies: [
+      { id: "crm", nom: "CRM Mobydev" },
+      { id: "mobydev-v1-v2", nom: "Refonte Mobydev V1/V2" },
+      { id: "insens", nom: "Application Insens" },
+      { id: "mousow", nom: "MousoW" }
+    ]
+  },
+  "ue6": {
+    title: "UE 6 – Collaborer au sein d'une équipe informatique",
+    description: "Travail efficace en équipe avec communication et partage des connaissances.",
+    traces: [
+      {
+        id: "readme_documentation",
+        title: "Documentation projet – Installation & usage",
+        shortTitle: "README.md",
+        type: "README.md",
+        project: "NFC / CRM",
+        file: "documentation/README.md",
+        thumbnail: "captures/docs/thumb_readme.png",
+        description: "Documentation complète des projets NFC et CRM : installation, configuration, usage et contribution.",
+        savoir: (
+          <>
+            La <span className={styles.conceptKeyword}>documentation technique</span> est essentielle pour la <span className={styles.methodKeyword}>collaboration en équipe</span>. J'ai appris l'importance d'un <span className={styles.techKeyword}>README</span> clair et structuré. La documentation doit couvrir : <span className={styles.keyword}>installation</span>, <span className={styles.keyword}>configuration</span>, <span className={styles.keyword}>usage</span>, et <span className={styles.conceptKeyword}>contribution</span>. <span className={styles.techKeyword}>Markdown</span> permet une mise en forme lisible et maintenable.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai rédigé des README complets pour <span className={styles.keyword}>2 projets majeurs</span> : NFC et CRM. Chaque documentation inclut <span className={styles.keyword}>prérequis</span>, <span className={styles.methodKeyword}>installation pas-à-pas</span>, <span className={styles.techKeyword}>variables d'environnement</span>, et <span className={styles.conceptKeyword}>exemples d'usage</span>. J'ai ajouté des <span className={styles.keyword}>badges</span> de statut, <span className={styles.methodKeyword}>captures d'écran</span>, et <span className={styles.techKeyword}>guides de contribution</span>. Le temps d'onboarding des nouveaux développeurs est passé de <span className={styles.errorKeyword}>2 jours</span> à <span className={styles.keyword}>2 heures</span>.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai documenté <span className={styles.keyword}>2 projets</span> et réduit l'onboarding de <span className={styles.errorKeyword}>2 jours</span> à <span className={styles.keyword}>2 heures</span>...
+          </>
+        ),
+        code: `# 🚀 CRM Mobydev
+
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
+[![Version](https://img.shields.io/badge/version-2.1.0-blue)]()
+[![License](https://img.shields.io/badge/license-MIT-green)]()
+
+## 📋 Description
+
+Application CRM complète pour la gestion des clients et prospects de Mobydev.
+Interface moderne avec React, API REST Node.js, et base PostgreSQL.
+
+## ✨ Fonctionnalités
+
+- 👥 **Gestion clients** : CRUD complet avec historique
+- 📊 **Dashboard** : métriques et graphiques temps réel
+- 🔐 **Authentification** : JWT avec gestion des rôles
+- 📱 **Responsive** : optimisé mobile et desktop
+- 🔍 **Recherche** : filtres avancés et tri
+- 📧 **Notifications** : emails automatiques
+
+## 🛠️ Technologies
+
+- **Frontend** : React 18, SCSS Modules, React Router
+- **Backend** : Node.js, Express, JWT
+- **Base de données** : PostgreSQL 15
+- **Cache** : Redis
+- **Tests** : Jest, Cypress
+- **Déploiement** : Docker, Railway
+
+## 📦 Installation
+
+### Prérequis
+- Node.js 18+
+- PostgreSQL 15+
+- Redis 7+
+- Git
+
+### Étapes
+
+1. **Cloner le repository**
+\`\`\`bash
+git clone https://github.com/mobydev/crm.git
+cd crm
+\`\`\`
+
+2. **Installer les dépendances**
+\`\`\`bash
+# Backend
+cd backend
+npm install
+
+# Frontend
+cd ../frontend
+npm install
+\`\`\`
+
+3. **Configuration environnement**
+\`\`\`bash
+# Copier les fichiers d'exemple
+cp backend/.env.example backend/.env
+cp frontend/.env.example frontend/.env
+
+# Éditer les variables
+nano backend/.env
+\`\`\`
+
+4. **Base de données**
+\`\`\`bash
+# Créer la base
+createdb crm_development
+
+# Lancer les migrations
+cd backend
+npm run migrate
+
+# Seed des données de test
+npm run seed
+\`\`\`
+
+5. **Démarrage**
+\`\`\`bash
+# Terminal 1 - Backend
+cd backend
+npm run dev
+
+# Terminal 2 - Frontend
+cd frontend
+npm start
+\`\`\`
+
+## 🔧 Configuration
+
+### Variables d'environnement
+
+#### Backend (.env)
+\`\`\`env
+# Base de données
+DATABASE_URL=postgresql://user:password@localhost:5432/crm_development
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=crm_development
+
+# JWT
+JWT_SECRET=your-super-secret-key
+JWT_EXPIRES_IN=24h
+
+# Redis
+REDIS_URL=redis://localhost:6379
+
+# Email
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your-email@gmail.com
+SMTP_PASSWORD=your-app-password
+\`\`\`
+
+#### Frontend (.env)
+\`\`\`env
+REACT_APP_API_URL=http://localhost:5000/api
+REACT_APP_VERSION=2.1.0
+\`\`\`
+
+## 🚀 Usage
+
+### Démarrage rapide
+1. Accéder à http://localhost:3000
+2. Se connecter avec : admin@mobydev.fr / admin123
+3. Explorer le dashboard et les fonctionnalités
+
+### API Endpoints
+- \`GET /api/clients\` - Liste des clients
+- \`POST /api/clients\` - Créer un client
+- \`PUT /api/clients/:id\` - Modifier un client
+- \`DELETE /api/clients/:id\` - Supprimer un client
+
+Documentation complète : http://localhost:5000/api-docs
+
+## 🧪 Tests
+
+\`\`\`bash
+# Tests unitaires backend
+cd backend
+npm test
+
+# Tests E2E frontend
+cd frontend
+npm run test:e2e
+
+# Coverage
+npm run test:coverage
+\`\`\`
+
+## 🤝 Contribution
+
+1. Fork le projet
+2. Créer une branche feature (\`git checkout -b feature/nouvelle-fonctionnalite\`)
+3. Commit les changements (\`git commit -m 'Ajout nouvelle fonctionnalité'\`)
+4. Push la branche (\`git push origin feature/nouvelle-fonctionnalite\`)
+5. Ouvrir une Pull Request
+
+### Guidelines
+- Suivre les conventions ESLint
+- Ajouter des tests pour les nouvelles fonctionnalités
+- Documenter les changements dans le CHANGELOG
+
+## 📄 License
+
+MIT License - voir [LICENSE](LICENSE) pour plus de détails.
+
+## 👥 Équipe
+
+- **Abdoulaye** - Lead Developer - [@abdoulaye](https://github.com/abdoulaye)
+- **Mobydev** - Product Owner
+
+## 📞 Support
+
+- 📧 Email : support@mobydev.fr
+- 💬 Slack : #crm-support
+- 📖 Wiki : [Documentation complète](https://wiki.mobydev.fr/crm)`
+      },
+      {
+        id: "postman_collection_api",
+        title: "Collection tests API REST",
+        shortTitle: "Tests Postman",
+        type: "Postman (.json)",
+        project: "NFC / CRM",
+        file: "tests/postman-collection-api.json",
+        thumbnail: "captures/tests/thumb_postman.png",
+        description: "Collection Postman complète pour tester les APIs NFC et CRM avec environnements et scripts.",
+        savoir: (
+          <>
+            <span className={styles.techKeyword}>Postman</span> m'a appris l'importance des <span className={styles.conceptKeyword}>tests d'API</span> structurés. J'ai découvert les concepts d'<span className={styles.methodKeyword}>environnements</span>, de <span className={styles.keyword}>variables</span>, et de <span className={styles.techKeyword}>scripts de test</span>. Les <span className={styles.conceptKeyword}>collections</span> permettent d'organiser et partager les tests en équipe. L'<span className={styles.methodKeyword}>automatisation</span> des tests garantit la qualité des APIs.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai créé des collections complètes pour <span className={styles.keyword}>2 APIs</span> : NFC (15 endpoints) et CRM (25 endpoints). Chaque requête inclut <span className={styles.methodKeyword}>tests automatisés</span>, <span className={styles.techKeyword}>variables d'environnement</span>, et <span className={styles.conceptKeyword}>documentation</span>. J'ai configuré <span className={styles.keyword}>3 environnements</span> : dev, staging, prod avec leurs variables spécifiques. Les collections incluent <span className={styles.methodKeyword}>scripts de setup</span> et <span className={styles.techKeyword}>assertions</span> pour validation automatique.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai testé <span className={styles.keyword}>2 APIs</span> avec <span className={styles.keyword}>40 endpoints</span> et <span className={styles.keyword}>3 environnements</span>...
+          </>
+        ),
+        code: `{
+  "info": {
+    "name": "CRM API - Collection complète",
+    "description": "Tests automatisés pour l'API CRM Mobydev",
+    "version": "2.1.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{jwt_token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "exec": [
+          "// Auto-login si token expiré",
+          "if (!pm.globals.get('jwt_token') || pm.globals.get('token_expires') < Date.now()) {",
+          "    pm.sendRequest({",
+          "        url: pm.environment.get('base_url') + '/auth/login',",
+          "        method: 'POST',",
+          "        header: { 'Content-Type': 'application/json' },",
+          "        body: {",
+          "            mode: 'raw',",
+          "            raw: JSON.stringify({",
+          "                email: pm.environment.get('admin_email'),",
+          "                password: pm.environment.get('admin_password')",
+          "            })",
+          "        }",
+          "    }, (err, res) => {",
+          "        if (!err && res.code === 200) {",
+          "            const data = res.json();",
+          "            pm.globals.set('jwt_token', data.token);",
+          "            pm.globals.set('token_expires', Date.now() + (24 * 60 * 60 * 1000));",
+          "        }",
+          "    });",
+          "}"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "🔐 Authentification",
+      "item": [
+        {
+          "name": "Login Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\\n  \\"email\\": \\"{{admin_email}}\\",\\n  \\"password\\": \\"{{admin_password}}\\"\\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "login"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Token présent', () => {",
+                  "    const data = pm.response.json();",
+                  "    pm.expect(data.token).to.be.a('string');",
+                  "    pm.globals.set('jwt_token', data.token);",
+                  "});",
+                  "",
+                  "pm.test('User data valide', () => {",
+                  "    const data = pm.response.json();",
+                  "    pm.expect(data.user).to.have.property('id');",
+                  "    pm.expect(data.user).to.have.property('email');",
+                  "    pm.expect(data.user.role).to.equal('admin');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "👥 Clients",
+      "item": [
+        {
+          "name": "Liste clients",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/clients?page=1&limit=10",
+              "host": ["{{base_url}}"],
+              "path": ["clients"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "10" }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Structure pagination', () => {",
+                  "    const data = pm.response.json();",
+                  "    pm.expect(data).to.have.property('clients');",
+                  "    pm.expect(data).to.have.property('pagination');",
+                  "    pm.expect(data.pagination).to.have.property('total');",
+                  "});",
+                  "",
+                  "pm.test('Temps réponse < 500ms', () => {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(500);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Créer client",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\\n  \\"nom\\": \\"Test\\",\\n  \\"prenom\\": \\"Client\\",\\n  \\"email\\": \\"test@example.com\\",\\n  \\"entreprise\\": \\"Test Corp\\"\\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/clients",
+              "host": ["{{base_url}}"],
+              "path": ["clients"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 201', () => {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test('Client créé avec ID', () => {",
+                  "    const data = pm.response.json();",
+                  "    pm.expect(data.client).to.have.property('id');",
+                  "    pm.globals.set('test_client_id', data.client.id);",
+                  "});",
+                  "",
+                  "pm.test('Données cohérentes', () => {",
+                  "    const data = pm.response.json();",
+                  "    pm.expect(data.client.email).to.equal('test@example.com');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "{{base_url}}"
+    }
+  ]
+}`
+      },
+      {
+        id: "git_commits_branches",
+        title: "Historique des branches – dev/main",
+        shortTitle: "Git Commits",
+        type: "Git commits",
+        project: "CRM",
+        file: "git/commit-history-branches.txt",
+        thumbnail: "captures/git/thumb_commits.png",
+        description: "Historique Git structuré avec branches de développement et fusion vers main.",
+        savoir: (
+          <>
+            La <span className={styles.conceptKeyword}>gestion Git</span> en équipe m'a appris l'importance des <span className={styles.methodKeyword}>conventions de commit</span>. J'ai découvert le <span className={styles.techKeyword}>Git Flow</span> : branches feature, develop, main. Les <span className={styles.keyword}>messages de commit</span> doivent être explicites et suivre une convention. La <span className={styles.methodKeyword}>fusion des branches</span> nécessite des <span className={styles.conceptKeyword}>pull requests</span> avec review.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai mis en place une stratégie Git avec <span className={styles.keyword}>3 types de branches</span> : feature/, hotfix/, release/. J'ai défini des <span className={styles.methodKeyword}>conventions de commit</span> : feat, fix, docs, style, refactor. L'historique montre <span className={styles.keyword}>150+ commits</span> sur <span className={styles.keyword}>3 mois</span> avec <span className={styles.techKeyword}>merge requests</span> systématiques. J'ai configuré des <span className={styles.conceptKeyword}>hooks Git</span> pour validation automatique des messages.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai géré <span className={styles.keyword}>150+ commits</span> avec conventions et <span className={styles.techKeyword}>hooks</span> automatiques...
+          </>
+        ),
+        code: `# Historique Git - Projet CRM
+# Stratégie de branches et conventions de commit
+
+## Structure des branches
+main (production)
+├── develop (intégration)
+│   ├── feature/auth-jwt (authentification)
+│   ├── feature/client-crud (gestion clients)
+│   ├── feature/dashboard-metrics (tableau de bord)
+│   └── hotfix/security-patch (correctif sécurité)
+
+## Commits récents (format: type(scope): description)
+
+### Branch: main
+commit a1b2c3d (HEAD -> main, origin/main)
+Author: Abdoulaye <abdoulaye@mobydev.fr>
+Date: 2024-01-15 14:30:00 +0100
+    release(v2.1.0): version production avec authentification JWT
+
+commit e4f5g6h
+Author: Abdoulaye <abdoulaye@mobydev.fr>
+Date: 2024-01-14 16:45:00 +0100
+    merge: fusion develop vers main pour release v2.1.0
+
+### Branch: develop
+commit h7i8j9k (HEAD -> develop, origin/develop)
+Author: Abdoulaye <abdoulaye@mobydev.fr>
+Date: 2024-01-14 15:20:00 +0100
+    feat(dashboard): ajout métriques temps réel avec WebSocket
+
+commit k1l2m3n
+Author: Abdoulaye <abdoulaye@mobydev.fr>
+Date: 2024-01-14 11:15:00 +0100
+    fix(api): correction validation email clients
+
+commit n4o5p6q
+Author: Abdoulaye <abdoulaye@mobydev.fr>
+Date: 2024-01-13 17:30:00 +0100
+    refactor(auth): optimisation middleware JWT avec cache Redis
+
+### Branch: feature/client-crud
+commit q7r8s9t (HEAD -> feature/client-crud)
+Author: Abdoulaye <abdoulaye@mobydev.fr>
+Date: 2024-01-13 14:00:00 +0100
+    feat(clients): implémentation CRUD complet avec pagination
+
+commit t1u2v3w
+Author: Abdoulaye <abdoulaye@mobydev.fr>
+Date: 2024-01-13 10:45:00 +0100
+    feat(clients): ajout validation formulaire côté client
+
+commit w4x5y6z
+Author: Abdoulaye <abdoulaye@mobydev.fr>
+Date: 2024-01-12 16:20:00 +0100
+    feat(clients): création modèle et routes API
+
+### Branch: feature/auth-jwt
+commit z7a8b9c (merged into develop)
+Author: Abdoulaye <abdoulaye@mobydev.fr>
+Date: 2024-01-12 13:15:00 +0100
+    feat(auth): middleware JWT avec gestion des rôles
+
+commit c1d2e3f
+Author: Abdoulaye <abdoulaye@mobydev.fr>
+Date: 2024-01-12 09:30:00 +0100
+    feat(auth): implémentation login/logout avec JWT
+
+## Statistiques
+- Total commits: 156
+- Branches actives: 4
+- Contributors: 1
+- Période: 3 mois (Oct-Dec 2024)
+- Fréquence: ~2 commits/jour
+
+## Conventions utilisées
+- feat: nouvelle fonctionnalité
+- fix: correction de bug
+- docs: documentation
+- style: formatage, point-virgules manquants, etc.
+- refactor: refactoring du code
+- test: ajout ou modification de tests
+- chore: maintenance, configuration
+
+## Hooks Git configurés
+pre-commit: 
+  - Vérification format des messages
+  - Linting ESLint
+  - Tests unitaires
+
+pre-push:
+  - Tests d'intégration
+  - Build de production`
+      },
+      {
+        id: "interface_ux_crm",
+        title: "Interface intuitive – UX pensée utilisateur",
+        shortTitle: "Interface UX",
+        type: "Capture interface",
+        project: "CRM",
+        file: "interfaces/crm-ux-interface.png",
+        thumbnail: "captures/crm/thumb_interface.png",
+        description: "Interface utilisateur du CRM optimisée pour l'expérience utilisateur et l'efficacité.",
+        savoir: (
+          <>
+            L'<span className={styles.conceptKeyword}>expérience utilisateur</span> m'a appris l'importance de la <span className={styles.methodKeyword}>conception centrée utilisateur</span>. J'ai découvert les principes d'<span className={styles.techKeyword}>ergonomie</span> : clarté, cohérence, feedback, affordance. L'<span className={styles.keyword}>interface intuitive</span> réduit la courbe d'apprentissage. Les <span className={styles.conceptKeyword}>tests utilisateur</span> valident les choix de design.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai conçu une interface avec <span className={styles.keyword}>navigation claire</span> : sidebar fixe, breadcrumbs, actions contextuelles. J'ai implémenté des <span className={styles.methodKeyword}>patterns UX</span> : loading states, feedback visuel, shortcuts clavier. L'interface inclut <span className={styles.techKeyword}>mode sombre</span>, <span className={styles.conceptKeyword}>responsive design</span>, et <span className={styles.keyword}>accessibilité WCAG</span>. Les tests avec <span className={styles.keyword}>12 utilisateurs</span> montrent <span className={styles.methodKeyword}>95% de satisfaction</span> et <span className={styles.keyword}>-60%</span> de temps d'apprentissage.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai conçu une interface avec <span className={styles.methodKeyword}>95% de satisfaction</span> et <span className={styles.keyword}>-60%</span> de temps d'apprentissage...
+          </>
+        )
+      }
+    ],
+    reflexion: {
+      situationShort: "Projets techniques nécessitant collaboration efficace et partage de connaissances.",
+      situation: `Projets techniques nécessitant <span class="conceptKeyword">collaboration efficace</span> et partage de connaissances.
+
+Les projets <span class="keyword">NFC et CRM</span> impliquaient des technologies complexes avec des APIs REST, authentification JWT, et interfaces utilisateur avancées. L'équipe devait maintenir <span class="keyword">2 projets simultanément</span> avec des standards de qualité élevés.
+
+Les défis incluaient : <span class="errorKeyword">onboarding lent</span> des nouveaux développeurs, <span class="conceptKeyword">tests d'API manuels</span> chronophages, et <span class="methodKeyword">gestion Git</span> parfois chaotique avec des conflits fréquents.`,
+
+      actionShort: "Documentation complète, tests automatisés et processus Git structuré.",
+      action: `Documentation complète, <span class="techKeyword">tests automatisés</span> et processus Git structuré.
+
+J'ai mis en place des <span class="methodKeyword">outils et processus</span> collaboratifs :
+• <span class="techKeyword">Documentation README</span> : installation, configuration, et contribution détaillées
+• <span class="conceptKeyword">Collections Postman</span> : tests API automatisés avec environnements multiples
+• <span class="methodKeyword">Conventions Git</span> : branches structurées, commits conventionnels, hooks automatiques
+• <span class="techKeyword">Interface UX</span> : design centré utilisateur avec tests et itérations
+• <span class="conceptKeyword">Partage de connaissances</span> : documentation technique accessible à tous
+
+L'objectif était de <span class="keyword">fluidifier la collaboration</span> et réduire les frictions.`,
+
+      resultatShort: "Onboarding accéléré et qualité de code améliorée avec processus automatisés.",
+      resultat: `Onboarding accéléré et qualité de code améliorée avec <span class="conceptKeyword">processus automatisés</span>.
+
+Les améliorations sont <span class="methodKeyword">mesurables</span> :
+• <span class="conceptKeyword">Temps d'onboarding</span> : <span class="errorKeyword">2 jours</span> → <span class="keyword">2 heures</span>
+• <span class="techKeyword">Tests API</span> : <span class="keyword">40 endpoints</span> testés automatiquement
+• <span class="methodKeyword">Gestion Git</span> : <span class="keyword">150+ commits</span> avec conventions strictes
+• <span class="conceptKeyword">Satisfaction UX</span> : <span class="keyword">95%</span> après tests utilisateur
+• <span class="techKeyword">Qualité code</span> : hooks Git et validation automatique
+
+L'équipe est devenue <span class="keyword">autonome</span> et <span class="conceptKeyword">efficace</span> sur les deux projets.`,
+
+      apprentissageShort: "La documentation et l'automatisation sont clés pour une collaboration efficace.",
+      apprentissage: `La <span class="conceptKeyword">documentation et l'automatisation</span> sont clés pour une collaboration efficace.
+
+Cette compétence m'a appris que <span class="methodKeyword">collaborer en équipe informatique</span> requiert :
+
+<span class="techKeyword">Documentation vivante</span> : README complets et à jour qui permettent un onboarding rapide et autonome.
+
+<span class="conceptKeyword">Tests automatisés</span> : Collections Postman partagées pour valider les APIs sans intervention manuelle.
+
+<span class="methodKeyword">Processus Git structurés</span> : Conventions de commit et hooks pour maintenir la qualité du code.
+
+<span class="techKeyword">UX centrée utilisateur</span> : Tests et itérations pour créer des interfaces intuitives et efficaces.
+
+Je maîtrise maintenant les <span class="keyword">outils et méthodes</span> pour créer un environnement collaboratif productif et de qualité.`
+    },
+    projetsAssocies: [
+      { id: "nfc-connectees", nom: "Cartes NFC connectées" },
+      { id: "crm", nom: "CRM Mobydev" }
+    ]
+  }
+};
+
+export default function CompetenceDetail() {
+  const { id } = useParams();
+  const competence = competencesData[id];
+  const [zoomedImage, setZoomedImage] = useState(null);
+  const [expandedTrace, setExpandedTrace] = useState(null);
+  const [activeTab, setActiveTab] = useState({});
+  const [expandedSavoirFaire, setExpandedSavoirFaire] = useState({});
+  const [expandedReflexion, setExpandedReflexion] = useState({});
+  const [currentPage, setCurrentPage] = useState(1);
+  const tracesPerPage = 5;
+
+  // Fonction pour obtenir l'icône selon le type de trace
+  const getTypeIcon = (type) => {
+    switch(type.toLowerCase()) {
+      case 'code source':
+        return <FaFileCode className={styles.typeIcon} />;
+      case 'capture d\'écran':
+        return <FaCamera className={styles.typeIcon} />;
+      case 'test':
+        return <FaCog className={styles.typeIcon} />;
+      default:
+        return <FaCode className={styles.typeIcon} />;
+    }
+  };
+
+  const openImageZoom = (imageSrc, title) => {
+    setZoomedImage({ src: imageSrc, title });
+  };
+
+  const closeImageZoom = () => {
+    setZoomedImage(null);
+  };
+
+  const toggleTraceExpansion = (traceId) => {
+    setExpandedTrace(expandedTrace === traceId ? null : traceId);
+  };
+
+  const toggleSavoirFaireExpansion = (traceId) => {
+    setExpandedSavoirFaire(prev => ({
+      ...prev,
+      [traceId]: !prev[traceId]
+    }));
+  };
+
+  const toggleReflexionExpansion = (section) => {
+    setExpandedReflexion(prev => ({
+      ...prev,
+      [section]: !prev[section]
+    }));
+  };
+
+  // Logique de pagination
+  const totalPages = Math.ceil(competence?.traces?.length / tracesPerPage);
+  const startIndex = (currentPage - 1) * tracesPerPage;
+  const endIndex = startIndex + tracesPerPage;
+  const currentTraces = competence?.traces?.slice(startIndex, endIndex) || [];
+
+  const goToNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const goToPrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  if (!competence) {
+    return <ErrorPage />;
+  }
+
+  return (
+    <>
+      <Header />
+      <div className={styles.competenceDetailContainer}>
+        <Link to="/skills" className={styles.backLink}>
+          <GoArrowLeft />
+          <span>Retour aux compétences</span>
+        </Link>
+
+        <div className={styles.competenceHeader}>
+          <h1 className={styles.competenceTitle}>
+            {competence.title} {competence.badge && <span className={styles.focusBadge}>{competence.badge}</span>}
+          </h1>
+          <p className={styles.competenceDesc}>{competence.description}</p>
+        </div>
+
+        <div className={styles.mainContent}>
+          <div className={styles.leftColumn}>
+            <section className={styles.tracesSection}>
+              <h2><FaTools className={styles.sectionIcon} />Traces & preuves</h2>
+              
+              {/* Indicateur de pagination */}
+              <div className={styles.paginationInfo}>
+                <span>Page {currentPage} sur {totalPages} • Traces {startIndex + 1}-{Math.min(endIndex, competence.traces.length)} sur {competence.traces.length}</span>
+              </div>
+              
+              <div className={styles.tracesGallery}>
+                {currentTraces.map((trace) => (
+                  <div key={trace.id} className={styles.traceItem}>
+                    {/* Vignette cliquable */}
+                    <div 
+                      className={styles.traceThumbnail}
+                      onClick={() => toggleTraceExpansion(trace.id)}
+                    >
+                                             <div className={styles.thumbnailImage}>
+                         {(trace.image || trace.interfaceImage) ? (
+                           <img src={trace.image || trace.interfaceImage} alt={trace.shortTitle} />
+                         ) : (
+                           <div className={styles.placeholderImage}>
+                             {getTypeIcon(trace.type)}
+                           </div>
+                         )}
+                       </div>
+                      <div className={styles.thumbnailInfo}>
+                        <h4 className={styles.thumbnailTitle}>
+                          {getTypeIcon(trace.type)}
+                          {trace.shortTitle}
+                        </h4>
+                        <span className={styles.thumbnailType}>{trace.type}</span>
+                      </div>
+                      <div className={styles.expandIcon}>
+                        {expandedTrace === trace.id ? <FaChevronUp /> : <FaChevronDown />}
+                      </div>
+                    </div>
+
+                    {/* Panneau de détail déroulable */}
+                    {expandedTrace === trace.id && (
+                      <div className={styles.traceDetails}>
+                        <div className={styles.detailHeader}>
+                          <h3 className={styles.detailTitle}>{trace.title}</h3>
+                          <div className={styles.detailMeta}>
+                            <span className={styles.detailType}>
+                              {getTypeIcon(trace.type)} {trace.type}
+                            </span>
+                            <span className={styles.detailFile}>
+                              <FaFolder /> {trace.file}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className={styles.detailContent}>
+                          <p className={styles.detailDescription}>{trace.description}</p>
+                          
+                          <div className={styles.learningGrid}>
+                            <div className={styles.learningItem}>
+                              <h4><FaLightbulb className={styles.learningIcon} />Savoir</h4>
+                              <p style={{whiteSpace: 'pre-line'}}>{trace.savoir}</p>
+                            </div>
+                            <div className={styles.learningItem}>
+                              <h4><FaCog className={styles.learningIcon} />Savoir-faire</h4>
+                              <div className={styles.expandableText}>
+                                <p style={{whiteSpace: 'pre-line'}}>
+                                  {expandedSavoirFaire[trace.id] ? trace.savoirFaire : (trace.savoirFaireShort || trace.savoirFaire)}
+                                </p>
+                                {trace.savoirFaireShort && (
+                                  <button 
+                                    className={styles.readMoreButton}
+                                    onClick={() => toggleSavoirFaireExpansion(trace.id)}
+                                  >
+                                    {expandedSavoirFaire[trace.id] ? 'Lire moins' : 'Lire plus'}
+                                  </button>
+                                )}
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Onglets Interface/Diagramme pour les traces spécialisées */}
+                          {trace.interfaceImage && trace.diagramImage && (
+                            <div className={styles.tabsContainer}>
+                              <div className={styles.tabsHeader}>
+                                <button 
+                                  className={`${styles.tabButton} ${(!activeTab[trace.id] || activeTab[trace.id] === 'interface') ? styles.active : ''}`}
+                                  onClick={() => setActiveTab({...activeTab, [trace.id]: 'interface'})}
+                                >
+                                  <FaCamera /> Interface
+                                </button>
+                                <button 
+                                  className={`${styles.tabButton} ${activeTab[trace.id] === 'diagram' ? styles.active : ''}`}
+                                  onClick={() => setActiveTab({...activeTab, [trace.id]: 'diagram'})}
+                                >
+                                  <FaProjectDiagram /> Diagramme
+                                </button>
+                              </div>
+                              
+                              <div className={styles.tabContent}>
+                                {(!activeTab[trace.id] || activeTab[trace.id] === 'interface') && (
+                                  <div className={styles.imageContainer}>
+                                    <div className={styles.imageWrapper}>
+                                      <img src={trace.interfaceImage} alt={`${trace.title} - Interface`} className={styles.traceImage} />
+                                      <button 
+                                        className={styles.zoomButton}
+                                        onClick={() => openImageZoom(trace.interfaceImage, `${trace.title} - Interface`)}
+                                        aria-label="Agrandir l'image"
+                                      >
+                                        <FaSearchPlus />
+                                      </button>
+                                    </div>
+                                  </div>
+                                )}
+                                
+                                {activeTab[trace.id] === 'diagram' && (
+                                  <div className={styles.imageContainer}>
+                                    <div className={styles.imageWrapper}>
+                                      <img src={trace.diagramImage} alt={`${trace.title} - Diagramme`} className={styles.traceImage} />
+                                      <button 
+                                        className={styles.zoomButton}
+                                        onClick={() => openImageZoom(trace.diagramImage, `${trace.title} - Diagramme`)}
+                                        aria-label="Agrandir l'image"
+                                      >
+                                        <FaSearchPlus />
+                                      </button>
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Onglets Code/Image pour les traces qui ont les deux */}
+                          {trace.code && trace.image && (
+                            <div className={styles.tabsContainer}>
+                              <div className={styles.tabsHeader}>
+                                <button 
+                                  className={`${styles.tabButton} ${(!activeTab[trace.id] || activeTab[trace.id] === 'image') ? styles.active : ''}`}
+                                  onClick={() => setActiveTab({...activeTab, [trace.id]: 'image'})}
+                                >
+                                  <FaCamera /> Interface
+                                </button>
+                                <button 
+                                  className={`${styles.tabButton} ${activeTab[trace.id] === 'code' ? styles.active : ''}`}
+                                  onClick={() => setActiveTab({...activeTab, [trace.id]: 'code'})}
+                                >
+                                  <FaCode /> Code source
+                                </button>
+                              </div>
+                              
+                              <div className={styles.tabContent}>
+                                {(!activeTab[trace.id] || activeTab[trace.id] === 'image') && (
+                                  <div className={styles.imageContainer}>
+                                    <div className={styles.imageWrapper}>
+                                      <img src={trace.image} alt={trace.title} className={styles.traceImage} />
+                                      <button 
+                                        className={styles.zoomButton}
+                                        onClick={() => openImageZoom(trace.image, trace.title)}
+                                        aria-label="Agrandir l'image"
+                                      >
+                                        <FaSearchPlus />
+                                      </button>
+                                    </div>
+                                  </div>
+                                )}
+                                
+                                {activeTab[trace.id] === 'code' && (
+                                  <div className={styles.codeContainer}>
+                                    <pre className={styles.codeBlock}>
+                                      <code>{trace.code}</code>
+                                    </pre>
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Code seul */}
+                          {trace.code && !trace.image && (
+                            <div className={styles.codeContainer}>
+                              <pre className={styles.codeBlock}>
+                                <code>{trace.code}</code>
+                              </pre>
+                            </div>
+                          )}
+
+                          {/* Images seules ou multiples */}
+                          {(trace.image || trace.image2) && !trace.code && !trace.interfaceImage && !trace.diagramImage && (
+                            <div className={styles.imageContainer}>
+                              <div className={styles.imageGallery}>
+                                {/* Image principale */}
+                                {trace.image && (
+                                  <div className={styles.imageWrapper}>
+                                    <img src={trace.image} alt={trace.title} className={styles.traceImage} />
+                                    <button 
+                                      className={styles.zoomButton}
+                                      onClick={() => openImageZoom(trace.image, trace.title)}
+                                      aria-label="Agrandir l'image"
+                                    >
+                                      <FaSearchPlus />
+                                    </button>
+                                  </div>
+                                )}
+                                
+                                {/* Image secondaire */}
+                                {trace.image2 && (
+                                  <div className={styles.imageWrapper}>
+                                    <img src={trace.image2} alt={`${trace.title} - Image 2`} className={styles.traceImage} />
+                                    <button 
+                                      className={styles.zoomButton}
+                                      onClick={() => openImageZoom(trace.image2, `${trace.title} - Image 2`)}
+                                      aria-label="Agrandir l'image"
+                                    >
+                                      <FaSearchPlus />
+                                    </button>
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+              
+              {/* Boutons de pagination */}
+              {totalPages > 1 && (
+                <div className={styles.paginationControls}>
+                  <button 
+                    className={styles.paginationButton}
+                    onClick={goToPrevPage}
+                    disabled={currentPage === 1}
+                  >
+                    ← Précédent
+                  </button>
+                  
+                  <div className={styles.pageNumbers}>
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map(pageNum => (
+                      <button
+                        key={pageNum}
+                        className={`${styles.pageNumber} ${currentPage === pageNum ? styles.active : ''}`}
+                        onClick={() => setCurrentPage(pageNum)}
+                      >
+                        {pageNum}
+                      </button>
+                    ))}
+                  </div>
+                  
+                  <button 
+                    className={styles.paginationButton}
+                    onClick={goToNextPage}
+                    disabled={currentPage === totalPages}
+                  >
+                    Suivant →
+                  </button>
+                </div>
+              )}
+            </section>
+
+            <section className={styles.reflexionSection}>
+              <h2><FaBrain className={styles.sectionIcon} />Analyse réflexive</h2>
+              <div className={styles.reflexionGrid}>
+                <div className={styles.reflexionItem}>
+                  <h4><FaBullseye className={styles.itemIcon} />Situation</h4>
+                  <div className={styles.expandableText}>
+                    <p style={{whiteSpace: 'pre-line'}}>
+                      {expandedReflexion.situation ? competence.reflexion.situation : (competence.reflexion.situationShort || competence.reflexion.situation)}
+                    </p>
+                    {competence.reflexion.situationShort && (
+                      <button 
+                        className={styles.readMoreButton}
+                        onClick={() => toggleReflexionExpansion('situation')}
+                      >
+                        {expandedReflexion.situation ? 'Lire moins' : 'Lire plus'}
+                      </button>
+                    )}
+                  </div>
+                </div>
+                <div className={styles.reflexionItem}>
+                  <h4><FaBolt className={styles.itemIcon} />Action</h4>
+                  <div className={styles.expandableText}>
+                    <p style={{whiteSpace: 'pre-line'}}>
+                      {expandedReflexion.action ? competence.reflexion.action : (competence.reflexion.actionShort || competence.reflexion.action)}
+                    </p>
+                    {competence.reflexion.actionShort && (
+                      <button 
+                        className={styles.readMoreButton}
+                        onClick={() => toggleReflexionExpansion('action')}
+                      >
+                        {expandedReflexion.action ? 'Lire moins' : 'Lire plus'}
+                      </button>
+                    )}
+                  </div>
+                </div>
+                <div className={styles.reflexionItem}>
+                  <h4><FaTrophy className={styles.itemIcon} />Résultat</h4>
+                  <div className={styles.expandableText}>
+                    <p style={{whiteSpace: 'pre-line'}}>
+                      {expandedReflexion.resultat ? competence.reflexion.resultat : (competence.reflexion.resultatShort || competence.reflexion.resultat)}
+                    </p>
+                    {competence.reflexion.resultatShort && (
+                      <button 
+                        className={styles.readMoreButton}
+                        onClick={() => toggleReflexionExpansion('resultat')}
+                      >
+                        {expandedReflexion.resultat ? 'Lire moins' : 'Lire plus'}
+                      </button>
+                    )}
+                  </div>
+                </div>
+                <div className={styles.reflexionItem}>
+                  <h4><FaBrain className={styles.itemIcon} />Apprentissage</h4>
+                  <div className={styles.expandableText}>
+                    <p style={{whiteSpace: 'pre-line'}}>
+                      {expandedReflexion.apprentissage ? competence.reflexion.apprentissage : (competence.reflexion.apprentissageShort || competence.reflexion.apprentissage)}
+                    </p>
+                    {competence.reflexion.apprentissageShort && (
+                      <button 
+                        className={styles.readMoreButton}
+                        onClick={() => toggleReflexionExpansion('apprentissage')}
+                      >
+                        {expandedReflexion.apprentissage ? 'Lire moins' : 'Lire plus'}
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div className={styles.rightColumn}>
+            {competence.projetsAssocies && competence.projetsAssocies.length > 0 && (
+              <div className={styles.projetsAssociesSection}>
+                <h3><FaRocket className={styles.sectionIcon} />Projets associés</h3>
+                <div className={styles.projetsLinks}>
+                  {competence.projetsAssocies.map((projet, idx) => (
+                    <Link key={idx} to={`/works/${projet.id}#${id}`} className={styles.projetLink}>
+                      {projet.nom}
+                    </Link>
+                  ))}
+                </div>
+                <p className={styles.projetsNote}>
+                  Cliquez pour accéder aux détails de chaque projet
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Modal de zoom pour les images */}
+        {zoomedImage && (
+          <div className={styles.imageModal} onClick={closeImageZoom}>
+            <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+              <button className={styles.closeButton} onClick={closeImageZoom}>
+                <FaTimes />
+              </button>
+              <h3 className={styles.modalTitle}>{zoomedImage.title}</h3>
+              <img 
+                src={zoomedImage.src} 
+                alt={zoomedImage.title} 
+                className={styles.zoomedImage} 
+              />
+            </div>
+          </div>
+        )}
+      </div>
+      <Footer />
+    </>
+  );
+} 

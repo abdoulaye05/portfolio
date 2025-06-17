@@ -7,10 +7,11 @@ import {
     FaCode, FaProjectDiagram, FaDatabase, FaChartLine, FaTasks, FaUsers,
     FaRocket, FaClock, FaCheckCircle, FaLightbulb, FaCog, FaHeart,
     FaGithub, FaExternalLinkAlt, FaTrophy, FaTools, FaPlay, FaCheck,
-    FaArrowRight, FaHistory
+    FaArrowRight, FaHistory, FaCamera
 } from "react-icons/fa";
 import Header from "../../components/Header";
 import ErrorPage from "../error/Error";
+import ImageCarousel from "../../components/ImageCarousel";
 
 // Mapping des UE vers leurs détails
 const ueDetails = {
@@ -187,6 +188,11 @@ export default function Works() {
     const { id } = useParams();
     const location = useLocation();
     const [highlightedUE, setHighlightedUE] = useState(null);
+    
+    // États pour les filtres
+    const [filterType, setFilterType] = useState('');
+    const [filterProject, setFilterProject] = useState('');
+    const [filteredProjects, setFilteredProjects] = useState(worksData);
 
     // Détecter l'UE à mettre en avant depuis le hash
     useEffect(() => {
@@ -202,6 +208,39 @@ export default function Works() {
         }
     }, [location.hash]);
 
+    // Effet pour filtrer les projets
+    useEffect(() => {
+        let filtered = worksData;
+
+        if (filterType) {
+            if (filterType === 'phare') {
+                filtered = filtered.filter(project => project.isPhare);
+            } else if (filterType === 'recent') {
+                filtered = filtered.filter(project => project.status === 'En production');
+            } else if (filterType === 'completed') {
+                filtered = filtered.filter(project => project.status === 'Terminé');
+            }
+        }
+
+        if (filterProject) {
+            filtered = filtered.filter(project => 
+                project.title.toLowerCase().includes(filterProject.toLowerCase()) ||
+                project.subtitle.toLowerCase().includes(filterProject.toLowerCase()) ||
+                project.technologies.some(tech => 
+                    tech.toLowerCase().includes(filterProject.toLowerCase())
+                )
+            );
+        }
+
+        setFilteredProjects(filtered);
+    }, [filterType, filterProject]);
+
+    // Fonction pour réinitialiser les filtres
+    const resetFilters = () => {
+        setFilterType('');
+        setFilterProject('');
+    };
+
     if (!id) {
         return (
             <>
@@ -214,9 +253,55 @@ export default function Works() {
                             développées avec passion et expertise technique.
                         </p>
                     </div>
+
+                    {/* Filtres */}
+                    <div className={styles.filtersContainer}>
+                        <div className={styles.filterGroup}>
+                            <label htmlFor="typeFilter" className={styles.filterLabel}>Type :</label>
+                            <select 
+                                id="typeFilter"
+                                value={filterType} 
+                                onChange={(e) => setFilterType(e.target.value)}
+                                className={styles.filterSelect}
+                            >
+                                <option value="">Tous les projets</option>
+                                <option value="phare">Projets phares</option>
+                                <option value="recent">En production</option>
+                                <option value="completed">Terminés</option>
+                            </select>
+                        </div>
+
+                        <div className={styles.filterGroup}>
+                            <label htmlFor="projectFilter" className={styles.filterLabel}>Recherche :</label>
+                            <input
+                                id="projectFilter"
+                                type="text"
+                                value={filterProject}
+                                onChange={(e) => setFilterProject(e.target.value)}
+                                placeholder="Nom, description, technologie..."
+                                className={styles.filterInput}
+                            />
+                        </div>
+
+                        {(filterType || filterProject) && (
+                            <button 
+                                onClick={resetFilters} 
+                                className={styles.resetButton}
+                            >
+                                Réinitialiser
+                            </button>
+                        )}
+
+                        <div className={styles.filterInfo}>
+                            <span>{filteredProjects.length} projet{filteredProjects.length > 1 ? 's' : ''} trouvé{filteredProjects.length > 1 ? 's' : ''}</span>
+                            {(filterType || filterProject) && (
+                                <span className={styles.filterActive}>• Filtres actifs</span>
+                            )}
+                        </div>
+                    </div>
                     
                     <div className={styles.projectsGrid}>
-                        {worksData.map((project) => {
+                        {filteredProjects.map((project) => {
                             const statusInfo = getStatusInfo(project.status);
                             
                             return (
@@ -342,6 +427,13 @@ export default function Works() {
                     <h1 className={styles.heroTitle}>{selected.title}</h1>
                     <p className={styles.heroSubtitle}>{selected.subtitle}</p>
                     <p className={styles.heroDescription}>{selected.description}</p>
+                    
+                    {/* Description détaillée */}
+                    {selected.detailedDescription && (
+                        <div className={styles.detailedDescription}>
+                            <p>{selected.detailedDescription}</p>
+                        </div>
+                    )}
 
                     {/* Technologies */}
                     <div className={styles.heroTechnologies}>
@@ -397,6 +489,23 @@ export default function Works() {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </section>
+            )}
+
+            {/* Spécifications techniques */}
+            {selected.technicalSpecs && (
+                <section className={styles.technicalSection}>
+                    <h2 className={styles.sectionTitle}>
+                        <FaCog /> Spécifications techniques
+                    </h2>
+                    <div className={styles.technicalGrid}>
+                        {Object.entries(selected.technicalSpecs).map(([key, value], idx) => (
+                            <div key={idx} className={styles.technicalCard}>
+                                <div className={styles.technicalLabel}>{key}</div>
+                                <div className={styles.technicalValue}>{value}</div>
+                            </div>
+                        ))}
                     </div>
                 </section>
             )}
@@ -533,19 +642,13 @@ export default function Works() {
                 </section>
             )}
 
-            {/* Galerie d'images */}
+            {/* Galerie d'images avec carousel */}
             {selected.pictures && selected.pictures.length > 0 && (
                 <section className={styles.gallerySection}>
                     <h2 className={styles.sectionTitle}>
-                        📸 Captures & Visuels
+                        <FaCamera /> Captures & Visuels
                     </h2>
-                    <div className={styles.gallery}>
-                        {selected.pictures.map((src, idx) => (
-                            <div key={idx} className={styles.galleryItem}>
-                                <img src={src} alt={`Capture ${idx + 1}`} />
-                            </div>
-                        ))}
-                    </div>
+                    <ImageCarousel images={selected.pictures} autoPlay={true} interval={5000} />
                 </section>
             )}
 
