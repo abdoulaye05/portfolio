@@ -539,66 +539,50 @@ Events ↑ : callbacks de l'enfant vers parent`
     ],
     reflexion: {
       situationShort: "Applications avec interfaces obsolètes et performances dégradées nécessitant une refonte complète.",
-      situation: (
-        <>
-          Applications avec interfaces <span className={styles.errorKeyword}>obsolètes</span> et performances <span className={styles.errorKeyword}>dégradées</span> nécessitant une refonte complète.
-          <br/><br/>
-          Les projets <span className={styles.keyword}>Mobydev V1</span> et <span className={styles.keyword}>CRM</span> présentaient des problèmes critiques : design daté, code dupliqué, temps de chargement élevés, expérience utilisateur frustrante.
-          <br/><br/>
-          Les utilisateurs abandonnaient rapidement, impactant la <span className={styles.conceptKeyword}>conversion</span> et la <span className={styles.methodKeyword}>productivité</span> des équipes.
-        </>
-      ),
+      situation: `Applications avec interfaces <span class="errorKeyword">obsolètes</span> et performances <span class="errorKeyword">dégradées</span> nécessitant une refonte complète.
+
+Les projets <span class="keyword">Mobydev V1</span> et <span class="keyword">CRM</span> présentaient des problèmes critiques : design daté, code dupliqué, temps de chargement élevés, expérience utilisateur frustrante.
+
+Les utilisateurs abandonnaient rapidement, impactant la <span class="conceptKeyword">conversion</span> et la <span class="methodKeyword">productivité</span> des équipes.`,
 
       actionShort: "Refonte UI/UX complète avec Tailwind, optimisation du code et analyse des performances.",
-      action: (
-        <>
-          Refonte <span className={styles.techKeyword}>UI/UX complète</span> avec Tailwind, optimisation du code et analyse des performances.
-          <br/><br/>
-          J'ai mené une <span className={styles.methodKeyword}>transformation globale</span> :<br/>
-          • <span className={styles.techKeyword}>Design System</span> : composants réutilisables avec Tailwind CSS<br/>
-          • <span className={styles.conceptKeyword}>Responsive Design</span> : approche mobile-first avec breakpoints optimisés<br/>
-          • <span className={styles.methodKeyword}>Animations UX</span> : micro-interactions pour améliorer l'engagement<br/>
-          • <span className={styles.techKeyword}>Refactoring Code</span> : élimination des duplications et composants dynamiques<br/>
-          • <span className={styles.conceptKeyword}>Performance Analysis</span> : monitoring avec Lighthouse et GTmetrix
-          <br/><br/>
-          Chaque amélioration a été <span className={styles.keyword}>mesurée et validée</span> par des tests utilisateurs.
-        </>
-      ),
+      action: `Refonte <span class="techKeyword">UI/UX complète</span> avec Tailwind, optimisation du code et analyse des performances.
+
+J'ai mené une <span class="methodKeyword">transformation globale</span> :
+• <span class="techKeyword">Design System</span> : composants réutilisables avec Tailwind CSS
+• <span class="conceptKeyword">Responsive Design</span> : approche mobile-first avec breakpoints optimisés
+• <span class="methodKeyword">Animations UX</span> : micro-interactions pour améliorer l'engagement
+• <span class="techKeyword">Refactoring Code</span> : élimination des duplications et composants dynamiques
+• <span class="conceptKeyword">Performance Analysis</span> : monitoring avec Lighthouse et GTmetrix
+
+Chaque amélioration a été <span class="keyword">mesurée et validée</span> par des tests utilisateurs.`,
 
       resultatShort: "Amélioration drastique de l'UX et des performances avec +65% d'engagement utilisateur.",
-      resultat: (
-        <>
-          Amélioration <span className={styles.conceptKeyword}>drastique</span> de l'UX et des performances avec <span className={styles.keyword}>+65%</span> d'engagement utilisateur.
-          <br/><br/>
-          Les résultats sont <span className={styles.methodKeyword}>exceptionnels</span> :<br/>
-          • <span className={styles.techKeyword}>CSS optimisé</span> : réduction de <span className={styles.keyword}>75%</span> de la taille<br/>
-          • <span className={styles.conceptKeyword}>Code dupliqué</span> : élimination de <span className={styles.keyword}>40%</span><br/>
-          • <span className={styles.methodKeyword}>Temps de chargement</span> : amélioration de <span className={styles.keyword}>60%</span><br/>
-          • <span className={styles.techKeyword}>Score Lighthouse</span> : passage de <span className={styles.errorKeyword}>65</span> à <span className={styles.keyword}>94/100</span><br/>
-          • <span className={styles.conceptKeyword}>Engagement utilisateur</span> : <span className={styles.keyword}>+65%</span> de temps passé
-          <br/><br/>
-          L'expérience utilisateur est désormais <span className={styles.keyword}>moderne et fluide</span>.
-        </>
-      ),
+      resultat: `Amélioration <span className={styles.conceptKeyword}>drastique</span> de l'UX et des performances avec <span className={styles.keyword}>+65%</span> d'engagement utilisateur.
+
+Les résultats sont <span className={styles.methodKeyword}>exceptionnels</span> :
+• <span className={styles.techKeyword}>CSS optimisé</span> : réduction de <span className={styles.keyword}>75%</span> de la taille
+• <span className={styles.conceptKeyword}>Code dupliqué</span> : élimination de <span className={styles.keyword}>40%</span>
+• <span className={styles.methodKeyword}>Temps de chargement</span> : amélioration de <span className={styles.keyword}>60%</span>
+• <span className={styles.techKeyword}>Score Lighthouse</span> : passage de <span className={styles.errorKeyword}>65</span> à <span className={styles.keyword}>94/100</span>
+• <span className={styles.conceptKeyword}>Engagement utilisateur</span> : <span className={styles.keyword}>+65%</span> de temps passé
+
+L'expérience utilisateur est désormais <span className={styles.keyword}>moderne et fluide</span>.`,
 
       apprentissageShort: "L'optimisation frontend nécessite une approche holistique : design, code et performance.",
-      apprentissage: (
-        <>
-          L'optimisation frontend nécessite une approche <span className={styles.conceptKeyword}>holistique</span> : design, code et performance.
-          <br/><br/>
-          Cette expérience m'a appris que <span className={styles.methodKeyword}>optimiser une application</span> implique :
-          <br/><br/>
-          <span className={styles.techKeyword}>Design System cohérent</span> : Un système de composants réutilisables améliore la maintenabilité et l'expérience utilisateur.
-          <br/><br/>
-          <span className={styles.conceptKeyword}>Performance mesurée</span> : Les outils d'analyse sont essentiels pour identifier les goulots d'étranglement et valider les améliorations.
-          <br/><br/>
-          <span className={styles.methodKeyword}>Code quality</span> : Éliminer les duplications et créer des composants dynamiques améliore les performances et la maintenabilité.
-          <br/><br/>
-          <span className={styles.techKeyword}>UX moderne</span> : Les animations et interactions bien pensées augmentent significativement l'engagement utilisateur.
-          <br/><br/>
-          Je maîtrise maintenant une <span className={styles.keyword}>méthodologie complète</span> d'optimisation frontend, de l'analyse à la mise en production.
-        </>
-      )
+      apprentissage: `L'optimisation frontend nécessite une approche <span className={styles.conceptKeyword}>holistique</span> : design, code et performance.
+
+Cette expérience m'a appris que <span className={styles.methodKeyword}>optimiser une application</span> implique :
+
+<span className={styles.techKeyword}>Design System cohérent</span> : Un système de composants réutilisables améliore la maintenabilité et l'expérience utilisateur.
+
+<span className={styles.conceptKeyword}>Performance mesurée</span> : Les outils d'analyse sont essentiels pour identifier les goulots d'étranglement et valider les améliorations.
+
+<span className={styles.methodKeyword}>Code quality</span> : Éliminer les duplications et créer des composants dynamiques améliore les performances et la maintenabilité.
+
+<span className={styles.techKeyword}>UX moderne</span> : Les animations et interactions bien pensées augmentent significativement l'engagement utilisateur.
+
+Je maîtrise maintenant une <span className={styles.keyword}>méthodologie complète</span> d'optimisation frontend, de l'analyse à la mise en production.`
     },
     projetsAssocies: [
       { id: "mobydev-v2", nom: "Refonte Mobydev V2" },
@@ -718,8 +702,8 @@ log "Vérification finale..."
 if curl -f http://localhost:3000/health; then
     log "✅ CRM déployé sur OVH"
     # Notification Slack succès
-curl -X POST -H 'Content-type: application/json' \
-    --data '{"text":"✅ CRM déployé avec succès sur production"}' \
+    curl -X POST -H 'Content-type: application/json' \
+        --data '{"text":"✅ CRM déployé avec succès sur production"}' \
         $SLACK_WEBHOOK_URL
 else
     log "ERREUR: Healthcheck failed"
@@ -815,8 +799,8 @@ fi`
           Chaque projet nécessitait une <span className={styles.conceptKeyword}>approche de déploiement différente</span> : le <span className={styles.keyword}>CRM via Docker Compose</span> sur serveur OVH, la <span className={styles.keyword}>vitrine via FileZilla FTP</span>, et les <span className={styles.keyword}>cartes NFC via Vercel</span>. Les <span className={styles.errorKeyword}>déploiements manuels</span> prenaient du temps et créaient des risques d'erreurs.
           <br/><br/>
           La <span className={styles.methodKeyword}>gestion des utilisateurs</span> était particulièrement laborieuse : création manuelle des comptes, génération des mots de passe, envoi des identifiants par email séparément.
-          </>
-        ),
+        </>
+      ),
 
       actionShort: "Mise en place de processus automatisés adaptés à chaque plateforme et projet.",
       action: (
@@ -830,8 +814,8 @@ fi`
           • <span className={styles.keyword}>Gestion utilisateurs</span> : workflow automatisé de création de comptes avec email de bienvenue
           <br/><br/>
           Chaque solution respecte les <span className={styles.techKeyword}>spécificités techniques</span> et les contraintes de chaque environnement.
-          </>
-        ),
+        </>
+      ),
 
       resultatShort: "Administration maîtrisée avec processus adaptés et monitoring efficace.",
       resultat: (
@@ -845,8 +829,8 @@ fi`
           • <span className={styles.keyword}>Polyvalence technique</span> : maîtrise de Docker, FTP, plateformes cloud
           <br/><br/>
           L'administration est désormais <span className={styles.methodKeyword}>flexible et adaptée</span> à chaque contexte projet.
-          </>
-        ),
+        </>
+      ),
 
       apprentissageShort: "L'administration système requiert l'adaptation aux spécificités de chaque plateforme.",
       apprentissage: (
