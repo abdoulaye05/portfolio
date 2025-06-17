@@ -6,7 +6,7 @@ import { GoArrowLeft } from "react-icons/go";
 import { FaCode, FaProjectDiagram, FaDatabase, FaChartLine, FaTasks, FaUsers, FaTools, FaBrain, FaRocket, FaBullseye, FaBolt, FaTrophy, FaSearchPlus, FaTimes, FaCamera, FaFileCode, FaChevronDown, FaChevronUp, FaFolder, FaLightbulb, FaCog } from "react-icons/fa";
 import styles from "./CompetenceDetail.module.scss";
 import ErrorPage from "../error/Error";
-import cardFormImage from "../../assets/CardForm Component.png";
+
 import formulaireNfcImage from "../../assets/formulaire_NFC.png";
 import authMiddlewareImage from "../../assets/auth.js – Middleware JWT.png";
 import pageReactSchemaImage from "../../assets/page_react.png";
@@ -30,6 +30,9 @@ import interfacePgsqlImage from "../../assets/interface_pgsql.png";
 import normalisation3nfImage from "../../assets/Normalisation3NF.png";
 import tableCarteNfcImage from "../../assets/Table_carte_nfc.png";
 import postgresqlDockerImage from "../../assets/PostgreSQl_docker.png";
+import organigrammeMobydevImage from "../../assets/organigramme_mobydev.png";
+import gitFlowImage from "../../assets/git_flow_crm.png";
+import interfaceUXCrmImage from "../../assets/Interface_UX_crm.png";
 
 // Données des compétences avec leurs traces et projets associés
 const competencesData = {
@@ -1559,7 +1562,7 @@ CREATE TABLE lieux (
         <>
           Projets <span className={styles.conceptKeyword}>complexes</span> nécessitant planification rigoureuse et coordination multi-équipes.
           <br/><br/>
-          En tant que <span className={styles.methodKeyword}>chef de projet</span>, je devais gérer des projets avec des enjeux différents : <span className={styles.keyword}>CRM</span> (6 mois, MVP critique), <span className={styles.keyword}>refonte Mobydev</span> (impact business majeur), et <span className={styles.keyword}>app mobile Insens</span> (UX complexe). Chaque projet avait ses contraintes spécifiques et ses parties prenantes.
+En tant que <span className={styles.methodKeyword}>chef de projet</span>, je devais gérer des projets avec des enjeux différents : <span className={styles.keyword}>CRM</span> (6 mois, MVP critique), <span className={styles.keyword}>refonte Mobydev</span> (impact business majeur), et <span className={styles.keyword}>app mobile Insens</span> (UX complexe). Chaque projet avait ses contraintes spécifiques et ses parties prenantes.
           <br/><br/>
           Les défis incluaient : <span className={styles.errorKeyword}>planning serré</span>, <span className={styles.conceptKeyword}>ressources limitées</span>, et besoin de <span className={styles.methodKeyword}>justifications techniques</span> solides pour les choix architecturaux.
         </>
@@ -1570,17 +1573,17 @@ CREATE TABLE lieux (
         <>
           Planification structurée avec <span className={styles.techKeyword}>outils adaptés</span> et documentation technique complète.
           <br/><br/>
-          J'ai mis en place une <span className={styles.methodKeyword}>méthodologie hybride</span> :
+J'ai mis en place une <span className={styles.methodKeyword}>méthodologie hybride</span> :
           <br/>
-          • <span className={styles.techKeyword}>Planning Notion</span> : roadmap MVP avec sprints et jalons mesurables
+• <span className={styles.techKeyword}>Planning Notion</span> : roadmap MVP avec sprints et jalons mesurables
           <br/>
-          • <span className={styles.conceptKeyword}>Analyse comparative</span> : avant/après pour valider les améliorations
+• <span className={styles.conceptKeyword}>Analyse comparative</span> : avant/après pour valider les améliorations
           <br/>
-          • <span className={styles.methodKeyword}>Prototypage Figma</span> : storyboards et tests utilisateur
+• <span className={styles.methodKeyword}>Prototypage Figma</span> : storyboards et tests utilisateur
           <br/>
-          • <span className={styles.techKeyword}>Documentation technique</span> : justifications architecturales détaillées
+• <span className={styles.techKeyword}>Documentation technique</span> : justifications architecturales détaillées
           <br/>
-          • <span className={styles.conceptKeyword}>Coordination équipes</span> : design, développement, et validation
+• <span className={styles.conceptKeyword}>Coordination équipes</span> : design, développement, et validation
           <br/><br/>
           Chaque projet a bénéficié d'une <span className={styles.keyword}>approche sur mesure</span> selon ses spécificités.
         </>
@@ -1591,17 +1594,17 @@ CREATE TABLE lieux (
         <>
           Projets livrés dans les délais avec <span className={styles.conceptKeyword}>amélioration mesurable</span> des KPIs.
           <br/><br/>
-          Les résultats sont <span className={styles.methodKeyword}>quantifiables</span> :
+Les résultats sont <span className={styles.methodKeyword}>quantifiables</span> :
           <br/>
-          • <span className={styles.keyword}>CRM</span> : livré en <span className={styles.keyword}>6 mois</span> avec toutes les fonctionnalités MVP
+• <span className={styles.keyword}>CRM</span> : livré en <span className={styles.keyword}>6 mois</span> avec toutes les fonctionnalités MVP
           <br/>
-          • <span className={styles.conceptKeyword}>Mobydev V2</span> : <span className={styles.keyword}>+40%</span> conversion, <span className={styles.keyword}>-25%</span> rebond
+• <span className={styles.conceptKeyword}>Mobydev V2</span> : <span className={styles.keyword}>+40%</span> conversion, <span className={styles.keyword}>-25%</span> rebond
           <br/>
-          • <span className={styles.techKeyword}>Insens mobile</span> : <span className={styles.keyword}>95%</span> satisfaction utilisateur après tests
+• <span className={styles.techKeyword}>Insens mobile</span> : <span className={styles.keyword}>95%</span> satisfaction utilisateur après tests
           <br/>
-          • <span className={styles.methodKeyword}>Documentation BDD</span> : architecture validée et réutilisable
+• <span className={styles.methodKeyword}>Documentation BDD</span> : architecture validée et réutilisable
           <br/>
-          • <span className={styles.conceptKeyword}>Respect planning</span> : <span className={styles.keyword}>100%</span> des jalons respectés
+• <span className={styles.conceptKeyword}>Respect planning</span> : <span className={styles.keyword}>100%</span> des jalons respectés
           <br/><br/>
           Les parties prenantes apprécient la <span className={styles.keyword}>transparence</span> et la qualité des livrables.
         </>
@@ -1612,15 +1615,15 @@ CREATE TABLE lieux (
         <>
           Chaque projet nécessite une <span className={styles.conceptKeyword}>approche adaptée</span> avec documentation rigoureuse.
           <br/><br/>
-          Cette compétence m'a appris que <span className={styles.methodKeyword}>conduire un projet</span> efficacement requiert :
+Cette compétence m'a appris que <span className={styles.methodKeyword}>conduire un projet</span> efficacement requiert :
           <br/><br/>
-          <span className={styles.techKeyword}>Planification adaptative</span> : Choisir les bons outils selon le contexte (Notion, Figma, documentation technique).
+<span className={styles.techKeyword}>Planification adaptative</span> : Choisir les bons outils selon le contexte (Notion, Figma, documentation technique).
           <br/><br/>
-          <span className={styles.conceptKeyword}>Validation continue</span> : Tests utilisateur, métriques, et feedback pour ajuster le cap rapidement.
+<span className={styles.conceptKeyword}>Validation continue</span> : Tests utilisateur, métriques, et feedback pour ajuster le cap rapidement.
           <br/><br/>
-          <span className={styles.methodKeyword}>Documentation technique</span> : Justifier les choix architecturaux avec des arguments solides et mesurables.
+<span className={styles.methodKeyword}>Documentation technique</span> : Justifier les choix architecturaux avec des arguments solides et mesurables.
           <br/><br/>
-          <span className={styles.techKeyword}>Coordination multi-disciplinaire</span> : Faire collaborer design, développement et métier efficacement.
+<span className={styles.techKeyword}>Coordination multi-disciplinaire</span> : Faire collaborer design, développement et métier efficacement.
           <br/><br/>
           Je maîtrise maintenant la <span className={styles.keyword}>conduite de projets</span> complexes avec une approche méthodique et des résultats mesurables.
         </>
@@ -1642,540 +1645,147 @@ CREATE TABLE lieux (
         title: "Documentation projet – Installation & usage",
         shortTitle: "README.md",
         type: "README.md",
-        project: "NFC / CRM",
-        file: "documentation/README.md",
+        project: "CRM",
+        file: "documentation/README-CRM.md",
         thumbnail: "captures/docs/thumb_readme.png",
-        description: "Documentation complète des projets NFC et CRM : installation, configuration, usage et contribution.",
+        description: "Documentation du projet CRM : installation, configuration, usage et contribution.",
         savoir: (
           <>
-            La <span className={styles.conceptKeyword}>documentation technique</span> est essentielle pour la <span className={styles.methodKeyword}>collaboration en équipe</span>. J'ai appris l'importance d'un <span className={styles.techKeyword}>README</span> clair et structuré. La documentation doit couvrir : <span className={styles.keyword}>installation</span>, <span className={styles.keyword}>configuration</span>, <span className={styles.keyword}>usage</span>, et <span className={styles.conceptKeyword}>contribution</span>. <span className={styles.techKeyword}>Markdown</span> permet une mise en forme lisible et maintenable.
+            J'ai découvert l'importance de la <span className={styles.conceptKeyword}>documentation technique</span> pour faciliter le travail en équipe. Un bon <span className={styles.techKeyword}>README</span> doit être <span className={styles.keyword}>clair et accessible</span> pour permettre à d'autres développeurs de comprendre rapidement le projet. J'ai appris les bases du <span className={styles.techKeyword}>Markdown</span> et comment structurer une documentation avec les sections essentielles : <span className={styles.keyword}>installation</span>, <span className={styles.methodKeyword}>usage</span>, et <span className={styles.conceptKeyword}>contribution</span>.
           </>
         ),
         savoirFaire: (
           <>
-            J'ai rédigé des README complets pour <span className={styles.keyword}>2 projets majeurs</span> : NFC et CRM. Chaque documentation inclut <span className={styles.keyword}>prérequis</span>, <span className={styles.methodKeyword}>installation pas-à-pas</span>, <span className={styles.techKeyword}>variables d'environnement</span>, et <span className={styles.conceptKeyword}>exemples d'usage</span>. J'ai ajouté des <span className={styles.keyword}>badges</span> de statut, <span className={styles.methodKeyword}>captures d'écran</span>, et <span className={styles.techKeyword}>guides de contribution</span>. Le temps d'onboarding des nouveaux développeurs est passé de <span className={styles.errorKeyword}>2 jours</span> à <span className={styles.keyword}>2 heures</span>.
+            J'ai participé à la rédaction du README pour le projet <span className={styles.keyword}>CRM</span>. J'ai appris à inclure les sections importantes : <span className={styles.keyword}>prérequis</span>, <span className={styles.methodKeyword}>installation</span>, et <span className={styles.conceptKeyword}>usage de base</span>. J'ai découvert comment utiliser les <span className={styles.keyword}>badges</span> GitHub et structurer le contenu en <span className={styles.techKeyword}>Markdown</span>. Cette documentation aide les nouveaux arrivants à <span className={styles.methodKeyword}>comprendre et installer</span> plus rapidement le projet.
           </>
         ),
         savoirFaireShort: (
           <>
-            J'ai documenté <span className={styles.keyword}>2 projets</span> et réduit l'onboarding de <span className={styles.errorKeyword}>2 jours</span> à <span className={styles.keyword}>2 heures</span>...
+            J'ai participé à la documentation du <span className={styles.keyword}>projet CRM</span> en <span className={styles.methodKeyword}>Markdown</span>...
           </>
         ),
         code: `# 🚀 CRM Mobydev
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
-[![Version](https://img.shields.io/badge/version-2.1.0-blue)]()
-[![License](https://img.shields.io/badge/license-MIT-green)]()
-
 ## 📋 Description
 
-Application CRM complète pour la gestion des clients et prospects de Mobydev.
-Interface moderne avec React, API REST Node.js, et base PostgreSQL.
+Application CRM pour la gestion des clients et prospects de Mobydev.
+Interface React avec API Node.js et base PostgreSQL.
 
 ## ✨ Fonctionnalités
 
-- 👥 **Gestion clients** : CRUD complet avec historique
-- 📊 **Dashboard** : métriques et graphiques temps réel
-- 🔐 **Authentification** : JWT avec gestion des rôles
-- 📱 **Responsive** : optimisé mobile et desktop
-- 🔍 **Recherche** : filtres avancés et tri
-- 📧 **Notifications** : emails automatiques
+- 👥 **Gestion clients** : CRUD complet
+- 📊 **Dashboard** : métriques temps réel
+- 🔐 **Authentification** : JWT
+- 📱 **Responsive** : mobile et desktop
 
 ## 🛠️ Technologies
 
-- **Frontend** : React 18, SCSS Modules, React Router
-- **Backend** : Node.js, Express, JWT
+- **Frontend** : React 18, SCSS Modules
+- **Backend** : Node.js, Express
 - **Base de données** : PostgreSQL 15
-- **Cache** : Redis
-- **Tests** : Jest, Cypress
-- **Déploiement** : Docker, Railway
 
 ## 📦 Installation
 
 ### Prérequis
 - Node.js 18+
 - PostgreSQL 15+
-- Redis 7+
-- Git
 
 ### Étapes
 
-1. **Cloner le repository**
+1. **Cloner et installer**
 \`\`\`bash
 git clone https://github.com/mobydev/crm.git
 cd crm
-\`\`\`
-
-2. **Installer les dépendances**
-\`\`\`bash
-# Backend
-cd backend
-npm install
-
-# Frontend
-cd ../frontend
 npm install
 \`\`\`
 
-3. **Configuration environnement**
+2. **Configuration**
 \`\`\`bash
-# Copier les fichiers d'exemple
-cp backend/.env.example backend/.env
-cp frontend/.env.example frontend/.env
-
-# Éditer les variables
-nano backend/.env
+cp .env.example .env
+nano .env
 \`\`\`
 
-4. **Base de données**
+3. **Base de données**
 \`\`\`bash
-# Créer la base
 createdb crm_development
-
-# Lancer les migrations
-cd backend
 npm run migrate
-
-# Seed des données de test
-npm run seed
 \`\`\`
 
-5. **Démarrage**
+4. **Démarrage**
 \`\`\`bash
-# Terminal 1 - Backend
-cd backend
 npm run dev
-
-# Terminal 2 - Frontend
-cd frontend
-npm start
-\`\`\`
-
-## 🔧 Configuration
-
-### Variables d'environnement
-
-#### Backend (.env)
-\`\`\`env
-# Base de données
-DATABASE_URL=postgresql://user:password@localhost:5432/crm_development
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=crm_development
-
-# JWT
-JWT_SECRET=your-super-secret-key
-JWT_EXPIRES_IN=24h
-
-# Redis
-REDIS_URL=redis://localhost:6379
-
-# Email
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=your-email@gmail.com
-SMTP_PASSWORD=your-app-password
-\`\`\`
-
-#### Frontend (.env)
-\`\`\`env
-REACT_APP_API_URL=http://localhost:5000/api
-REACT_APP_VERSION=2.1.0
 \`\`\`
 
 ## 🚀 Usage
 
-### Démarrage rapide
 1. Accéder à http://localhost:3000
-2. Se connecter avec : admin@mobydev.fr / admin123
-3. Explorer le dashboard et les fonctionnalités
-
-### API Endpoints
-- \`GET /api/clients\` - Liste des clients
-- \`POST /api/clients\` - Créer un client
-- \`PUT /api/clients/:id\` - Modifier un client
-- \`DELETE /api/clients/:id\` - Supprimer un client
-
-Documentation complète : http://localhost:5000/api-docs
-
-## 🧪 Tests
-
-\`\`\`bash
-# Tests unitaires backend
-cd backend
-npm test
-
-# Tests E2E frontend
-cd frontend
-npm run test:e2e
-
-# Coverage
-npm run test:coverage
-\`\`\`
+2. Se connecter avec les identifiants fournis
+3. Explorer le dashboard
 
 ## 🤝 Contribution
 
 1. Fork le projet
-2. Créer une branche feature (\`git checkout -b feature/nouvelle-fonctionnalite\`)
-3. Commit les changements (\`git commit -m 'Ajout nouvelle fonctionnalité'\`)
-4. Push la branche (\`git push origin feature/nouvelle-fonctionnalite\`)
-5. Ouvrir une Pull Request
-
-### Guidelines
-- Suivre les conventions ESLint
-- Ajouter des tests pour les nouvelles fonctionnalités
-- Documenter les changements dans le CHANGELOG
-
-## 📄 License
-
-MIT License - voir [LICENSE](LICENSE) pour plus de détails.
+2. Créer une branche feature
+3. Commit et push
+4. Ouvrir une Pull Request
 
 ## 👥 Équipe
 
-- **Abdoulaye** - Lead Developer - [@abdoulaye](https://github.com/abdoulaye)
-- **Mobydev** - Product Owner
-
-## 📞 Support
-
-- 📧 Email : support@mobydev.fr
-- 💬 Slack : #crm-support
-- 📖 Wiki : [Documentation complète](https://wiki.mobydev.fr/crm)`
+- **Abdoulaye** - Développeur Alternant
+- **Mobydev** - Product Owner`
       },
       {
         id: "postman_collection_api",
         title: "Collection tests API REST",
         shortTitle: "Tests Postman",
         type: "Postman (.json)",
-        project: "NFC / CRM",
-        file: "tests/postman-collection-api.json",
+        project: "CRM",
+        file: "tests/postman-collection-crm.json",
         thumbnail: "captures/tests/thumb_postman.png",
-        description: "Collection Postman complète pour tester les APIs NFC et CRM avec environnements et scripts.",
+        description: "Collection Postman pour tester l'API CRM avec authentification JWT et tests automatisés.",
         savoir: (
           <>
-            <span className={styles.techKeyword}>Postman</span> m'a appris l'importance des <span className={styles.conceptKeyword}>tests d'API</span> structurés. J'ai découvert les concepts d'<span className={styles.methodKeyword}>environnements</span>, de <span className={styles.keyword}>variables</span>, et de <span className={styles.techKeyword}>scripts de test</span>. Les <span className={styles.conceptKeyword}>collections</span> permettent d'organiser et partager les tests en équipe. L'<span className={styles.methodKeyword}>automatisation</span> des tests garantit la qualité des APIs.
+            <span className={styles.techKeyword}>Postman</span> m'a permis de comprendre l'importance de <span className={styles.conceptKeyword}>tester les APIs</span> pendant le développement. J'ai découvert comment structurer des <span className={styles.methodKeyword}>collections de requêtes</span> pour valider chaque endpoint de l'API CRM. L'<span className={styles.keyword}>authentification JWT</span> nécessite de récupérer un token lors du login puis de l'utiliser dans les autres requêtes. Les <span className={styles.conceptKeyword}>variables Postman</span> permettent de réutiliser facilement les collections sur différents environnements. J'ai appris à écrire des <span className={styles.techKeyword}>tests automatisés</span> pour vérifier que les réponses ont la bonne structure et les bons codes de statut.
           </>
         ),
         savoirFaire: (
           <>
-            J'ai créé des collections complètes pour <span className={styles.keyword}>2 APIs</span> : NFC (15 endpoints) et CRM (25 endpoints). Chaque requête inclut <span className={styles.methodKeyword}>tests automatisés</span>, <span className={styles.techKeyword}>variables d'environnement</span>, et <span className={styles.conceptKeyword}>documentation</span>. J'ai configuré <span className={styles.keyword}>3 environnements</span> : dev, staging, prod avec leurs variables spécifiques. Les collections incluent <span className={styles.methodKeyword}>scripts de setup</span> et <span className={styles.techKeyword}>assertions</span> pour validation automatique.
+            J'ai créé une collection de tests pour l'<span className={styles.keyword}>API CRM</span> avec les principales routes : <span className={styles.methodKeyword}>authentification</span>, <span className={styles.conceptKeyword}>liste des clients</span>, et <span className={styles.techKeyword}>création de clients</span>. Chaque requête inclut des <span className={styles.methodKeyword}>tests automatisés</span> pour vérifier le statut HTTP et la structure des réponses. J'ai utilisé des <span className={styles.keyword}>variables Postman</span> pour rendre les tests réutilisables sur différents environnements. Les scripts de test vérifient que l'API fonctionne correctement.
           </>
         ),
         savoirFaireShort: (
           <>
-            J'ai testé <span className={styles.keyword}>2 APIs</span> avec <span className={styles.keyword}>40 endpoints</span> et <span className={styles.keyword}>3 environnements</span>...
+            J'ai testé l'<span className={styles.keyword}>API CRM</span> avec <span className={styles.methodKeyword}>authentification JWT</span> et <span className={styles.conceptKeyword}>variables Postman</span>...
           </>
         ),
-        code: `{
-  "info": {
-    "name": "CRM API - Collection complète",
-    "description": "Tests automatisés pour l'API CRM Mobydev",
-    "version": "2.1.0",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "auth": {
-    "type": "bearer",
-    "bearer": [
-      {
-        "key": "token",
-        "value": "{{jwt_token}}",
-        "type": "string"
-      }
-    ]
-  },
-  "event": [
-    {
-      "listen": "prerequest",
-      "script": {
-        "exec": [
-          "// Auto-login si token expiré",
-          "if (!pm.globals.get('jwt_token') || pm.globals.get('token_expires') < Date.now()) {",
-          "    pm.sendRequest({",
-          "        url: pm.environment.get('base_url') + '/auth/login',",
-          "        method: 'POST',",
-          "        header: { 'Content-Type': 'application/json' },",
-          "        body: {",
-          "            mode: 'raw',",
-          "            raw: JSON.stringify({",
-          "                email: pm.environment.get('admin_email'),",
-          "                password: pm.environment.get('admin_password')",
-          "            })",
-          "        }",
-          "    }, (err, res) => {",
-          "        if (!err && res.code === 200) {",
-          "            const data = res.json();",
-          "            pm.globals.set('jwt_token', data.token);",
-          "            pm.globals.set('token_expires', Date.now() + (24 * 60 * 60 * 1000));",
-          "        }",
-          "    });",
-          "}"
-        ]
-      }
-    }
-  ],
-  "item": [
-    {
-      "name": "🔐 Authentification",
-      "item": [
-        {
-          "name": "Login Admin",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\\n  \\"email\\": \\"{{admin_email}}\\",\\n  \\"password\\": \\"{{admin_password}}\\"\\n}"
-            },
-            "url": {
-              "raw": "{{base_url}}/auth/login",
-              "host": ["{{base_url}}"],
-              "path": ["auth", "login"]
-            }
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test('Status 200', () => {",
-                  "    pm.response.to.have.status(200);",
-                  "});",
-                  "",
-                  "pm.test('Token présent', () => {",
-                  "    const data = pm.response.json();",
-                  "    pm.expect(data.token).to.be.a('string');",
-                  "    pm.globals.set('jwt_token', data.token);",
-                  "});",
-                  "",
-                  "pm.test('User data valide', () => {",
-                  "    const data = pm.response.json();",
-                  "    pm.expect(data.user).to.have.property('id');",
-                  "    pm.expect(data.user).to.have.property('email');",
-                  "    pm.expect(data.user.role).to.equal('admin');",
-                  "});"
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "👥 Clients",
-      "item": [
-        {
-          "name": "Liste clients",
-          "request": {
-            "method": "GET",
-            "url": {
-              "raw": "{{base_url}}/clients?page=1&limit=10",
-              "host": ["{{base_url}}"],
-              "path": ["clients"],
-              "query": [
-                { "key": "page", "value": "1" },
-                { "key": "limit", "value": "10" }
-              ]
-            }
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test('Status 200', () => {",
-                  "    pm.response.to.have.status(200);",
-                  "});",
-                  "",
-                  "pm.test('Structure pagination', () => {",
-                  "    const data = pm.response.json();",
-                  "    pm.expect(data).to.have.property('clients');",
-                  "    pm.expect(data).to.have.property('pagination');",
-                  "    pm.expect(data.pagination).to.have.property('total');",
-                  "});",
-                  "",
-                  "pm.test('Temps réponse < 500ms', () => {",
-                  "    pm.expect(pm.response.responseTime).to.be.below(500);",
-                  "});"
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "name": "Créer client",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\\n  \\"nom\\": \\"Test\\",\\n  \\"prenom\\": \\"Client\\",\\n  \\"email\\": \\"test@example.com\\",\\n  \\"entreprise\\": \\"Test Corp\\"\\n}"
-            },
-            "url": {
-              "raw": "{{base_url}}/clients",
-              "host": ["{{base_url}}"],
-              "path": ["clients"]
-            }
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test('Status 201', () => {",
-                  "    pm.response.to.have.status(201);",
-                  "});",
-                  "",
-                  "pm.test('Client créé avec ID', () => {",
-                  "    const data = pm.response.json();",
-                  "    pm.expect(data.client).to.have.property('id');",
-                  "    pm.globals.set('test_client_id', data.client.id);",
-                  "});",
-                  "",
-                  "pm.test('Données cohérentes', () => {",
-                  "    const data = pm.response.json();",
-                  "    pm.expect(data.client.email).to.equal('test@example.com');",
-                  "});"
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    }
-  ],
-  "variable": [
-    {
-      "key": "base_url",
-      "value": "{{base_url}}"
-    }
-  ]
-}`
+        code: '{\n  "info": {\n    "name": "CRM API - Tests",\n    "description": "Collection de tests pour l\'API CRM"\n  },\n  "auth": {\n    "type": "bearer",\n    "bearer": [{ "key": "token", "value": "{{jwt_token}}" }]\n  },\n  "item": [\n    {\n      "name": "Auth - Login",\n      "request": {\n        "method": "POST",\n        "url": "{{base_url}}/auth/login",\n        "body": {\n          "mode": "raw",\n          "raw": "{\\"email\\": \\"{{admin_email}}\\", \\"password\\": \\"{{admin_password}}\\"}"}\n      },\n      "event": [{\n        "listen": "test",\n        "script": {\n          "exec": [\n            "pm.test(\'Status 200\', () => pm.response.to.have.status(200));",\n            "pm.test(\'Token présent\', () => {",\n            "    const data = pm.response.json();",\n            "    pm.globals.set(\'jwt_token\', data.token);",\n            "});"\n          ]\n        }\n      }]\n    },\n    {\n      "name": "Clients - Liste",\n      "request": {\n        "method": "GET",\n        "url": "{{base_url}}/clients"\n      },\n      "event": [{\n        "listen": "test",\n        "script": {\n          "exec": [\n            "pm.test(\'Status 200\', () => pm.response.to.have.status(200));",\n            "pm.test(\'Array clients\', () => {",\n            "    const data = pm.response.json();",\n            "    pm.expect(data.clients).to.be.an(\'array\');",\n            "});"\n          ]\n        }\n      }]\n    },\n    {\n      "name": "Clients - Créer",\n      "request": {\n        "method": "POST",\n        "url": "{{base_url}}/clients",\n        "body": {\n          "mode": "raw",\n          "raw": "{\\"nom\\": \\"Test\\", \\"email\\": \\"test@example.com\\"}"\n        }\n      },\n      "event": [{\n        "listen": "test",\n        "script": {\n          "exec": [\n            "pm.test(\'Status 201\', () => pm.response.to.have.status(201));",\n            "pm.test(\'Client créé\', () => {",\n            "    const data = pm.response.json();",\n            "    pm.expect(data.client).to.have.property(\'id\');",\n            "});"\n          ]\n        }\n      }]\n    }\n  ]\n}'
       },
       {
         id: "git_commits_branches",
-        title: "Historique des branches – dev/main",
-        shortTitle: "Git Commits",
-        type: "Git commits",
+        title: "Git Flow – Stratégie de branches CRM",
+        shortTitle: "Git Flow",
+        type: "Git Flow",
         project: "CRM",
-        file: "git/commit-history-branches.txt",
-        thumbnail: "captures/git/thumb_commits.png",
-        description: "Historique Git structuré avec branches de développement et fusion vers main.",
+        image: gitFlowImage,
+        file: "git/git-flow-crm.png",
+        thumbnail: "captures/git/thumb_gitflow.png",
+        description: "Stratégie Git Flow avec branches develop, feature, hotfix pour le projet CRM.",
         savoir: (
           <>
-            La <span className={styles.conceptKeyword}>gestion Git</span> en équipe m'a appris l'importance des <span className={styles.methodKeyword}>conventions de commit</span>. J'ai découvert le <span className={styles.techKeyword}>Git Flow</span> : branches feature, develop, main. Les <span className={styles.keyword}>messages de commit</span> doivent être explicites et suivre une convention. La <span className={styles.methodKeyword}>fusion des branches</span> nécessite des <span className={styles.conceptKeyword}>pull requests</span> avec review.
+            Le <span className={styles.techKeyword}>Git Flow</span> est une stratégie de gestion des branches que j'ai découverte pour organiser le développement. J'ai appris qu'il y a <span className={styles.keyword}>3 types de branches principales</span> : <span className={styles.methodKeyword}>main</span> pour la production stable, <span className={styles.conceptKeyword}>develop</span> pour l'intégration des nouvelles fonctionnalités, et les branches <span className={styles.keyword}>feature/</span> pour développer chaque fonctionnalité isolément. J'ai aussi découvert les branches <span className={styles.errorKeyword}>hotfix/</span> pour corriger rapidement les bugs critiques en production. Le diagramme montre comment les branches se créent, évoluent et fusionnent : on part de <span className={styles.methodKeyword}>develop</span>, on crée une <span className={styles.conceptKeyword}>feature/client-crud</span>, on développe, puis on merge vers <span className={styles.methodKeyword}>develop</span> avant de déployer sur <span className={styles.keyword}>main</span>.
           </>
         ),
         savoirFaire: (
           <>
-            J'ai mis en place une stratégie Git avec <span className={styles.keyword}>3 types de branches</span> : feature/, hotfix/, release/. J'ai défini des <span className={styles.methodKeyword}>conventions de commit</span> : feat, fix, docs, style, refactor. L'historique montre <span className={styles.keyword}>150+ commits</span> sur <span className={styles.keyword}>3 mois</span> avec <span className={styles.techKeyword}>merge requests</span> systématiques. J'ai configuré des <span className={styles.conceptKeyword}>hooks Git</span> pour validation automatique des messages.
+            Sur le projet CRM, j'ai appliqué concrètement le Git Flow : j'ai créé des branches <span className={styles.keyword}>feature/client-crud</span> pour le CRUD des clients, <span className={styles.methodKeyword}>feature/auth-jwt</span> pour l'authentification, et <span className={styles.errorKeyword}>hotfix/security-patch</span> pour corriger un problème de sécurité urgent. J'ai appris le processus : <span className={styles.conceptKeyword}>créer la branche</span> depuis develop, <span className={styles.techKeyword}>développer la fonctionnalité</span>, faire des commits réguliers, puis <span className={styles.methodKeyword}>merger vers develop</span> via pull request. Pour la production, on merge develop vers <span className={styles.keyword}>main</span> avec un tag de version. J'ai utilisé les <span className={styles.conceptKeyword}>conventions de commit</span> : feat(clients), fix(auth), docs(readme) pour que l'historique soit lisible.
           </>
         ),
         savoirFaireShort: (
           <>
-            J'ai géré <span className={styles.keyword}>150+ commits</span> avec conventions et <span className={styles.techKeyword}>hooks</span> automatiques...
+            J'ai appliqué le <span className={styles.techKeyword}>Git Flow</span> sur le CRM avec branches <span className={styles.keyword}>feature/</span>, <span className={styles.errorKeyword}>hotfix/</span> et <span className={styles.methodKeyword}>conventions de commit</span>...
           </>
         ),
-        code: `# Historique Git - Projet CRM
-# Stratégie de branches et conventions de commit
 
-## Structure des branches
-main (production)
-├── develop (intégration)
-│   ├── feature/auth-jwt (authentification)
-│   ├── feature/client-crud (gestion clients)
-│   ├── feature/dashboard-metrics (tableau de bord)
-│   └── hotfix/security-patch (correctif sécurité)
-
-## Commits récents (format: type(scope): description)
-
-### Branch: main
-commit a1b2c3d (HEAD -> main, origin/main)
-Author: Abdoulaye <abdoulaye@mobydev.fr>
-Date: 2024-01-15 14:30:00 +0100
-    release(v2.1.0): version production avec authentification JWT
-
-commit e4f5g6h
-Author: Abdoulaye <abdoulaye@mobydev.fr>
-Date: 2024-01-14 16:45:00 +0100
-    merge: fusion develop vers main pour release v2.1.0
-
-### Branch: develop
-commit h7i8j9k (HEAD -> develop, origin/develop)
-Author: Abdoulaye <abdoulaye@mobydev.fr>
-Date: 2024-01-14 15:20:00 +0100
-    feat(dashboard): ajout métriques temps réel avec WebSocket
-
-commit k1l2m3n
-Author: Abdoulaye <abdoulaye@mobydev.fr>
-Date: 2024-01-14 11:15:00 +0100
-    fix(api): correction validation email clients
-
-commit n4o5p6q
-Author: Abdoulaye <abdoulaye@mobydev.fr>
-Date: 2024-01-13 17:30:00 +0100
-    refactor(auth): optimisation middleware JWT avec cache Redis
-
-### Branch: feature/client-crud
-commit q7r8s9t (HEAD -> feature/client-crud)
-Author: Abdoulaye <abdoulaye@mobydev.fr>
-Date: 2024-01-13 14:00:00 +0100
-    feat(clients): implémentation CRUD complet avec pagination
-
-commit t1u2v3w
-Author: Abdoulaye <abdoulaye@mobydev.fr>
-Date: 2024-01-13 10:45:00 +0100
-    feat(clients): ajout validation formulaire côté client
-
-commit w4x5y6z
-Author: Abdoulaye <abdoulaye@mobydev.fr>
-Date: 2024-01-12 16:20:00 +0100
-    feat(clients): création modèle et routes API
-
-### Branch: feature/auth-jwt
-commit z7a8b9c (merged into develop)
-Author: Abdoulaye <abdoulaye@mobydev.fr>
-Date: 2024-01-12 13:15:00 +0100
-    feat(auth): middleware JWT avec gestion des rôles
-
-commit c1d2e3f
-Author: Abdoulaye <abdoulaye@mobydev.fr>
-Date: 2024-01-12 09:30:00 +0100
-    feat(auth): implémentation login/logout avec JWT
-
-## Statistiques
-- Total commits: 156
-- Branches actives: 4
-- Contributors: 1
-- Période: 3 mois (Oct-Dec 2024)
-- Fréquence: ~2 commits/jour
-
-## Conventions utilisées
-- feat: nouvelle fonctionnalité
-- fix: correction de bug
-- docs: documentation
-- style: formatage, point-virgules manquants, etc.
-- refactor: refactoring du code
-- test: ajout ou modification de tests
-- chore: maintenance, configuration
-
-## Hooks Git configurés
-pre-commit: 
-  - Vérification format des messages
-  - Linting ESLint
-  - Tests unitaires
-
-pre-push:
-  - Tests d'intégration
-  - Build de production`
       },
       {
         id: "interface_ux_crm",
@@ -2183,96 +1793,123 @@ pre-push:
         shortTitle: "Interface UX",
         type: "Capture interface",
         project: "CRM",
+        image: interfaceUXCrmImage,
         file: "interfaces/crm-ux-interface.png",
         thumbnail: "captures/crm/thumb_interface.png",
         description: "Interface utilisateur du CRM optimisée pour l'expérience utilisateur et l'efficacité.",
         savoir: (
           <>
-            L'<span className={styles.conceptKeyword}>expérience utilisateur</span> m'a appris l'importance de la <span className={styles.methodKeyword}>conception centrée utilisateur</span>. J'ai découvert les principes d'<span className={styles.techKeyword}>ergonomie</span> : clarté, cohérence, feedback, affordance. L'<span className={styles.keyword}>interface intuitive</span> réduit la courbe d'apprentissage. Les <span className={styles.conceptKeyword}>tests utilisateur</span> valident les choix de design.
+            Cette interface CRM illustre les principes d'<span className={styles.conceptKeyword}>UX design</span> que j'ai appliqués. J'ai appris l'importance d'une <span className={styles.keyword}>navigation claire</span> avec une sidebar organisée par sections : Dashboard, Clients (actif), Rappels, Calendrier, Messages, Mon Profil. La <span className={styles.methodKeyword}>hiérarchie visuelle</span> guide l'utilisateur : le logo Mobydev en haut, les sections principales au centre, les actions rapides en bas. J'ai découvert que l'<span className={styles.techKeyword}>état actif</span> (section Clients en bleu) doit être visuellement distinct. L'<span className={styles.conceptKeyword}>information utilisateur</span> (Abdoulaye Diallo, Lecture seule) rassure sur le contexte et les permissions.
           </>
         ),
         savoirFaire: (
           <>
-            J'ai conçu une interface avec <span className={styles.keyword}>navigation claire</span> : sidebar fixe, breadcrumbs, actions contextuelles. J'ai implémenté des <span className={styles.methodKeyword}>patterns UX</span> : loading states, feedback visuel, shortcuts clavier. L'interface inclut <span className={styles.techKeyword}>mode sombre</span>, <span className={styles.conceptKeyword}>responsive design</span>, et <span className={styles.keyword}>accessibilité WCAG</span>. Les tests avec <span className={styles.keyword}>12 utilisateurs</span> montrent <span className={styles.methodKeyword}>95% de satisfaction</span> et <span className={styles.keyword}>-60%</span> de temps d'apprentissage.
+            J'ai développé cette interface avec une <span className={styles.keyword}>sidebar de navigation</span> intuitive regroupant les fonctionnalités par catégories logiques. J'ai implémenté un <span className={styles.methodKeyword}>système d'icônes cohérent</span> : calendrier pour Dashboard, personnes pour Clients, flèche pour Rappels, etc. La section <span className={styles.conceptKeyword}>Actions Rapides</span> (Export CSV, Déconnexion) facilite les tâches fréquentes. J'ai ajouté des <span className={styles.techKeyword}>indicateurs visuels</span> : état "Lecture seule" pour informer des permissions, section active en surbrillance bleue. Le design est <span className={styles.keyword}>épuré et professionnel</span> avec une palette de couleurs cohérente (bleu Mobydev, gris neutres).
           </>
         ),
         savoirFaireShort: (
           <>
-            J'ai conçu une interface avec <span className={styles.methodKeyword}>95% de satisfaction</span> et <span className={styles.keyword}>-60%</span> de temps d'apprentissage...
+            J'ai développé une <span className={styles.keyword}>sidebar intuitive</span> avec <span className={styles.methodKeyword}>icônes cohérentes</span> et <span className={styles.conceptKeyword}>actions rapides</span>...
+          </>
+        )
+      },
+      {
+        id: "organigramme_mobydev",
+        title: "Organigramme MobyDev — Structure d'équipe",
+        shortTitle: "Organigramme MobyDev", 
+        type: "Organigramme (.png)",
+        project: "MobyDev",
+        image: organigrammeMobydevImage,
+        file: "mobydev/organisation/organigramme-structure-equipe.png",
+        thumbnail: "captures/mobydev/thumb_organigramme.png",
+        description: "Structure organisationnelle de MobyDev montrant ma position d'intervenant Full Stack dans le pôle informatique.",
+        savoir: (
+          <>
+            Comprendre la <span className={styles.conceptKeyword}>structure organisationnelle</span> d'une entreprise m'a appris l'importance de connaître les <span className={styles.methodKeyword}>rôles et responsabilités</span> de chacun. J'ai découvert comment les <span className={styles.techKeyword}>pôles métier</span> (Commercial et Informatique) collaborent sous la direction du <span className={styles.keyword}>CEO</span>. La <span className={styles.conceptKeyword}>hiérarchie claire</span> facilite la communication et la prise de décision. Mon statut d'<span className={styles.methodKeyword}>intervenant</span> me permet d'apporter une expertise technique tout en restant flexible sur les projets.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            En tant qu'<span className={styles.keyword}>alternant Full Stack</span>, mon rôle dans les projets est de <span className={styles.methodKeyword}>développer les solutions techniques</span> (CRM, cartes NFC, sites web) et <span className={styles.conceptKeyword}>collaborer avec les équipes</span> pour comprendre les besoins clients. Je travaille directement avec <span className={styles.methodKeyword}>2 commerciaux + 1 stagiaire</span> pour transformer leurs demandes en fonctionnalités concrètes. Avec les <span className={styles.conceptKeyword}>3 autres développeurs</span> (1 Full Stack intervenant, 1 Alternant Full Stack, 1 Alternant Front-end), je <span className={styles.keyword}>collabore et apprends</span> sur React, Node.js, PostgreSQL et les déploiements. Mon statut d'alternant me permet d'<span className={styles.methodKeyword}>apprendre en travaillant</span> : je contribue aux projets tout en développant mes compétences techniques et ma compréhension du métier.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            <span className={styles.methodKeyword}>Développeur alternant</span> en <span className={styles.conceptKeyword}>apprentissage</span> collaborant avec <span className={styles.keyword}>6 collègues</span>...
           </>
         )
       }
     ],
     reflexion: {
-      situationShort: "Projets techniques nécessitant collaboration efficace et partage de connaissances.",
+      situationShort: "Intégration dans une équipe de développement avec apprentissage des pratiques collaboratives.",
       situation: (
         <>
-          Projets techniques nécessitant <span className={styles.conceptKeyword}>collaboration efficace</span> et partage de connaissances.
+          Intégration dans une équipe de développement avec apprentissage des <span className={styles.conceptKeyword}>pratiques collaboratives</span>.
           <br/><br/>
-          Les projets <span className={styles.keyword}>NFC et CRM</span> impliquaient des technologies complexes avec des APIs REST, authentification JWT, et interfaces utilisateur avancées. L'équipe devait maintenir <span className={styles.keyword}>2 projets simultanément</span> avec des standards de qualité élevés.
+En tant qu'<span className={styles.keyword}>alternant développeur</span>, j'ai rejoint l'équipe MobyDev pour contribuer aux projets CRM et cartes NFC. L'équipe travaillait avec des technologies que je découvrais : <span className={styles.techKeyword}>APIs REST</span>, <span className={styles.methodKeyword}>authentification JWT</span>, et <span className={styles.conceptKeyword}>interfaces React</span>.
           <br/><br/>
-          Les défis incluaient : <span className={styles.errorKeyword}>onboarding lent</span> des nouveaux développeurs, <span className={styles.conceptKeyword}>tests d'API manuels</span> chronophages, et <span className={styles.methodKeyword}>gestion Git</span> parfois chaotique avec des conflits fréquents.
+          Les défis d'apprentissage incluaient : comprendre le <span className={styles.errorKeyword}>code existant</span> sans documentation, apprendre à <span className={styles.conceptKeyword}>tester les APIs</span> manuellement, et découvrir les <span className={styles.methodKeyword}>bonnes pratiques Git</span> en équipe.
         </>
       ),
 
-      actionShort: "Documentation complète, tests automatisés et processus Git structuré.",
+      actionShort: "Participation active à la documentation et aux outils collaboratifs de l'équipe.",
       action: (
         <>
-          Documentation complète, <span className={styles.techKeyword}>tests automatisés</span> et processus Git structuré.
+          Participation active à la <span className={styles.techKeyword}>documentation</span> et aux outils collaboratifs de l'équipe.
           <br/><br/>
-          J'ai mis en place des <span className={styles.methodKeyword}>outils et processus</span> collaboratifs :
+J'ai contribué aux <span className={styles.methodKeyword}>pratiques collaboratives</span> :
           <br/>
-          • <span className={styles.techKeyword}>Documentation README</span> : installation, configuration, et contribution détaillées
+• <span className={styles.techKeyword}>Documentation README</span> : participation à la rédaction des guides d'installation
           <br/>
-          • <span className={styles.conceptKeyword}>Collections Postman</span> : tests API automatisés avec environnements multiples
+• <span className={styles.conceptKeyword}>Tests Postman</span> : création de collections pour tester l'API CRM
           <br/>
-          • <span className={styles.methodKeyword}>Conventions Git</span> : branches structurées, commits conventionnels, hooks automatiques
+• <span className={styles.methodKeyword}>Git Flow</span> : apprentissage et application des conventions de branches
           <br/>
-          • <span className={styles.techKeyword}>Interface UX</span> : design centré utilisateur avec tests et itérations
+• <span className={styles.techKeyword}>Interface utilisateur</span> : développement d'une navigation intuitive
           <br/>
-          • <span className={styles.conceptKeyword}>Partage de connaissances</span> : documentation technique accessible à tous
+• <span className={styles.conceptKeyword}>Partage d'apprentissage</span> : documentation de mes découvertes pour l'équipe
           <br/><br/>
-          L'objectif était de <span className={styles.keyword}>fluidifier la collaboration</span> et réduire les frictions.
+          L'objectif était d'<span className={styles.keyword}>apprendre en contribuant</span> aux bonnes pratiques de l'équipe.
         </>
       ),
 
-      resultatShort: "Onboarding accéléré et qualité de code améliorée avec processus automatisés.",
+      resultatShort: "Intégration réussie avec contribution aux outils et pratiques de l'équipe.",
       resultat: (
         <>
-          Onboarding accéléré et qualité de code améliorée avec <span className={styles.conceptKeyword}>processus automatisés</span>.
+          Intégration réussie avec <span className={styles.conceptKeyword}>contribution aux outils</span> et pratiques de l'équipe.
           <br/><br/>
-          Les améliorations sont <span className={styles.methodKeyword}>mesurables</span> :
+Mes contributions concrètes :
           <br/>
-          • <span className={styles.conceptKeyword}>Temps d'onboarding</span> : <span className={styles.errorKeyword}>2 jours</span> → <span className={styles.keyword}>2 heures</span>
+• <span className={styles.conceptKeyword}>Documentation</span> : README CRM avec sections installation et usage
           <br/>
-          • <span className={styles.techKeyword}>Tests API</span> : <span className={styles.keyword}>40 endpoints</span> testés automatiquement
+• <span className={styles.techKeyword}>Tests API</span> : Collection Postman avec <span className={styles.keyword}>3 endpoints principaux</span>
           <br/>
-          • <span className={styles.methodKeyword}>Gestion Git</span> : <span className={styles.keyword}>150+ commits</span> avec conventions strictes
+• <span className={styles.methodKeyword}>Git Flow</span> : Application sur les branches <span className={styles.keyword}>feature/</span> et <span className={styles.errorKeyword}>hotfix/</span>
           <br/>
-          • <span className={styles.conceptKeyword}>Satisfaction UX</span> : <span className={styles.keyword}>95%</span> après tests utilisateur
+• <span className={styles.conceptKeyword}>Interface UX</span> : Sidebar de navigation avec <span className={styles.keyword}>actions rapides</span>
           <br/>
-          • <span className={styles.techKeyword}>Qualité code</span> : hooks Git et validation automatique
+• <span className={styles.techKeyword}>Collaboration</span> : Participation active aux reviews de code
           <br/><br/>
-          L'équipe est devenue <span className={styles.keyword}>autonome</span> et <span className={styles.conceptKeyword}>efficace</span> sur les deux projets.
+          J'ai pu <span className={styles.keyword}>apprendre et contribuer</span> simultanément aux projets de l'équipe.
         </>
       ),
 
-      apprentissageShort: "La documentation et l'automatisation sont clés pour une collaboration efficace.",
+      apprentissageShort: "L'apprentissage en équipe nécessite documentation, outils partagés et communication.",
       apprentissage: (
         <>
-          La <span className={styles.conceptKeyword}>documentation et l'automatisation</span> sont clés pour une collaboration efficace.
+          L'<span className={styles.conceptKeyword}>apprentissage en équipe</span> nécessite documentation, outils partagés et communication.
           <br/><br/>
-          Cette compétence m'a appris que <span className={styles.methodKeyword}>collaborer en équipe informatique</span> requiert :
+Cette expérience m'a appris que <span className={styles.methodKeyword}>collaborer en équipe informatique</span> en tant qu'alternant requiert :
           <br/><br/>
-          <span className={styles.techKeyword}>Documentation vivante</span> : README complets et à jour qui permettent un onboarding rapide et autonome.
+<span className={styles.techKeyword}>Documentation accessible</span> : README clairs pour comprendre rapidement les projets et contribuer efficacement.
           <br/><br/>
-          <span className={styles.conceptKeyword}>Tests automatisés</span> : Collections Postman partagées pour valider les APIs sans intervention manuelle.
+<span className={styles.conceptKeyword}>Outils de test partagés</span> : Collections Postman pour valider les développements et partager les connaissances.
           <br/><br/>
-          <span className={styles.methodKeyword}>Processus Git structurés</span> : Conventions de commit et hooks pour maintenir la qualité du code.
+<span className={styles.methodKeyword}>Conventions Git cohérentes</span> : Git Flow pour organiser le travail et éviter les conflits.
           <br/><br/>
-          <span className={styles.techKeyword}>UX centrée utilisateur</span> : Tests et itérations pour créer des interfaces intuitives et efficaces.
+<span className={styles.techKeyword}>Design centré utilisateur</span> : Interfaces pensées pour l'efficacité et l'intuitivité.
           <br/><br/>
-          Je maîtrise maintenant les <span className={styles.keyword}>outils et méthodes</span> pour créer un environnement collaboratif productif et de qualité.
+          Je développe progressivement les <span className={styles.keyword}>compétences collaboratives</span> essentielles au travail en équipe de développement.
         </>
       )
     },
