@@ -33,6 +33,7 @@ import postgresqlDockerImage from "../../assets/PostgreSQl_docker.png";
 import organigrammeMobydevImage from "../../assets/organigramme_mobydev.png";
 import gitFlowImage from "../../assets/git_flow_crm.png";
 import interfaceUXCrmImage from "../../assets/Interface_UX_crm.png";
+import sitemapInsensImage from "../../assets/Sitemap_Insens.png";
 
 // Données des compétences avec leurs traces et projets associés
 const competencesData = {
@@ -1437,6 +1438,32 @@ CREATE TABLE produits (
         savoirFaireShort: (
           <>
             J'ai créé <span className={styles.keyword}>25 écrans</span> avec <span className={styles.keyword}>8 parcours</span> et testé avec <span className={styles.keyword}>15 utilisateurs</span>...
+          </>
+        )
+      },
+      {
+        id: "sitemap_insens_navigation",
+        title: "Sitemap application – Architecture navigation",
+        shortTitle: "Sitemap Insens",
+        type: "Sitemap (.png)",
+        project: "Insens",
+        image: sitemapInsensImage,
+        file: "projets/sitemap-insens-navigation.png",
+        thumbnail: "captures/insens/thumb_sitemap.png",
+        description: "Architecture complète de navigation de l'application Insens avec tous les parcours utilisateur et fonctionnalités.",
+        savoir: (
+          <>
+            La création d'une <span className={styles.conceptKeyword}>sitemap d'application</span> m'a appris l'importance de la <span className={styles.methodKeyword}>planification de l'architecture</span> avant le développement. J'ai découvert comment organiser les <span className={styles.keyword}>flux utilisateur</span> selon les <span className={styles.techKeyword}>rôles</span> (Visiteur, Vendeur, Admin). J'ai appris à identifier les <span className={styles.conceptKeyword}>points d'entrée</span> et les <span className={styles.methodKeyword}>chemins de navigation</span> pour chaque type d'utilisateur. La <span className={styles.keyword}>hiérarchie de l'information</span> doit être logique et intuitive pour faciliter l'expérience utilisateur.
+          </>
+        ),
+        savoirFaire: (
+          <>
+            J'ai conçu l'architecture complète avec <span className={styles.keyword}>3 rôles utilisateur</span> : <span className={styles.methodKeyword}>Visiteur</span> (inscription, choix de rôle, découverte), <span className={styles.conceptKeyword}>Vendeur</span> (dashboard, gestion produits, commandes, profil), et <span className={styles.techKeyword}>Admin</span> (gestion vendeurs, produits, abonnements, statistiques). J'ai organisé <span className={styles.keyword}>plus de 30 écrans</span> avec leurs interconnexions logiques. Pour le visiteur : accueil → exploration → inscription. Pour le vendeur : dashboard → 4 sections principales (produits, commandes, profil, aide). Pour l'admin : gestion complète avec <span className={styles.methodKeyword}>supervision IA</span> et <span className={styles.conceptKeyword}>modération</span>. J'ai défini les <span className={styles.keyword}>3 types d'abonnements</span> avec leurs fonctionnalités spécifiques.
+          </>
+        ),
+        savoirFaireShort: (
+          <>
+            J'ai conçu l'architecture avec <span className={styles.keyword}>3 rôles utilisateur</span> et <span className={styles.keyword}>plus de 30 écrans</span> interconnectés...
           </>
         )
       },
