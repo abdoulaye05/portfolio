@@ -1395,31 +1395,6 @@ CREATE TABLE produits (
         )
       },
       {
-        id: "storyboard_figma_insens",
-        title: "Storyboard application – navigation mobile",
-        shortTitle: "Storyboard Insens",
-        type: "Figma (.figma)",
-        project: "Insens",
-        file: "projets/figma-storyboard-insens-mobile.figma",
-        thumbnail: "captures/insens/thumb_storyboard.png",
-        description: "Storyboard complet de l'application mobile Insens avec parcours utilisateur et wireframes.",
-        savoir: (
-          <>
-            Le <span className={styles.techKeyword}>storyboard</span> avec <span className={styles.techKeyword}>Figma</span> m'a appris la <span className={styles.conceptKeyword}>conception centrée utilisateur</span>. J'ai découvert l'importance des <span className={styles.methodKeyword}>parcours utilisateur</span>, des <span className={styles.keyword}>wireframes</span>, et des <span className={styles.conceptKeyword}>prototypes interactifs</span>. La <span className={styles.methodKeyword}>navigation mobile</span> nécessite une approche spécifique : touch-friendly, thumb zone, progressive disclosure.
-          </>
-        ),
-        savoirFaire: (
-          <>
-            J'ai créé un storyboard complet avec <span className={styles.keyword}>25 écrans</span> et <span className={styles.keyword}>8 parcours utilisateur</span> principaux. J'ai défini l'<span className={styles.methodKeyword}>architecture de l'information</span>, les <span className={styles.techKeyword}>interactions</span>, et les <span className={styles.conceptKeyword}>transitions</span>. Le prototype inclut <span className={styles.keyword}>micro-animations</span> et <span className={styles.methodKeyword}>feedback utilisateur</span>. J'ai testé avec <span className={styles.keyword}>15 utilisateurs</span> et itéré <span className={styles.keyword}>3 versions</span> avant validation.
-          </>
-        ),
-        savoirFaireShort: (
-          <>
-            J'ai créé <span className={styles.keyword}>25 écrans</span> avec <span className={styles.keyword}>8 parcours</span> et testé avec <span className={styles.keyword}>15 utilisateurs</span>...
-          </>
-        )
-      },
-      {
         id: "sitemap_insens_navigation",
         title: "Sitemap application – Architecture navigation",
         shortTitle: "Sitemap Insens",
@@ -1548,11 +1523,9 @@ En tant que <span className={styles.methodKeyword}>chef de projet</span>, je dev
           <br/><br/>
 J'ai mis en place une <span className={styles.methodKeyword}>méthodologie hybride</span> :
           <br/>
-• <span className={styles.techKeyword}>Planning Notion</span> : roadmap MVP avec sprints et jalons mesurables
+• <span className={styles.techKeyword}>Planning Notion</span> : organisation des tâches par types d'activités et suivi précis
           <br/>
-• <span className={styles.conceptKeyword}>Analyse comparative</span> : avant/après pour valider les améliorations
-          <br/>
-• <span className={styles.methodKeyword}>Prototypage Figma</span> : storyboards et tests utilisateur
+• <span className={styles.conceptKeyword}>Architecture navigation</span> : sitemaps avec rôles utilisateur et parcours logiques
           <br/>
 • <span className={styles.techKeyword}>Documentation technique</span> : justifications architecturales détaillées
           <br/>
@@ -1590,7 +1563,7 @@ Les résultats sont <span className={styles.methodKeyword}>quantifiables</span> 
           <br/><br/>
 Cette compétence m'a appris que <span className={styles.methodKeyword}>conduire un projet</span> efficacement requiert :
           <br/><br/>
-<span className={styles.techKeyword}>Planification adaptative</span> : Choisir les bons outils selon le contexte (Notion, Figma, documentation technique).
+<span className={styles.techKeyword}>Planification adaptative</span> : Choisir les bons outils selon le contexte (Notion, sitemaps, documentation technique).
           <br/><br/>
 <span className={styles.conceptKeyword}>Validation continue</span> : Tests utilisateur, métriques, et feedback pour ajuster le cap rapidement.
           <br/><br/>
