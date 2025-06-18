@@ -5,7 +5,7 @@
           "date": "octobre - décembre 2024",
           "status": "Terminé",
         "subtitle": "Mini-site interactif déclenché par simple scan NFC sur carte physique",
-        "cover": "/assets/page_avant_nfc.png",
+        "cover": "/portfolio/assets/page_avant_nfc.png",
         "description": "Solution innovante de cartes de visite NFC permettant d'accéder à un mini-site personnalisé d'un simple scan. Architecture React/Vite optimisée, hébergement AWS S3, programmation NDEF des puces NFC avec validation temps réel.",
         "technologies": ["React", "Vite", "AWS S3", "NFC NDEF", "React Hook Form", "CSS Modules"],
         "metrics": {
@@ -27,15 +27,15 @@
             "Score Lighthouse 94/100"
         ],
         "pictures": [
-            "/assets/page_avant_nfc.png",
-            "/assets/formulaire_NFC.png",
-            "/assets/Page_public.png",
-            "/assets/IntercfaceUser_NFC.png",
-            "/assets/Table_carte_nfc.png",
-            "/assets/Documentation_mousow.png",
-            "/assets/Migration002_NFC.png",
-            "/assets/deploiementNFC.png",
-            "/assets/Utilisation_react_Hook.png"
+            "/portfolio/assets/page_avant_nfc.png",
+            "/portfolio/assets/formulaire_NFC.png",
+            "/portfolio/assets/Page_public.png",
+            "/portfolio/assets/IntercfaceUser_NFC.png",
+            "/portfolio/assets/Table_carte_nfc.png",
+            "/portfolio/assets/Documentation_mousow.png",
+            "/portfolio/assets/Migration002_NFC.png",
+            "/portfolio/assets/deploiementNFC.png",
+            "/portfolio/assets/Utilisation_react_Hook.png"
         ],
         "isPhare": true,
         "competences": ["UE 1", "UE 4", "UE 6"],
@@ -59,7 +59,7 @@
           "date": "janvier - avril 2025",
           "status": "Terminé",
         "subtitle": "Plateforme de gestion interne pour l'équipe Mobydev",
-        "cover": "/assets/page_avan_crm.png",
+        "cover": "/portfolio/assets/page_avan_crm.png",
         "description": "Application web complète pour la gestion des projets internes, suivi du temps, et collaboration d'équipe. Architecture full-stack avec authentification JWT sécurisée, API REST optimisée et interface React moderne.",
         "technologies": ["React", "Node.js", "Express", "PostgreSQL", "JWT", "Docker", "Nginx"],
         "metrics": {
@@ -81,24 +81,24 @@
             "Satisfaction utilisateur 9.2/10"
         ],
         "pictures": [
-            "/assets/page_avan_crm.png",
-            "/assets/auth.js – Middleware JWT.png",
-            "/assets/Dashbord crm.png",
-            "/assets/Gestion_utilisateur_interface.png",
-            "/assets/interface_add_user_crm.jpeg",
-            "/assets/fromulaire_client.png",
-            "/assets/interface_add_clients.png",
-            "/assets/MCD_CRM.png",
-            "/assets/Modele_utilisateurs_nfc.png",
-            "/assets/interface_pgsql.png",
-            "/assets/PostgreSQl_docker.png",
-            "/assets/Interface_UX_crm.png",
-            "/assets/Git_Flow_crm.png",
-            "/assets/Deploiement_crm.png",
-            "/assets/env_crm.png",
-            "/assets/Annlyse_performande_crm.png",
-            "/assets/Annalyse performance_crm2.png",
-            "/assets/• Optimisation & Refactoring • CRM MobyDev.png"
+            "/portfolio/assets/page_avan_crm.png",
+            "/portfolio/assets/auth.js – Middleware JWT.png",
+            "/portfolio/assets/Dashbord crm.png",
+            "/portfolio/assets/Gestion_utilisateur_interface.png",
+            "/portfolio/assets/interface_add_user_crm.jpeg",
+            "/portfolio/assets/fromulaire_client.png",
+            "/portfolio/assets/interface_add_clients.png",
+            "/portfolio/assets/MCD_CRM.png",
+            "/portfolio/assets/Modele_utilisateurs_nfc.png",
+            "/portfolio/assets/interface_pgsql.png",
+            "/portfolio/assets/PostgreSQl_docker.png",
+            "/portfolio/assets/Interface_UX_crm.png",
+            "/portfolio/assets/Git_Flow_crm.png",
+            "/portfolio/assets/Deploiement_crm.png",
+            "/portfolio/assets/env_crm.png",
+            "/portfolio/assets/Annlyse_performande_crm.png",
+            "/portfolio/assets/Annalyse performance_crm2.png",
+            "/portfolio/assets/• Optimisation & Refactoring • CRM MobyDev.png"
         ],
         "isPhare": true,
         "competences": ["UE 1", "UE 4", "UE 5", "UE 6"],
@@ -122,7 +122,7 @@
           "date": "mai 2025",
         "status": "Terminé",
         "subtitle": "E-commerce de culottes menstruelles pour femmes",
-        "cover": "/assets/Mousow_im.png",
+        "cover": "/portfolio/assets/Mousow_im.png",
         "description": "Plateforme e-commerce dédiée à la vente de culottes menstruelles avec système de gestion complet des produits, commandes et clients. Architecture optimisée avec catalogue produits, panier d'achat et interface d'administration.",
         "technologies": ["PHP", "MySQL", "HTML5", "CSS3", "JavaScript", "Bootstrap"],
         "metrics": {
@@ -144,10 +144,10 @@
             "Performances optimisées grâce à la structure"
         ],
         "pictures": [
-            "/assets/Mousow_im.png",
-            "/assets/Normalisation3NF.png",
-            "/assets/about_picture.webp",
-            "/assets/future-grid.webp"
+            "/portfolio/assets/Mousow_im.png",
+            "/portfolio/assets/Normalisation3NF.png",
+            "/portfolio/assets/about_picture.webp",
+            "/portfolio/assets/future-grid.webp"
         ],
         "isPhare": false,
         "competences": ["UE 4", "UE 1"],
@@ -171,7 +171,7 @@
           "date": "septembre - octobre 2024",
         "status": "En production",
         "subtitle": "Évolution complète du site vitrine : de vanilla JS à React/Next.js",
-        "cover": "/assets/Transformation_numérique.jpg",
+        "cover": "/portfolio/assets/Transformation_numérique.jpg",
         "description": "Développement et refonte complète du site vitrine de l'agence Mobydev. Première version en HTML/CSS/JS vanilla optimisée (Lighthouse 95+), puis migration vers React/Next.js pour améliorer le SEO et les performances. Intégration Docker, CMS headless Strapi et animations Framer Motion.",
         "technologies": ["HTML5", "CSS3", "JavaScript", "React", "Next.js", "Strapi", "Docker", "Framer Motion", "Tailwind CSS"],
         "evolution": {
@@ -206,12 +206,12 @@
             "Maintenance simplifiée avec architecture moderne"
         ],
         "pictures": [
-            "/assets/Mobydev_V1.png",
-            "/assets/mobydev_v2.jpg",
-            "/assets/page_react.png",
-            "/assets/Deploiement_vitrine_mobydev.png",
-            "/assets/plannig_mobydev.png",
-            "/assets/organigramme_Mobydev.png"
+            "/portfolio/assets/Mobydev_V1.png",
+            "/portfolio/assets/mobydev_v2.jpg",
+            "/portfolio/assets/page_react.png",
+            "/portfolio/assets/Deploiement_vitrine_mobydev.png",
+            "/portfolio/assets/plannig_mobydev.png",
+            "/portfolio/assets/organigramme_Mobydev.png"
         ],
         "isPhare": false,
         "competences": ["UE 1", "UE 2"],
@@ -235,7 +235,7 @@
         "date": "fin mai 2025 - en cours",
         "status": "En production",
         "subtitle": "Application de parfumerie - Dictionnaire et marketplace intégrée",
-        "cover": "/assets/Insens_interface.png",
+        "cover": "/portfolio/assets/Insens_interface.png",
         "description": "Application innovante combinant un dictionnaire de parfums avec une marketplace intégrée. Interface utilisateur moderne conçue sur Figma, permettant aux utilisateurs de découvrir, explorer et acheter des parfums avec une expérience enrichie.",
         "technologies": ["Figma"],
         "metrics": {
@@ -257,9 +257,9 @@
             "Foundation design prête pour développement"
         ],
         "pictures": [
-            "/assets/Insens_interface.png",
-            "/assets/Figma_insens.png",
-            "/assets/Sitemap_Insens.png"
+            "/portfolio/assets/Insens_interface.png",
+            "/portfolio/assets/Figma_insens.png",
+            "/portfolio/assets/Sitemap_Insens.png"
         ],
         "isPhare": false,
         "competences": ["UE 5"],
