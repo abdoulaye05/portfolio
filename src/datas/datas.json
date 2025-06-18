@@ -5,7 +5,7 @@
         "date": "septembre 2024",
         "status": "En production",
         "subtitle": "Mini-site interactif déclenché par simple scan NFC sur carte physique",
-        "cover": "/assets/formulaire_NFC.png",
+        "cover": "/assets/page_avant_nfc.png",
         "description": "Solution innovante de cartes de visite NFC permettant d'accéder à un mini-site personnalisé d'un simple scan. Architecture React/Vite optimisée, hébergement AWS S3, programmation NDEF des puces NFC avec validation temps réel.",
         "technologies": ["React", "Vite", "AWS S3", "NFC NDEF", "React Hook Form", "CSS Modules"],
         "metrics": {
@@ -27,10 +27,13 @@
             "Score Lighthouse 94/100"
         ],
         "pictures": [
+            "/assets/page_avant_nfc.png",
             "/assets/formulaire_NFC.png",
-            "/assets/CardForm Component.png",
             "/assets/Page_public.png",
-            "/assets/Modele_utilisateurs_nfc.png",
+            "/assets/IntercfaceUser_NFC.png",
+            "/assets/Table_carte_nfc.png",
+            "/assets/Migration002_NFC.png",
+            "/assets/deploiementNFC.png",
             "/assets/Utilisation_react_Hook.png"
         ],
         "isPhare": true,
@@ -55,7 +58,7 @@
         "date": "octobre 2024",
         "status": "En production",
         "subtitle": "Plateforme de gestion interne pour l'équipe Mobydev",
-        "cover": "/assets/auth.js – Middleware JWT.png",
+        "cover": "/assets/page_avan_crm.png",
         "description": "Application web complète pour la gestion des projets internes, suivi du temps, et collaboration d'équipe. Architecture full-stack avec authentification JWT sécurisée, API REST optimisée et interface React moderne.",
         "technologies": ["React", "Node.js", "Express", "PostgreSQL", "JWT", "Docker", "Nginx"],
         "metrics": {
@@ -77,11 +80,24 @@
             "Satisfaction utilisateur 9.2/10"
         ],
         "pictures": [
+            "/assets/page_avan_crm.png",
             "/assets/auth.js – Middleware JWT.png",
             "/assets/Dashbord crm.png",
             "/assets/Gestion_utilisateur_interface.png",
+            "/assets/interface_add_user_crm.jpeg",
+            "/assets/fromulaire_client.png",
+            "/assets/interface_add_clients.png",
             "/assets/MCD_CRM.png",
-            "/assets/env_crm.png"
+            "/assets/Modele_utilisateurs_nfc.png",
+            "/assets/interface_pgsql.png",
+            "/assets/PostgreSQl_docker.png",
+            "/assets/Interface_UX_crm.png",
+            "/assets/Git_Flow_crm.png",
+            "/assets/Deploiement_crm.png",
+            "/assets/env_crm.png",
+            "/assets/Annlyse_performande_crm.png",
+            "/assets/Annalyse performance_crm2.png",
+            "/assets/• Optimisation & Refactoring • CRM MobyDev.png"
         ],
         "isPhare": true,
         "competences": ["UE 1", "UE 4", "UE 5", "UE 6"],
@@ -127,6 +143,8 @@
             "Formation utilisateurs 2h seulement"
         ],
         "pictures": [
+            "/assets/Documentation_mousow.png",
+            "/assets/Normalisation3NF.png",
             "/assets/about_picture.webp",
             "/assets/future-grid.webp"
         ],
@@ -187,8 +205,12 @@
             "Maintenance simplifiée avec architecture moderne"
         ],
         "pictures": [
-            "/assets/future-grid.webp",
-            "/assets/about_picture.webp"
+            "/assets/Mobydev_V1.png",
+            "/assets/mobydev_v2.jpg",
+            "/assets/page_react.png",
+            "/assets/Deploiement_vitrine_mobydev.png",
+            "/assets/plannig_mobydev.png",
+            "/assets/organigramme_Mobydev.png"
         ],
         "isPhare": false,
         "competences": ["UE 1", "UE 2"],

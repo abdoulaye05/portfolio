@@ -390,8 +390,8 @@ Events ↑ : callbacks de l'enfant vers parent`
           En travaillant sur différents projets comme l'<span className={styles.keyword}>interface React pour les cartes NFC</span>, l'<span className={styles.keyword}>API Express pour le CRM</span>, et la <span className={styles.keyword}>conception de l'architecture Mobydev</span>, j'ai découvert la diversité du développement web full-stack.
           <br/><br/>
           Chaque projet m'a permis d'apprendre une <span className={styles.conceptKeyword}>approche différente</span> tout en développant une <span className={styles.methodKeyword}>méthodologie de travail</span> structurée.
-        </>
-      ),
+          </>
+        ),
 
       actionShort: "Apprentissage et application des technologies React, Express et méthodologies de développement.",
       action: (
@@ -406,8 +406,8 @@ Events ↑ : callbacks de l'enfant vers parent`
           • <span className={styles.conceptKeyword}>Méthodologie</span> : application des bonnes pratiques de développement
           <br/><br/>
           Chaque étape m'a permis d'<span className={styles.keyword}>acquérir de nouvelles compétences</span> pratiques.
-        </>
-      ),
+          </>
+        ),
 
       resultatShort: "Applications fonctionnelles développées avec apprentissage des bonnes pratiques.",
       resultat: (
@@ -441,15 +441,14 @@ Events ↑ : callbacks de l'enfant vers parent`
           <span className={styles.techKeyword}>Méthodologie rigoureuse</span> : Suivre des processus de développement structurés.
           <br/><br/>
           Je développe progressivement ma <span className={styles.keyword}>capacité à concevoir et développer</span> des applications web complètes.
-        </>
-      )
-    },
-    projetsAssocies: [
-      { id: "nfc-connectees", nom: "Cartes NFC connectées" },
-      { id: "crm", nom: "CRM Mobydev" },
-      { id: "mobydev-v2", nom: "Refonte Mobydev V2" },
-      { id: "insens", nom: "Application Insens" }
-    ]
+          </>
+        )
+      },
+          projetsAssocies: [
+        { id: "nfc-connectees", nom: "Cartes NFC connectées" },
+        { id: "app-interne-mobydev", nom: "CRM Mobydev" },
+        { id: "site-vitrine-mobydev", nom: "Site vitrine MobyDev" }
+      ]
   },
   "ue2": {
     title: "UE 2 – Optimiser des applications",
@@ -628,8 +627,8 @@ Events ↑ : callbacks de l'enfant vers parent`
       )
     },
     projetsAssocies: [
-      { id: "mobydev-v2", nom: "Refonte Mobydev V2" },
-      { id: "crm", nom: "CRM Mobydev" }
+        { id: "site-vitrine-mobydev", nom: "Site vitrine MobyDev" },
+        { id: "app-interne-mobydev", nom: "CRM Mobydev" }
     ]
   },
   "ue3": {
@@ -1592,8 +1591,8 @@ Cette expérience m'a appris que <span className={styles.methodKeyword}>particip
       )
     },
     projetsAssocies: [
-      { id: "crm", nom: "CRM Mobydev" },
-      { id: "insens", nom: "Application Insens" },
+        { id: "app-interne-mobydev", nom: "CRM Mobydev" },
+        { id: "site-vitrine-mobydev", nom: "Site vitrine MobyDev" },
       { id: "mousow", nom: "MousoW" }
     ]
   },
@@ -1876,7 +1875,7 @@ Cette expérience m'a appris que <span className={styles.methodKeyword}>collabor
     },
     projetsAssocies: [
       { id: "nfc-connectees", nom: "Cartes NFC connectées" },
-      { id: "crm", nom: "CRM Mobydev" }
+        { id: "app-interne-mobydev", nom: "CRM Mobydev" }
     ]
   }
 };
@@ -1890,6 +1889,8 @@ export default function CompetenceDetail() {
   const [expandedSavoirFaire, setExpandedSavoirFaire] = useState({});
   const [expandedReflexion, setExpandedReflexion] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
+  const [filterType, setFilterType] = useState('');
+  const [filterProject, setFilterProject] = useState('');
   const tracesPerPage = 5;
 
   // Fonction pour obtenir l'icône selon le type de trace
@@ -1932,11 +1933,25 @@ export default function CompetenceDetail() {
     }));
   };
 
-  // Logique de pagination
-  const totalPages = Math.ceil(competence?.traces?.length / tracesPerPage);
+  // Logique de filtrage
+  const filteredTraces = competence?.traces?.filter(trace => {
+    const typeMatch = filterType === '' || trace.type.toLowerCase().includes(filterType.toLowerCase());
+    const projectMatch = filterProject === '' || trace.project?.toLowerCase().includes(filterProject.toLowerCase());
+    return typeMatch && projectMatch;
+  }) || [];
+
+  // Logique de pagination avec filtres
+  const totalPages = Math.ceil(filteredTraces.length / tracesPerPage);
   const startIndex = (currentPage - 1) * tracesPerPage;
   const endIndex = startIndex + tracesPerPage;
-  const currentTraces = competence?.traces?.slice(startIndex, endIndex) || [];
+  const currentTraces = filteredTraces.slice(startIndex, endIndex);
+
+  // Réinitialiser la page quand les filtres changent
+  const resetFilters = () => {
+    setFilterType('');
+    setFilterProject('');
+    setCurrentPage(1);
+  };
 
   const goToNextPage = () => {
     if (currentPage < totalPages) {
@@ -1975,9 +1990,62 @@ export default function CompetenceDetail() {
             <section className={styles.tracesSection}>
               <h2><FaTools className={styles.sectionIcon} />Traces & preuves</h2>
               
+              {/* Filtres */}
+              <div className={styles.filtersContainer}>
+                <div className={styles.filterGroup}>
+                  <label htmlFor="typeFilter" className={styles.filterLabel}>
+                    <FaFileCode className={styles.filterIcon} />
+                    Type :
+                  </label>
+                  <select 
+                    id="typeFilter"
+                    value={filterType} 
+                    onChange={(e) => {setFilterType(e.target.value); setCurrentPage(1);}}
+                    className={styles.filterSelect}
+                  >
+                    <option value="">Tous les types</option>
+                    <option value="code">Code source</option>
+                    <option value="capture">Capture d'écran</option>
+                    <option value="diagramme">Diagramme</option>
+                    <option value="optimisation">Optimisation</option>
+                    <option value="comparatif">Comparatif</option>
+                    <option value="analyse">Analyse</option>
+                  </select>
+                </div>
+                
+                <div className={styles.filterGroup}>
+                  <label htmlFor="projectFilter" className={styles.filterLabel}>
+                    <FaProjectDiagram className={styles.filterIcon} />
+                    Projet :
+                  </label>
+                  <select 
+                    id="projectFilter"
+                    value={filterProject} 
+                    onChange={(e) => {setFilterProject(e.target.value); setCurrentPage(1);}}
+                    className={styles.filterSelect}
+                  >
+                    <option value="">Tous les projets</option>
+                    <option value="CRM">CRM</option>
+                    <option value="NFC">Cartes NFC</option>
+                    <option value="Mobydev">MobyDev</option>
+                    <option value="Insens">Insens</option>
+                    <option value="MousoW">MousoW</option>
+                  </select>
+                </div>
+                
+                <button onClick={resetFilters} className={styles.resetFiltersButton}>
+                  <FaTimes /> Réinitialiser
+                </button>
+              </div>
+              
               {/* Indicateur de pagination */}
               <div className={styles.paginationInfo}>
-                <span>Page {currentPage} sur {totalPages} • Traces {startIndex + 1}-{Math.min(endIndex, competence.traces.length)} sur {competence.traces.length}</span>
+                <span>Page {currentPage} sur {totalPages} • Traces {startIndex + 1}-{Math.min(endIndex, filteredTraces.length)} sur {filteredTraces.length}</span>
+                {(filterType || filterProject) && (
+                  <span className={styles.filterInfo}>
+                    (filtré de {competence.traces.length} traces au total)
+                  </span>
+                )}
               </div>
               
               <div className={styles.tracesGallery}>
