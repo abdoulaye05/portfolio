@@ -35,6 +35,7 @@ import gitFlowImage from "../../assets/git_flow_crm.png";
 import interfaceUXCrmImage from "../../assets/Interface_UX_crm.png";
 import sitemapInsensImage from "../../assets/Sitemap_Insens.png";
 import documentationMousowImage from "../../assets/Documentation_mousow.png";
+import planningMobydevImage from "../../assets/plannig_mobydev.png";
 
 // Données des compétences avec leurs traces et projets associés
 const competencesData = {
@@ -1368,27 +1369,28 @@ CREATE TABLE produits (
     description: "Pilotage de projets informatiques avec méthodologie agile.",
     traces: [
       {
-        id: "planning_notion_crm",
-        title: "Planning projet – Roadmap MVP",
-        shortTitle: "Planning CRM",
-        type: "Notion (capture)",
-        project: "CRM",
-        file: "projets/notion-planning-crm-mvp.png",
-        thumbnail: "captures/crm/thumb_planning.png",
-        description: "Planning détaillé du projet CRM avec roadmap MVP, sprints et jalons dans Notion.",
+        id: "planning_taches_mobydev",
+        title: "Planning de tâches – Gestion projet Mobydev",
+        shortTitle: "Planning Mobydev",
+        type: "Notion (planning)",
+        project: "Mobydev",
+        image: planningMobydevImage,
+        file: "projets/notion-planning-taches-mobydev.png",
+        thumbnail: "captures/mobydev/thumb_planning.png",
+        description: "Planning détaillé des tâches Mobydev organisé par semaines avec analyse, design, développement et réunions.",
         savoir: (
           <>
-            La <span className={styles.conceptKeyword}>gestion de projet</span> avec <span className={styles.techKeyword}>Notion</span> m'a appris l'importance de la <span className={styles.methodKeyword}>planification structurée</span>. J'ai découvert les concepts de <span className={styles.keyword}>MVP</span> (Minimum Viable Product), <span className={styles.keyword}>roadmap</span>, et <span className={styles.conceptKeyword}>priorisation des fonctionnalités</span>. Les <span className={styles.methodKeyword}>sprints</span> permettent de livrer de la valeur régulièrement. J'ai appris l'importance des <span className={styles.techKeyword}>jalons</span> et des <span className={styles.keyword}>livrables</span> mesurables.
+            La <span className={styles.conceptKeyword}>gestion de projet</span> avec <span className={styles.techKeyword}>Notion</span> m'a appris l'importance de la <span className={styles.methodKeyword}>planification par phases</span>. J'ai découvert comment organiser les tâches par <span className={styles.keyword}>types d'activités</span> : Analyse, Design, Développement, Gestion de projet, Réunion, Recueil. Les <span className={styles.methodKeyword}>semaines structurées</span> permettent de suivre l'avancement et d'identifier les <span className={styles.conceptKeyword}>jalons critiques</span>. J'ai appris l'importance de la <span className={styles.techKeyword}>catégorisation des tâches</span> pour une meilleure visibilité.
           </>
         ),
         savoirFaire: (
           <>
-            J'ai planifié le projet CRM sur <span className={styles.keyword}>6 mois</span> avec <span className={styles.keyword}>3 phases</span> : MVP (2 mois), Beta (2 mois), Production (2 mois). J'ai défini <span className={styles.keyword}>15 user stories</span> prioritaires et <span className={styles.methodKeyword}>8 sprints</span> de 2 semaines. Le planning inclut <span className={styles.conceptKeyword}>estimations</span>, <span className={styles.techKeyword}>dépendances</span>, et <span className={styles.keyword}>ressources allouées</span>. J'ai mis en place un <span className={styles.methodKeyword}>suivi hebdomadaire</span> avec métriques de vélocité et burn-down chart.
+            Cet <span className={styles.keyword}>exemple sur 6 semaines</span> montre comment j'organise les tâches par <span className={styles.keyword}>types d'activités</span> : <span className={styles.methodKeyword}>Semaines 1-2</span> - Analyse des besoins et création site d'information, <span className={styles.conceptKeyword}>Semaine 3</span> - Phase de reforme et développement, <span className={styles.techKeyword}>Semaines 4-5</span> - Recueil des besoins, réalisation maquette et création NFC, <span className={styles.keyword}>Semaine 6</span> - Analyse finale du site. Chaque tâche est <span className={styles.methodKeyword}>catégorisée</span> (Analyse, Design, Développement, etc.) et marquée comme <span className={styles.conceptKeyword}>Terminé</span> pour un suivi précis de l'avancement.
           </>
         ),
         savoirFaireShort: (
           <>
-            J'ai planifié <span className={styles.keyword}>6 mois</span> en <span className={styles.keyword}>3 phases</span> avec <span className={styles.keyword}>15 user stories</span> et <span className={styles.keyword}>8 sprints</span>...
+            <span className={styles.keyword}>Exemple sur 6 semaines</span> avec <span className={styles.methodKeyword}>catégorisation des tâches</span> et suivi <span className={styles.conceptKeyword}>Terminé</span>...
           </>
         )
       },
