@@ -250,7 +250,7 @@ export default function Works() {
                         <h1 className={styles.projectsTitle}>Mes Réalisations</h1>
                         <p className={styles.projectsSubtitle}>
                             Découvrez mes projets les plus significatifs, des solutions innovantes 
-                            développées avec passion et expertise technique.
+                            développées avec passion et apprentissage technique.
                         </p>
                     </div>
 

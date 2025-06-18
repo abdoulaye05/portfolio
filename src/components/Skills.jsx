@@ -11,7 +11,7 @@ const ueData = [
     title: "UE 1 – Développer une application", 
     description: "Construire des applications web modernes et maintenables.",
     icon: <FaCode />,
-    traces: 13,
+    traces: 9,
     focus: true 
   },
   { 
@@ -19,21 +19,21 @@ const ueData = [
     title: "UE 2 – Optimiser des applications", 
     description: "Améliorer performances et expérience utilisateur.",
     icon: <FaTachometerAlt />,
-    traces: 6
+    traces: 4
   },
   { 
     id: "ue3", 
     title: "UE 3 – Administrer des systèmes communicants complexes", 
     description: "Gérer et sécuriser des infrastructures réseau.",
     icon: <FaServer />,
-    traces: 5
+    traces: 4
   },
   { 
     id: "ue4", 
     title: "UE 4 – Gérer des données de l'information", 
     description: "Concevoir et optimiser les bases de données.",
     icon: <FaDatabase />,
-    traces: 8,
+    traces: 9,
     focus: true
   },
   { 
@@ -41,14 +41,14 @@ const ueData = [
     title: "UE 5 – Conduire un projet", 
     description: "Planifier et coordonner des projets informatiques.",
     icon: <FaTasks />,
-    traces: 4
+    traces: 3
   },
   { 
     id: "ue6", 
     title: "UE 6 – Collaborer au sein d'une équipe informatique", 
     description: "Travailler efficacement en équipe de développement.",
     icon: <FaUsers />,
-    traces: 4
+    traces: 5
   }
 ];
 

@@ -1106,3 +1106,23 @@
     }
   }
 }
+
+// === STYLES POUR COMPARAISON AVANT/APRÈS ===
+.comparisonLabel {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+}
+
+.versionBadge {
+  background: linear-gradient(45deg, #d59bf6, #9c27b0);
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(213, 155, 246, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

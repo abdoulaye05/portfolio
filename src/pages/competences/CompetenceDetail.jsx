@@ -36,13 +36,19 @@ import interfaceUXCrmImage from "../../assets/Interface_UX_crm.png";
 import sitemapInsensImage from "../../assets/Sitemap_Insens.png";
 import documentationMousowImage from "../../assets/Documentation_mousow.png";
 import planningMobydevImage from "../../assets/plannig_mobydev.png";
+import mobydevV1Image from "../../assets/Mobydev_V1.png";
+import mobydevV2Image from "../../assets/mobydev_v2.jpg";
+import optimisationCrmImage from "../../assets/• Optimisation & Refactoring • CRM MobyDev.png";
+import interfaceUxNfcImage from "../../assets/IntercfaceUser_NFC.png";
+import analysePerformance1Image from "../../assets/Annlyse_performande_crm.png";
+import analysePerformance2Image from "../../assets/Annalyse performance_crm2.png";
 
 // Données des compétences avec leurs traces et projets associés
 const competencesData = {
   "ue1": {
     title: "UE 1 – Développer une application",
     badge: "⭐ Focus", 
-    description: "Maîtriser la mise en place complète d'une application web, du bootstrap du projet à son déploiement, en garantissant sécurité, qualité et UX.",
+            description: "Apprendre la mise en place complète d'une application web, du bootstrap du projet à son déploiement, en garantissant sécurité, qualité et UX.",
     traces: [
   {
     id: "cardform_nfc",
@@ -55,7 +61,7 @@ const competencesData = {
     description: "Interface React intuitive pour créer des cartes NFC personnalisées avec diagramme UML documentant l'architecture technique.",
     savoir: (
       <>
-        Cette trace illustre parfaitement la <span className={styles.conceptKeyword}>dualité interface/architecture</span> d'un composant React moderne. Côté <span className={styles.keyword}>interface utilisateur</span>, j'ai découvert comment créer une UX fluide avec <span className={styles.techKeyword}>React Hook Form</span> : saisie intuitive, prévisualisation temps réel, sélection de thèmes visuels. Côté <span className={styles.keyword}>architecture technique</span>, j'ai créé un <span className={styles.methodKeyword}>diagramme de séquence UML</span> montrant les interactions entre hooks React, validation, et API. J'ai appris que <span className={styles.techKeyword}>useForm()</span> et <span className={styles.techKeyword}>watch()</span> permettent une réactivité parfaite entre formulaire et aperçu. Le <span className={styles.conceptKeyword}>diagramme UML</span> détaille le fonctionnement : gestion d'états, validation multi-niveaux, communication asynchrone avec le backend.
+        Cette trace montre la <span className={styles.conceptKeyword}>dualité interface/architecture</span> d'un composant React moderne. Côté <span className={styles.keyword}>interface utilisateur</span>, j'ai découvert comment créer une UX fluide avec <span className={styles.techKeyword}>React Hook Form</span> : saisie intuitive, prévisualisation temps réel, sélection de thèmes visuels. Côté <span className={styles.keyword}>architecture technique</span>, j'ai créé un <span className={styles.methodKeyword}>diagramme de séquence UML</span> montrant les interactions entre hooks React, validation, et API. J'ai appris que <span className={styles.techKeyword}>useForm()</span> et <span className={styles.techKeyword}>watch()</span> permettent une bonne réactivité entre formulaire et aperçu. Le <span className={styles.conceptKeyword}>diagramme UML</span> détaille le fonctionnement : gestion d'états, validation multi-niveaux, communication asynchrone avec le backend.
       </>
     ),
     savoirFaire: (
@@ -82,7 +88,7 @@ const competencesData = {
     description: "Code React pour formulaire de création et gestion des clients dans le CRM Mobydev avec interface utilisateur et diagramme technique.",
     savoir: (
       <>
-        Ce projet m'a confronté à un <span className={styles.conceptKeyword}>formulaire métier plus complexe</span> que le formulaire NFC, avec davantage de champs et de logique métier. J'ai découvert la <span className={styles.keyword}>gestion d'états multiples</span> : j'ai appris à utiliser <span className={styles.techKeyword}>loading</span> pour l'état de soumission, <span className={styles.techKeyword}>message</span> pour les retours utilisateur, <span className={styles.techKeyword}>errors</span> pour les erreurs de validation. La communication avec une <span className={styles.techKeyword}>API REST</span> était nouvelle pour moi - j'ai appris l'importance de la <span className={styles.conceptKeyword}>gestion d'erreurs asynchrone</span> avec <span className={styles.techKeyword}>try/catch</span> et <span className={styles.techKeyword}>async/await</span>. Au début, mes requêtes échouaient mystérieusement car je ne gérais pas correctement les <span className={styles.methodKeyword}>en-têtes HTTP</span>, les <span className={styles.errorKeyword}>codes de statut</span>, et les différents types d'erreurs. J'ai compris l'importance cruciale du <span className={styles.conceptKeyword}>feedback utilisateur</span> : spinner de chargement, messages clairs, désactivation du bouton pendant la soumission.
+        Ce projet m'a confronté à un <span className={styles.conceptKeyword}>formulaire métier plus complexe</span> que le formulaire NFC, avec davantage de champs et de logique métier. J'ai découvert la <span className={styles.keyword}>gestion d'états multiples</span> : j'ai appris à utiliser <span className={styles.techKeyword}>loading</span> pour l'état de soumission, <span className={styles.techKeyword}>message</span> pour les retours utilisateur, <span className={styles.techKeyword}>errors</span> pour les erreurs de validation. La communication avec une <span className={styles.techKeyword}>API REST</span> était nouvelle pour moi - j'ai appris l'importance de la <span className={styles.conceptKeyword}>gestion d'erreurs asynchrone</span> avec <span className={styles.techKeyword}>try/catch</span> et <span className={styles.techKeyword}>async/await</span>. Au début, mes requêtes échouaient car je ne gérais pas encore correctement les <span className={styles.methodKeyword}>en-têtes HTTP</span>, les <span className={styles.errorKeyword}>codes de statut</span>, et les différents types d'erreurs. J'ai compris l'importance cruciale du <span className={styles.conceptKeyword}>feedback utilisateur</span> : spinner de chargement, messages clairs, désactivation du bouton pendant la soumission.
       </>
     ),
     savoirFaire: (
@@ -132,7 +138,7 @@ const onSubmit = async (data) => {
     description: "Code Express pour API REST complète de gestion CRUD des clients avec authentification.",
     savoir: (
       <>
-        Le développement <span className={styles.keyword}>backend</span> était complètement nouveau pour moi en début de formation. J'ai dû apprendre les <span className={styles.conceptKeyword}>principes fondamentaux de l'architecture REST</span> : j'ai compris que chaque ressource a une URL unique et logique, et que les <span className={styles.methodKeyword}>verbes HTTP</span> ont un sens précis (<span className={styles.techKeyword}>GET</span> pour lire, <span className={styles.techKeyword}>POST</span> pour créer, <span className={styles.techKeyword}>PUT</span> pour modifier, <span className={styles.techKeyword}>DELETE</span> pour supprimer). J'ai découvert <span className={styles.techKeyword}>Express.js</span> et son système de <span className={styles.keyword}>middleware</span> - au début, je ne comprenais pas comment les fonctions s'enchaînaient magiquement. <span className={styles.techKeyword}>express-validator</span> m'a permis de valider les données côté serveur de manière propre avec des <span className={styles.methodKeyword}>règles déclaratives</span>. La notion de <span className={styles.conceptKeyword}>codes HTTP</span> était floue pour moi : j'ai appris que <span className={styles.keyword}>200 = succès</span>, <span className={styles.keyword}>201 = créé</span>, <span className={styles.errorKeyword}>400 = erreur client</span>, <span className={styles.errorKeyword}>401 = non authentifié</span>, <span className={styles.errorKeyword}>500 = erreur serveur</span>. J'ai aussi découvert l'importance de structurer les <span className={styles.methodKeyword}>réponses JSON</span> de manière cohérente.
+        Le développement <span className={styles.keyword}>backend</span> s'est appuyé sur quelques notions de cours qui m'ont permis d'aborder ce projet. J'ai dû apprendre les <span className={styles.conceptKeyword}>principes fondamentaux de l'architecture REST</span> : j'ai compris que chaque ressource a une URL unique et logique, et que les <span className={styles.methodKeyword}>verbes HTTP</span> ont un sens précis (<span className={styles.techKeyword}>GET</span> pour lire, <span className={styles.techKeyword}>POST</span> pour créer, <span className={styles.techKeyword}>PUT</span> pour modifier, <span className={styles.techKeyword}>DELETE</span> pour supprimer). J'ai découvert <span className={styles.techKeyword}>Express.js</span> et son système de <span className={styles.keyword}>middleware</span> - au début, je ne comprenais pas comment les fonctions s'enchaînaient entre elles. <span className={styles.techKeyword}>express-validator</span> m'a permis de valider les données côté serveur de manière propre avec des <span className={styles.methodKeyword}>règles déclaratives</span>. La notion de <span className={styles.conceptKeyword}>codes HTTP</span> était floue pour moi : j'ai appris que <span className={styles.keyword}>200 = succès</span>, <span className={styles.keyword}>201 = créé</span>, <span className={styles.errorKeyword}>400 = erreur client</span>, <span className={styles.errorKeyword}>401 = non authentifié</span>, <span className={styles.errorKeyword}>500 = erreur serveur</span>. J'ai aussi découvert l'importance de structurer les <span className={styles.methodKeyword}>réponses JSON</span> de manière cohérente.
       </>
     ),
     savoirFaire: (
@@ -183,7 +189,7 @@ router.post('/', authMiddleware, clientValidation, async (req, res) => {
     description: "Cette trace illustre le middleware Express d'authentification JWT avec gestion des rôles pour sécuriser l'API.",
     savoir: (
       <>
-        L'<span className={styles.keyword}>authentification JWT</span> était un concept totalement nouveau et fascinant pour moi. J'ai d'abord dû comprendre la différence fondamentale entre <span className={styles.conceptKeyword}>authentification</span> (qui êtes-vous ?) et <span className={styles.conceptKeyword}>autorisation</span> (que pouvez-vous faire ?). J'ai découvert que les <span className={styles.techKeyword}>JWT</span> sont des tokens '<span className={styles.keyword}>stateless</span>' révolutionnaires : toutes les informations sont encodées dans le token, pas besoin de session serveur ! J'ai appris la structure d'un JWT : <span className={styles.methodKeyword}>header.payload.signature</span> encodés en <span className={styles.techKeyword}>base64</span>. Le <span className={styles.keyword}>middleware Express</span> était un concept difficile au début - j'ai compris qu'il s'exécute avant chaque route protégée et peut modifier les objets <span className={styles.techKeyword}>req</span> et <span className={styles.techKeyword}>res</span>. J'ai découvert l'importance cruciale de la <span className={styles.conceptKeyword}>gestion d'erreurs</span> : token manquant, format invalide, token expiré, signature incorrecte. J'ai appris que chaque cas doit retourner le bon <span className={styles.errorKeyword}>code HTTP</span> avec un message explicite. J'ai aussi appris les <span className={styles.methodKeyword}>bonnes pratiques de sécurité</span> : clé secrète forte, durée d'expiration raisonnable.
+        L'<span className={styles.keyword}>authentification JWT</span> que j'avais vu en cours a pu être appliqué concrètement dans ce projet. J'ai d'abord dû comprendre la différence fondamentale entre <span className={styles.conceptKeyword}>authentification</span> (qui êtes-vous ?) et <span className={styles.conceptKeyword}>autorisation</span> (que pouvez-vous faire ?). J'ai découvert que les <span className={styles.techKeyword}>JWT</span> sont des tokens '<span className={styles.keyword}>stateless</span>' pratiques : toutes les informations sont encodées dans le token, pas besoin de session serveur ! J'ai appris la structure d'un JWT : <span className={styles.methodKeyword}>header.payload.signature</span> encodés en <span className={styles.techKeyword}>base64</span>. Le <span className={styles.keyword}>middleware Express</span> était un concept difficile au début - j'ai compris qu'il s'exécute avant chaque route protégée et peut modifier les objets <span className={styles.techKeyword}>req</span> et <span className={styles.techKeyword}>res</span>. J'ai découvert l'importance cruciale de la <span className={styles.conceptKeyword}>gestion d'erreurs</span> : token manquant, format invalide, token expiré, signature incorrecte. J'ai appris que chaque cas doit retourner le bon <span className={styles.errorKeyword}>code HTTP</span> avec un message explicite. J'ai aussi appris les <span className={styles.methodKeyword}>bonnes pratiques de sécurité</span> : clé secrète forte, durée d'expiration raisonnable.
       </>
     ),
     savoirFaire: (
@@ -293,7 +299,7 @@ const authMiddleware = (req, res, next) => {
     ),
     savoirFaire: (
       <>
-        J'ai conçu une carte de visite digitale avec <span className={styles.keyword}>4 boutons d'action principaux</span> : "Envoyer un email", "Appeler", "Voir le site", et "Ajouter aux contacts". Chaque bouton a une <span className={styles.methodKeyword}>action spécifique</span> : le bouton email ouvre l'application mail, le bouton téléphone lance l'appel, "Ajouter aux contacts" génère un fichier <span className={styles.techKeyword}>vCard (.vcf)</span> pour l'ajout automatique. L'interface affiche les <span className={styles.conceptKeyword}>informations structurées</span> : photo de profil avec initiales "DA", titre professionnel, entreprise, et identifiant unique de la carte ("NFC017"). Le design est <span className={styles.keyword}>responsive</span> et s'adapte parfaitement aux écrans de smartphone.
+        J'ai conçu une carte de visite digitale avec <span className={styles.keyword}>4 boutons d'action principaux</span> : "Envoyer un email", "Appeler", "Voir le site", et "Ajouter aux contacts". Chaque bouton a une <span className={styles.methodKeyword}>action spécifique</span> : le bouton email ouvre l'application mail, le bouton téléphone lance l'appel, "Ajouter aux contacts" génère un fichier <span className={styles.techKeyword}>vCard (.vcf)</span> pour l'ajout automatique. L'interface affiche les <span className={styles.conceptKeyword}>informations structurées</span> : photo de profil avec initiales "DA", titre professionnel, entreprise, et identifiant unique de la carte ("NFC017"). Le design est <span className={styles.keyword}>responsive</span> et s'adapte bien aux écrans de smartphone.
       </>
     ),
     savoirFaireShort: (
@@ -376,14 +382,67 @@ Events ↑ : callbacks de l'enfant vers parent`
   }
     ],
     reflexion: {
-      situation: "J'ai dû développer plusieurs applications complètes en partant de zéro : une interface React pour les cartes NFC, une API Express pour le CRM, et concevoir l'architecture du site vitrine Mobydev. Chaque projet nécessitait une approche différente mais une méthodologie rigoureuse.",
-      situationShort: "J'ai développé plusieurs applications complètes : interface React pour cartes NFC, API Express pour CRM, et architecture site vitrine Mobydev...",
-      action: "• Planification : création du schéma d'architecture React avec Figma pour visualiser la structure avant développement.\n• Frontend : développement du formulaire CardForm.jsx avec React Hook Form, prévisualisation temps réel et validation.\n• Backend : mise en place d'Express avec routes CRUD (clientRoutes.js), middleware JWT (auth.js) et liaison PostgreSQL.\n• Documentation : création de diagrammes UML pour documenter les flux de données et interactions.",
-      actionShort: "• Planification avec schéma d'architecture React sur Figma\n• Développement frontend avec React Hook Form\n• Backend Express avec routes CRUD et JWT...",
-      resultat: "• Cartes NFC : formulaire fonctionnel avec 8 champs et prévisualisation temps réel, UX fluide.\n• CRM : API REST complète avec 5 routes sécurisées, gestion de 100+ clients.\n• Architecture : schéma React réutilisé sur 3 projets, gain de temps de développement de 40%.\n• Documentation : flux de données clairement documentés, facilite la maintenance et les évolutions.",
-      resultatShort: "• Formulaire NFC fonctionnel avec prévisualisation temps réel\n• API REST CRM avec 5 routes sécurisées\n• Gain de temps de développement de 40%...",
-      apprentissage: "• Savoir : maîtrise de l'architecture React moderne, hooks avancés, middleware Express, authentification JWT, modélisation UML.\n• Savoir-faire : conception d'architectures modulaires, développement full-stack, documentation technique, planification de projets.\n• Savoir-être : approche méthodique avec planification préalable, documentation systématique, collaboration efficace via Git et code reviews.",
-      apprentissageShort: "• Savoir : architecture React moderne, hooks avancés, middleware Express, JWT\n• Savoir-faire : développement full-stack, documentation technique\n• Savoir-être : approche méthodique..."
+      situationShort: "Participation au développement de plusieurs applications avec apprentissage des technologies modernes.",
+      situation: (
+        <>
+          Participation au développement de <span className={styles.conceptKeyword}>plusieurs applications</span> avec apprentissage des technologies modernes.
+          <br/><br/>
+          En travaillant sur différents projets comme l'<span className={styles.keyword}>interface React pour les cartes NFC</span>, l'<span className={styles.keyword}>API Express pour le CRM</span>, et la <span className={styles.keyword}>conception de l'architecture Mobydev</span>, j'ai découvert la diversité du développement web full-stack.
+          <br/><br/>
+          Chaque projet m'a permis d'apprendre une <span className={styles.conceptKeyword}>approche différente</span> tout en développant une <span className={styles.methodKeyword}>méthodologie de travail</span> structurée.
+        </>
+      ),
+
+      actionShort: "Apprentissage et application des technologies React, Express et méthodologies de développement.",
+      action: (
+        <>
+          Apprentissage et application des <span className={styles.techKeyword}>technologies React, Express</span> et méthodologies de développement.
+          <br/><br/>
+          J'ai contribué à plusieurs aspects du développement :<br/>
+          • <span className={styles.techKeyword}>Planification</span> : apprentissage de la création de schémas d'architecture avec Figma<br/>
+          • <span className={styles.conceptKeyword}>Frontend</span> : développement de formulaires React avec Hook Form et validation<br/>
+          • <span className={styles.methodKeyword}>Backend</span> : mise en place d'Express avec routes CRUD et middleware JWT<br/>
+          • <span className={styles.techKeyword}>Documentation</span> : création de diagrammes UML pour documenter les flux<br/>
+          • <span className={styles.conceptKeyword}>Méthodologie</span> : application des bonnes pratiques de développement
+          <br/><br/>
+          Chaque étape m'a permis d'<span className={styles.keyword}>acquérir de nouvelles compétences</span> pratiques.
+        </>
+      ),
+
+      resultatShort: "Applications fonctionnelles développées avec apprentissage des bonnes pratiques.",
+      resultat: (
+        <>
+          Applications fonctionnelles développées avec <span className={styles.conceptKeyword}>apprentissage des bonnes pratiques</span>.
+          <br/><br/>
+          Mes contributions concrètes :<br/>
+          • <span className={styles.techKeyword}>Cartes NFC</span> : formulaire fonctionnel avec 8 champs et prévisualisation temps réel<br/>
+          • <span className={styles.conceptKeyword}>CRM</span> : API REST avec 5 routes sécurisées et gestion des clients<br/>
+          • <span className={styles.methodKeyword}>Architecture</span> : schémas réutilisés facilitant le développement<br/>
+          • <span className={styles.techKeyword}>Documentation</span> : flux de données documentés pour la maintenance<br/>
+          • <span className={styles.conceptKeyword}>Méthodologie</span> : processus de développement structuré acquis
+          <br/><br/>
+          J'ai pu <span className={styles.keyword}>contribuer efficacement</span> tout en développant mes compétences techniques.
+        </>
+      ),
+
+      apprentissageShort: "Le développement d'applications nécessite une approche méthodique et des outils adaptés.",
+      apprentissage: (
+        <>
+          Le développement d'applications nécessite une <span className={styles.conceptKeyword}>approche méthodique</span> et des outils adaptés.
+          <br/><br/>
+          Cette expérience m'a appris que <span className={styles.methodKeyword}>développer des applications</span> en tant qu'alternant nécessite :
+          <br/><br/>
+          <span className={styles.techKeyword}>Planification préalable</span> : Concevoir l'architecture avant de commencer le développement.
+          <br/><br/>
+          <span className={styles.conceptKeyword}>Technologies modernes</span> : Apprendre React, Express et les outils de développement actuels.
+          <br/><br/>
+          <span className={styles.methodKeyword}>Documentation technique</span> : Documenter le code et les flux pour faciliter la maintenance.
+          <br/><br/>
+          <span className={styles.techKeyword}>Méthodologie rigoureuse</span> : Suivre des processus de développement structurés.
+          <br/><br/>
+          Je développe progressivement ma <span className={styles.keyword}>capacité à concevoir et développer</span> des applications web complètes.
+        </>
+      )
     },
     projetsAssocies: [
       { id: "nfc-connectees", nom: "Cartes NFC connectées" },
@@ -396,224 +455,181 @@ Events ↑ : callbacks de l'enfant vers parent`
     title: "UE 2 – Optimiser des applications",
     description: "Amélioration des performances et de l'expérience utilisateur.",
     traces: [
-      {
-        id: "refonte_tailwind_mobydev",
-        title: "Refactor UI – Composants réutilisables & épurés",
-        shortTitle: "Refonte Tailwind",
-        type: "Refonte Tailwind",
-        project: "Mobydev V2",
-        file: "refonte/tailwind-components-refactor.jsx",
-        thumbnail: "captures/mobydev/thumb_tailwind.png",
-        description: "Refactorisation complète de l'UI avec Tailwind CSS : composants réutilisables et design épuré.",
-        savoir: (
-          <>
-            <span className={styles.techKeyword}>Tailwind CSS</span> m'a appris l'approche <span className={styles.conceptKeyword}>utility-first</span> pour le styling. J'ai découvert les avantages des <span className={styles.methodKeyword}>composants atomiques</span> : réutilisabilité, maintenabilité, cohérence. Le <span className={styles.keyword}>design system</span> unifie l'expérience utilisateur. J'ai compris l'importance de la <span className={styles.conceptKeyword}>purge CSS</span> pour optimiser la taille finale.
-          </>
-        ),
-        savoirFaire: (
-          <>
-            J'ai refactorisé <span className={styles.keyword}>25+ composants</span> en passant de CSS modules à Tailwind. J'ai créé un <span className={styles.methodKeyword}>design system</span> avec <span className={styles.keyword}>12 composants</span> réutilisables : Button, Card, Modal, Form. La taille du CSS est passée de <span className={styles.errorKeyword}>180KB</span> à <span className={styles.keyword}>45KB</span> grâce à la purge. J'ai implémenté un <span className={styles.techKeyword}>thème sombre</span> et des <span className={styles.conceptKeyword}>variantes responsive</span> cohérentes.
-          </>
-        ),
-        savoirFaireShort: (
-          <>
-            J'ai refactorisé <span className={styles.keyword}>25+ composants</span> et réduit le CSS de <span className={styles.errorKeyword}>180KB</span> à <span className={styles.keyword}>45KB</span>...
-          </>
-        )
-      },
+
       {
         id: "comparatif_mobydev_refonte",
-        title: "Avant / Après – Refonte graphique site vitrine",
-        shortTitle: "Comparatif V1/V2",
+        title: "Évolution V1 → V2 – Transformation complète MobyDev",
+        shortTitle: "MobyDev V1 vs V2",
         type: "Comparatif (.png)",
         project: "Mobydev V1 vs V2",
         file: "comparatifs/mobydev-avant-apres-refonte.png",
         thumbnail: "captures/mobydev/thumb_comparatif.png",
-        description: "Comparaison visuelle détaillée de la refonte graphique complète du site vitrine Mobydev.",
+        description: "Transformation complète du site vitrine MobyDev : de l'ancienne version statique à la nouvelle version moderne et interactive.",
         savoir: (
           <>
-            La <span className={styles.conceptKeyword}>refonte graphique</span> m'a appris l'importance de l'<span className={styles.methodKeyword}>analyse comparative</span> avant/après. J'ai découvert les principes du <span className={styles.techKeyword}>design moderne</span> : espacement, typographie, couleurs, hiérarchie visuelle. L'<span className={styles.keyword}>expérience utilisateur</span> doit guider chaque décision de design. J'ai compris l'impact du <span className={styles.conceptKeyword}>design épuré</span> sur la conversion.
+            Cette <span className={styles.conceptKeyword}>transformation radicale</span> m'a appris l'évolution du web design moderne. <span className={styles.keyword}>MobyDev V1</span> représentait l'approche traditionnelle avec un design sobre mais daté, tandis que <span className={styles.keyword}>MobyDev V2</span> illustre les nouvelles tendances UX/UI. J'ai découvert l'importance du <span className={styles.techKeyword}>design immersif</span> : la V2 utilise un arrière-plan avec ampoule 3D en wireframe créant une profondeur visuelle. J'ai compris l'évolution de la <span className={styles.methodKeyword}>hiérarchie typographique</span> : la V1 avait une approche classique, la V2 privilégie des titres plus impactants et une meilleure lisibilité. L'<span className={styles.conceptKeyword}>expérience utilisateur</span> a été repensée avec des call-to-action plus visibles et un parcours utilisateur optimisé.
           </>
         ),
         savoirFaire: (
           <>
-            J'ai analysé <span className={styles.keyword}>15 pages</span> du site V1 et identifié les points d'amélioration. La refonte inclut : <span className={styles.methodKeyword}>navigation simplifiée</span>, <span className={styles.techKeyword}>design responsive</span>, <span className={styles.conceptKeyword}>temps de chargement</span> optimisé. Les métriques montrent : <span className={styles.keyword}>+65%</span> de temps passé sur le site, <span className={styles.keyword}>+40%</span> de taux de conversion, <span className={styles.keyword}>-50%</span> de taux de rebond. J'ai documenté chaque amélioration avec captures avant/après.
+            <strong>Analyse V1 :</strong> Site sobre avec navigation classique, design minimaliste mais manquant d'impact visuel. <strong>Transformation V2 :</strong> J'ai participé à la refonte complète avec <span className={styles.keyword}>design immersif 3D</span>, typographie moderne et hiérarchie visuelle repensée. La V2 intègre : <span className={styles.techKeyword}>arrière-plan interactif</span> avec ampoule wireframe, <span className={styles.methodKeyword}>navigation épurée</span> avec menu centré, <span className={styles.conceptKeyword}>call-to-action optimisés</span> ("en savoir plus", "contacter"). J'ai contribué à l'amélioration de l'<span className={styles.keyword}>expérience utilisateur</span> : meilleure lisibilité, parcours utilisateur guidé, design responsive. La transformation montre bien l'évolution des standards web modernes.
           </>
         ),
         savoirFaireShort: (
           <>
-            J'ai analysé <span className={styles.keyword}>15 pages</span> avec <span className={styles.keyword}>+65%</span> de temps passé et <span className={styles.keyword}>+40%</span> de conversion...
-          </>
-        )
-      },
-      {
-        id: "responsive_design_insens",
-        title: "Maquette mobile first – Application parfumerie",
-        shortTitle: "Responsive Insens",
-        type: "Responsive Design",
-        project: "Insens (Figma)",
-        file: "maquettes/insens-mobile-first-responsive.fig",
-        thumbnail: "captures/insens/thumb_responsive.png",
-        description: "Conception responsive mobile-first pour l'application parfumerie Insens avec breakpoints optimisés.",
-        savoir: (
-          <>
-            Le <span className={styles.conceptKeyword}>responsive design</span> m'a appris l'approche <span className={styles.methodKeyword}>mobile-first</span>. J'ai découvert l'importance des <span className={styles.keyword}>breakpoints</span> stratégiques et des <span className={styles.techKeyword}>grilles flexibles</span>. Les <span className={styles.conceptKeyword}>touch targets</span> doivent respecter les standards d'accessibilité. J'ai compris l'impact des <span className={styles.methodKeyword}>images adaptatives</span> sur les performances.
+            <strong>V1 :</strong> Design sobre classique. <strong>V2 :</strong> <span className={styles.keyword}>Design immersif 3D</span> avec ampoule wireframe et <span className={styles.methodKeyword}>UX repensée</span>...
           </>
         ),
-        savoirFaire: (
-          <>
-            J'ai conçu <span className={styles.keyword}>25 écrans</span> avec <span className={styles.keyword}>4 breakpoints</span> : mobile (320px), tablet (768px), desktop (1024px), large (1440px). J'ai optimisé les <span className={styles.methodKeyword}>interactions tactiles</span> avec des zones de <span className={styles.keyword}>44px minimum</span>. La maquette inclut <span className={styles.techKeyword}>micro-animations</span> et <span className={styles.conceptKeyword}>états de chargement</span>. Les tests sur <span className={styles.keyword}>12 appareils</span> montrent une <span className={styles.methodKeyword}>compatibilité parfaite</span>.
-          </>
-        ),
-        savoirFaireShort: (
-          <>
-            J'ai conçu <span className={styles.keyword}>25 écrans</span> avec <span className={styles.keyword}>4 breakpoints</span> et testé sur <span className={styles.keyword}>12 appareils</span>...
-          </>
-        )
+        beforeImage: mobydevV1Image,
+        afterImage: mobydevV2Image
       },
+
       {
         id: "ui_animations_transitions",
-        title: "Transitions CSS – Meilleure expérience utilisateur",
-        shortTitle: "UI Animations",
-        type: "UI Animation",
-        project: "CRM / Vitrine",
-        file: "animations/css-transitions-ux.css",
-        thumbnail: "captures/animations/thumb_transitions.png",
-        description: "Système d'animations CSS optimisées pour améliorer l'expérience utilisateur et le feedback visuel.",
+        title: "Optimisation UX – Interface de gestion NFC",
+        shortTitle: "Optimisation UX NFC",
+        type: "Optimisation UX",
+        project: "Cartes NFC",
+        file: "nfc/ux-optimization/cards-management-improved.png",
+        image: interfaceUxNfcImage,
+        thumbnail: "captures/nfc/thumb_ux_optimization.png",
+        description: "Optimisation de l'expérience utilisateur pour la gestion des cartes NFC : amélioration de la lisibilité, navigation intuitive et actions contextuelles.",
         savoir: (
           <>
-            Les <span className={styles.techKeyword}>animations CSS</span> m'ont appris l'importance du <span className={styles.conceptKeyword}>feedback visuel</span>. J'ai découvert les principes d'<span className={styles.methodKeyword}>animation UX</span> : timing, easing, durée appropriée. Les <span className={styles.keyword}>micro-interactions</span> guident l'utilisateur et rendent l'interface vivante. J'ai compris l'impact des <span className={styles.conceptKeyword}>performances</span> : préférer transform à left/top.
+            Cette optimisation UX m'a appris l'importance de la <span className={styles.conceptKeyword}>hiérarchie visuelle</span> pour améliorer l'efficacité utilisateur. J'ai découvert comment <span className={styles.methodKeyword}>organiser l'information</span> de manière logique : navigation claire en haut, recherche accessible, et données structurées en grille. Les <span className={styles.keyword}>indicateurs de statut</span> (Active/Inactive) avec codes couleur permettent une identification rapide sans effort cognitif. J'ai compris l'importance de <span className={styles.techKeyword}>grouper les actions</span> par contexte et de rendre les <span className={styles.conceptKeyword}>fonctions critiques</span> (Export, Nouvelle carte) facilement accessibles. L'optimisation vise à réduire le nombre de clics et améliorer la productivité.
           </>
         ),
         savoirFaire: (
           <>
-            J'ai créé une librairie de <span className={styles.keyword}>20+ animations</span> : fade, slide, scale, bounce avec <span className={styles.methodKeyword}>timing optimisé</span>. J'ai implémenté des <span className={styles.techKeyword}>loading states</span>, <span className={styles.conceptKeyword}>hover effects</span>, et <span className={styles.keyword}>page transitions</span>. Les animations respectent <span className={styles.methodKeyword}>prefers-reduced-motion</span> pour l'accessibilité. L'impact UX est mesurable : <span className={styles.keyword}>+25%</span> d'engagement utilisateur.
+            J'ai optimisé l'interface pour une <span className={styles.keyword}>gestion efficace</span> des 6 cartes d'employés. Améliorations UX apportées : <span className={styles.techKeyword}>codes visuels</span> (NFC001-NFC007) pour identification rapide, <span className={styles.methodKeyword}>informations essentielles</span> visibles d'un coup d'œil (nom, poste, contact), <span className={styles.conceptKeyword}>statuts colorés</span> pour état immédiat. J'ai regroupé les <span className={styles.keyword}>3 actions principales</span> par carte avec icônes intuitives : visualisation QR, prévisualisation, suppression. La <span className={styles.techKeyword}>barre de recherche</span> en haut améliore la navigation dans de gros volumes, et les <span className={styles.methodKeyword}>boutons d'action globaux</span> (Export CSV, Nouvelle carte) sont positionnés de manière logique. L'interface respecte les principes d'<span className={styles.conceptKeyword}>accessibilité</span> avec contrastes suffisants et zones de clic adaptées.
           </>
         ),
         savoirFaireShort: (
           <>
-            J'ai créé <span className={styles.keyword}>20+ animations</span> avec <span className={styles.keyword}>+25%</span> d'engagement utilisateur...
+            Optimisation UX : <span className={styles.keyword}>codes visuels</span>, <span className={styles.techKeyword}>statuts colorés</span>, <span className={styles.methodKeyword}>actions groupées</span> et <span className={styles.conceptKeyword}>navigation intuitive</span>...
           </>
         )
       },
       {
         id: "optimisation_code_crm",
-        title: "Suppression duplicats / composants dynamiques",
-        shortTitle: "Optimisation code",
-        type: "Optimisation code",
+        title: "Optimisation & Refactoring – CRM MobyDev",
+        shortTitle: "Optimisation CRM",
+        type: "Diagramme d'optimisation",
         project: "CRM",
-        file: "optimizations/code-refactor-dynamic-components.js",
+        file: "optimizations/crm-refactoring-process.png",
+        image: optimisationCrmImage,
         thumbnail: "captures/crm/thumb_optimization.png",
-        description: "Refactorisation du code CRM : suppression des duplications et création de composants dynamiques.",
+        description: "Processus méthodique d'optimisation et refactoring du CRM MobyDev : analyse, identification des duplications, extraction de composants et mesure d'impact.",
         savoir: (
           <>
-            L'<span className={styles.conceptKeyword}>optimisation de code</span> m'a appris l'importance du <span className={styles.methodKeyword}>DRY principle</span> (Don't Repeat Yourself). J'ai découvert les techniques de <span className={styles.techKeyword}>refactoring</span> : extraction de composants, hooks personnalisés, utilitaires partagés. La <span className={styles.keyword}>composition</span> est préférable à l'héritage en React. J'ai compris l'impact des <span className={styles.conceptKeyword}>re-renders</span> sur les performances.
+            Ce processus d'<span className={styles.conceptKeyword}>optimisation méthodique</span> m'a appris l'importance d'une approche structurée. J'ai découvert le <span className={styles.methodKeyword}>principe DRY</span> (Don't Repeat Yourself) et comment l'appliquer concrètement. Le diagramme montre les étapes : <span className={styles.techKeyword}>analyser le code existant</span>, rechercher les duplications, extraire les composants partagés, créer des <span className={styles.keyword}>hooks personnalisés</span>, factoriser les utilitaires communs. J'ai appris que <span className={styles.conceptKeyword}>React.memo</span> et <span className={styles.techKeyword}>useCallback</span> permettent d'éviter les re-renders inutiles. La documentation des patterns réutilisables est essentielle pour l'équipe.
           </>
         ),
         savoirFaire: (
           <>
-            J'ai identifié et éliminé <span className={styles.keyword}>40% de code dupliqué</span> dans le CRM. J'ai créé <span className={styles.methodKeyword}>15 composants dynamiques</span> : DataTable, Form, Modal avec props configurables. J'ai implémenté <span className={styles.techKeyword}>8 hooks personnalisés</span> pour la logique métier. La taille du bundle a diminué de <span className={styles.keyword}>25%</span> et les performances sont améliorées de <span className={styles.conceptKeyword}>30%</span>. J'ai documenté les patterns réutilisables.
+            J'ai suivi le processus illustré dans le diagramme : <strong>1)</strong> Analyse du code existant pour détecter les duplications, <strong>2)</strong> Identification des blocs répétés dans les composants, <strong>3)</strong> Extraction de composants partagés : <span className={styles.keyword}>DataTable, Form, Modal</span>, <strong>4)</strong> Création de hooks personnalisés : <span className={styles.techKeyword}>useFetchData(), useFormValidation()</span>, <strong>5)</strong> Factorisation des utilitaires communs : <span className={styles.methodKeyword}>helpers/format.js, utils/api.js</span>, <strong>6)</strong> Remplacement de l'héritage par la composition React, <strong>7)</strong> Vérification des re-renders avec React.memo et useCallback. Les résultats mesurés : <span className={styles.keyword}>-40% de code dupliqué</span>, <span className={styles.conceptKeyword}>-25% taille du bundle</span>, <span className={styles.techKeyword}>+30% performance</span>, <span className={styles.methodKeyword}>15 composants dynamiques</span>, <span className={styles.keyword}>8 hooks sur-mesure</span>.
           </>
         ),
         savoirFaireShort: (
           <>
-            J'ai éliminé <span className={styles.keyword}>40% de duplication</span> et amélioré les performances de <span className={styles.conceptKeyword}>30%</span>...
+            Processus en <span className={styles.keyword}>7 étapes</span> : analyse → extraction composants → hooks personnalisés → <span className={styles.conceptKeyword}>-40% duplication</span>, <span className={styles.techKeyword}>+30% performance</span>...
           </>
         )
       },
       {
         id: "analyse_performance_lighthouse",
-        title: "Temps de chargement mesuré – Lighthouse / GTmetrix",
+        title: "Analyse performance CRM – GTmetrix & Lighthouse",
         shortTitle: "Analyse performance",
         type: "Analyse performance",
-        project: "CRM (test Chrome)",
-        file: "performance/lighthouse-gtmetrix-analysis.json",
+        project: "CRM MobyDev",
+        file: "performance/crm-performance-analysis.json",
         thumbnail: "captures/performance/thumb_analysis.png",
-        description: "Analyse complète des performances avec Lighthouse et GTmetrix : métriques détaillées et optimisations.",
+        description: "Analyse complète des performances du CRM avec GTmetrix et Lighthouse : métriques détaillées, Core Web Vitals et optimisations.",
         savoir: (
           <>
-            L'<span className={styles.conceptKeyword}>analyse de performance</span> m'a appris l'importance des <span className={styles.techKeyword}>Core Web Vitals</span>. J'ai découvert les outils : <span className={styles.keyword}>Lighthouse</span>, <span className={styles.keyword}>GTmetrix</span>, <span className={styles.methodKeyword}>WebPageTest</span>. Les métriques clés sont : <span className={styles.techKeyword}>LCP</span>, <span className={styles.techKeyword}>FID</span>, <span className={styles.techKeyword}>CLS</span>. J'ai compris l'impact des <span className={styles.conceptKeyword}>ressources bloquantes</span> sur le rendu.
+            Cette analyse m'a appris l'importance des <span className={styles.conceptKeyword}>Core Web Vitals</span> pour l'expérience utilisateur. J'ai découvert <span className={styles.techKeyword}>GTmetrix</span> qui combine Lighthouse et ses propres métriques pour une analyse complète. Les indicateurs clés : <span className={styles.keyword}>LCP (1.3s)</span> pour le chargement, <span className={styles.methodKeyword}>TBT (0ms)</span> pour l'interactivité, <span className={styles.conceptKeyword}>CLS (0)</span> pour la stabilité visuelle. J'ai compris que le <span className={styles.techKeyword}>grade A (93%)</span> indique une bonne performance, et que <span className={styles.keyword}>Speed Index (1.3s)</span> mesure la vitesse de rendu perçue.
           </>
         ),
         savoirFaire: (
           <>
-            J'ai analysé les performances sur <span className={styles.keyword}>15 pages</span> du CRM avec tests automatisés. J'ai identifié et corrigé <span className={styles.methodKeyword}>12 goulots d'étranglement</span> : images non optimisées, JS bloquant, CSS inutilisé. Les améliorations : <span className={styles.keyword}>LCP</span> de 4.2s à 1.8s, <span className={styles.techKeyword}>FID</span> de 300ms à 50ms, score Lighthouse de <span className={styles.errorKeyword}>65</span> à <span className={styles.keyword}>94</span>. J'ai mis en place un <span className={styles.conceptKeyword}>monitoring continu</span>.
+            J'ai effectué une analyse détaillée sur <span className={styles.keyword}>www.mobydevcrm.fr</span> avec GTmetrix depuis Vancouver. <strong>Résultats obtenus :</strong> Grade A avec <span className={styles.techKeyword}>93% Performance</span> et <span className={styles.methodKeyword}>91% Structure</span>. <strong>Core Web Vitals excellents :</strong> <span className={styles.keyword}>LCP 1.3s</span>, <span className={styles.conceptKeyword}>TBT 0ms</span>, <span className={styles.techKeyword}>CLS 0</span>. <strong>Métriques détaillées :</strong> First Contentful Paint <span className={styles.keyword}>1.2s</span>, Speed Index <span className={styles.methodKeyword}>1.3s</span>, Time to Interactive <span className={styles.conceptKeyword}>1.2s</span>. <strong>Browser Timings optimisés :</strong> TTFB <span className={styles.techKeyword}>452ms</span>, Connection <span className={styles.keyword}>308ms</span>, Backend <span className={styles.methodKeyword}>144ms</span>. La visualisation montre un chargement fluide avec Onload à <span className={styles.conceptKeyword}>1.2s</span> et Fully Loaded à <span className={styles.techKeyword}>1.7s</span>.
           </>
         ),
         savoirFaireShort: (
           <>
-            J'ai analysé <span className={styles.keyword}>15 pages</span> et amélioré le score Lighthouse de <span className={styles.errorKeyword}>65</span> à <span className={styles.keyword}>94</span>...
+            Grade A <span className={styles.keyword}>93%</span>, Core Web Vitals : <span className={styles.techKeyword}>LCP 1.3s</span>, <span className={styles.methodKeyword}>TBT 0ms</span>, <span className={styles.conceptKeyword}>CLS 0</span>...
           </>
-        )
+        ),
+        beforeImage: analysePerformance1Image,
+        afterImage: analysePerformance2Image
       }
     ],
     reflexion: {
-      situationShort: "Applications avec interfaces obsolètes et performances dégradées nécessitant une refonte complète.",
+      situationShort: "Découverte des enjeux d'optimisation sur des projets nécessitant amélioration.",
       situation: (
         <>
-          Applications avec interfaces <span className={styles.errorKeyword}>obsolètes</span> et performances <span className={styles.errorKeyword}>dégradées</span> nécessitant une refonte complète.
+          Découverte des enjeux d'<span className={styles.conceptKeyword}>optimisation sur des projets</span> nécessitant amélioration.
           <br/><br/>
-          Les projets <span className={styles.keyword}>Mobydev V1</span> et <span className={styles.keyword}>CRM</span> présentaient des problèmes critiques : design daté, code dupliqué, temps de chargement élevés, expérience utilisateur frustrante.
+          En travaillant sur différents projets comme <span className={styles.keyword}>MobyDev V1→V2</span>, le <span className={styles.keyword}>CRM</span> et l'<span className={styles.keyword}>interface NFC</span>, j'ai découvert qu'ils présentaient différents axes d'amélioration : design à moderniser, code à optimiser, performances à améliorer, expérience utilisateur à repenser.
           <br/><br/>
-          Les utilisateurs abandonnaient rapidement, impactant la <span className={styles.conceptKeyword}>conversion</span> et la <span className={styles.methodKeyword}>productivité</span> des équipes.
+          Ces situations m'ont permis de comprendre l'importance de l'<span className={styles.conceptKeyword}>optimisation continue</span> et de l'<span className={styles.methodKeyword}>amélioration itérative</span> dans le développement web.
         </>
       ),
 
-      actionShort: "Refonte UI/UX complète avec Tailwind, optimisation du code et analyse des performances.",
+      actionShort: "Participation à différents types d'optimisation avec apprentissage des méthodes.",
       action: (
         <>
-          Refonte <span className={styles.techKeyword}>UI/UX complète</span> avec Tailwind, optimisation du code et analyse des performances.
+          Participation à différents types d'<span className={styles.techKeyword}>optimisation</span> avec apprentissage des méthodes.
           <br/><br/>
-          J'ai mené une <span className={styles.methodKeyword}>transformation globale</span> :<br/>
-          • <span className={styles.techKeyword}>Design System</span> : composants réutilisables avec Tailwind CSS<br/>
-          • <span className={styles.conceptKeyword}>Responsive Design</span> : approche mobile-first avec breakpoints optimisés<br/>
-          • <span className={styles.methodKeyword}>Animations UX</span> : micro-interactions pour améliorer l'engagement<br/>
-          • <span className={styles.techKeyword}>Refactoring Code</span> : élimination des duplications et composants dynamiques<br/>
-          • <span className={styles.conceptKeyword}>Performance Analysis</span> : monitoring avec Lighthouse et GTmetrix
+          J'ai contribué à plusieurs aspects d'amélioration :<br/>
+          • <span className={styles.techKeyword}>Transformation visuelle</span> : participation à l'évolution MobyDev V1→V2<br/>
+          • <span className={styles.conceptKeyword}>Optimisation UX</span> : amélioration de l'interface de gestion NFC<br/>
+          • <span className={styles.methodKeyword}>Refactoring code</span> : application du processus d'optimisation CRM<br/>
+          • <span className={styles.techKeyword}>Analyse performance</span> : utilisation de GTmetrix et Lighthouse<br/>
+          • <span className={styles.conceptKeyword}>Mesure d'impact</span> : évaluation des améliorations apportées
           <br/><br/>
-          Chaque amélioration a été <span className={styles.keyword}>mesurée et validée</span> par des tests utilisateurs.
+          Chaque projet m'a permis d'<span className={styles.keyword}>apprendre une facette différente</span> de l'optimisation.
         </>
       ),
 
-      resultatShort: "Amélioration drastique de l'UX et des performances avec +65% d'engagement utilisateur.",
+      resultatShort: "Contributions concrètes aux améliorations avec apprentissage des bonnes pratiques.",
       resultat: (
         <>
-          Amélioration <span className={styles.conceptKeyword}>drastique</span> de l'UX et des performances avec <span className={styles.keyword}>+65%</span> d'engagement utilisateur.
+          Contributions concrètes aux améliorations avec <span className={styles.conceptKeyword}>apprentissage des bonnes pratiques</span>.
           <br/><br/>
-          Les résultats sont <span className={styles.methodKeyword}>exceptionnels</span> :<br/>
-          • <span className={styles.techKeyword}>CSS optimisé</span> : réduction de <span className={styles.keyword}>75%</span> de la taille<br/>
-          • <span className={styles.conceptKeyword}>Code dupliqué</span> : élimination de <span className={styles.keyword}>40%</span><br/>
-          • <span className={styles.methodKeyword}>Temps de chargement</span> : amélioration de <span className={styles.keyword}>60%</span><br/>
-          • <span className={styles.techKeyword}>Score Lighthouse</span> : passage de <span className={styles.errorKeyword}>65</span> à <span className={styles.keyword}>94/100</span><br/>
-          • <span className={styles.conceptKeyword}>Engagement utilisateur</span> : <span className={styles.keyword}>+65%</span> de temps passé
+          Mes contributions mesurables :<br/>
+          • <span className={styles.techKeyword}>Design moderne</span> : participation à la transformation MobyDev<br/>
+          • <span className={styles.conceptKeyword}>UX optimisée</span> : amélioration de la navigation et lisibilité NFC<br/>
+          • <span className={styles.methodKeyword}>Code quality</span> : application du processus de refactoring (-40% duplication)<br/>
+          • <span className={styles.techKeyword}>Performance</span> : analyse détaillée avec Grade A (93%)<br/>
+          • <span className={styles.conceptKeyword}>Méthodes apprises</span> : processus structurés d'optimisation
           <br/><br/>
-          L'expérience utilisateur est désormais <span className={styles.keyword}>moderne et fluide</span>.
+          J'ai pu <span className={styles.keyword}>contribuer efficacement</span> tout en développant ma compréhension.
         </>
       ),
 
-      apprentissageShort: "L'optimisation frontend nécessite une approche holistique : design, code et performance.",
+      apprentissageShort: "L'optimisation nécessite une approche méthodique adaptée à chaque contexte.",
       apprentissage: (
         <>
-          L'optimisation frontend nécessite une approche <span className={styles.conceptKeyword}>holistique</span> : design, code et performance.
+          L'optimisation nécessite une <span className={styles.conceptKeyword}>approche méthodique</span> adaptée à chaque contexte.
           <br/><br/>
-          Cette expérience m'a appris que <span className={styles.methodKeyword}>optimiser une application</span> implique :
+          Cette expérience m'a appris que <span className={styles.methodKeyword}>contribuer à l'optimisation</span> en tant qu'alternant nécessite :
           <br/><br/>
-          <span className={styles.techKeyword}>Design System cohérent</span> : Un système de composants réutilisables améliore la maintenabilité et l'expérience utilisateur.
+          <span className={styles.techKeyword}>Analyse préalable</span> : Comprendre les problèmes avant de proposer des solutions.
           <br/><br/>
-          <span className={styles.conceptKeyword}>Performance mesurée</span> : Les outils d'analyse sont essentiels pour identifier les goulots d'étranglement et valider les améliorations.
+          <span className={styles.conceptKeyword}>Mesure d'impact</span> : Utiliser les métriques pour évaluer l'efficacité des améliorations.
           <br/><br/>
-          <span className={styles.methodKeyword}>Code quality</span> : Éliminer les duplications et créer des composants dynamiques améliore les performances et la maintenabilité.
+          <span className={styles.methodKeyword}>Processus structurés</span> : Suivre des étapes logiques pour optimiser le code et l'UX.
           <br/><br/>
-          <span className={styles.techKeyword}>UX moderne</span> : Les animations et interactions bien pensées augmentent significativement l'engagement utilisateur.
+          <span className={styles.techKeyword}>Outils spécialisés</span> : Apprendre à utiliser les outils d'analyse et de mesure de performance.
           <br/><br/>
-          Je maîtrise maintenant une <span className={styles.keyword}>méthodologie complète</span> d'optimisation frontend, de l'analyse à la mise en production.
+          Je développe progressivement ma <span className={styles.keyword}>capacité à identifier et améliorer</span> les aspects critiques des applications web.
         </>
       )
     },
     projetsAssocies: [
       { id: "mobydev-v2", nom: "Refonte Mobydev V2" },
-      { id: "crm", nom: "CRM Mobydev" },
-      { id: "insens", nom: "Application Insens" }
+      { id: "crm", nom: "CRM Mobydev" }
     ]
   },
   "ue3": {
@@ -817,63 +833,63 @@ fi`
       }
     ],
     reflexion: {
-      situationShort: "Gestion manuelle complexe des déploiements et des utilisateurs sur différentes plateformes.",
+      situationShort: "Découverte des différentes méthodes de déploiement selon les plateformes.",
       situation: (
         <>
-          Gestion <span className={styles.errorKeyword}>manuelle complexe</span> des déploiements et des utilisateurs sur différentes plateformes.
+          Découverte des <span className={styles.conceptKeyword}>différentes méthodes de déploiement</span> selon les plateformes.
           <br/><br/>
-          Chaque projet nécessitait une <span className={styles.conceptKeyword}>approche de déploiement différente</span> : le <span className={styles.keyword}>CRM via Docker Compose</span> sur serveur OVH, la <span className={styles.keyword}>vitrine via FileZilla FTP</span>, et les <span className={styles.keyword}>cartes NFC via Vercel</span>. Les <span className={styles.errorKeyword}>déploiements manuels</span> prenaient du temps et créaient des risques d'erreurs.
+          Durant mon alternance, j'ai découvert <span className={styles.keyword}>diverses approches de déploiement</span> : le <span className={styles.techKeyword}>CRM via Docker Compose</span> sur serveur OVH, la <span className={styles.methodKeyword}>vitrine via FileZilla FTP</span>, et les <span className={styles.conceptKeyword}>cartes NFC via Vercel</span>. Chaque plateforme avait ses propres spécificités et méthodes.
           <br/><br/>
-          La <span className={styles.methodKeyword}>gestion des utilisateurs</span> était particulièrement laborieuse : création manuelle des comptes, génération des mots de passe, envoi des identifiants par email séparément.
+          J'ai aussi découvert les enjeux de <span className={styles.keyword}>gestion des utilisateurs</span> dans un système d'administration : création des comptes, attribution des rôles, et communication des identifiants.
           </>
         ),
 
-      actionShort: "Mise en place de processus automatisés adaptés à chaque plateforme et projet.",
+      actionShort: "Apprentissage et application de processus adaptés à chaque environnement.",
       action: (
         <>
-          Mise en place de <span className={styles.conceptKeyword}>processus automatisés</span> adaptés à chaque plateforme et projet.
+          Apprentissage et application de <span className={styles.conceptKeyword}>processus adaptés</span> à chaque environnement.
           <br/><br/>
-          J'ai développé des solutions sur mesure :<br/>
-          • <span className={styles.techKeyword}>Déploiement CRM</span> : script automatisé avec Docker Compose, healthchecks et rollback<br/>
-          • <span className={styles.methodKeyword}>Déploiement vitrine</span> : processus FTP structuré via FileZilla vers serveur OVH<br/>
-          • <span className={styles.conceptKeyword}>Déploiement NFC</span> : intégration Vercel avec monitoring temps réel et protection<br/>
-          • <span className={styles.keyword}>Gestion utilisateurs</span> : workflow automatisé de création de comptes avec email de bienvenue
+          J'ai découvert et appliqué différentes approches :<br/>
+          • <span className={styles.techKeyword}>Déploiement CRM</span> : participation à l'automatisation avec Docker Compose et scripts<br/>
+          • <span className={styles.methodKeyword}>Déploiement vitrine</span> : apprentissage du transfert FTP via FileZilla vers OVH<br/>
+          • <span className={styles.conceptKeyword}>Déploiement NFC</span> : utilisation de Vercel avec monitoring intégré<br/>
+          • <span className={styles.keyword}>Gestion utilisateurs</span> : contribution au workflow de création de comptes
           <br/><br/>
-          Chaque solution respecte les <span className={styles.techKeyword}>spécificités techniques</span> et les contraintes de chaque environnement.
+          Chaque expérience m'a permis de comprendre les <span className={styles.techKeyword}>contraintes spécifiques</span> de chaque environnement.
           </>
         ),
 
-      resultatShort: "Administration maîtrisée avec processus adaptés et monitoring efficace.",
+      resultatShort: "Contribution réussie aux déploiements avec apprentissage des bonnes pratiques.",
       resultat: (
         <>
-          Administration <span className={styles.keyword}>maîtrisée</span> avec processus adaptés et monitoring efficace.
+          Contribution réussie aux déploiements avec <span className={styles.conceptKeyword}>apprentissage des bonnes pratiques</span>.
           <br/><br/>
-          Les résultats sont <span className={styles.conceptKeyword}>concrets</span> :<br/>
-          • <span className={styles.methodKeyword}>Déploiement CRM</span> : processus sécurisé 10 étapes avec rollback automatique<br/>
-          • <span className={styles.techKeyword}>Monitoring Vercel</span> : 7 Edge Requests, 0% Error Rate, protection active<br/>
-          • <span className={styles.conceptKeyword}>Gestion utilisateurs</span> : workflow 3 étapes automatisé avec templates email<br/>
-          • <span className={styles.keyword}>Polyvalence technique</span> : maîtrise de Docker, FTP, plateformes cloud
+          Mes contributions concrètes :<br/>
+          • <span className={styles.methodKeyword}>Déploiement CRM</span> : participation au processus en <span className={styles.keyword}>10 étapes</span> sécurisées<br/>
+          • <span className={styles.techKeyword}>Monitoring Vercel</span> : utilisation du dashboard avec métriques temps réel<br/>
+          • <span className={styles.conceptKeyword}>Gestion utilisateurs</span> : application du workflow en <span className={styles.keyword}>3 étapes</span><br/>
+          • <span className={styles.methodKeyword}>Diversité technique</span> : expérience avec Docker, FTP, et plateformes cloud
           <br/><br/>
-          L'administration est désormais <span className={styles.methodKeyword}>flexible et adaptée</span> à chaque contexte projet.
+          J'ai pu <span className={styles.keyword}>contribuer utilement</span> tout en apprenant les spécificités de chaque plateforme.
           </>
         ),
 
-      apprentissageShort: "L'administration système requiert l'adaptation aux spécificités de chaque plateforme.",
+      apprentissageShort: "Chaque plateforme a ses propres méthodes et outils d'administration.",
       apprentissage: (
         <>
-          L'<span className={styles.conceptKeyword}>administration système</span> requiert l'adaptation aux spécificités de chaque plateforme.
+          Chaque plateforme a ses propres <span className={styles.conceptKeyword}>méthodes et outils d'administration</span>.
           <br/><br/>
-          Cette compétence m'a enseigné qu'<span className={styles.methodKeyword}>administrer des systèmes communicants</span> signifie :
+          Cette expérience m'a appris que <span className={styles.methodKeyword}>l'administration de systèmes</span> en tant qu'alternant nécessite :
           <br/><br/>
-          <span className={styles.techKeyword}>Adaptabilité technique</span> : Maîtriser différentes approches selon le contexte (Docker pour applications complexes, FTP pour sites statiques, plateformes cloud pour applications modernes).
+          <span className={styles.techKeyword}>Adaptabilité d'apprentissage</span> : Comprendre que chaque plateforme a ses spécificités (Docker, FTP, cloud) et s'adapter aux outils disponibles.
           <br/><br/>
-          <span className={styles.conceptKeyword}>Automatisation ciblée</span> : Créer des workflows spécifiques à chaque besoin (déploiement, gestion utilisateurs, monitoring).
+          <span className={styles.conceptKeyword}>Processus structurés</span> : Suivre des workflows établis pour éviter les erreurs et garantir la reproductibilité.
           <br/><br/>
-          <span className={styles.methodKeyword}>Monitoring adapté</span> : Utiliser les outils appropriés à chaque plateforme (healthchecks Docker, métriques Vercel, vérifications FTP).
+          <span className={styles.methodKeyword}>Observation active</span> : Utiliser les outils de monitoring disponibles pour comprendre le fonctionnement des systèmes.
           <br/><br/>
-          <span className={styles.keyword}>Vision d'ensemble</span> : Comprendre que chaque système a ses propres contraintes et avantages, et adapter l'administration en conséquence.
+          <span className={styles.keyword}>Apprentissage progressif</span> : Chaque déploiement apporte de nouvelles connaissances sur l'administration système.
           <br/><br/>
-          Je maîtrise maintenant l'<span className={styles.conceptKeyword}>administration polyvalente</span> de systèmes variés en production.
+          Je développe progressivement ma <span className={styles.conceptKeyword}>compréhension de l'administration</span> de différents types de systèmes.
         </>
       )
     },
@@ -1505,73 +1521,73 @@ CREATE TABLE users (
       }
     ],
     reflexion: {
-      situationShort: "Projets complexes nécessitant planification rigoureuse et coordination multi-équipes.",
+      situationShort: "Participation à des projets nécessitant apprentissage de la planification et de l'organisation.",
       situation: (
         <>
-          Projets <span className={styles.conceptKeyword}>complexes</span> nécessitant planification rigoureuse et coordination multi-équipes.
+          Participation à des projets nécessitant apprentissage de la <span className={styles.conceptKeyword}>planification et de l'organisation</span>.
           <br/><br/>
-En tant que <span className={styles.methodKeyword}>chef de projet</span>, je devais gérer des projets avec des enjeux différents : <span className={styles.keyword}>CRM</span> (6 mois, MVP critique), <span className={styles.keyword}>planning de tâches Mobydev</span> (organisation multi-semaines), et <span className={styles.keyword}>app mobile Insens</span> (UX complexe). Chaque projet avait ses contraintes spécifiques et ses parties prenantes.
+En tant qu'<span className={styles.methodKeyword}>étudiant en alternance</span>, j'ai contribué à différents projets : <span className={styles.keyword}>CRM Mobydev</span> (développement sur plusieurs mois), <span className={styles.keyword}>planning de tâches</span> (organisation par semaines), et <span className={styles.keyword}>architecture Insens</span> (conception navigation). Chaque projet m'a permis de découvrir de nouveaux aspects de la gestion de projet.
           <br/><br/>
-          Les défis incluaient : <span className={styles.errorKeyword}>planning serré</span>, <span className={styles.conceptKeyword}>ressources limitées</span>, et besoin de <span className={styles.methodKeyword}>justifications techniques</span> solides pour les choix architecturaux.
+          Les défis d'apprentissage incluaient : comprendre les <span className={styles.errorKeyword}>contraintes de planning</span>, apprendre à <span className={styles.conceptKeyword}>organiser les tâches</span>, et découvrir l'importance de la <span className={styles.methodKeyword}>documentation technique</span>.
         </>
       ),
 
-      actionShort: "Planification structurée avec outils adaptés et documentation technique complète.",
+      actionShort: "Apprentissage des outils de planification et contribution à la documentation technique.",
       action: (
         <>
-          Planification structurée avec <span className={styles.techKeyword}>outils adaptés</span> et documentation technique complète.
+          Apprentissage des <span className={styles.techKeyword}>outils de planification</span> et contribution à la documentation technique.
           <br/><br/>
-J'ai mis en place une <span className={styles.methodKeyword}>méthodologie hybride</span> :
+J'ai découvert et appliqué différentes <span className={styles.methodKeyword}>approches d'organisation</span> :
           <br/>
-• <span className={styles.techKeyword}>Planning Notion</span> : organisation des tâches par types d'activités et suivi précis
+• <span className={styles.techKeyword}>Planning Notion</span> : organisation des tâches par types d'activités avec suivi
           <br/>
-• <span className={styles.conceptKeyword}>Architecture navigation</span> : sitemaps avec rôles utilisateur et parcours logiques
+• <span className={styles.conceptKeyword}>Architecture navigation</span> : conception de sitemaps avec rôles utilisateur
           <br/>
-• <span className={styles.techKeyword}>Documentation technique</span> : justifications architecturales détaillées
+• <span className={styles.techKeyword}>Documentation technique</span> : rédaction de spécifications pour validation
           <br/>
-• <span className={styles.conceptKeyword}>Coordination équipes</span> : design, développement, et validation
+• <span className={styles.conceptKeyword}>Collaboration équipe</span> : participation aux validations et reviews
           <br/><br/>
-          Chaque projet a bénéficié d'une <span className={styles.keyword}>approche sur mesure</span> selon ses spécificités.
+          Chaque projet m'a permis d'<span className={styles.keyword}>apprendre de nouvelles méthodes</span> de travail.
         </>
       ),
 
-      resultatShort: "Projets livrés dans les délais avec amélioration mesurable des KPIs.",
+      resultatShort: "Contribution réussie aux projets avec apprentissage des bonnes pratiques.",
       resultat: (
         <>
-          Projets livrés dans les délais avec <span className={styles.conceptKeyword}>amélioration mesurable</span> des KPIs.
+          Contribution réussie aux projets avec <span className={styles.conceptKeyword}>apprentissage des bonnes pratiques</span>.
           <br/><br/>
-Les résultats sont <span className={styles.methodKeyword}>quantifiables</span> :
+Mes contributions concrètes :
           <br/>
-• <span className={styles.keyword}>CRM</span> : livré en <span className={styles.keyword}>6 mois</span> avec toutes les fonctionnalités MVP
+• <span className={styles.keyword}>CRM</span> : participation au développement sur <span className={styles.keyword}>plusieurs mois</span>
           <br/>
-• <span className={styles.conceptKeyword}>Planning Mobydev</span> : organisation efficace par <span className={styles.keyword}>types de tâches</span> et suivi précis
+• <span className={styles.conceptKeyword}>Planning Mobydev</span> : organisation par <span className={styles.keyword}>types de tâches</span> avec statuts
           <br/>
-• <span className={styles.techKeyword}>Insens mobile</span> : architecture complète avec <span className={styles.keyword}>3 rôles utilisateur</span>
+• <span className={styles.techKeyword}>Insens mobile</span> : conception architecture avec <span className={styles.keyword}>3 rôles utilisateur</span>
           <br/>
-• <span className={styles.methodKeyword}>Documentation BDD</span> : architecture validée et réutilisable
+• <span className={styles.methodKeyword}>Documentation BDD</span> : <span className={styles.keyword}>5 pages</span> validées par développeur senior
           <br/>
-• <span className={styles.conceptKeyword}>Respect planning</span> : <span className={styles.keyword}>100%</span> des jalons respectés
+• <span className={styles.conceptKeyword}>Apprentissage continu</span> : amélioration des méthodes de travail
           <br/><br/>
-          Les parties prenantes apprécient la <span className={styles.keyword}>transparence</span> et la qualité des livrables.
+          J'ai pu <span className={styles.keyword}>contribuer utilement</span> tout en développant mes compétences.
         </>
       ),
 
-      apprentissageShort: "Chaque projet nécessite une approche adaptée avec documentation rigoureuse.",
+      apprentissageShort: "L'organisation de projet nécessite outils adaptés et documentation claire.",
       apprentissage: (
         <>
-          Chaque projet nécessite une <span className={styles.conceptKeyword}>approche adaptée</span> avec documentation rigoureuse.
+          L'<span className={styles.conceptKeyword}>organisation de projet</span> nécessite outils adaptés et documentation claire.
           <br/><br/>
-Cette compétence m'a appris que <span className={styles.methodKeyword}>conduire un projet</span> efficacement requiert :
+Cette expérience m'a appris que <span className={styles.methodKeyword}>participer à la conduite de projet</span> en tant qu'étudiant requiert :
           <br/><br/>
-<span className={styles.techKeyword}>Planification adaptative</span> : Choisir les bons outils selon le contexte (Notion, sitemaps, documentation technique).
+<span className={styles.techKeyword}>Outils d'organisation</span> : Notion pour planifier, sitemaps pour architecturer, documentation pour valider.
           <br/><br/>
-<span className={styles.conceptKeyword}>Validation continue</span> : Tests utilisateur, métriques, et feedback pour ajuster le cap rapidement.
+<span className={styles.conceptKeyword}>Collaboration active</span> : Participer aux validations et intégrer les retours pour améliorer les livrables.
           <br/><br/>
-<span className={styles.methodKeyword}>Documentation technique</span> : Justifier les choix architecturaux avec des arguments solides et mesurables.
+<span className={styles.methodKeyword}>Documentation structurée</span> : Présenter clairement les choix techniques pour faciliter les validations.
           <br/><br/>
-<span className={styles.techKeyword}>Coordination multi-disciplinaire</span> : Faire collaborer design, développement et métier efficacement.
+<span className={styles.techKeyword}>Apprentissage progressif</span> : Chaque projet apporte de nouvelles méthodes et bonnes pratiques.
           <br/><br/>
-          Je maîtrise maintenant la <span className={styles.keyword}>conduite de projets</span> complexes avec une approche méthodique et des résultats mesurables.
+          Je développe progressivement les <span className={styles.keyword}>compétences de gestion de projet</span> nécessaires au développement en équipe.
         </>
       )
     },
@@ -1770,7 +1786,7 @@ npm run dev
         description: "Structure organisationnelle de MobyDev montrant ma position d'intervenant Full Stack dans le pôle informatique.",
         savoir: (
           <>
-            Comprendre la <span className={styles.conceptKeyword}>structure organisationnelle</span> d'une entreprise m'a appris l'importance de connaître les <span className={styles.methodKeyword}>rôles et responsabilités</span> de chacun. J'ai découvert comment les <span className={styles.techKeyword}>pôles métier</span> (Commercial et Informatique) collaborent sous la direction du <span className={styles.keyword}>CEO</span>. La <span className={styles.conceptKeyword}>hiérarchie claire</span> facilite la communication et la prise de décision. Mon statut d'<span className={styles.methodKeyword}>intervenant</span> me permet d'apporter une expertise technique tout en restant flexible sur les projets.
+            Comprendre la <span className={styles.conceptKeyword}>structure organisationnelle</span> d'une entreprise m'a appris l'importance de connaître les <span className={styles.methodKeyword}>rôles et responsabilités</span> de chacun. J'ai découvert comment les <span className={styles.techKeyword}>pôles métier</span> (Commercial et Informatique) collaborent sous la direction du <span className={styles.keyword}>CEO</span>. La <span className={styles.conceptKeyword}>hiérarchie claire</span> facilite la communication et la prise de décision. Mon statut d'<span className={styles.methodKeyword}>intervenant</span> me permet de contribuer techniquement tout en restant flexible sur les projets.
           </>
         ),
         savoirFaire: (
@@ -2140,8 +2156,78 @@ export default function CompetenceDetail() {
                             </div>
                           )}
 
+                          {/* Images Avant/Après */}
+                          {trace.beforeImage && trace.afterImage && (
+                            <div className={styles.tabsContainer}>
+                              <div className={styles.tabsHeader}>
+                                <button 
+                                  className={`${styles.tabButton} ${(!activeTab[trace.id] || activeTab[trace.id] === 'before') ? styles.active : ''}`}
+                                  onClick={() => setActiveTab({...activeTab, [trace.id]: 'before'})}
+                                >
+                                  {trace.id === 'comparatif_mobydev_refonte' ? (
+                                    <><FaCamera /> MobyDev V1</>
+                                  ) : (
+                                    <><FaChartLine /> Vue d'ensemble</>
+                                  )}
+                                </button>
+                                <button 
+                                  className={`${styles.tabButton} ${activeTab[trace.id] === 'after' ? styles.active : ''}`}
+                                  onClick={() => setActiveTab({...activeTab, [trace.id]: 'after'})}
+                                >
+                                  {trace.id === 'comparatif_mobydev_refonte' ? (
+                                    <><FaRocket /> MobyDev V2</>
+                                  ) : (
+                                    <><FaCog /> Métriques détaillées</>
+                                  )}
+                                </button>
+                              </div>
+                              
+                              <div className={styles.tabContent}>
+                                {(!activeTab[trace.id] || activeTab[trace.id] === 'before') && (
+                                  <div className={styles.imageContainer}>
+                                    <div className={styles.imageWrapper}>
+                                      <div className={styles.comparisonLabel}>
+                                        <span className={styles.versionBadge}>
+                                          {trace.id === 'comparatif_mobydev_refonte' ? 'Version 1 - Avant' : 'Vue d\'ensemble GTmetrix'}
+                                        </span>
+                                      </div>
+                                      <img src={trace.beforeImage} alt={`${trace.title} - ${trace.id === 'comparatif_mobydev_refonte' ? 'Version 1' : 'Vue d\'ensemble'}`} className={styles.traceImage} />
+                                      <button 
+                                        className={styles.zoomButton}
+                                        onClick={() => openImageZoom(trace.beforeImage, `${trace.title} - ${trace.id === 'comparatif_mobydev_refonte' ? 'Version 1' : 'Vue d\'ensemble'}`)}
+                                        aria-label="Agrandir l'image"
+                                      >
+                                        <FaSearchPlus />
+                                      </button>
+                                    </div>
+                                  </div>
+                                )}
+                                
+                                {activeTab[trace.id] === 'after' && (
+                                  <div className={styles.imageContainer}>
+                                    <div className={styles.imageWrapper}>
+                                      <div className={styles.comparisonLabel}>
+                                        <span className={styles.versionBadge}>
+                                          {trace.id === 'comparatif_mobydev_refonte' ? 'Version 2 - Après' : 'Métriques détaillées'}
+                                        </span>
+                                      </div>
+                                      <img src={trace.afterImage} alt={`${trace.title} - ${trace.id === 'comparatif_mobydev_refonte' ? 'Version 2' : 'Métriques détaillées'}`} className={styles.traceImage} />
+                                      <button 
+                                        className={styles.zoomButton}
+                                        onClick={() => openImageZoom(trace.afterImage, `${trace.title} - ${trace.id === 'comparatif_mobydev_refonte' ? 'Version 2' : 'Métriques détaillées'}`)}
+                                        aria-label="Agrandir l'image"
+                                      >
+                                        <FaSearchPlus />
+                                      </button>
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          )}
+
                           {/* Images seules ou multiples */}
-                          {(trace.image || trace.image2) && !trace.code && !trace.interfaceImage && !trace.diagramImage && (
+                          {(trace.image || trace.image2) && !trace.code && !trace.interfaceImage && !trace.diagramImage && !trace.beforeImage && !trace.afterImage && (
                             <div className={styles.imageContainer}>
                               <div className={styles.imageGallery}>
                                 {/* Image principale */}

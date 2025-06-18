@@ -36,7 +36,7 @@
         "isPhare": true,
         "competences": ["UE 1", "UE 4", "UE 6"],
         "learnings": {
-            "savoir": "Maîtrise des technologies NFC NDEF, architecture React moderne avec hooks, optimisation AWS S3, validation de formulaires avancée",
+            "savoir": "Apprentissage des technologies NFC NDEF, architecture React moderne avec hooks, optimisation AWS S3, validation de formulaires avancée",
             "savoirFaire": "Développement d'interfaces tactiles optimisées, intégration hardware/software, déploiement cloud scalable, tests multi-appareils",
             "savoirEtre": "Innovation technologique, résolution de problèmes complexes, attention aux détails UX, collaboration client-développeur"
         },
@@ -197,7 +197,7 @@
             "savoirFaire": "Développement vanilla performant, migration de systèmes complexes, optimisation Core Web Vitals, intégration CI/CD, monitoring production",
             "savoirEtre": "Perfectionnisme technique, vision architecturale, amélioration continue, veille technologique, anticipation des besoins"
         },
-        "detailedDescription": "Ce projet illustre une évolution technique majeure, passant d'une approche vanilla à une architecture moderne React/Next.js. La V1 démontre la maîtrise des fondamentaux web avec des optimisations manuelles poussées, atteignant un score Lighthouse de 95/100 sans framework. La V2 exploite Next.js pour le SSR/SSG, Strapi comme CMS headless, et Framer Motion pour des animations fluides. L'infrastructure Docker assure la portabilité et la scalabilité.",
+        "detailedDescription": "Ce projet illustre une évolution technique majeure, passant d'une approche vanilla à une architecture moderne React/Next.js. La V1 démontre l'apprentissage des fondamentaux web avec des optimisations manuelles poussées, atteignant un score Lighthouse de 95/100 sans framework. La V2 exploite Next.js pour le SSR/SSG, Strapi comme CMS headless, et Framer Motion pour des animations fluides. L'infrastructure Docker assure la portabilité et la scalabilité.",
         "technicalSpecs": {
             "v1": "Vanilla JS + SASS + Webpack",
             "v2": "Next.js 13 + Strapi CMS + Docker",
