@@ -1395,31 +1395,6 @@ CREATE TABLE produits (
         )
       },
       {
-        id: "comparatif_mobydev_refonte",
-        title: "Avant / Après – Refonte visuelle",
-        shortTitle: "Refonte Mobydev",
-        type: "Comparatif (.png)",
-        project: "Mobydev V1/V2",
-        file: "projets/comparatif-mobydev-v1-v2.png",
-        thumbnail: "captures/mobydev/thumb_comparatif.png",
-        description: "Comparaison visuelle avant/après de la refonte complète du site Mobydev.",
-        savoir: (
-          <>
-            La <span className={styles.conceptKeyword}>refonte visuelle</span> m'a appris l'importance de l'<span className={styles.methodKeyword}>analyse comparative</span>. J'ai découvert les principes de <span className={styles.techKeyword}>design thinking</span> : empathie, définition, idéation, prototypage, test. L'<span className={styles.keyword}>expérience utilisateur</span> doit guider toutes les décisions. J'ai compris l'impact du <span className={styles.conceptKeyword}>design moderne</span> sur la <span className={styles.methodKeyword}>conversion</span> et l'engagement.
-          </>
-        ),
-        savoirFaire: (
-          <>
-            J'ai dirigé la refonte complète avec <span className={styles.keyword}>analyse comparative</span> détaillée : V1 vs V2. J'ai identifié <span className={styles.keyword}>12 points d'amélioration</span> : navigation, lisibilité, responsive, performance. La nouvelle version améliore le <span className={styles.methodKeyword}>taux de conversion</span> de <span className={styles.keyword}>+40%</span> et réduit le <span className={styles.conceptKeyword}>taux de rebond</span> de <span className={styles.keyword}>-25%</span>. J'ai coordonné <span className={styles.techKeyword}>designer</span> et <span className={styles.techKeyword}>développeurs</span> sur <span className={styles.keyword}>3 mois</span>.
-          </>
-        ),
-        savoirFaireShort: (
-          <>
-            J'ai dirigé la refonte avec <span className={styles.keyword}>+40%</span> de conversion et <span className={styles.keyword}>-25%</span> de rebond...
-          </>
-        )
-      },
-      {
         id: "storyboard_figma_insens",
         title: "Storyboard application – navigation mobile",
         shortTitle: "Storyboard Insens",
@@ -1560,7 +1535,7 @@ CREATE TABLE users (
         <>
           Projets <span className={styles.conceptKeyword}>complexes</span> nécessitant planification rigoureuse et coordination multi-équipes.
           <br/><br/>
-En tant que <span className={styles.methodKeyword}>chef de projet</span>, je devais gérer des projets avec des enjeux différents : <span className={styles.keyword}>CRM</span> (6 mois, MVP critique), <span className={styles.keyword}>refonte Mobydev</span> (impact business majeur), et <span className={styles.keyword}>app mobile Insens</span> (UX complexe). Chaque projet avait ses contraintes spécifiques et ses parties prenantes.
+En tant que <span className={styles.methodKeyword}>chef de projet</span>, je devais gérer des projets avec des enjeux différents : <span className={styles.keyword}>CRM</span> (6 mois, MVP critique), <span className={styles.keyword}>planning de tâches Mobydev</span> (organisation multi-semaines), et <span className={styles.keyword}>app mobile Insens</span> (UX complexe). Chaque projet avait ses contraintes spécifiques et ses parties prenantes.
           <br/><br/>
           Les défis incluaient : <span className={styles.errorKeyword}>planning serré</span>, <span className={styles.conceptKeyword}>ressources limitées</span>, et besoin de <span className={styles.methodKeyword}>justifications techniques</span> solides pour les choix architecturaux.
         </>
@@ -1596,9 +1571,9 @@ Les résultats sont <span className={styles.methodKeyword}>quantifiables</span> 
           <br/>
 • <span className={styles.keyword}>CRM</span> : livré en <span className={styles.keyword}>6 mois</span> avec toutes les fonctionnalités MVP
           <br/>
-• <span className={styles.conceptKeyword}>Mobydev V2</span> : <span className={styles.keyword}>+40%</span> conversion, <span className={styles.keyword}>-25%</span> rebond
+• <span className={styles.conceptKeyword}>Planning Mobydev</span> : organisation efficace par <span className={styles.keyword}>types de tâches</span> et suivi précis
           <br/>
-• <span className={styles.techKeyword}>Insens mobile</span> : <span className={styles.keyword}>95%</span> satisfaction utilisateur après tests
+• <span className={styles.techKeyword}>Insens mobile</span> : architecture complète avec <span className={styles.keyword}>3 rôles utilisateur</span>
           <br/>
 • <span className={styles.methodKeyword}>Documentation BDD</span> : architecture validée et réutilisable
           <br/>
@@ -1629,7 +1604,6 @@ Cette compétence m'a appris que <span className={styles.methodKeyword}>conduire
     },
     projetsAssocies: [
       { id: "crm", nom: "CRM Mobydev" },
-      { id: "mobydev-v1-v2", nom: "Refonte Mobydev V1/V2" },
       { id: "insens", nom: "Application Insens" },
       { id: "mousow", nom: "MousoW" }
     ]
