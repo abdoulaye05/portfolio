@@ -102,13 +102,13 @@ export default function NFCProject() {
                         <h2>Compétences mobilisées</h2>
                         <div className={styles.competencesList}>
                             <Link to="/competence/ue1" className={styles.competenceTag}>
-                                UE 1 – Développer une application
+                                C 1 – Développer une application
                             </Link>
                             <Link to="/competence/ue4" className={styles.competenceTag}>
-                                UE 4 – Gérer des données
+                                C 4 – Gérer des données
                             </Link>
                             <Link to="/competence/ue6" className={styles.competenceTag}>
-                                UE 6 – Collaborer au sein d'une équipe informatique
+                                C 6 – Collaborer au sein d'une équipe informatique
                             </Link>
                         </div>
                     </div>

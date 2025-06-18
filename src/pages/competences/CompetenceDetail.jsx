@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -46,7 +46,7 @@ import analysePerformance2Image from "../../assets/Annalyse performance_crm2.png
 // Données des compétences avec leurs traces et projets associés
 const competencesData = {
   "ue1": {
-    title: "UE 1 – Développer une application",
+    title: "C 1 – Développer une application",
     badge: "⭐ Focus", 
             description: "Apprendre la mise en place complète d'une application web, du bootstrap du projet à son déploiement, en garantissant sécurité, qualité et UX.",
     traces: [
@@ -451,7 +451,7 @@ Events ↑ : callbacks de l'enfant vers parent`
       ]
   },
   "ue2": {
-    title: "UE 2 – Optimiser des applications",
+    title: "C 2 – Optimiser des applications",
     description: "Amélioration des performances et de l'expérience utilisateur.",
     traces: [
 
@@ -632,7 +632,7 @@ Events ↑ : callbacks de l'enfant vers parent`
     ]
   },
   "ue3": {
-    title: "UE 3 – Administrer des systèmes communicants",
+    title: "C 3 – Administrer des systèmes communicants",
     description: "Administration système, déploiement et sécurisation d'infrastructures.",
     traces: [
       {
@@ -898,7 +898,7 @@ fi`
     ]
   },
   "ue4": {
-    title: "UE 4 – Gérer des données de l'information",
+    title: "C 4 – Gérer des données de l'information",
     badge: "⭐ Focus",
     description: "Modélisation, stockage et exploitation efficace des données.",
     traces: [
@@ -1380,7 +1380,7 @@ CREATE TABLE produits (
     ]
   },
   "ue5": {
-    title: "UE 5 – Conduire un projet",
+    title: "C 5 – Conduire un projet",
     description: "Pilotage de projets informatiques avec méthodologie agile.",
     traces: [
       {
@@ -1598,7 +1598,7 @@ Cette expérience m'a appris que <span className={styles.methodKeyword}>particip
     ]
   },
   "ue6": {
-    title: "UE 6 – Collaborer au sein d'une équipe informatique",
+    title: "C 6 – Collaborer au sein d'une équipe informatique",
     description: "Travail efficace en équipe avec communication et partage des connaissances.",
     traces: [
       {
@@ -1894,6 +1894,58 @@ export default function CompetenceDetail() {
   const [filterProject, setFilterProject] = useState('');
   const tracesPerPage = 5;
 
+  // Hook pour détecter la taille d'écran
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Styles responsifs pour les filtres
+  const getFilterContainerStyle = () => ({
+    display: 'flex',
+    alignItems: isMobile ? 'stretch' : 'center',
+    gap: isMobile ? '1rem' : '1.5rem',
+    marginBottom: '1.5rem',
+    padding: '1.25rem',
+    background: 'rgba(255, 255, 255, 0.03)',
+    border: '1px solid rgba(213, 155, 246, 0.15)',
+    borderRadius: '12px',
+    flexWrap: 'wrap',
+    flexDirection: isMobile ? 'column' : 'row'
+  });
+
+  const getFilterGroupStyle = () => ({
+    display: 'flex',
+    alignItems: isMobile ? 'stretch' : 'center',
+    gap: isMobile ? '0.5rem' : '0.75rem',
+    flexDirection: isMobile ? 'column' : 'row'
+  });
+
+  const getFilterSelectStyle = () => ({
+    background: 'rgba(255, 255, 255, 0.05)',
+    border: '1px solid rgba(213, 155, 246, 0.3)',
+    borderRadius: '8px',
+    color: '#fff',
+    padding: '0.6rem 2.5rem 0.6rem 1rem',
+    fontSize: '0.9rem',
+    fontWeight: '500',
+    cursor: 'pointer',
+    minWidth: isMobile ? '100%' : '160px',
+    appearance: 'none',
+    WebkitAppearance: 'none',
+    MozAppearance: 'none',
+    backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d59bf6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e")`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'right 0.75rem center',
+    backgroundSize: '1rem'
+  });
+
   // Fonction pour obtenir l'icône selon le type de trace
   const getTypeIcon = (type) => {
     switch(type.toLowerCase()) {
@@ -1992,10 +2044,22 @@ export default function CompetenceDetail() {
               <h2><FaTools className={styles.sectionIcon} />Traces & preuves</h2>
               
               {/* Filtres */}
-              <div className={styles.filtersContainer}>
-                <div className={styles.filterGroup}>
-                  <label htmlFor="typeFilter" className={styles.filterLabel}>
-                    <FaFileCode className={styles.filterIcon} />
+              <div className={styles.filtersContainer} style={getFilterContainerStyle()}>
+                <div className={styles.filterGroup} style={getFilterGroupStyle()}>
+                  <label htmlFor="typeFilter" className={styles.filterLabel} style={{
+                    color: '#d59bf6',
+                    fontSize: '0.9rem',
+                    fontWeight: '600',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    whiteSpace: 'nowrap',
+                    justifyContent: isMobile ? 'flex-start' : 'center'
+                  }}>
+                    <FaFileCode className={styles.filterIcon} style={{
+                      fontSize: '0.85rem',
+                      color: '#d59bf6'
+                    }} />
                     Type :
                   </label>
                   <select 
@@ -2003,6 +2067,7 @@ export default function CompetenceDetail() {
                     value={filterType} 
                     onChange={(e) => {setFilterType(e.target.value); setCurrentPage(1);}}
                     className={styles.filterSelect}
+                    style={getFilterSelectStyle()}
                   >
                     <option value="">Tous les types</option>
                     <option value="code">Code source</option>
@@ -2014,9 +2079,21 @@ export default function CompetenceDetail() {
                   </select>
                 </div>
                 
-                <div className={styles.filterGroup}>
-                  <label htmlFor="projectFilter" className={styles.filterLabel}>
-                    <FaProjectDiagram className={styles.filterIcon} />
+                <div className={styles.filterGroup} style={getFilterGroupStyle()}>
+                  <label htmlFor="projectFilter" className={styles.filterLabel} style={{
+                    color: '#d59bf6',
+                    fontSize: '0.9rem',
+                    fontWeight: '600',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    whiteSpace: 'nowrap',
+                    justifyContent: isMobile ? 'flex-start' : 'center'
+                  }}>
+                    <FaProjectDiagram className={styles.filterIcon} style={{
+                      fontSize: '0.85rem',
+                      color: '#d59bf6'
+                    }} />
                     Projet :
                   </label>
                   <select 
@@ -2024,6 +2101,7 @@ export default function CompetenceDetail() {
                     value={filterProject} 
                     onChange={(e) => {setFilterProject(e.target.value); setCurrentPage(1);}}
                     className={styles.filterSelect}
+                    style={getFilterSelectStyle()}
                   >
                     <option value="">Tous les projets</option>
                     <option value="CRM">CRM</option>
@@ -2034,8 +2112,22 @@ export default function CompetenceDetail() {
                   </select>
                 </div>
                 
-                <button onClick={resetFilters} className={styles.resetFiltersButton}>
-                  <FaTimes /> Réinitialiser
+                <button onClick={resetFilters} className={styles.resetFiltersButton} style={{
+                  background: 'linear-gradient(45deg, #ef5350, #d32f2f)',
+                  color: '#fff',
+                  border: 'none',
+                  padding: isMobile ? '0.8rem' : '0.6rem 1rem',
+                  borderRadius: '8px',
+                  fontSize: '0.85rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: isMobile ? 'center' : 'flex-start',
+                  gap: '0.5rem',
+                  whiteSpace: 'nowrap'
+                }}>
+                  <FaTimes style={{ fontSize: '0.85rem' }} /> Réinitialiser
                 </button>
               </div>
               

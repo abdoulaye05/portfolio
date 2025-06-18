@@ -16,7 +16,7 @@ import ImageCarousel from "../../components/ImageCarousel";
 // Mapping des UE vers leurs détails
 const ueDetails = {
     "ue1": {
-        title: "UE 1 – Développer une application",
+        title: "C 1 – Développer une application",
         icon: <FaCode />,
         description: "Compétences en développement d'applications web modernes",
         color: "#4F46E5"

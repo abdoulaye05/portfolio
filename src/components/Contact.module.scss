@@ -182,11 +182,16 @@
     width: 99%;
     @media (max-width: 768px)  {
       padding-bottom: 3rem;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
     }
     @media (max-width: 425px)  {
       flex-direction: column;
       gap: 2rem;
       padding-bottom: 2rem;
+      align-items: center;
+      text-align: center;
     }
   }
   &__rightContainerBottom a:hover {
@@ -202,14 +207,45 @@
 .emailContent {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  @media (max-width: 768px) {
+    justify-content: center;
+    text-align: center;
+  }
+  @media (max-width: 425px) {
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
 }
 
 .email {
   font-family: "Inter", sans-serif;
   font-weight: 200;
+  word-break: break-all;
+  max-width: 100%;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+  @media (max-width: 425px) {
+    font-size: 13px;
+    word-break: break-word;
+    hyphens: auto;
+    text-align: center;
+  }
+  @media (max-width: 375px) {
+    font-size: 12px;
+  }
 }
 
 .envelop {
   margin-right: 10px;
   font-size: 20px;
+  flex-shrink: 0;
+  @media (max-width: 425px) {
+    margin-right: 0;
+    font-size: 18px;
+  }
 }

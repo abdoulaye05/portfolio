@@ -8,7 +8,7 @@ import styles from "./Skills.module.scss";
 const ueData = [
   { 
     id: "ue1", 
-    title: "UE 1 – Développer une application", 
+    title: "C 1 – Développer une application", 
     description: "Construire des applications web modernes et maintenables.",
     icon: <FaCode />,
     traces: 9,
@@ -16,21 +16,21 @@ const ueData = [
   },
   { 
     id: "ue2", 
-    title: "UE 2 – Optimiser des applications", 
+    title: "C 2 – Optimiser des applications", 
     description: "Améliorer performances et expérience utilisateur.",
     icon: <FaTachometerAlt />,
     traces: 4
   },
   { 
     id: "ue3", 
-    title: "UE 3 – Administrer des systèmes communicants complexes", 
+    title: "C 3 – Administrer des systèmes communicants complexes", 
     description: "Gérer et sécuriser des infrastructures réseau.",
     icon: <FaServer />,
     traces: 4
   },
   { 
     id: "ue4", 
-    title: "UE 4 – Gérer des données de l'information", 
+    title: "C 4 – Gérer des données de l'information", 
     description: "Concevoir et optimiser les bases de données.",
     icon: <FaDatabase />,
     traces: 9,
@@ -38,14 +38,14 @@ const ueData = [
   },
   { 
     id: "ue5", 
-    title: "UE 5 – Conduire un projet", 
+    title: "C 5 – Conduire un projet", 
     description: "Planifier et coordonner des projets informatiques.",
     icon: <FaTasks />,
     traces: 3
   },
   { 
     id: "ue6", 
-    title: "UE 6 – Collaborer au sein d'une équipe informatique", 
+    title: "C 6 – Collaborer au sein d'une équipe informatique", 
     description: "Travailler efficacement en équipe de développement.",
     icon: <FaUsers />,
     traces: 5
