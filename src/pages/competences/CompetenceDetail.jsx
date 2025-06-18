@@ -1593,6 +1593,7 @@ Cette expérience m'a appris que <span className={styles.methodKeyword}>particip
     projetsAssocies: [
         { id: "app-interne-mobydev", nom: "CRM Mobydev" },
         { id: "site-vitrine-mobydev", nom: "Site vitrine MobyDev" },
+      { id: "insens", nom: "Application Insens" },
       { id: "mousow", nom: "MousoW" }
     ]
   },

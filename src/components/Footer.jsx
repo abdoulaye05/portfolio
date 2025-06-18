@@ -1,5 +1,6 @@
 import styles from "./Footer.module.scss";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -7,13 +8,27 @@ function Footer() {
       <div className={styles.fadingLine}></div>
       <ul className={styles.footer__list}>
         <li>
-          <a href="#about">à propos</a>
+          <Link to="/" onClick={() => {
+            setTimeout(() => {
+              const aboutSection = document.getElementById("about-section");
+              if (aboutSection) {
+                aboutSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }, 100);
+          }}>à propos</Link>
         </li>
         <li>
           <a href="#works">réalisations</a>
         </li>
         <li>
-          <a href="#contact">contact</a>
+          <Link to="/" onClick={() => {
+            setTimeout(() => {
+              const contactSection = document.getElementById("contact-section");
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }, 100);
+          }}>contact</Link>
         </li>
       </ul>
       
@@ -23,14 +38,7 @@ function Footer() {
         <p className={styles.footerBottom__date}>© 2025 Abdoulaye Diallo</p>
         <div className={styles.footerBottom__socialIcons}>
           <a
-            href="https://github.com/GregoireSand"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaGithub className={styles.footerBottom__icon} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/gregoire-sandrock/"
+            href="https://www.linkedin.com/in/abdoulaye-kabele-diallo/"
             target="_blank"
             rel="noopener noreferrer"
           >

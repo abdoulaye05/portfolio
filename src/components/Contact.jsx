@@ -4,8 +4,9 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { IoRocketSharp } from "react-icons/io5";
-import { db, collection, addDoc } from "./Firebase";
-import { motion } from "framer-motion"; // 👈 Nouveau
+import { motion } from "framer-motion";
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../config/emailjs';
 
 // Animation config
 const fadeUp = {
@@ -21,15 +22,23 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Configuration EmailJS
+    const serviceID = EMAILJS_CONFIG.SERVICE_ID;
+    const templateID = EMAILJS_CONFIG.TEMPLATE_ID;
+    const publicKey = EMAILJS_CONFIG.PUBLIC_KEY;
+
+    const templateParams = {
+      name: name,
+      email: email,
+      message: message,
+    };
+
     try {
-      await addDoc(collection(db, "contacts"), {
-        name: name,
-        email: email,
-        message: message,
-      });
-      alert("Votre message a été envoyé !");
+      await emailjs.send(serviceID, templateID, templateParams, publicKey);
+      alert("Votre message a été envoyé avec succès !");
     } catch (error) {
-      alert(error.message);
+      console.error('Erreur EmailJS:', error);
+      alert("Erreur lors de l'envoi du message. Veuillez réessayer.");
     }
 
     setName("");
@@ -50,7 +59,7 @@ function Contact() {
         >
           <div className={styles.contact__leftContainer}>
             <p className={styles.contact__leftContainerTag}>contact</p>
-            <h3>Et si on travaillait ensemble ?</h3>
+            <h3>Discutons ensemble</h3>
             <p className={styles.contact__leftContainerText}>
               Construisons un web créatif, interactif et accessible !
             </p>

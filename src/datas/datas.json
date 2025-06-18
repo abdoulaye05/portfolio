@@ -1,9 +1,9 @@
 [
     {
-        "id": "nfc-connectees",
-        "title": "Cartes NFC connectées",
-        "date": "septembre 2024",
-        "status": "En production",
+                  "id": "nfc-connectees",
+          "title": "Cartes NFC connectées",
+          "date": "octobre - décembre 2024",
+          "status": "Terminé",
         "subtitle": "Mini-site interactif déclenché par simple scan NFC sur carte physique",
         "cover": "/assets/page_avant_nfc.png",
         "description": "Solution innovante de cartes de visite NFC permettant d'accéder à un mini-site personnalisé d'un simple scan. Architecture React/Vite optimisée, hébergement AWS S3, programmation NDEF des puces NFC avec validation temps réel.",
@@ -32,6 +32,7 @@
             "/assets/Page_public.png",
             "/assets/IntercfaceUser_NFC.png",
             "/assets/Table_carte_nfc.png",
+            "/assets/Documentation_mousow.png",
             "/assets/Migration002_NFC.png",
             "/assets/deploiementNFC.png",
             "/assets/Utilisation_react_Hook.png"
@@ -53,16 +54,16 @@
         }
     },
     {
-        "id": "app-interne-mobydev",
-        "title": "Application interne Mobydev",
-        "date": "octobre 2024",
-        "status": "En production",
+                            "id": "app-interne-mobydev",
+          "title": "Application interne Mobydev",
+          "date": "janvier - avril 2025",
+          "status": "Terminé",
         "subtitle": "Plateforme de gestion interne pour l'équipe Mobydev",
         "cover": "/assets/page_avan_crm.png",
         "description": "Application web complète pour la gestion des projets internes, suivi du temps, et collaboration d'équipe. Architecture full-stack avec authentification JWT sécurisée, API REST optimisée et interface React moderne.",
         "technologies": ["React", "Node.js", "Express", "PostgreSQL", "JWT", "Docker", "Nginx"],
         "metrics": {
-            "users": "15 utilisateurs actifs",
+            "users": "8 utilisateurs actifs",
             "projects": "50+ projets gérés",
             "uptime": "99.8%",
             "responseTime": "< 200ms"
@@ -116,34 +117,34 @@
         }
     },
     {
-        "id": "mousow",
-        "title": "MousoW",
-        "date": "juillet 2024",
+                  "id": "mousow",
+          "title": "MousoW",
+          "date": "mai 2025",
         "status": "Terminé",
-        "subtitle": "Application de gestion de produits et clients",
-        "cover": "/assets/about_picture.webp",
-        "description": "Système CRUD complet avec base de données relationnelle optimisée pour la gestion des produits et clients. Conception MCD dénormalisé, back-office intuitif et requêtes SQL haute performance.",
+        "subtitle": "E-commerce de culottes menstruelles pour femmes",
+        "cover": "/assets/Mousow_im.png",
+        "description": "Plateforme e-commerce dédiée à la vente de culottes menstruelles avec système de gestion complet des produits, commandes et clients. Architecture optimisée avec catalogue produits, panier d'achat et interface d'administration.",
         "technologies": ["PHP", "MySQL", "HTML5", "CSS3", "JavaScript", "Bootstrap"],
         "metrics": {
-            "products": "1000+ produits",
-            "clients": "500+ clients",
-            "queryTime": "< 50ms",
-            "dataIntegrity": "100%"
+            "products": "50+ modèles culottes",
+            "clients": "200+ clientes",
+            "orders": "300+ commandes",
+            "conversionRate": "3.2%"
         },
         "challenges": [
-            "Modélisation de données complexes",
-            "Optimisation des requêtes SQL",
-            "Interface CRUD intuitive",
-            "Validation des données métier"
+            "Normalisation de la base de données en 3ème forme normale (3NF)",
+            "Modélisation relationnelle optimisée",
+            "Élimination des redondances et anomalies",
+            "Structure de données cohérente et performante"
         ],
         "results": [
-            "Temps de recherche -70%",
-            "Erreurs de saisie -85%",
-            "Productivité gestion +50%",
-            "Formation utilisateurs 2h seulement"
+            "Base de données normalisée en 3NF réussie",
+            "Élimination complète des redondances",
+            "Cohérence et intégrité des données garanties",
+            "Performances optimisées grâce à la structure"
         ],
         "pictures": [
-            "/assets/Documentation_mousow.png",
+            "/assets/Mousow_im.png",
             "/assets/Normalisation3NF.png",
             "/assets/about_picture.webp",
             "/assets/future-grid.webp"
@@ -151,37 +152,37 @@
         "isPhare": false,
         "competences": ["UE 4", "UE 1"],
         "learnings": {
-            "savoir": "Modélisation de données avancée, optimisation SQL, architecture MVC, principes de normalisation/dénormalisation",
-            "savoirFaire": "Conception de bases de données performantes, développement d'interfaces CRUD, validation de données, tests unitaires",
-            "savoirEtre": "Rigueur dans la modélisation, attention aux besoins utilisateur, documentation technique claire"
+            "savoir": "Normalisation de bases de données, formes normales (1NF, 2NF, 3NF), modélisation relationnelle, architecture MVC",
+            "savoirFaire": "Conception de schémas normalisés, élimination des redondances, optimisation des relations, requêtes SQL efficaces",
+            "savoirEtre": "Rigueur dans la modélisation, attention aux détails structurels, approche méthodique et systématique"
         },
-        "detailedDescription": "MousoW est un système de gestion complet développé avec une approche centrée sur les performances et l'intégrité des données. L'architecture repose sur un modèle de données soigneusement conçu, balançant normalisation et dénormalisation pour optimiser les requêtes fréquentes. L'interface utilise Bootstrap pour une expérience responsive native, tandis que le backend PHP implémente un pattern MVC strict avec validation robuste des données métier.",
+        "detailedDescription": "MousoW est une plateforme e-commerce de culottes menstruelles où le principal défi technique était la normalisation de la base de données. Le projet s'est concentré sur l'application rigoureuse des formes normales (1NF, 2NF, 3NF) pour éliminer les redondances et garantir l'intégrité des données. L'architecture de base de données a été soigneusement conçue avec des relations optimisées entre les entités (produits, clients, commandes, variantes). Cette approche méthodique de la normalisation a permis d'obtenir une structure de données cohérente, performante et facile à maintenir, démontrant une maîtrise solide des principes de modélisation relationnelle.",
         "technicalSpecs": {
             "backend": "PHP 8.1 + MySQLi",
             "frontend": "HTML5 + CSS3 + Bootstrap 5",
-            "database": "MySQL 8.0 avec index optimisés",
-            "architecture": "MVC Pattern + Repository Pattern",
-            "security": "Prepared Statements + Input Validation"
+            "database": "MySQL 8.0 avec gestion variants",
+            "ecommerce": "Catalogue + Panier + Commandes",
+            "payment": "Système de paiement sécurisé intégré"
         }
     },
     {
-        "id": "site-vitrine-mobydev",
-        "title": "Site vitrine Mobydev",
-        "date": "mai 2024 - août 2024",
+                  "id": "site-vitrine-mobydev",
+          "title": "Site vitrine Mobydev",
+          "date": "septembre - octobre 2024",
         "status": "En production",
         "subtitle": "Évolution complète du site vitrine : de vanilla JS à React/Next.js",
-        "cover": "/assets/future-grid.webp",
+        "cover": "/assets/Transformation_numérique.jpg",
         "description": "Développement et refonte complète du site vitrine de l'agence Mobydev. Première version en HTML/CSS/JS vanilla optimisée (Lighthouse 95+), puis migration vers React/Next.js pour améliorer le SEO et les performances. Intégration Docker, CMS headless Strapi et animations Framer Motion.",
         "technologies": ["HTML5", "CSS3", "JavaScript", "React", "Next.js", "Strapi", "Docker", "Framer Motion", "Tailwind CSS"],
         "evolution": {
             "v1": {
-                "period": "mai 2024",
-                "tech": ["HTML5", "CSS3", "JavaScript", "SASS", "Webpack"],
+                "period": "septembre 2024",
+                "tech": ["HTML5", "CSS3", "JavaScript"],
                 "focus": "Performance native et accessibilité"
             },
             "v2": {
-                "period": "août 2024", 
-                "tech": ["React", "Next.js", "Strapi", "Docker", "Framer Motion"],
+                "period": "mai 2025", 
+                "tech": ["React", "Vite", "Docker"],
                 "focus": "Architecture moderne et SEO"
             }
         },
@@ -221,11 +222,59 @@
         },
         "detailedDescription": "Ce projet illustre une évolution technique majeure, passant d'une approche vanilla à une architecture moderne React/Next.js. La V1 démontre l'apprentissage des fondamentaux web avec des optimisations manuelles poussées, atteignant un score Lighthouse de 95/100 sans framework. La V2 exploite Next.js pour le SSR/SSG, Strapi comme CMS headless, et Framer Motion pour des animations fluides. L'infrastructure Docker assure la portabilité et la scalabilité.",
         "technicalSpecs": {
-            "v1": "Vanilla JS + SASS + Webpack",
-            "v2": "Next.js 13 + Strapi CMS + Docker",
+            "v1": "HTML5 + CSS3 + JavaScript",
+            "v2": "React + Vite + Docker",
             "performance": "Core Web Vitals optimisés",
             "seo": "SSR/SSG + Meta dynamiques",
-            "deployment": "Vercel + Docker containers"
+            "deployment": "Docker + OVH"
+        }
+    },
+    {
+        "id": "insens",
+        "title": "Insens",
+        "date": "fin mai 2025 - en cours",
+        "status": "En production",
+        "subtitle": "Application de parfumerie - Dictionnaire et marketplace intégrée",
+        "cover": "/assets/Insens_interface.png",
+        "description": "Application innovante combinant un dictionnaire de parfums avec une marketplace intégrée. Interface utilisateur moderne conçue sur Figma, permettant aux utilisateurs de découvrir, explorer et acheter des parfums avec une expérience enrichie.",
+        "technologies": ["Figma"],
+        "metrics": {
+            "fragrances": "500+ parfums référencés",
+            "users": "En développement",
+            "marketplace": "Intégration e-commerce",
+            "ux": "Design moderne Figma"
+        },
+        "challenges": [
+            "Conception UX/UI pour dictionnaire parfums",
+            "Intégration marketplace dans interface",
+            "Expérience utilisateur fluide et intuitive",
+            "Architecture design évolutive"
+        ],
+        "results": [
+            "Interface Figma moderne et ergonomique",
+            "Prototype haute fidélité validé",
+            "Système de navigation optimisé",
+            "Foundation design prête pour développement"
+        ],
+        "pictures": [
+            "/assets/Insens_interface.png",
+            "/assets/Figma_insens.png",
+            "/assets/Sitemap_Insens.png"
+        ],
+        "isPhare": false,
+        "competences": ["UE 5"],
+        "learnings": {
+            "savoir": "Design d'interface Figma, prototypage haute fidélité, architecture de l'information, conception UX marketplace",
+            "savoirFaire": "Création de maquettes interactives, système de design cohérent, wireframing, testing utilisateur",
+            "savoirEtre": "Créativité dans le design, empathie utilisateur, attention aux détails visuels, collaboration designer-développeur"
+        },
+        "detailedDescription": "Insens représente un défi créatif unique : fusionner l'univers raffiné de la parfumerie avec les fonctionnalités modernes d'une marketplace. Le projet, actuellement en phase de production, commence par une conception minutieuse sur Figma. L'interface allie l'élégance nécessaire au secteur du parfum avec la praticité d'un dictionnaire interactif et d'une plateforme d'achat intégrée. Le design system développé assure une cohérence visuelle et une expérience utilisateur premium.",
+        "technicalSpecs": {
+            "design": "Figma avec système de composants",
+            "prototyping": "Interactions haute fidélité",
+            "responsive": "Mobile-first design approach",
+            "marketplace": "UX e-commerce intégrée",
+            "branding": "Identité visuelle parfumerie premium"
         }
     }
 ]
