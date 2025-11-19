@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import PasswordProtection from "./PasswordProtection";
 import { FaCode, FaTachometerAlt, FaServer, FaDatabase, FaTasks, FaUsers } from "react-icons/fa";
 import styles from "./Skills.module.scss";
 
@@ -54,7 +55,7 @@ const ueData = [
 
 export default function Skills() {
   return (
-    <>
+    <PasswordProtection correctPassword="competences2024">
       <Header />
       <section className={styles.skills} id="skills-section">
         <div className={styles.skills__container}>
@@ -88,6 +89,6 @@ export default function Skills() {
         </div>
       </section>
       <Footer />
-    </>
+    </PasswordProtection>
   );
 } 

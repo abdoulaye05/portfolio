@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaChevronDown } from "react-icons/fa";
 import styles from "./Landing.module.scss";
+import ProtectedLink from "./ProtectedLink";
 
 import cv from "../assets/CV.pdf"
 
@@ -20,7 +21,7 @@ function Landing() {
         </h1>
         <div className={styles.landing__buttons}>
             <a href="#works" className={styles.landing__works}>Mes réalisations</a>
-            <Link to="/skills" className={styles.landing__skills}>Mes compétences</Link>
+            <ProtectedLink to="/skills" className={styles.landing__skills}>Mes compétences</ProtectedLink>
         </div>
       </section>
       <div className={styles.scrollDownContainer}>

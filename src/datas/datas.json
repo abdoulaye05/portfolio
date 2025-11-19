@@ -276,5 +276,208 @@
             "marketplace": "UX e-commerce intégrée",
             "branding": "Identité visuelle parfumerie premium"
         }
+    },
+    {
+        "id": "pinky-cloud",
+        "title": "Pinky Cloud — site de restauration",
+        "date": "2024",
+        "status": "Terminé",
+        "subtitle": "Site vitrine responsive pour restaurant avec menu, horaires et réservations",
+        "cover": "/portfolio/assets/logo_pinky_cloud.webp",
+        "description": "Développement d'un site vitrine responsive pour un restaurant, présentant le menu, les horaires et facilitant les réservations/contact. Réalisé en HTML5/CSS3/JavaScript avec Tailwind et GSAP pour les animations, formulaire, SEO local et performance optimisée.",
+        "technologies": ["HTML5", "CSS3", "JavaScript", "Tailwind CSS", "GSAP", "SEO", "Responsive Design"],
+        "metrics": {
+            "lighthouse": "> 90/100",
+            "mobile": "100% responsive",
+            "seo": "Optimisé local",
+            "performance": "Optimisée"
+        },
+        "challenges": [
+            "Design responsive pour tous écrans",
+            "Optimisation SEO local pour restaurant",
+            "Performance Lighthouse > 90",
+            "Intégration formulaire de réservation"
+        ],
+        "results": [
+            "Score Lighthouse > 90/100",
+            "Interface mobile-first optimisée",
+            "SEO local performant",
+            "Formulaire de contact fonctionnel"
+        ],
+        "pictures": [
+            "/portfolio/assets/logo_pinky_cloud.webp",
+            "/portfolio/assets/image1_pinky_cloud.png",
+            "/portfolio/assets/image2_pinky_cloud.png",
+            "/portfolio/assets/image3_pinky_cloud.png",
+            "/portfolio/assets/image4_pinky_cloud.png"
+        ],
+        "liveUrl": "https://pinky-cloud.fr",
+        "isPhare": false,
+        "competences": ["UE 1", "UE 2"],
+        "learnings": {
+            "savoir": "Maîtrise de Tailwind CSS, animations GSAP avancées, optimisation performance web, SEO local pour restaurants, conception responsive mobile-first",
+            "savoirFaire": "Développement sites vitrines animés, intégration formulaires, optimisation Lighthouse, déploiement web moderne",
+            "savoirEtre": "Attention aux détails UX/UI, compréhension des besoins client restauration, rigueur dans l'optimisation"
+        },
+        "detailedDescription": "Pinky Cloud est un site vitrine moderne développé pour un restaurant, alliant design attractif et animations fluides grâce à GSAP. Le projet met l'accent sur l'expérience utilisateur avec une navigation intuitive, des transitions animées engageantes, la présentation claire du menu et des informations essentielles. L'optimisation SEO local permet une meilleure visibilité dans les recherches géolocalisées, tandis que les performances optimisées garantissent un chargement rapide sur tous les appareils.",
+        "technicalSpecs": {
+            "frontend": "HTML5 + CSS3 + JavaScript",
+            "framework": "Tailwind CSS",
+            "animations": "GSAP (GreenSock)",
+            "responsive": "Mobile-first approach",
+            "performance": "Lighthouse optimized",
+            "seo": "Local SEO optimizations"
+        }
+    },
+    {
+        "id": "cartech-auto",
+        "title": "Cartech Auto — site de garagiste",
+        "date": "2024",
+        "status": "Terminé",
+        "subtitle": "Site vitrine professionnel pour garage automobile avec formulaire React/Supabase",
+        "cover": "/portfolio/assets/logo_carctech-2.png",
+        "description": "Création d'un site vitrine professionnel pour un garage automobile, mettant en avant les services proposés et intégrant un formulaire React connecté à Supabase avec envoi automatique d'emails. Déployé sur un hébergement moderne, optimisé pour la navigation mobile.",
+        "technologies": ["React", "Supabase", "JavaScript", "CSS3", "Email Integration", "Responsive Design"],
+        "metrics": {
+            "mobile": "100% optimisé",
+            "forms": "React + Supabase",
+            "emails": "Automatiques",
+            "deployment": "Hébergement moderne"
+        },
+        "challenges": [
+            "Intégration React avec Supabase",
+            "Système d'envoi d'emails automatique",
+            "Optimisation mobile pour secteur automobile",
+            "Interface professionnelle garage"
+        ],
+        "results": [
+            "Formulaire React fonctionnel",
+            "Base de données Supabase intégrée",
+            "Emails automatiques opérationnels",
+            "Site mobile-responsive déployé"
+        ],
+        "pictures": [
+            "/portfolio/assets/logo_carctech-2.png",
+            "/portfolio/assets/cartech_auto1.png",
+            "/portfolio/assets/cartech_auto2.png",
+            "/portfolio/assets/cartech_auto_3.png",
+            "/portfolio/assets/cartech_auto_4.png"
+        ],
+        "liveUrl": "https://cartech-auto.fr",
+        "isPhare": false,
+        "competences": ["UE 1", "UE 4"],
+        "learnings": {
+            "savoir": "Intégration React avec Supabase, gestion bases de données temps réel, automatisation emails, développement responsive",
+            "savoirFaire": "Architecture React moderne, connexion BaaS, optimisation mobile, déploiement professionnel",
+            "savoirEtre": "Compréhension secteur automobile, professionnalisme, attention détails techniques"
+        },
+        "detailedDescription": "Cartech Auto est un site vitrine moderne développé pour un garage automobile professionnel. Le projet intègre une stack technique avancée avec React pour l'interface et Supabase comme backend-as-a-service. Le formulaire de contact intelligent collecte les demandes clients et déclenche automatiquement l'envoi d'emails, optimisant ainsi la gestion des leads. L'interface est spécialement conçue pour refléter le professionnalisme du secteur automobile.",
+        "technicalSpecs": {
+            "frontend": "React + JavaScript",
+            "backend": "Supabase BaaS",
+            "database": "PostgreSQL (Supabase)",
+            "emails": "Système automatisé",
+            "deployment": "Hébergement moderne"
+        }
+    },
+    {
+        "id": "epavidf",
+        "title": "Site d'épaviste — génération de leads",
+        "date": "2024",
+        "status": "Terminé",
+        "subtitle": "Site orienté service pour l'enlèvement d'épaves avec optimisation conversion",
+        "cover": "/portfolio/assets/epaviste1.png",
+        "description": "Conception d'un site orienté service pour l'enlèvement d'épaves, avec mise en avant des atouts (gratuit, rapide, certifié). Intégration d'un formulaire de demande, de CTA téléphone, d'une FAQ et optimisation SEO local pour capter les demandes.",
+        "technologies": ["HTML5", "CSS3", "JavaScript", "SEO Local", "CTA Optimization", "Lead Generation"],
+        "metrics": {
+            "conversion": "CTA optimisés",
+            "seo": "Local optimisé",
+            "leads": "Génération ciblée",
+            "mobile": "Responsive"
+        },
+        "challenges": [
+            "Optimisation taux de conversion",
+            "SEO local pour service d'épaviste",
+            "Design centré génération de leads",
+            "FAQ et informations légales"
+        ],
+        "results": [
+            "Site optimisé pour conversions",
+            "SEO local performant",
+            "Formulaires de demande fonctionnels",
+            "CTA téléphone intégrés"
+        ],
+        "pictures": [
+            "/portfolio/assets/epaviste1.png",
+            "/portfolio/assets/epaviste2.png",
+            "/portfolio/assets/epaviste_3.png",
+            "/portfolio/assets/epaviste4.png"
+        ],
+        "liveUrl": "https://epavidf.netlify.app",
+        "isPhare": false,
+        "competences": ["UE 1", "UE 2"],
+        "learnings": {
+            "savoir": "Optimisation taux de conversion, SEO local spécialisé, design orienté leads, stratégie CTA efficace",
+            "savoirFaire": "Développement sites conversion, intégration formulaires leads, optimisation mobile service",
+            "savoirEtre": "Compréhension enjeux business, focus résultats, rigueur dans l'optimisation conversion"
+        },
+        "detailedDescription": "Ce site d'épaviste est conçu comme un véritable outil de génération de leads, optimisé pour convertir les visiteurs en clients. Chaque élément de l'interface est pensé pour rassurer (certifications, gratuité) et inciter à l'action (CTA téléphone, formulaires simples). L'optimisation SEO local permet de capter les recherches géolocalisées, while la FAQ répond aux questions fréquentes pour lever les freins à la conversion.",
+        "technicalSpecs": {
+            "frontend": "HTML5 + CSS3 + JavaScript",
+            "optimization": "Conversion-focused design",
+            "seo": "Local SEO + technical SEO",
+            "hosting": "Netlify deployment",
+            "mobile": "Mobile-first responsive"
+        }
+    },
+    {
+        "id": "domaine-grandrucher",
+        "title": "Domaine Grand Rucher — lieu événementiel premium",
+        "date": "2025",
+        "status": "En production",
+        "subtitle": "Site vitrine full TypeScript/SCSS avec galerie immersive et formulaires Express",
+        "cover": "/portfolio/assets/domaine1.png",
+        "description": "Site vitrine premium développé en TypeScript/SCSS avec Vite pour mettre en valeur un domaine événementiel (mariages, séminaires). Il combine une galerie immersive, un storytelling soigné et un formulaire Express connecté directement au propriétaire.",
+        "technologies": ["TypeScript", "Vite", "HTML5", "SCSS", "Express", "Animations CSS"],
+        "metrics": {
+            "loadTime": "0.8s FCP",
+            "mobile": "100% responsive",
+            "gallery": "20+ visuels optimisés",
+            "conversion": "Formulaire Express relié au propriétaire"
+        },
+        "challenges": [
+            "Orchestrer une direction artistique cohérente avec l'identité du domaine",
+            "Compresser des visuels haute résolution sans perdre en qualité",
+            "Concevoir un formulaire typé TypeScript relié à une API Express sécurisée",
+            "Superviser le déploiement, la configuration DNS et le monitoring"
+        ],
+        "results": [
+            "Navigation fluide avec un FCP mesuré à 0.8s sur desktop et mobile",
+            "Galerie responsive adaptée aux consultations sur smartphone",
+            "Demandes de devis routées automatiquement via l'API Express",
+            "Scores Lighthouse > 95 en Performance et Best Practices"
+        ],
+        "pictures": [
+            "/portfolio/assets/logo_domaine.png",
+            "/portfolio/assets/domaine1.png",
+            "/portfolio/assets/domaine2.png",
+            "/portfolio/assets/domaine3.png",
+            "/portfolio/assets/domaine4.png"
+        ],
+        "liveUrl": "https://domaine-grandrucher.com",
+        "isPhare": true,
+        "competences": ["UE 1", "UE 2", "UE 5"],
+        "learnings": {
+            "savoir": "Approfondissement de TypeScript côté front, optimisation d'assets médias, intégration API Express et déploiement sur domaine personnalisé",
+            "savoirFaire": "Mise en place d'un design system premium, animations micro-interactions, validations client/serveur, pipeline Vite automatisé",
+            "savoirEtre": "Rigueur dans la communication client, autonomie bout-en-bout, sens du détail haut de gamme"
+        },
+        "detailedDescription": "Le site Domaine Grand Rucher modernise la mise en relation des organisateurs d’événements avec le propriétaire du lieu. L’architecture TypeScript/Vite s’appuie sur des composants SCSS modulaires pour offrir une interface élégante, responsive et facile à faire évoluer. La galerie photo dynamique, optimisée et lazy-loadée, met en valeur chaque espace du domaine, tandis qu’un storytelling progressif guide les futurs mariés ou entreprises dans leur parcours. Le formulaire typé côté front déclenche une API Express qui envoie directement les demandes de devis, avec logs et monitoring pour garantir la fiabilité. J’ai aussi piloté le déploiement (DNS, hébergement, supervision) afin d’assurer des performances constantes dans le temps.",
+        "technicalSpecs": {
+            "frontend": "TypeScript + Vite + SCSS Modules",
+            "backend": "API Express légère pour les devis",
+            "deployment": "Hébergement moderne + domaine personnalisé",
+            "features": "Galerie animée, formulaires validés, SEO local"
+        }
     }
 ]

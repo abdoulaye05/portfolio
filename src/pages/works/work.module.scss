@@ -245,19 +245,51 @@
   letter-spacing: 0.5px;
 }
 
+// Actions des projets
+.projectActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
 .projectLink {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  color: var(--accent-color);
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(135deg, var(--accent-color), #9c27b0);
+  color: white;
   text-decoration: none;
+  border-radius: 8px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.9rem;
   transition: all 0.3s ease;
-  
+
   &:hover {
-    color: var(--text-primary);
-    transform: translateX(4px);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(213, 155, 246, 0.3);
+  }
+}
+
+.liveLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
   }
 }
 
@@ -395,6 +427,35 @@
   font-size: 0.875rem;
   font-weight: 600;
   border: 1px solid rgba(213, 155, 246, 0.3);
+}
+
+// Actions principales dans le héro
+.heroActions {
+  margin-top: 2rem;
+}
+
+.heroLiveButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.4);
+  }
+
+  svg {
+    font-size: 1.2rem;
+  }
 }
 
 .heroImage {

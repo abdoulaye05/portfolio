@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import ProtectedLink from "../../components/ProtectedLink";
 import { GoArrowLeft } from "react-icons/go";
 import styles from "./ProjectDetail.module.scss";
 
@@ -101,15 +102,15 @@ export default function NFCProject() {
                     <div className={styles.competencesSection}>
                         <h2>Compétences mobilisées</h2>
                         <div className={styles.competencesList}>
-                            <Link to="/competence/ue1" className={styles.competenceTag}>
+                            <ProtectedLink to="/skills/ue1" className={styles.competenceTag}>
                                 C 1 – Développer une application
-                            </Link>
-                            <Link to="/competence/ue4" className={styles.competenceTag}>
+                            </ProtectedLink>
+                            <ProtectedLink to="/skills/ue4" className={styles.competenceTag}>
                                 C 4 – Gérer des données
-                            </Link>
-                            <Link to="/competence/ue6" className={styles.competenceTag}>
+                            </ProtectedLink>
+                            <ProtectedLink to="/skills/ue6" className={styles.competenceTag}>
                                 C 6 – Collaborer au sein d'une équipe informatique
-                            </Link>
+                            </ProtectedLink>
                         </div>
                     </div>
                 </section>

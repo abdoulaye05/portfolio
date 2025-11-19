@@ -1,5 +1,6 @@
 import { useParams, Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import ProtectedLink from "../../components/ProtectedLink";
 import styles from "./work.module.scss";
 import worksData from "../../datas/datas.json";
 import { GoArrowLeft } from "react-icons/go";
@@ -373,10 +374,23 @@ export default function Works() {
                                             </div>
                                         )}
 
-                                        <Link to={`/works/${project.id}`} className={styles.projectLink}>
-                                            <span>Découvrir le projet</span>
-                                            <FaExternalLinkAlt />
-                                    </Link>
+                                        <div className={styles.projectActions}>
+                                            <Link to={`/works/${project.id}`} className={styles.projectLink}>
+                                                <span>Découvrir le projet</span>
+                                                <FaExternalLinkAlt />
+                                            </Link>
+                                            {project.liveUrl && (
+                                                <a 
+                                                    href={project.liveUrl} 
+                                                    target="_blank" 
+                                                    rel="noopener noreferrer" 
+                                                    className={styles.liveLink}
+                                                >
+                                                    <span>Voir le site</span>
+                                                    <FaExternalLinkAlt />
+                                                </a>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
                             );
@@ -444,6 +458,21 @@ export default function Works() {
                             ))}
                         </div>
                     </div>
+
+                    {/* Actions principales */}
+                    {selected.liveUrl && (
+                        <div className={styles.heroActions}>
+                            <a 
+                                href={selected.liveUrl} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className={styles.heroLiveButton}
+                            >
+                                <FaExternalLinkAlt />
+                                <span>Voir le site en ligne</span>
+                            </a>
+                        </div>
+                    )}
                 </div>
 
                 {selected.cover && (
@@ -627,13 +656,13 @@ export default function Works() {
                                     <div className={styles.competenceContent}>
                                         <h3>{ueInfo.title}</h3>
                                         <p>{ueInfo.description}</p>
-                                        <Link 
+                                        <ProtectedLink 
                                             to={`/skills/${ueKey}`}
                                             className={styles.competenceLink}
                                             style={{ color: ueInfo.color }}
                                         >
                                             Voir les détails →
-            </Link>
+                                        </ProtectedLink>
                                     </div>
                                 </div>
                             );

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import PasswordProtection from "../../components/PasswordProtection";
 import { GoArrowLeft } from "react-icons/go";
 import { FaCode, FaProjectDiagram, FaDatabase, FaChartLine, FaTasks, FaUsers, FaTools, FaBrain, FaRocket, FaBullseye, FaBolt, FaTrophy, FaSearchPlus, FaTimes, FaCamera, FaFileCode, FaChevronDown, FaChevronUp, FaFolder, FaLightbulb, FaCog } from "react-icons/fa";
 import styles from "./CompetenceDetail.module.scss";
@@ -101,31 +102,8 @@ const competencesData = {
         J'ai développé un formulaire client avec des <span className={styles.keyword}>champs métier spécifiques</span> et une <span className={styles.methodKeyword}>validation à deux niveaux</span>. J'ai géré les actions <span className={styles.keyword}>CRUD</span> avec gestion d'erreurs...
       </>
     ),
-    interfaceImage: clientFormImage,
-    diagramImage: interfaceAddClientsImage,
-    code: `// ClientForm.jsx - Formulaire CRM avec validation complète
-const [loading, setLoading] = useState(false);
-const [message, setMessage] = useState('');
-
-const onSubmit = async (data) => {
-  setLoading(true);
-  try {
-    const response = await fetch('/api/clients', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
-    
-    if (response.ok) {
-      setMessage('Client créé avec succès');
-      reset();
-    }
-  } catch (error) {
-    setMessage('Erreur lors de la création');
-  } finally {
-    setLoading(false);
-  }
-};`
+    interfaceImage: interfaceAddClientsImage,
+    diagramImage: clientFormImage
   },
   {
     id: "client_routes",
@@ -2023,7 +2001,7 @@ export default function CompetenceDetail() {
   }
 
   return (
-    <>
+    <PasswordProtection correctPassword="competences2024">
       <Header />
       <div className={styles.competenceDetailContainer}>
         <Link to="/skills" className={styles.backLink}>
@@ -2570,6 +2548,6 @@ export default function CompetenceDetail() {
         )}
       </div>
       <Footer />
-    </>
+    </PasswordProtection>
   );
 } 

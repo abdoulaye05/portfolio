@@ -4,9 +4,11 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { IoRocketSharp } from "react-icons/io5";
+import { FaDownload } from "react-icons/fa";
 import { motion } from "framer-motion";
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../config/emailjs';
+import cv from "../assets/Abdoulaye_Diallo_2024-2026.pdf";
 
 // Animation config
 const fadeUp = {
@@ -27,23 +29,41 @@ function Contact() {
     const templateID = EMAILJS_CONFIG.TEMPLATE_ID;
     const publicKey = EMAILJS_CONFIG.PUBLIC_KEY;
 
+    // Vérification des clés EmailJS
+    if (!serviceID || !templateID || !publicKey) {
+      console.error('Configuration EmailJS manquante');
+      alert("Configuration EmailJS manquante. Veuillez vérifier les clés dans src/config/emailjs.js");
+      return;
+    }
+
     const templateParams = {
-      name: name,
-      email: email,
+      from_name: name,
+      from_email: email,
       message: message,
     };
 
     try {
-      await emailjs.send(serviceID, templateID, templateParams, publicKey);
+      console.log('Tentative d\'envoi avec EmailJS...', { serviceID, templateID, publicKey });
+      const result = await emailjs.send(serviceID, templateID, templateParams, publicKey);
+      console.log('Email envoyé avec succès:', result);
       alert("Votre message a été envoyé avec succès !");
+      
+      // Réinitialiser le formulaire
+      setName("");
+      setEmail("");
+      setMessage("");
     } catch (error) {
-      console.error('Erreur EmailJS:', error);
-      alert("Erreur lors de l'envoi du message. Veuillez réessayer.");
+      console.error('Erreur EmailJS détaillée:', error);
+      
+      // Messages d'erreur plus spécifiques
+      if (error.text) {
+        alert(`Erreur EmailJS: ${error.text}`);
+      } else if (error.message) {
+        alert(`Erreur: ${error.message}`);
+      } else {
+        alert("Erreur lors de l'envoi du message. Vérifiez votre configuration EmailJS.");
+      }
     }
-
-    setName("");
-    setEmail("");
-    setMessage("");
   };
 
   return (
@@ -103,10 +123,16 @@ function Contact() {
                 ></textarea>
               </div>
               <div className={styles.contact__rightContainerBottom}>
-                <a href="mailto:abdoulayekabelediallo@gmail.com" className={styles.emailContent}>
-                  <FontAwesomeIcon icon={faEnvelope} className={styles.envelop} />
-                  <p className={styles.email}>abdoulayekabelediallo@gmail.com</p>
-                </a>
+                <div className={styles.contact__leftBottom}>
+                  <a href="mailto:abdoulayekabelediallo@gmail.com" className={styles.emailContent}>
+                    <FontAwesomeIcon icon={faEnvelope} className={styles.envelop} />
+                    <p className={styles.email}>abdoulayekabelediallo@gmail.com</p>
+                  </a>
+                  <a href={cv} download="Abdoulaye_Diallo_2024-2026.pdf" className={styles.cvDownload}>
+                    <FaDownload className={styles.downloadIcon} />
+                    <p className={styles.cvText}>Télécharger mon CV</p>
+                  </a>
+                </div>
                 <button type="submit">
                   Envoyer
                   <IoRocketSharp className={styles.rocket} />
