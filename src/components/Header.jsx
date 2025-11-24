@@ -9,10 +9,11 @@ export default function Header() {
     const location = useLocation();
     const navigate = useNavigate();
     
-    // Vérifier si on est sur une page de compétences ou de projets
+    // Vérifier si on est sur une page de compétences, projets ou blog
     const isCompetencePage = location.pathname.includes('/skills');
     const isWorksPage = location.pathname.includes('/works');
-    const isSubPage = isCompetencePage || isWorksPage;
+    const isBlogPage = location.pathname.includes('/blog');
+    const isSubPage = isCompetencePage || isWorksPage || isBlogPage;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -82,7 +83,7 @@ export default function Header() {
         >
             <nav className={styles.header__links}>
                 <a onClick={handleScrollToAbout} className={styles.link}>
-                    A propos
+                    A PROPOS
                 </a>
 
                 <a
@@ -91,8 +92,12 @@ export default function Header() {
                         [styles.activeLink]: inWorksSection,
                     })}
                 >
-                    Réalisations
+                    RÉALISATIONS
                 </a>
+
+                <Link to="/blog" className={styles.link}>
+                    BLOG
+                </Link>
             </nav>
 
             <Link to="/" className={styles.header__names}>

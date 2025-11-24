@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import ProtectedLink from "../../components/ProtectedLink";
 import styles from "./work.module.scss";
 import worksData from "../../datas/datas.json";
+import { resolveAssetPath } from "../../utils/resolveAssetPath";
 import { GoArrowLeft } from "react-icons/go";
 import { 
     FaCode, FaProjectDiagram, FaDatabase, FaChartLine, FaTasks, FaUsers,
@@ -315,7 +316,7 @@ export default function Works() {
                                     
                                     <div className={styles.projectImageContainer}>
                                         <img 
-                                            src={project.cover} 
+                                            src={resolveAssetPath(project.cover)} 
                                             alt={project.title} 
                                             className={styles.projectImage}
                                         />
@@ -477,7 +478,7 @@ export default function Works() {
 
                 {selected.cover && (
                     <div className={styles.heroImage}>
-                        <img src={selected.cover} alt={selected.title} />
+                        <img src={resolveAssetPath(selected.cover)} alt={selected.title} />
                     </div>
                 )}
             </section>
@@ -677,7 +678,11 @@ export default function Works() {
                     <h2 className={styles.sectionTitle}>
                         <FaCamera /> Captures & Visuels
                     </h2>
-                    <ImageCarousel images={selected.pictures} autoPlay={true} interval={5000} />
+                    <ImageCarousel 
+                        images={(selected.pictures || []).map(resolveAssetPath)} 
+                        autoPlay={true} 
+                        interval={5000} 
+                    />
                 </section>
             )}
 
@@ -696,7 +701,7 @@ export default function Works() {
                                     to={`/works/${project.id}`}
                                     className={styles.otherProjectCard}
                                 >
-                                    <img src={project.cover} alt={project.title} />
+                                    <img src={resolveAssetPath(project.cover)} alt={project.title} />
                                     <div className={styles.otherProjectContent}>
                                         <div className={styles.otherProjectMeta}>
                                             <h4>{project.title}</h4>

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import worksData from "../datas/datas.json"; // Données de tous les projets
 import Carousel from "./Carousel"; // Composant carousel personnalisé
+import { resolveAssetPath } from "../utils/resolveAssetPath";
 import styles from "./WorksSection.module.scss";
 
 export default function WorksSection() {
@@ -22,7 +23,7 @@ export default function WorksSection() {
             <Carousel>
                 {preview.map((w) => {
                     // ✅ On choisit la première image disponible pour l'aperçu
-                    const thumb = w.pictures?.[0] || w.cover || "/fallback.png";
+                    const thumb = resolveAssetPath(w.pictures?.[0] || w.cover || "assets/fallback.png");
                     return (
                         <Link
                             key={w.id}

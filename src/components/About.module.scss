@@ -1,86 +1,141 @@
 @import "../index.scss";
 
 .about {
-  height: 100vh;
+  min-height: 100vh;
   background-color: $black;
   position: relative;
-  top: 100vh;
+  margin-top: 100vh; /* Pour apparaître après la section Landing fixée */
+  z-index: 3; /* Pour passer au-dessus du Landing lors du scroll */
   display: flex;
   border-bottom: 1px solid #31364b;
-  @media (max-width: 1440px)  {
-  }
-  @media (max-width: 1024px)  {
-  }
-  @media (max-width: 768px)  {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
   
+  @media (max-width: 768px)  {
+    flex-direction: column-reverse;
+    min-height: auto;
+    padding: 3rem 0;
   }
-  @media (max-width: 425px)  {
+  
+  @media (max-width: 600px)  {
     display: flex;
     flex-direction: column-reverse;
     width: 100%;
+    padding: 2rem 0;
+  }
+  
+  &__content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    padding-left: 7rem;
+    padding-right: 2rem;
+    box-sizing: border-box;
+    
+    @media (max-width: 1024px)  {
+      padding-left: 4rem;
+      padding-right: 2rem;
+    }
+    
+    @media (max-width: 768px)  {
+      width: 100%;
+      padding: 2rem 2rem;
+    }
+    
+    @media (max-width: 600px)  {
+      padding: 1.5rem 1.5rem;
+      width: 100%;
+      gap: 1rem;
+      box-sizing: border-box;
+    }
+    
+    & p {
+      line-height: 1.6rem;
+      font-size: 1rem;
+      margin: 0;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      
+      @media (max-width: 768px)  {
+        font-size: 0.95rem;
+        line-height: 1.5rem;
+      }
+      
+      @media (max-width: 600px)  {
+        font-size: 0.9rem;
+        line-height: 1.5rem;
+        max-width: 100%;
+      }
+    }
   }
   &__picture {
     width: 50%;
     overflow: hidden;
-    @media (max-width: 425px)  {
+    
+    @media (max-width: 768px)  {
       width: 100%;
+      height: 300px;
+    }
+    
+    @media (max-width: 600px)  {
+      width: 100%;
+      height: 250px;
     }
   }
+  
   &__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  &__content {
-    width: 42%;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    justify-content: center;
-    padding-left: 7rem;
-    @media (max-width: 1440px)  {
-    }
-    @media (max-width: 1024px)  {
-    }
-    @media (max-width: 768px)  {
-      width: 50%;
-      padding-left: 3rem;
-    }
-    @media (max-width: 425px)  {
-      padding: 20px 20px;
-      width: 90%;
-    }
-    & p {
-      padding-right: 3rem;
-      line-height: 1.6rem;
-      font-size: 1rem;
-      @media (max-width: 1440px)  {
-      }
-      @media (max-width: 1024px)  {
-      }
-      @media (max-width: 768px)  {
-
-      }
-      @media (max-width: 425px)  {
-        padding: 0;
-        font-size: 1rem;
-      }
-    }
-  }
+  
   &__tag {
     @include tag;
   }
+  
   &__content h3 {
     color: $white;
+    font-size: 2rem;
+    margin: 0;
+    word-wrap: break-word;
+    
+    @media (max-width: 768px)  {
+      font-size: 1.5rem;
+    }
+    
+    @media (max-width: 600px)  {
+      font-size: 1.2rem;
+    }
   }
+  
   &__content p {
     color: $grey;
   }
 }
 
 .title {
+  font-size: 2rem;
+  color: $white;
+  
+  @media (max-width: 768px)  {
+    font-size: 1.5rem;
+  }
+  
+  @media (max-width: 600px)  {
+    font-size: 1.3rem;
+  }
+}
+
+.keyword {
+  color: $violet;
+  font-weight: 600;
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
+  
   &__fadeOut {
     opacity: 0;
   }
