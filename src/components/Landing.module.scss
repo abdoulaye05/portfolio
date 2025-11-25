@@ -253,8 +253,8 @@
   }
   
   @media (max-width: 600px) {
-    bottom: 1rem;
-    display: none; // Cache le bouton sur très petits écrans
+    bottom: 1.5rem;
+    display: flex; // Affiche le bouton sur mobile
   }
 }
 
