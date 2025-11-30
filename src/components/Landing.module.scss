@@ -67,7 +67,7 @@
     position: relative;
     z-index: 10;
     max-width: 100%;
-    
+
     @media (max-width: 768px)  {
       gap: 1.5rem;
       justify-content: center;
@@ -98,7 +98,7 @@
     overflow: hidden;
     z-index: 15;
     white-space: nowrap;
-    
+
     @media (max-width: 768px)  {
       font-size: 0.95rem;
       padding: 0.9rem 1.5rem;

@@ -35,21 +35,14 @@ function About() {
         </h3>
         <p>
           Actuellement en BUT Informatique et alternant chez MobyDev, je me spécialise 
-          dans le développement d'applications web modernes et performantes. Ma passion 
-          pour le code me pousse à explorer constamment de nouvelles technologies et à 
-          relever des défis techniques innovants.
+          dans le développement d'applications web modernes. Ma passion pour le code me 
+          pousse à explorer constamment de nouvelles technologies et à relever des défis 
+          techniques innovants.
         </p>
         <p>
-          De React à Node.js en passant par les bases de données PostgreSQL et le cloud 
-          AWS, je travaille sur l'ensemble de la stack pour concevoir des solutions complètes. 
-          Mes compétences couvrent le développement frontend avec des interfaces React optimisées, 
-          le backend avec des APIs REST sécurisées, et le déploiement d'applications 
-          scalables avec Docker.
-        </p>
-        <p>
-          Chaque projet est pour moi l'occasion d'apprendre, d'innover et de créer des 
-          expériences digitales qui font la différence. Mon objectif : transformer des 
-          idées ambitieuses en applications concrètes et performantes.
+          De React à Node.js en passant par PostgreSQL et AWS, je travaille sur l'ensemble 
+          de la stack pour concevoir des solutions complètes. Mon objectif : transformer 
+          des idées ambitieuses en applications concrètes et performantes.
         </p>
       </div>
       <div className={styles.about__picture}>
