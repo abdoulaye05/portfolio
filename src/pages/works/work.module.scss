@@ -737,40 +737,153 @@
 
 .learningCard {
   background: var(--card-bg);
-  padding: 2.5rem;
   border-radius: 20px;
   border: 1px solid var(--border-color);
-  text-align: center;
-  transition: transform 0.3s ease;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
   
   &:hover {
     transform: translateY(-4px);
-  }
-  
-  h3 {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin: 1rem 0;
-    color: var(--text-primary);
-  }
-  
-  p {
-    color: var(--text-secondary);
-    line-height: 1.6;
+    box-shadow: 0 10px 30px rgba(213, 155, 246, 0.15);
   }
 }
 
+/* Sélecteurs spécifiques pour chaque carte ouverte */
+.learningCard[data-learning="savoir"].learningCardOpen {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 20px rgba(213, 155, 246, 0.2);
+}
+
+.learningCard[data-learning="savoirFaire"].learningCardOpen {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 20px rgba(213, 155, 246, 0.2);
+}
+
+.learningCard[data-learning="savoirEtre"].learningCardOpen {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 20px rgba(213, 155, 246, 0.2);
+}
+
+.learningButton {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 2rem 2.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  text-align: left;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(213, 155, 246, 0.05);
+  }
+  
+  &:focus {
+    outline: none;
+    background: rgba(213, 155, 246, 0.1);
+  }
+}
+
+.learningHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+}
+
 .learningIcon {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   background: linear-gradient(45deg, var(--accent-color), #9c27b0);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.learningButton h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.learningChevron {
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+/* Sélecteurs spécifiques pour chaque carte */
+.learningCard[data-learning="savoir"].learningCardOpen .learningIcon {
+  transform: scale(1.1);
+}
+
+.learningCard[data-learning="savoir"].learningCardOpen .learningChevron {
+  transform: rotate(180deg);
+}
+
+.learningCard[data-learning="savoirFaire"].learningCardOpen .learningIcon {
+  transform: scale(1.1);
+}
+
+.learningCard[data-learning="savoirFaire"].learningCardOpen .learningChevron {
+  transform: rotate(180deg);
+}
+
+.learningCard[data-learning="savoirEtre"].learningCardOpen .learningIcon {
+  transform: scale(1.1);
+}
+
+.learningCard[data-learning="savoirEtre"].learningCardOpen .learningChevron {
+  transform: rotate(180deg);
+}
+
+.learningContent {
+  overflow: hidden;
+  padding: 0 2.5rem 2rem;
+  
+  p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin: 0;
+    padding-top: 1rem;
+  }
+}
+
+/* Animation spécifique pour chaque carte - seulement quand ouverte */
+.learningCard[data-learning="savoir"].learningCardOpen .learningContent {
+  animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.learningCard[data-learning="savoirFaire"].learningCardOpen .learningContent {
+  animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.learningCard[data-learning="savoirEtre"].learningCardOpen .learningContent {
+  animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+  from {
+    max-height: 0;
+    padding: 0 2.5rem;
+    opacity: 0;
+  }
+  to {
+    max-height: 1000px;
+    padding: 0 2.5rem 2rem;
+    opacity: 1;
+  }
 }
 
 .competencesSection {
@@ -974,6 +1087,34 @@
   
   .learningsGrid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .learningButton {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+  
+  .learningHeader {
+    gap: 1rem;
+  }
+  
+  .learningIcon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+  
+  .learningButton h3 {
+    font-size: 1.1rem;
+  }
+  
+  .learningContent {
+    padding: 0 1.5rem 1.5rem;
+    
+    p {
+      font-size: 0.95rem;
+    }
   }
   
   .evolutionTimeline {

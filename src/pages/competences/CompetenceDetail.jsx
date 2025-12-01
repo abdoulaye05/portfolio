@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import PasswordProtection from "../../components/PasswordProtection";
 import { GoArrowLeft } from "react-icons/go";
@@ -2002,7 +2001,6 @@ export default function CompetenceDetail() {
 
   return (
     <PasswordProtection correctPassword="competences2024">
-      <Header />
       <div className={styles.competenceDetailContainer}>
         <Link to="/skills" className={styles.backLink}>
           <GoArrowLeft />

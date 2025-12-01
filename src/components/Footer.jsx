@@ -36,15 +36,6 @@ function Footer() {
 
       <div className={styles.footerBottom}>
         <p className={styles.footerBottom__date}>© 2025 Abdoulaye Diallo</p>
-        <div className={styles.footerBottom__socialIcons}>
-          <a
-            href="https://www.linkedin.com/in/abdoulaye-kabele-diallo/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaLinkedin className={styles.footerBottom__icon} />
-          </a>
-        </div>
         <div className={styles.footerBottom__emptyLayout}></div>
       </div>
     </div>

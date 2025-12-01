@@ -4,7 +4,7 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 import HomePage   from "../pages/home/Home";      // src/pages/home/Home.jsx
 import WorksPage  from "../pages/works/works";    // src/pages/works/works.jsx
 import ErrorPage  from "../pages/error/Error";    // src/pages/error/Error.jsx
-import BlogPage   from "../pages/blog/Blog";      // src/pages/blog/Blog.jsx
+// import BlogPage   from "../pages/blog/Blog";      // src/pages/blog/Blog.jsx - Commenté temporairement
 import Skills from "./Skills";
 import CompetenceDetail from "../pages/competences/CompetenceDetail";
 
@@ -15,7 +15,7 @@ function Router() {
     { path: "/works/:id",    element: <WorksPage /> },    // détail d'un projet
     { path: "/skills",       element: <Skills /> },       // page compétences
     { path: "/skills/:id", element: <CompetenceDetail /> }, // détail d'une compétence
-    { path: "/blog",         element: <BlogPage /> },     // page blog
+    // { path: "/blog",         element: <BlogPage /> },     // page blog - Commenté temporairement
     { path: "*",             element: <ErrorPage /> }     // page 404 React
   ]);
 

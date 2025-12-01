@@ -216,6 +216,19 @@
       gap: 1.5rem;
     }
   }
+  &__buttonsRow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
+    @media (max-width: 600px) {
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+    }
+  }
   &__rightContainerBottom a:hover {
     color: white;
   }
@@ -291,6 +304,7 @@
   overflow: hidden;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(138, 43, 226, 0.2);
+  width: fit-content;
 
   &::before {
     content: "";
@@ -353,5 +367,44 @@
     font-size: 15px;
     white-space: normal;
     text-align: center;
+  }
+}
+
+// Styles pour le bouton LinkedIn
+.linkedinLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: $white !important;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: fit-content;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px 16px;
+  }
+
+  @media (max-width: 600px) {
+    padding: 12px 18px;
+  }
+}
+
+.linkedinIcon {
+  font-size: 20px;
+  flex-shrink: 0;
+  
+  @media (max-width: 600px) {
+    font-size: 18px;
   }
 }

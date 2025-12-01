@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { IoRocketSharp } from "react-icons/io5";
-import { FaDownload } from "react-icons/fa";
+import { FaDownload, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../config/emailjs';
@@ -128,10 +128,20 @@ function Contact() {
                     <FontAwesomeIcon icon={faEnvelope} className={styles.envelop} />
                     <p className={styles.email}>abdoulayekabelediallo@gmail.com</p>
                   </a>
-                  <a href={cv} download="Abdoulaye_Diallo_2024-2026.pdf" className={styles.cvDownload}>
-                    <FaDownload className={styles.downloadIcon} />
-                    <p className={styles.cvText}>Télécharger mon CV</p>
-                  </a>
+                  <div className={styles.contact__buttonsRow}>
+                    <a href={cv} download="Abdoulaye_Diallo_2024-2026.pdf" className={styles.cvDownload}>
+                      <FaDownload className={styles.downloadIcon} />
+                      <p className={styles.cvText}>Télécharger mon CV</p>
+                    </a>
+                    <a 
+                      href="https://www.linkedin.com/in/abdoulaye-kabele-diallo/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.linkedinLink}
+                    >
+                      <FaLinkedin className={styles.linkedinIcon} />
+                    </a>
+                  </div>
                 </div>
                 <button type="submit">
                   Envoyer

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './PasswordProtection.module.scss';
-import { FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaLock, FaEye, FaEyeSlash, FaArrowLeft } from 'react-icons/fa';
+import Header from './Header';
 
 // Hash SHA-256 de "competences2024"
 const CORRECT_PASSWORD_HASH = "4a9b982f23258d95b5717aa91b1c5b36b81d3ddb68cbb4efb5e43b61cf76f197";
@@ -15,6 +17,7 @@ const simpleHash = async (text) => {
 };
 
 const PasswordProtection = ({ children }) => {
+  const navigate = useNavigate();
   const [password, setPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -81,26 +84,29 @@ const PasswordProtection = ({ children }) => {
 
   if (isAuthenticated) {
     return (
-      <div>
+      <>
+        <Header />
         <div className={styles.logoutContainer}>
           <button onClick={handleLogout} className={styles.logoutBtn}>
             <FaLock /> Verrouiller la session
           </button>
         </div>
         {children}
-      </div>
+      </>
     );
   }
 
   return (
-    <div className={styles.passwordContainer}>
-      <div className={styles.passwordCard}>
-        <div className={styles.iconContainer}>
-          <FaLock className={styles.lockIcon} />
-        </div>
-        
-        <h2>Accès Restreint</h2>
-        <p>Cette section nécessite un mot de passe</p>
+    <>
+      <Header />
+      <div className={styles.passwordContainer}>
+        <div className={styles.passwordCard}>
+          <div className={styles.iconContainer}>
+            <FaLock className={styles.lockIcon} />
+          </div>
+          
+          <h2>Accès Restreint</h2>
+          <p>Cette section nécessite un mot de passe</p>
         
         <form onSubmit={handleSubmit} className={styles.passwordForm}>
           <div className={styles.inputContainer}>
@@ -138,8 +144,9 @@ const PasswordProtection = ({ children }) => {
           <br />
           <small>🔒 Session valide 12 heures après connexion</small>
         </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

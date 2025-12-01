@@ -12,8 +12,8 @@ export default function Header() {
     // Vérifier si on est sur une page de compétences, projets ou blog
     const isCompetencePage = location.pathname.includes('/skills');
     const isWorksPage = location.pathname.includes('/works');
-    const isBlogPage = location.pathname.includes('/blog');
-    const isSubPage = isCompetencePage || isWorksPage || isBlogPage;
+    // const isBlogPage = location.pathname.includes('/blog'); // Commenté temporairement
+    const isSubPage = isCompetencePage || isWorksPage; // || isBlogPage - Commenté temporairement
 
     useEffect(() => {
         const handleScroll = () => {
@@ -95,9 +95,9 @@ export default function Header() {
                     RÉALISATIONS
                 </a>
 
-                <Link to="/blog" className={styles.link}>
+                {/* <Link to="/blog" className={styles.link}>
                     BLOG
-                </Link>
+                </Link> */}
             </nav>
 
             <Link to="/" className={styles.header__names}>

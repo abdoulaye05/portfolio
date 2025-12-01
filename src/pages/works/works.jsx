@@ -9,7 +9,7 @@ import {
     FaCode, FaProjectDiagram, FaDatabase, FaChartLine, FaTasks, FaUsers,
     FaRocket, FaClock, FaCheckCircle, FaLightbulb, FaCog, FaHeart,
     FaGithub, FaExternalLinkAlt, FaTrophy, FaTools, FaPlay, FaCheck,
-    FaArrowRight, FaHistory, FaCamera
+    FaArrowRight, FaHistory, FaCamera, FaChevronDown, FaChevronUp
 } from "react-icons/fa";
 import Header from "../../components/Header";
 import ErrorPage from "../error/Error";
@@ -195,6 +195,19 @@ export default function Works() {
     const [filterType, setFilterType] = useState('');
     const [filterProject, setFilterProject] = useState('');
     const [filteredProjects, setFilteredProjects] = useState(worksData);
+    
+    // État pour gérer l'ouverture/fermeture des sections d'apprentissage
+    // Un état séparé pour chaque carte pour garantir l'indépendance
+    const [openSavoir, setOpenSavoir] = useState(false);
+    const [openSavoirFaire, setOpenSavoirFaire] = useState(false);
+    const [openSavoirEtre, setOpenSavoirEtre] = useState(false);
+    
+    // Réinitialiser l'état des sections dépliables quand on change de projet
+    useEffect(() => {
+        setOpenSavoir(false);
+        setOpenSavoirFaire(false);
+        setOpenSavoirEtre(false);
+    }, [id]);
 
     // Détecter l'UE à mettre en avant depuis le hash
     useEffect(() => {
@@ -592,35 +605,119 @@ export default function Works() {
                 </section>
             )}
 
-            {/* Apprentissages */}
-            {selected.learnings && (
+            {/* Apprentissages - Section commentée temporairement */}
+            {false && selected.learnings && (
                 <section className={styles.learningsSection}>
                     <h2 className={styles.sectionTitle}>
                         <FaLightbulb /> Apprentissages & Compétences
                     </h2>
                     <div className={styles.learningsGrid}>
-                        <div className={styles.learningCard}>
-                            <div className={styles.learningIcon}>
-                                <FaLightbulb />
-                            </div>
-                            <h3>Savoir</h3>
-                            <p>{selected.learnings.savoir}</p>
+                        <div 
+                            key="savoir-card"
+                            className={`${styles.learningCard} ${openSavoir ? styles.learningCardOpen : ''}`}
+                            data-learning="savoir"
+                            id="savoir-card"
+                        >
+                            <button 
+                                className={styles.learningButton}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    console.log('Savoir clicked, current state:', openSavoir);
+                                    setOpenSavoir(prev => !prev);
+                                }}
+                                aria-expanded={openSavoir}
+                                type="button"
+                            >
+                                <div className={styles.learningHeader}>
+                                    <div className={styles.learningIcon}>
+                                        <FaLightbulb />
+                                    </div>
+                                    <h3>Savoir</h3>
+                                </div>
+                                <div className={styles.learningChevron}>
+                                    {openSavoir ? <FaChevronUp /> : <FaChevronDown />}
+                                </div>
+                            </button>
+                            {openSavoir && (
+                                <div 
+                                    className={`${styles.learningContent} ${styles.learningContentOpen}`}
+                                    id="savoir-content"
+                                >
+                                    <p>{selected.learnings.savoir}</p>
+                                </div>
+                            )}
                         </div>
                         
-                        <div className={styles.learningCard}>
-                            <div className={styles.learningIcon}>
-                                <FaCog />
-                            </div>
-                            <h3>Savoir-faire</h3>
-                            <p>{selected.learnings.savoirFaire}</p>
+                        <div 
+                            key="savoir-faire-card"
+                            className={`${styles.learningCard} ${openSavoirFaire ? styles.learningCardOpen : ''}`}
+                            data-learning="savoirFaire"
+                            id="savoir-faire-card"
+                        >
+                            <button 
+                                className={styles.learningButton}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    console.log('SavoirFaire clicked, current state:', openSavoirFaire);
+                                    setOpenSavoirFaire(prev => !prev);
+                                }}
+                                aria-expanded={openSavoirFaire}
+                                type="button"
+                            >
+                                <div className={styles.learningHeader}>
+                                    <div className={styles.learningIcon}>
+                                        <FaCog />
+                                    </div>
+                                    <h3>Savoir-faire</h3>
+                                </div>
+                                <div className={styles.learningChevron}>
+                                    {openSavoirFaire ? <FaChevronUp /> : <FaChevronDown />}
+                                </div>
+                            </button>
+                            {openSavoirFaire && (
+                                <div 
+                                    className={`${styles.learningContent} ${styles.learningContentOpen}`}
+                                    id="savoir-faire-content"
+                                >
+                                    <p>{selected.learnings.savoirFaire}</p>
+                                </div>
+                            )}
                         </div>
                         
-                        <div className={styles.learningCard}>
-                            <div className={styles.learningIcon}>
-                                <FaHeart />
-                            </div>
-                            <h3>Savoir-être</h3>
-                            <p>{selected.learnings.savoirEtre}</p>
+                        <div 
+                            key="savoir-etre-card"
+                            className={`${styles.learningCard} ${openSavoirEtre ? styles.learningCardOpen : ''}`}
+                            data-learning="savoirEtre"
+                            id="savoir-etre-card"
+                        >
+                            <button 
+                                className={styles.learningButton}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    console.log('SavoirEtre clicked, current state:', openSavoirEtre);
+                                    setOpenSavoirEtre(prev => !prev);
+                                }}
+                                aria-expanded={openSavoirEtre}
+                                type="button"
+                            >
+                                <div className={styles.learningHeader}>
+                                    <div className={styles.learningIcon}>
+                                        <FaHeart />
+                                    </div>
+                                    <h3>Savoir-être</h3>
+                                </div>
+                                <div className={styles.learningChevron}>
+                                    {openSavoirEtre ? <FaChevronUp /> : <FaChevronDown />}
+                                </div>
+                            </button>
+                            {openSavoirEtre && (
+                                <div 
+                                    className={`${styles.learningContent} ${styles.learningContentOpen}`}
+                                    id="savoir-etre-content"
+                                >
+                                    <p>{selected.learnings.savoirEtre}</p>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </section>
